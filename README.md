@@ -147,17 +147,19 @@ If you use perceptome in your research, please cite both the software and (when 
 @software{spiro2026perceptome,
   author    = {Spiro, Theodor},
   title     = {perceptome: Cellular Perception Analysis Toolkit},
-  version   = {0.2.1},
+  version   = {0.2.2},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.20113516},
+  doi       = {10.5281/zenodo.20113710},
   url       = {https://github.com/mool32/perceptome}
 }
 ```
 
 **Concept DOI** (always resolves to the latest version): [10.5281/zenodo.20113468](https://doi.org/10.5281/zenodo.20113468)
 
-For reproducibility, cite the **version DOI** of the specific release you used (`10.5281/zenodo.20113516` for v0.2.1).
+For reproducibility, cite the **version DOI** of the specific release you used:
+- v0.2.2: `10.5281/zenodo.20113710`
+- v0.2.1: `10.5281/zenodo.20113516`
 
 ## Versioning
 

@@ -4,11 +4,14 @@ type: software
 title: "perceptome: Cellular Perception Analysis Toolkit"
 version: "0.2.2"
 date-released: "2026-05-10"
-doi: "10.5281/zenodo.20113516"
+doi: "10.5281/zenodo.20113710"
 identifiers:
   - description: "Concept DOI — always resolves to the latest version"
     type: doi
     value: "10.5281/zenodo.20113468"
+  - description: "Version DOI for v0.2.2"
+    type: doi
+    value: "10.5281/zenodo.20113710"
   - description: "Version DOI for v0.2.1"
     type: doi
     value: "10.5281/zenodo.20113516"
