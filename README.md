@@ -3,8 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python: ≥3.8](https://img.shields.io/badge/Python-≥3.8-blue.svg)](https://www.python.org)
 [![Tests: 73/73](https://img.shields.io/badge/tests-73%2F73%20passing-green.svg)](#tests)
-<!-- ZENODO_DOI_BADGE_PLACEHOLDER -->
-[![DOI: pending](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://github.com/mool32/perceptome/releases/tag/v0.2.1)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20113468.svg)](https://doi.org/10.5281/zenodo.20113468)
 
 A Python toolkit for analyzing single-cell RNA-seq data through the lens of **44 cellular signaling pathways** (NF-κB, mTOR, UPR, p53, nuclear receptors, …) treated as a **perceptual system** — the machinery a cell uses to sense and respond to its environment.
 
@@ -129,20 +128,25 @@ Coverage: catalog, scoring, perceptivity (with biological regression checks agai
 
 ## Citation
 
-A Zenodo DOI is being assigned for v0.2.0. Once available, citation will be:
+If you use perceptome in your research, please cite both the software and (when posted) the relevant companion paper.
+
+**Software (this version):**
 
 ```bibtex
 @software{spiro2026perceptome,
-  author = {Spiro, Theodor},
-  title = {perceptome: Cellular Perception Analysis Toolkit},
-  version = {0.2.0},
-  year = {2026},
-  doi = {10.5281/zenodo.XXXXXXX},
-  url = {https://github.com/mool32/perceptome}
+  author    = {Spiro, Theodor},
+  title     = {perceptome: Cellular Perception Analysis Toolkit},
+  version   = {0.2.1},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20113516},
+  url       = {https://github.com/mool32/perceptome}
 }
 ```
 
-The DOI badge will be added here once Zenodo issues it.
+**Concept DOI** (always resolves to the latest version): [10.5281/zenodo.20113468](https://doi.org/10.5281/zenodo.20113468)
+
+For reproducibility, cite the **version DOI** of the specific release you used (`10.5281/zenodo.20113516` for v0.2.1).
 
 ## Versioning
 

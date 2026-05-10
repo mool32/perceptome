@@ -1,9 +1,17 @@
 cff-version: 1.2.0
-message: "If you use perceptome in your research, please cite both the software and the companion paper."
+message: "If you use perceptome in your research, please cite both the software (DOI below) and the companion paper when posted."
 type: software
 title: "perceptome: Cellular Perception Analysis Toolkit"
 version: "0.2.1"
 date-released: "2026-05-10"
+doi: "10.5281/zenodo.20113516"
+identifiers:
+  - description: "Concept DOI — always resolves to the latest version"
+    type: doi
+    value: "10.5281/zenodo.20113468"
+  - description: "Version DOI for v0.2.1"
+    type: doi
+    value: "10.5281/zenodo.20113516"
 authors:
   - family-names: "Spiro"
     given-names: "Theodor"
