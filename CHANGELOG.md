@@ -4,6 +4,24 @@ All notable changes to perceptome will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] — 2026-05-10
+
+Documentation accessibility patch. No code or data changes.
+
+### Changed
+
+- README rewritten for newcomer-perspective accessibility. Removed implicit assumptions that the reader knows what "perceptome", "Paper 3", "Paper 4.1-4.8", "Sun 2021", "Block 5 v1.2", or other internal-research notation mean. Restructured around three plain questions ("where does this cell sit", "what can it do", "did the measurement reach biology"). Internal references like "Paper 4.5 v1.2 amendment", "Block 5 v1.2", and "P3 PASS" replaced with descriptive language plus pointers to `docs/SCOPE.md` for the audit trail.
+- Added "What problem does this solve?" section with concrete questions other tools don't directly answer.
+- Added "When to use it / when not" with explicit good-fit and not-good-fit examples.
+- Elevated tutorial notebook to "Try it in 5 minutes" position above technical content.
+- Tests badge updated 42 → 73.
+
+### Added
+
+- [`examples/tutorial.ipynb`](examples/tutorial.ipynb) — executable end-to-end tutorial on PBMC3K. Auto-downloads, runs in <2 minutes, ships with output cells populated. Demonstrates all 4 workflows (geometry, perceptivity, reference comparison, drug screen) plus validity scorecard. (Originally landed after v0.2.0 tag; bundled formally in v0.2.1.)
+- `scripts/08_build_tutorial_notebook.py` — re-execute on every release with `jupyter nbconvert --execute --inplace`.
+- Workflow 2 caveat documented in tutorial: `A_threshold=2.0` default is calibrated for HPA pseudobulk scale; single-cell `mean_raw` scoring needs lower threshold (`A_threshold=0.3` recommended for tutorial-scale data). `predict_engagement` on the bundled HPA reference uses correct default thresholds.
+
 ## [0.2.0] — 2026-05-10
 
 Major restructure. Adds the perceptivity / capacity layer (factor 1 of the two-factor framework), validity scorecard, attractor capacity-direction reference, and a focused 9-anchor drug operation. Replaces the v0.1 flat module with per-concern subpackages.

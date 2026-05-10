@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use perceptome in your research, please cite both the software and the companion paper."
 type: software
 title: "perceptome: Cellular Perception Analysis Toolkit"
-version: "0.2.0"
+version: "0.2.1"
 date-released: "2026-05-10"
 authors:
   - family-names: "Spiro"

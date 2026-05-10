@@ -31,7 +31,7 @@ Quick start:
 See docs and examples/ for end-to-end pipelines.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 from .catalog import load_catalog, list_modules, get_genes, get_module_info, add_module, validate_catalog
 from .score import score_modules, score_readiness, score_activity

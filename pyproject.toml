@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "perceptome"
-version = "0.2.0"
+version = "0.2.1"
 description = "Cellular perception analysis toolkit — 44 perceptual modules, capacity layer, validity scorecard, cancer attractor reference"
 readme = "README.md"
 license = { file = "LICENSE" }
