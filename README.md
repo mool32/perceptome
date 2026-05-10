@@ -21,6 +21,9 @@ The framework is the result of a multi-year, pre-registered research program. Th
 
 - 📓 [`examples/tutorial.ipynb`](examples/tutorial.ipynb) — full executable walkthrough on PBMC3K (the standard 10x Genomics demo dataset). Auto-downloads, runs in <2 minutes, ships with output cells populated. **Best starting point.**
 - 📖 [`docs/QUICKSTART.md`](docs/QUICKSTART.md) — same walkthrough in markdown, with extra notes on common pitfalls.
+- 🍳 Focused use-case recipes (5-10 cells each, single workflow):
+  - [`examples/recipe_cancer_attractor.ipynb`](examples/recipe_cancer_attractor.ipynb) — does my (tumor − normal) shift align with the cancer-transformation direction?
+  - [`examples/recipe_experimental_design.ipynb`](examples/recipe_experimental_design.ipynb) — given a cell type and a pathway, will it ramp up under stimulus, or is it saturated?
 
 ```bash
 pip install git+https://github.com/mool32/perceptome.git
@@ -37,6 +40,14 @@ refs = pct.compare_to_references(coords)            # cosines vs cancer / diseas
 ```
 
 That's the geometry workflow. There are three more — see the tutorial.
+
+## What you get — the eigenspace at a glance
+
+![perceptome eigenspace: 154 HPA cell types in PC1 × PC4 with the 8-cell cancer attractor cluster marked](examples/figures/eigenspace_pc1_pc4.png)
+
+154 normal human cell types from the Human Protein Atlas, projected into the 9-PC perceptome eigenspace and shown along **PC1 (perception breadth)** and **PC4 (cancer convergence axis)**. The dashed circle marks the **8-cell attractor cluster** (gastric chief, pancreatic acinar, parietal, megakaryocytes, cytotrophoblasts, migrating cytotrophoblasts, late primary spermatocytes, gastric progenitor cells) — a tightly clustered set of "active state" non-origin normal cell types that 11 different cancers from 11 different organ systems converge toward during transformation. Independently replicated on Sun et al. 2021 paired hepatocellular carcinoma (4/6 cell types pass cosine alignment > +0.20).
+
+Any new cell — yours, a tumor cell, a drug-treated cell — projects into the same coordinate system and can be compared directly to all 154 reference cells and to known directions (cancer attractor, disease vectors, aging axes).
 
 ---
 
@@ -162,6 +173,10 @@ This is **v0.2.0** — first widely-published release. Major additions vs v0.1.0
 - Tutorial notebook + 3 documentation files
 
 See [`CHANGELOG.md`](CHANGELOG.md) for the full diff and [`ROADMAP.md`](ROADMAP.md) for v0.3+ direction.
+
+## Contributing
+
+Contributions are welcome. Bug fixes and documentation are casual; new modules and reference vectors require the same pre-registration discipline used to build the framework. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full bar (in short: new canonical modules need the four perceptual criteria + a published a-priori prediction reproduced as a regression test; falsified operations from Paper 4.1 will be rejected).
 
 ## License
 

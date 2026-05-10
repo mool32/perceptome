@@ -4,7 +4,11 @@ import perceptome as pct
 
 
 def test_version_string():
-    assert pct.__version__ == "0.2.0"
+    # Version follows semver; check format rather than exact value to avoid
+    # churning this test on every patch release.
+    parts = pct.__version__.split(".")
+    assert len(parts) >= 2 and all(p.isdigit() or "-" in p for p in parts), pct.__version__
+    assert pct.__version__.startswith("0.2.")
 
 
 def test_catalog_has_44_modules():

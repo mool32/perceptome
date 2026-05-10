@@ -4,6 +4,23 @@ All notable changes to perceptome will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.2] — 2026-05-10
+
+Discoverability + community-readiness patch. No code or data changes.
+
+### Added
+
+- **`CONTRIBUTING.md`** — explicit PR process with bar varying by contribution type. Bug fixes and docs casual; new canonical modules require the four perceptual criteria + at least one published a-priori prediction reproduced as a regression test in `tests/test_integration.py`. Operations falsified by Paper 4.1 (drug-disease cosine matching, TF-autoregulation as 1st-class layer, equilibrium framings, FDA-prediction by clean-signature score, snapshot-pulsatile classification) are explicitly listed as rejected — reintroducing them would invite users to do the analyses the data already refused.
+- **README hero figure** ([`examples/figures/eigenspace_pc1_pc4.png`](examples/figures/eigenspace_pc1_pc4.png)) — 154 HPA cell types projected to PC1 × PC4 with the 8-cell cancer attractor cluster marked. Demonstrates the central Paper 4.2 finding visually before any prose.
+- **Two focused use-case recipes** (5-10 cells each, single workflow):
+  - [`examples/recipe_cancer_attractor.ipynb`](examples/recipe_cancer_attractor.ipynb) — does my (tumor − normal) shift align with the cancer-transformation direction?
+  - [`examples/recipe_experimental_design.ipynb`](examples/recipe_experimental_design.ipynb) — given a cell type and a pathway, will it ramp up under stimulus, or is it saturated?
+- Build scripts: `scripts/09_build_eigenspace_figure.py`, `scripts/10_build_recipe_attractor.py`, `scripts/11_build_recipe_experimental_design.py`.
+
+### Changed
+
+- README adds "What you get — the eigenspace at a glance" section embedding the hero figure with caption; "Try it in 5 minutes" enumerates tutorial + recipes; "Contributing" section added linking to `CONTRIBUTING.md`.
+
 ## [0.2.1] — 2026-05-10
 
 Documentation accessibility patch. No code or data changes.
