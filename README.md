@@ -14,7 +14,8 @@
 
 **New users start here:**
 
-- 📖 [`docs/QUICKSTART.md`](docs/QUICKSTART.md) — your first 5 minutes: 4 workflows in <100 lines of code
+- 📓 [`examples/tutorial.ipynb`](examples/tutorial.ipynb) — executable end-to-end tutorial on real public data (PBMC3K). Runs in <2 min, ships with output cells populated.
+- 📖 [`docs/QUICKSTART.md`](docs/QUICKSTART.md) — written form of the tutorial with extra notes on common pitfalls
 - 🎯 [`docs/SCOPE.md`](docs/SCOPE.md) — what the framework answers, what it doesn't (8 falsified operations explicitly listed)
 - 🧮 [`docs/EIGENSPACE_EVOLUTION.md`](docs/EIGENSPACE_EVOLUTION.md) — relationship between v0.1 12-PC and v0.2 9-PC eigenspaces (read if comparing tool output to Paper 3)
 
