@@ -1,0 +1,2198 @@
+{
+  "version": "0.3",
+  "n_modules": 44,
+  "modules": {
+    "AMPK": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "PRKAA1",
+        "PRKAA2",
+        "PRKAB1",
+        "STK11",
+        "ADIPOQ"
+      ],
+      "primary_tf": [],
+      "mii": null,
+      "activity_genes": [
+        "PPARGC1A",
+        "ULK1",
+        "TFEB",
+        "BNIP3",
+        "PCK1"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "Activated by AMP/ATP ratio (allosteric). Transcriptional readout is indirect.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "AR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "AR",
+        "KLK3",
+        "TMPRSS2",
+        "FKBP5",
+        "NKX3-1"
+      ],
+      "primary_tf": [
+        "AR"
+      ],
+      "mii": 0.5363247863247863,
+      "activity_genes": [
+        "KLK3",
+        "TMPRSS2",
+        "FKBP5",
+        "NKX3-1",
+        "ACPP"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "AhR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "AHR",
+        "ARNT",
+        "CYP1A1",
+        "CYP1B1",
+        "AHRR"
+      ],
+      "primary_tf": [
+        "AHR"
+      ],
+      "mii": 0.5106837606837606,
+      "sensor_genes": [
+        "AHR"
+      ],
+      "cascade_genes": [
+        "AHR",
+        "HSP90AA1",
+        "HSP90AB1",
+        "AIP",
+        "PTGES3",
+        "ARNT",
+        "XAP2"
+      ],
+      "tf_genes": [
+        "AHR",
+        "ARNT"
+      ],
+      "feedback_genes": [
+        "AHRR",
+        "CYP1A1",
+        "TIPARP"
+      ],
+      "activity_genes": [
+        "CYP1A1",
+        "CYP1B1",
+        "AHRR",
+        "NQO1",
+        "TIPARP"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Autophagy": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "ULK1",
+        "BECN1",
+        "MAP1LC3B",
+        "TFEB",
+        "ATG5"
+      ],
+      "primary_tf": [
+        "TFEB"
+      ],
+      "mii": 0.391025641025641,
+      "activity_genes": [
+        "SQSTM1",
+        "MAP1LC3B",
+        "BNIP3",
+        "GABARAPL1",
+        "NBR1"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "pan_cellular": true,
+      "tissue_bias": [],
+      "dissociation_note": "Activated by mTOR inactivation (post-translational). TFEB nuclear translocation drives target induction; readiness (mTOR/ATG mRNA) does not necessarily track activity (autophagy flux). Use TF-target panel (ATG family, LAMP, SQSTM1) for engagement readout."
+    },
+    "BMP": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "BMPR1A",
+        "SMAD1",
+        "SMAD5",
+        "SMAD6",
+        "ID1"
+      ],
+      "primary_tf": [
+        "SMAD1"
+      ],
+      "mii": 0.3098290598290598,
+      "activity_genes": [
+        "ID1",
+        "ID2",
+        "ID3",
+        "SMAD6",
+        "BAMBI"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Calcium": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "CALM1",
+        "CAMK2A",
+        "ITPR1",
+        "PLCG1"
+      ],
+      "primary_tf": [
+        "NFATC1"
+      ],
+      "mii": null,
+      "activity_genes": [
+        "FOS",
+        "EGR1",
+        "NR4A1",
+        "RCAN1",
+        "BDNF"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "Calcium signaling is fast/transient. mRNA readout may miss activity spikes.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Cell Cycle": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "CCND1",
+        "CDK4",
+        "RB1",
+        "E2F1",
+        "MKI67"
+      ],
+      "primary_tf": [
+        "E2F1"
+      ],
+      "mii": 0.7564102564102564,
+      "activity_genes": [
+        "MKI67",
+        "TOP2A",
+        "PCNA",
+        "MCM2",
+        "CDK1",
+        "CCNB1"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Circadian": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "CLOCK",
+        "ARNTL",
+        "PER1",
+        "NR1D1",
+        "CRY1"
+      ],
+      "primary_tf": [
+        "CLOCK"
+      ],
+      "mii": 0.2521367521367521,
+      "sensor_genes": [
+        "CSNK1D",
+        "CSNK1E",
+        "PRKAA1",
+        "PRKAA2",
+        "PRKAB1",
+        "PRKAB2",
+        "PRKAG1",
+        "PRKAG2",
+        "PRKAG3"
+      ],
+      "cascade_genes": [
+        "CSNK1D",
+        "CSNK1E",
+        "FBXL3",
+        "BTRC",
+        "FBXW11",
+        "SKP1",
+        "CUL1",
+        "RBX1"
+      ],
+      "tf_genes": [
+        "CLOCK",
+        "BMAL1",
+        "NPAS2",
+        "RORA",
+        "RORB",
+        "RORC",
+        "NR1D1",
+        "NR1D2",
+        "DBP",
+        "NFIL3",
+        "BHLHE40",
+        "BHLHE41",
+        "CREB1"
+      ],
+      "feedback_genes": [
+        "PER1",
+        "PER2",
+        "PER3",
+        "CRY1",
+        "CRY2",
+        "NR1D1",
+        "NR1D2"
+      ],
+      "activity_genes": [
+        "PER1",
+        "PER2",
+        "CRY1",
+        "NR1D1",
+        "DBP",
+        "TEF"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "ER": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "ESR1",
+        "TFF1",
+        "GREB1",
+        "PGR",
+        "CCND1"
+      ],
+      "primary_tf": [
+        "ESR1"
+      ],
+      "mii": 0.5512820512820512,
+      "activity_genes": [
+        "TFF1",
+        "GREB1",
+        "PGR",
+        "CCND1",
+        "MYC",
+        "RARA"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "ERK/MAPK": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "MAPK1",
+        "MAPK3",
+        "MAP2K1",
+        "DUSP1",
+        "FOS"
+      ],
+      "primary_tf": [],
+      "mii": null,
+      "sensor_genes": [
+        "EGFR",
+        "FGFR1",
+        "FGFR2",
+        "FGFR3",
+        "FGFR4",
+        "PDGFRA",
+        "PDGFRB",
+        "KIT",
+        "MET",
+        "FLT1",
+        "FLT3",
+        "FLT4",
+        "KDR",
+        "NTRK1",
+        "NTRK2",
+        "RET",
+        "TEK",
+        "IGF1R",
+        "INSR",
+        "ERBB2",
+        "ERBB3",
+        "ERBB4",
+        "EPHA2",
+        "CSF1R",
+        "IL1R1",
+        "TNFRSF1A",
+        "NGFR",
+        "TLR4",
+        "FAS"
+      ],
+      "cascade_genes": [
+        "GRB2",
+        "SOS1",
+        "SOS2",
+        "HRAS",
+        "KRAS",
+        "NRAS",
+        "RRAS",
+        "RRAS2",
+        "MRAS",
+        "RAF1",
+        "BRAF",
+        "ARAF",
+        "MAP2K1",
+        "MAP2K2",
+        "MAPK1",
+        "MAPK3",
+        "MAP2K3",
+        "MAP2K4",
+        "MAP2K5",
+        "MAP2K6",
+        "MAP2K7",
+        "MAPK7",
+        "MAPK8",
+        "MAPK9",
+        "MAPK10",
+        "MAPK11",
+        "MAPK12",
+        "MAPK13",
+        "MAPK14",
+        "MAP3K1",
+        "MAP3K2",
+        "MAP3K3",
+        "MAP3K4",
+        "MAP3K5",
+        "MAP3K6",
+        "MAP3K7",
+        "MAP3K8",
+        "MAP3K9",
+        "MAP3K10",
+        "MAP3K11",
+        "MAP3K12",
+        "MAP3K13",
+        "MAP3K14",
+        "MAP3K20",
+        "MAP3K21",
+        "MAP4K1",
+        "MAP4K2",
+        "MAP4K3",
+        "MAP4K4",
+        "TAOK1",
+        "TAOK2",
+        "TAOK3",
+        "PAK1",
+        "PAK2",
+        "RAC1",
+        "RAC2",
+        "RAC3",
+        "CDC42",
+        "CRK",
+        "CRKL",
+        "RAPGEF2",
+        "RAP1A",
+        "RAP1B",
+        "RASGRP1",
+        "RASGRP2",
+        "RASGRP3",
+        "RASGRP4",
+        "RASGRF1",
+        "RASGRF2",
+        "RASA1",
+        "RASA2",
+        "NF1",
+        "FLNA",
+        "GNA12",
+        "STK3",
+        "STK4",
+        "ECSIT",
+        "MYD88",
+        "IRAK1",
+        "IRAK4",
+        "TRAF2",
+        "TRAF6",
+        "TRADD",
+        "RIPK1",
+        "TAB1",
+        "TAB2",
+        "CHUK",
+        "IKBKB",
+        "IKBKG",
+        "DAXX",
+        "AKT1",
+        "AKT2",
+        "AKT3",
+        "PRKCA",
+        "PRKCB",
+        "PRKCG",
+        "PRKACA",
+        "PRKACB",
+        "PRKACG",
+        "PPP3CA",
+        "PPP3CB",
+        "PPP3CC",
+        "PPP3R1",
+        "PPP3R2",
+        "RPS6KA1",
+        "RPS6KA2",
+        "RPS6KA3",
+        "RPS6KA5",
+        "RPS6KA6",
+        "MAPKAPK2",
+        "MAPKAPK3",
+        "MAPKAPK5",
+        "MKNK1",
+        "MKNK2",
+        "ARRB1",
+        "ARRB2",
+        "MAPK8IP1",
+        "MAPK8IP2",
+        "MAPK8IP3",
+        "LAMTOR3",
+        "PPP5C",
+        "NLK"
+      ],
+      "tf_genes": [
+        "FOS",
+        "JUN",
+        "JUND",
+        "ATF2",
+        "ATF4",
+        "ELK1",
+        "ELK4",
+        "MYC",
+        "MAX",
+        "MEF2C",
+        "NFATC1",
+        "NFATC3",
+        "NFKB1",
+        "NFKB2",
+        "RELA",
+        "RELB",
+        "SRF",
+        "TP53",
+        "NR4A1",
+        "MECOM",
+        "DDIT3"
+      ],
+      "feedback_genes": [
+        "DUSP1",
+        "DUSP2",
+        "DUSP3",
+        "DUSP4",
+        "DUSP5",
+        "DUSP6",
+        "DUSP7",
+        "DUSP8",
+        "DUSP9",
+        "DUSP10",
+        "DUSP16",
+        "PPM1A",
+        "PPM1B",
+        "PTPN5",
+        "PTPN7",
+        "PTPRR",
+        "GADD45A",
+        "GADD45B",
+        "GADD45G",
+        "SPRED1",
+        "SPRED2"
+      ],
+      "activity_genes": [
+        "FOS",
+        "EGR1",
+        "DUSP1",
+        "DUSP6",
+        "SPRY2",
+        "SPRY4",
+        "ETV4",
+        "ETV5"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "Phosphorylation cascade. Readiness and activity generally agree (91% in validation).",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "FXR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "NR1H4",
+        "NR0B2",
+        "FGF19",
+        "ABCB11",
+        "SLC51A"
+      ],
+      "primary_tf": [
+        "NR1H4"
+      ],
+      "mii": 0.1602564102564102,
+      "activity_genes": [
+        "NR0B2",
+        "ABCB11",
+        "SLC51A",
+        "FGF19",
+        "BAAT"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "GR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "NR3C1",
+        "FKBP5",
+        "TSC22D3",
+        "SGK1",
+        "DUSP1"
+      ],
+      "primary_tf": [
+        "NR3C1"
+      ],
+      "mii": 0.5042735042735043,
+      "activity_genes": [
+        "FKBP5",
+        "TSC22D3",
+        "SGK1",
+        "DUSP1",
+        "PER1",
+        "KLF13"
+      ],
+      "dissociation_risk": "LOW",
+      "dissociation_note": "Nuclear receptor: sensor=TF. Expression correlates with activity. Ligand (cortisol) required.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "HIF": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "HIF1A",
+        "VEGFA",
+        "EGLN1",
+        "SLC2A1",
+        "LDHA"
+      ],
+      "primary_tf": [
+        "HIF1A",
+        "EPAS1"
+      ],
+      "mii": 0.611111111111111,
+      "sensor_genes": [
+        "EGLN1",
+        "EGLN2",
+        "EGLN3",
+        "VHL",
+        "CUL2",
+        "ELOB",
+        "ELOC",
+        "RBX1"
+      ],
+      "cascade_genes": [
+        "HIF1A",
+        "EPAS1",
+        "ARNT",
+        "PIK3CA",
+        "PIK3CB",
+        "PIK3CD",
+        "PIK3R1",
+        "PIK3R2",
+        "PIK3R3",
+        "AKT1",
+        "AKT2",
+        "AKT3",
+        "MTOR",
+        "RPS6KB1",
+        "RPS6KB2",
+        "MAPK1",
+        "MAPK3",
+        "MAP2K1",
+        "MAP2K2",
+        "MKNK1",
+        "MKNK2",
+        "EIF4E",
+        "EIF4E1B",
+        "EIF4E2",
+        "EIF4EBP1",
+        "RPS6",
+        "PRKCA",
+        "PRKCB",
+        "PRKCG",
+        "PLCG1",
+        "PLCG2",
+        "CAMK2A",
+        "CAMK2B",
+        "CAMK2D",
+        "CAMK2G",
+        "STAT3",
+        "NFKB1",
+        "RELA",
+        "CREBBP",
+        "EP300",
+        "CYBB"
+      ],
+      "tf_genes": [
+        "HIF1A",
+        "EPAS1",
+        "ARNT"
+      ],
+      "feedback_genes": [
+        "EGLN1",
+        "EGLN2",
+        "EGLN3",
+        "VHL",
+        "PHD2"
+      ],
+      "activity_genes": [
+        "VEGFA",
+        "SLC2A1",
+        "LDHA",
+        "PGK1",
+        "BNIP3",
+        "CA9",
+        "EGLN3"
+      ],
+      "dissociation_risk": "LOW",
+      "dissociation_note": "HIF stabilized post-translationally (PHD/VHL), but targets are robust activity readout.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "HSF1": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "HSF1",
+        "HSPA1A",
+        "HSP90AA1",
+        "HSPA4",
+        "DNAJB1"
+      ],
+      "primary_tf": [
+        "HSF1"
+      ],
+      "mii": 0.4273504273504273,
+      "sensor_genes": [
+        "HSF1"
+      ],
+      "cascade_genes": [
+        "HSF1",
+        "HSP90AA1",
+        "HDAC6",
+        "SIRT1",
+        "MAPK1",
+        "MAPK3",
+        "AKT1"
+      ],
+      "tf_genes": [
+        "HSF1",
+        "HSF2"
+      ],
+      "feedback_genes": [
+        "HSP90AA1",
+        "HSP90AB1",
+        "HSPA1A",
+        "HSBP1",
+        "HDAC6"
+      ],
+      "activity_genes": [
+        "HSPA1A",
+        "HSPA1B",
+        "HSPA6",
+        "HSP90AA1",
+        "DNAJB1",
+        "HSPB1",
+        "BAG3"
+      ],
+      "dissociation_risk": "LOW",
+      "dissociation_note": "HSF1 targets overlap with readiness genes. Minimal dissociation observed.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Hedgehog": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "SMO",
+        "PTCH1",
+        "GLI1",
+        "GLI2",
+        "SUFU"
+      ],
+      "primary_tf": [
+        "GLI1"
+      ],
+      "mii": 0.5555555555555556,
+      "sensor_genes": [
+        "PTCH1",
+        "PTCH2",
+        "SMO",
+        "CDON",
+        "BOC",
+        "GAS1",
+        "LRP2",
+        "SCUBE2",
+        "MEGF8"
+      ],
+      "cascade_genes": [
+        "SUFU",
+        "KIF7",
+        "KIF3A",
+        "EVC",
+        "EVC2",
+        "IQCE",
+        "EFCAB7",
+        "GSK3B",
+        "CSNK1A1",
+        "CSNK1A1L",
+        "CSNK1D",
+        "CSNK1E",
+        "CSNK1G1",
+        "CSNK1G2",
+        "CSNK1G3",
+        "PRKACA",
+        "PRKACB",
+        "PRKACG",
+        "BTRC",
+        "FBXW11",
+        "SPOP",
+        "SPOPL",
+        "CUL1",
+        "CUL3",
+        "SMURF1",
+        "SMURF2",
+        "ARRB1",
+        "ARRB2",
+        "GRK2",
+        "GRK3",
+        "GPR161",
+        "MGRN1",
+        "MOSMO"
+      ],
+      "tf_genes": [
+        "GLI1",
+        "GLI2",
+        "GLI3"
+      ],
+      "feedback_genes": [
+        "PTCH1",
+        "PTCH2",
+        "HHIP"
+      ],
+      "activity_genes": [
+        "GLI1",
+        "PTCH1",
+        "PTCH2",
+        "HHIP",
+        "FOXF1"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Hippo": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "YAP1",
+        "WWTR1",
+        "LATS1",
+        "LATS2",
+        "TEAD1"
+      ],
+      "primary_tf": [
+        "TEAD1"
+      ],
+      "mii": 0.4487179487179487,
+      "sensor_genes": [
+        "CDH1",
+        "NF2",
+        "FRMD6",
+        "FRMD1",
+        "WWC1",
+        "SCRIB",
+        "DLG1",
+        "DLG2",
+        "DLG3",
+        "DLG4",
+        "DLG5",
+        "LLGL1",
+        "LLGL2",
+        "CRB1",
+        "CRB2",
+        "PALS1",
+        "PATJ",
+        "AMOT"
+      ],
+      "cascade_genes": [
+        "MST1",
+        "STK3",
+        "LATS1",
+        "LATS2",
+        "SAV1",
+        "MOB1A",
+        "MOB1B",
+        "AJUBA",
+        "LIMD1",
+        "WTIP",
+        "RASSF1",
+        "RASSF6",
+        "CSNK1D",
+        "CSNK1E",
+        "DVL1",
+        "DVL2",
+        "DVL3",
+        "PPP1CA",
+        "PPP1CB",
+        "PPP1CC",
+        "PPP2CA",
+        "PPP2CB",
+        "PPP2R1A",
+        "PPP2R1B",
+        "PPP2R2A",
+        "PPP2R2B",
+        "PPP2R2C",
+        "PPP2R2D",
+        "PRKCI",
+        "PRKCZ",
+        "PARD3",
+        "PARD6A",
+        "PARD6B",
+        "PARD6G",
+        "BTRC",
+        "FBXW11",
+        "GSK3B",
+        "APC",
+        "APC2",
+        "AXIN1",
+        "AXIN2",
+        "CTNNB1",
+        "YWHAB",
+        "YWHAE",
+        "YWHAG",
+        "YWHAH",
+        "YWHAQ",
+        "YWHAZ"
+      ],
+      "tf_genes": [
+        "YAP1",
+        "WWTR1",
+        "TEAD1",
+        "TEAD2",
+        "TEAD3",
+        "TEAD4",
+        "SMAD1",
+        "SMAD2",
+        "SMAD3",
+        "SMAD4",
+        "SMAD7",
+        "TP73",
+        "TP53BP2",
+        "LEF1",
+        "TCF7",
+        "TCF7L1",
+        "TCF7L2",
+        "SOX2",
+        "GLI2",
+        "SNAI2"
+      ],
+      "feedback_genes": [
+        "NKD1",
+        "NKD2",
+        "BIRC2",
+        "BIRC3",
+        "BIRC5"
+      ],
+      "activity_genes": [
+        "CTGF",
+        "CYR61",
+        "ANKRD1",
+        "AMOTL2",
+        "BIRC5"
+      ],
+      "dissociation_risk": "LOW",
+      "dissociation_note": "YAP/TAZ nuclear translocation. Target expression (CTGF, CYR61) is standard activity readout.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Insulin/FOXO": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "INSR",
+        "IRS1",
+        "AKT2",
+        "FOXO1",
+        "GSK3B"
+      ],
+      "primary_tf": [
+        "FOXO1"
+      ],
+      "mii": 0.6132478632478633,
+      "activity_genes": [
+        "PCK1",
+        "G6PC",
+        "IGFBP1",
+        "BNIP3",
+        "CDKN1B",
+        "BCL6"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "pan_cellular": true,
+      "tissue_bias": [],
+      "dissociation_note": "AKT phosphorylation of FOXO drives nuclear export — activity (target gene induction) anti-correlated with AKT signaling. Readiness (INSR/IRS1/AKT mRNA) often invariant. Use FOXO-target panel for engagement."
+    },
+    "JAK-STAT": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "JAK1",
+        "STAT1",
+        "STAT3",
+        "SOCS1",
+        "SOCS3"
+      ],
+      "primary_tf": [
+        "STAT3",
+        "STAT1"
+      ],
+      "mii": 0.7628205128205128,
+      "activity_genes": [
+        "SOCS1",
+        "SOCS3",
+        "IRF1",
+        "BCL2L1",
+        "MYC",
+        "PIM1",
+        "OSMR"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "STAT phosphorylation cascade. Generally concordant.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "LXR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "NR1H3",
+        "ABCA1",
+        "ABCG1",
+        "MYLIP",
+        "NR1H2"
+      ],
+      "primary_tf": [
+        "NR1H3"
+      ],
+      "mii": 0.3482905982905982,
+      "activity_genes": [
+        "ABCA1",
+        "ABCG1",
+        "MYLIP",
+        "SREBF1",
+        "SCD"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "MR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "NR3C2",
+        "SGK1",
+        "SCNN1A",
+        "NDRG2",
+        "FKBP5"
+      ],
+      "primary_tf": [
+        "NR3C2"
+      ],
+      "mii": 0.2179487179487179,
+      "activity_genes": [
+        "SGK1",
+        "SCNN1A",
+        "NDRG2",
+        "FKBP5",
+        "GILZ"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "NF-κB": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "NFKB1",
+        "RELA",
+        "IKBKB",
+        "NFKBIA",
+        "TNFAIP3"
+      ],
+      "primary_tf": [
+        "RELA",
+        "NFKB1"
+      ],
+      "mii": 0.8931623931623932,
+      "sensor_genes": [
+        "TLR4",
+        "IL1R1",
+        "TNFRSF1A",
+        "CD40",
+        "LTBR",
+        "TNFRSF11A",
+        "TNFRSF13C",
+        "EDAR",
+        "EDA2R",
+        "CD14",
+        "LY96",
+        "LBP",
+        "RIGI"
+      ],
+      "cascade_genes": [
+        "MYD88",
+        "IRAK1",
+        "IRAK4",
+        "TIRAP",
+        "TICAM1",
+        "TICAM2",
+        "TRAF2",
+        "TRAF3",
+        "TRAF5",
+        "TRAF6",
+        "TRADD",
+        "RIPK1",
+        "TAB1",
+        "TAB2",
+        "TAB3",
+        "MAP3K7",
+        "MAP3K14",
+        "CHUK",
+        "IKBKB",
+        "IKBKG",
+        "MALT1",
+        "BCL10",
+        "CARD11",
+        "CARD10",
+        "CARD14",
+        "SYK",
+        "BTK",
+        "LCK",
+        "ZAP70",
+        "LAT",
+        "BLNK",
+        "PLCG1",
+        "PLCG2",
+        "PRKCB",
+        "PRKCQ",
+        "LYN",
+        "CSNK2A1",
+        "CSNK2A2",
+        "CSNK2A3",
+        "CSNK2B",
+        "ERC1"
+      ],
+      "tf_genes": [
+        "NFKB1",
+        "NFKB2",
+        "RELA",
+        "RELB"
+      ],
+      "feedback_genes": [
+        "NFKBIA",
+        "TNFAIP3",
+        "CYLD",
+        "CFLAR",
+        "BIRC2",
+        "BIRC3",
+        "XIAP",
+        "PIAS4",
+        "PPP1R13L",
+        "PIDD1",
+        "TRIM25",
+        "UBE2I",
+        "GADD45A",
+        "GADD45B",
+        "GADD45G"
+      ],
+      "activity_genes": [
+        "NFKBIA",
+        "TNFAIP3",
+        "IL6",
+        "TNF",
+        "CXCL10",
+        "CCL2",
+        "ICAM1",
+        "IL1B",
+        "CXCL8",
+        "BCL2L1",
+        "MMP9",
+        "PTGS2"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "Post-translational (IKK phosphorylation). Spleen aging shows sign reversal (readiness↓, activity↑). Check targets in immune contexts.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "NFAT": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "NFATC1",
+        "NFATC2",
+        "PPP3CA",
+        "RCAN1",
+        "IL2"
+      ],
+      "primary_tf": [
+        "NFATC1"
+      ],
+      "mii": 0.5811965811965812,
+      "activity_genes": [
+        "RCAN1",
+        "IL2",
+        "GRIA1",
+        "KCNA4",
+        "CSF2",
+        "IL4",
+        "FASLG"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "Activated by calcineurin dephosphorylation. Component consumption (PPP3CA↓) can look like suppression. Validated in AD: readiness and activity agree.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "NRF2": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "NFE2L2",
+        "KEAP1",
+        "NQO1",
+        "HMOX1",
+        "TXNRD1"
+      ],
+      "primary_tf": [
+        "NFE2L2"
+      ],
+      "mii": 0.5363247863247863,
+      "activity_genes": [
+        "NQO1",
+        "HMOX1",
+        "TXNRD1",
+        "GCLC",
+        "GCLM",
+        "SLC7A11",
+        "GPX2",
+        "FTH1"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "Post-translational (KEAP1 degradation releases NRF2). Readiness and activity generally agree.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Notch": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "NOTCH1",
+        "HES1",
+        "HEY1",
+        "DLL1",
+        "RBPJ"
+      ],
+      "primary_tf": [
+        "RBPJ",
+        "HES1"
+      ],
+      "mii": 0.452991452991453,
+      "sensor_genes": [
+        "NOTCH1",
+        "NOTCH2",
+        "NOTCH3",
+        "NOTCH4"
+      ],
+      "cascade_genes": [
+        "ADAM17",
+        "PSEN1",
+        "PSEN2",
+        "NCSTN",
+        "APH1A",
+        "APH1B",
+        "PSENEN",
+        "RBPJ",
+        "RBPJL",
+        "MAML1",
+        "MAML2",
+        "MAML3",
+        "SNW1",
+        "CREBBP",
+        "EP300",
+        "KAT2A",
+        "KAT2B",
+        "DVL1",
+        "DVL2",
+        "DVL3",
+        "NUMB",
+        "NUMBL",
+        "ITCH",
+        "SPEN",
+        "CIR1",
+        "NCOR2",
+        "HDAC1",
+        "HDAC2",
+        "CTBP1",
+        "CTBP2",
+        "TLE1",
+        "TLE2",
+        "TLE3",
+        "TLE4",
+        "TLE6",
+        "TLE7",
+        "ATXN1",
+        "ATXN1L",
+        "LFNG",
+        "MFNG",
+        "RFNG"
+      ],
+      "tf_genes": [
+        "RBPJ",
+        "RBPJL"
+      ],
+      "feedback_genes": [
+        "NUMB",
+        "NUMBL",
+        "NRARP",
+        "DTX1",
+        "DTX2",
+        "DTX3",
+        "DTX3L",
+        "DTX4",
+        "ITCH"
+      ],
+      "activity_genes": [
+        "HES1",
+        "HEY1",
+        "HEY2",
+        "NRARP",
+        "DTX1"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "PI3K/PTEN": {
+      "category": "A_interoceptive",
+      "core_genes": [
+        "PIK3CA",
+        "AKT1",
+        "PTEN",
+        "FOXO3",
+        "PDK1"
+      ],
+      "primary_tf": [],
+      "mii": null,
+      "activity_genes": [
+        "FOXO3",
+        "BCL2L11",
+        "CDKN1B",
+        "BNIP3",
+        "GADD45A"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "PI3K/AKT is phosphorylation-based. FOXO targets reflect inverse AKT activity.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "PPARα": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "PPARA",
+        "CYP4A11",
+        "ACOX1",
+        "CPT1A",
+        "FABP1"
+      ],
+      "primary_tf": [
+        "PPARA"
+      ],
+      "mii": 0.3931623931623931,
+      "activity_genes": [
+        "CPT1A",
+        "ACOX1",
+        "CYP4A11",
+        "FABP1",
+        "HMGCS2"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "PPARγ": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "PPARG",
+        "FABP4",
+        "LPL",
+        "ADIPOQ",
+        "CD36"
+      ],
+      "primary_tf": [
+        "PPARG"
+      ],
+      "mii": 0.5726495726495726,
+      "activity_genes": [
+        "FABP4",
+        "LPL",
+        "ADIPOQ",
+        "CD36",
+        "SCD"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "PR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "PGR",
+        "TNFSF11",
+        "WNT4",
+        "HAND2",
+        "FOXO1"
+      ],
+      "primary_tf": [
+        "PGR"
+      ],
+      "mii": 0.4017094017094016,
+      "activity_genes": [
+        "TNFSF11",
+        "WNT4",
+        "HAND2",
+        "FOXO1",
+        "SGK1"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "PXR/CAR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "NR1I2",
+        "CYP3A4",
+        "CYP2B6",
+        "ABCB1",
+        "UGT1A1"
+      ],
+      "primary_tf": [
+        "NR1I2"
+      ],
+      "mii": 0.1944444444444444,
+      "activity_genes": [
+        "CYP3A4",
+        "CYP2B6",
+        "ABCB1",
+        "UGT1A1",
+        "SULT2A1"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "RAR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "RARA",
+        "RARB",
+        "CYP26A1",
+        "CRABP2",
+        "TGM2"
+      ],
+      "primary_tf": [
+        "RARA"
+      ],
+      "mii": 0.5256410256410257,
+      "activity_genes": [
+        "CYP26A1",
+        "CRABP2",
+        "TGM2",
+        "RARB",
+        "HOXA1"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "SREBP": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "SREBF1",
+        "SREBF2",
+        "HMGCR",
+        "FASN",
+        "SCD"
+      ],
+      "primary_tf": [
+        "SREBF1"
+      ],
+      "mii": 0.5854700854700855,
+      "sensor_genes": [
+        "SCAP",
+        "INSIG1",
+        "INSIG2"
+      ],
+      "cascade_genes": [
+        "MBTPS1",
+        "MBTPS2",
+        "MTOR",
+        "RPTOR",
+        "AKT1",
+        "GSK3B",
+        "FBXW7",
+        "AMPK"
+      ],
+      "tf_genes": [
+        "SREBF1",
+        "SREBF2"
+      ],
+      "feedback_genes": [
+        "INSIG1",
+        "INSIG2",
+        "PCSK9",
+        "LDLR"
+      ],
+      "activity_genes": [
+        "HMGCR",
+        "FASN",
+        "SCD",
+        "ACLY",
+        "LDLR"
+      ],
+      "dissociation_risk": "LOW",
+      "dissociation_note": "SREBP cleaved post-translationally, but target expression is reliable activity readout.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "TGF-β": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "TGFB1",
+        "TGFBR1",
+        "SMAD2",
+        "SMAD3",
+        "SMAD7"
+      ],
+      "primary_tf": [
+        "SMAD3"
+      ],
+      "mii": 0.5790598290598291,
+      "activity_genes": [
+        "SMAD7",
+        "SERPINE1",
+        "COL1A1",
+        "CTGF",
+        "FN1",
+        "TGFBI"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "TR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "THRA",
+        "THRB",
+        "DIO1",
+        "DIO2",
+        "THRSP"
+      ],
+      "primary_tf": [
+        "THRA"
+      ],
+      "mii": 0.1987179487179487,
+      "activity_genes": [
+        "DIO1",
+        "THRSP",
+        "ME1",
+        "PCK1",
+        "G6PC"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Type I IFN": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "IFNAR1",
+        "STAT1",
+        "STAT2",
+        "IRF9",
+        "USP18"
+      ],
+      "primary_tf": [
+        "STAT1",
+        "STAT2"
+      ],
+      "mii": 0.5363247863247863,
+      "activity_genes": [
+        "ISG15",
+        "MX1",
+        "OAS1",
+        "IFIT1",
+        "IFIT3",
+        "IFI44L",
+        "USP18"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "UPR-ATF6": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "ATF6",
+        "HSPA5",
+        "CALR",
+        "PDIA4",
+        "XBP1"
+      ],
+      "primary_tf": [
+        "ATF6"
+      ],
+      "mii": 0.4166666666666667,
+      "sensor_genes": [
+        "ATF6",
+        "ATF6B",
+        "HSPA5"
+      ],
+      "cascade_genes": [
+        "MBTPS1",
+        "MBTPS2"
+      ],
+      "tf_genes": [
+        "ATF6",
+        "ATF6B"
+      ],
+      "feedback_genes": [
+        "HSPA5",
+        "CALR",
+        "PDIA3"
+      ],
+      "activity_genes": [
+        "HSPA5",
+        "CALR",
+        "PDIA4",
+        "PDIA6",
+        "HSP90B1"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "UPR-IRE1": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "ERN1",
+        "XBP1",
+        "DNAJB9",
+        "SEC61A1",
+        "EDEM1"
+      ],
+      "primary_tf": [
+        "XBP1"
+      ],
+      "mii": 0.1965811965811965,
+      "activity_genes": [
+        "DNAJB9",
+        "SEC61A1",
+        "EDEM1",
+        "HSPA5",
+        "ERO1A"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "UPR-PERK": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "EIF2AK3",
+        "ATF4",
+        "DDIT3",
+        "PPP1R15A",
+        "ASNS"
+      ],
+      "primary_tf": [
+        "ATF4"
+      ],
+      "mii": 0.5897435897435898,
+      "activity_genes": [
+        "DDIT3",
+        "ASNS",
+        "ATF3",
+        "TRIB3",
+        "PPP1R15A",
+        "SESN2"
+      ],
+      "dissociation_risk": "LOW",
+      "dissociation_note": "ATF4 transcription is itself regulated translationally (eIF2α phosphorylation). But downstream targets reflect activity well.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "VDR": {
+      "category": "nuclear_receptor",
+      "core_genes": [
+        "VDR",
+        "CYP24A1",
+        "CYP27B1",
+        "CAMP",
+        "S100A8"
+      ],
+      "primary_tf": [
+        "VDR"
+      ],
+      "mii": 0.5512820512820512,
+      "sensor_genes": [
+        "VDR"
+      ],
+      "cascade_genes": [
+        "VDR",
+        "RXRA",
+        "NCOA1",
+        "NCOA2",
+        "NCOA3",
+        "MED1",
+        "MED12"
+      ],
+      "tf_genes": [
+        "VDR",
+        "RXRA"
+      ],
+      "feedback_genes": [
+        "CYP24A1"
+      ],
+      "activity_genes": [
+        "CYP24A1",
+        "CAMP",
+        "TRPV6",
+        "S100A8",
+        "DEFB4A"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "Wnt": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "CTNNB1",
+        "APC",
+        "GSK3B",
+        "AXIN2",
+        "TCF7"
+      ],
+      "primary_tf": [
+        "TCF7L2",
+        "TCF7"
+      ],
+      "mii": 0.6260683760683761,
+      "sensor_genes": [
+        "FZD1",
+        "FZD2",
+        "FZD3",
+        "FZD4",
+        "FZD5",
+        "FZD6",
+        "FZD7",
+        "FZD8",
+        "FZD9",
+        "FZD10",
+        "LRP5",
+        "LRP6",
+        "ROR1",
+        "ROR2",
+        "RYK",
+        "LGR4",
+        "LGR5",
+        "LGR6"
+      ],
+      "cascade_genes": [
+        "DVL1",
+        "DVL2",
+        "DVL3",
+        "AXIN1",
+        "AXIN2",
+        "APC",
+        "APC2",
+        "GSK3B",
+        "CTNNB1",
+        "CSNK1A1",
+        "CSNK1A1L",
+        "CSNK1E",
+        "CSNK2A1",
+        "CSNK2A2",
+        "CSNK2A3",
+        "CSNK2B",
+        "BTRC",
+        "FBXW11",
+        "SKP1",
+        "CUL1",
+        "RBX1",
+        "FRAT1",
+        "FRAT2",
+        "PRKCA",
+        "PRKCB",
+        "PRKCG",
+        "PLCB1",
+        "PLCB2",
+        "PLCB3",
+        "PLCB4",
+        "CAMK2A",
+        "CAMK2B",
+        "CAMK2D",
+        "CAMK2G",
+        "PPP3CA",
+        "PPP3CB",
+        "PPP3CC",
+        "PPP3R1",
+        "PPP3R2",
+        "PRKACA",
+        "PRKACB",
+        "PRKACG",
+        "RHOA",
+        "RAC1",
+        "RAC2",
+        "RAC3",
+        "ROCK2",
+        "MAPK8",
+        "MAPK9",
+        "MAPK10",
+        "MAP3K7",
+        "DAAM1",
+        "DAAM2",
+        "VANGL1",
+        "VANGL2",
+        "PRICKLE1",
+        "PRICKLE2",
+        "PRICKLE3",
+        "PRICKLE4",
+        "CELSR1",
+        "CELSR2",
+        "CELSR3",
+        "PSEN1",
+        "SIAH1",
+        "CACYBP",
+        "SENP2",
+        "INVS",
+        "ANKRD6",
+        "GPC4",
+        "CCAR2",
+        "CCDC88C",
+        "NLK",
+        "CTNND2",
+        "CHD8"
+      ],
+      "tf_genes": [
+        "TCF7",
+        "TCF7L1",
+        "TCF7L2",
+        "LEF1",
+        "CTNNB1",
+        "JUN",
+        "NFATC1",
+        "NFATC2",
+        "NFATC3",
+        "NFATC4",
+        "FOSL1",
+        "TP53",
+        "SOX17"
+      ],
+      "feedback_genes": [
+        "AXIN2",
+        "NKD1",
+        "NKD2",
+        "RNF43",
+        "ZNRF3",
+        "DKK1",
+        "DKK2",
+        "DKK4",
+        "SFRP1",
+        "SFRP2",
+        "SFRP4",
+        "SFRP5",
+        "FRZB",
+        "WIF1",
+        "NOTUM",
+        "CER1",
+        "SOST",
+        "APCDD1",
+        "APCDD1L",
+        "CTNNBIP1",
+        "LZTS2",
+        "CBY1",
+        "BAMBI"
+      ],
+      "activity_genes": [
+        "AXIN2",
+        "LEF1",
+        "TCF7",
+        "MYC",
+        "CCND1",
+        "SP5",
+        "NKD1"
+      ],
+      "dissociation_risk": "LOW",
+      "dissociation_note": "β-catenin stabilization is post-translational, but AXIN2 is reliable activity readout.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "cAMP/CREB": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "PRKACA",
+        "CREB1",
+        "PDE4B",
+        "ADCY6",
+        "CREM"
+      ],
+      "primary_tf": [
+        "CREB1"
+      ],
+      "mii": 0.5918803418803419,
+      "activity_genes": [
+        "BDNF",
+        "NR4A1",
+        "EGR1",
+        "ARC",
+        "FOS",
+        "FOSB",
+        "ATF3",
+        "NR4A2",
+        "NR4A3"
+      ],
+      "dissociation_risk": "HIGH",
+      "dissociation_note": "CREB activates via Ser133 phosphorylation, NOT increased mRNA. Readiness may be anti-correlated with activity. ALWAYS check targets (BDNF, NR4A1, EGR1, ARC) when readiness score is negative.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "cGAS-STING": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "MB21D1",
+        "TMEM173",
+        "IRF3",
+        "IFNB1",
+        "CXCL10"
+      ],
+      "primary_tf": [
+        "IRF3"
+      ],
+      "mii": 0.3205128205128205,
+      "sensor_genes": [
+        "CGAS",
+        "IFI16",
+        "AIM2",
+        "ZBP1",
+        "DDX41",
+        "RIGI",
+        "ZCCHC3"
+      ],
+      "cascade_genes": [
+        "STING1",
+        "TBK1",
+        "IKBKE",
+        "CHUK",
+        "IKBKB",
+        "IKBKG",
+        "MAVS",
+        "RIPK1",
+        "RIPK3",
+        "FADD",
+        "CASP8",
+        "CASP1",
+        "CASP3",
+        "CASP7",
+        "MLKL",
+        "GSDMD",
+        "GSDME",
+        "PYCARD",
+        "NLRP3",
+        "MEFV",
+        "ZDHHC1",
+        "ZDHHC11",
+        "ZDHHC11B",
+        "G3BP1",
+        "PCBP1",
+        "SAMHD1",
+        "TREX1",
+        "DNASE2",
+        "DNASE2B",
+        "ADAR"
+      ],
+      "tf_genes": [
+        "IRF3",
+        "IRF7",
+        "NFKB1",
+        "NFKBIA",
+        "NFKBIB",
+        "RELA"
+      ],
+      "feedback_genes": [
+        "TREX1",
+        "DNASE2",
+        "SAMHD1",
+        "ADAR",
+        "NFKBIA",
+        "NFKBIB"
+      ],
+      "activity_genes": [
+        "IFNB1",
+        "CXCL10",
+        "ISG15",
+        "IFIT1",
+        "MX1",
+        "OAS1"
+      ],
+      "dissociation_risk": "LOW",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "mTOR": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "MTOR",
+        "RPTOR",
+        "RPS6KB1",
+        "EIF4EBP1",
+        "RHEB"
+      ],
+      "primary_tf": [],
+      "mii": null,
+      "sensor_genes": [
+        "INSR",
+        "IGF1R",
+        "TNFRSF1A",
+        "SLC38A9",
+        "SLC7A5",
+        "SLC3A2",
+        "CASTOR1",
+        "CASTOR2",
+        "SESN2"
+      ],
+      "cascade_genes": [
+        "MTOR",
+        "RPTOR",
+        "RICTOR",
+        "MLST8",
+        "MAPKAP1",
+        "DEPTOR",
+        "AKT1S1",
+        "PRR5",
+        "PRR5L",
+        "AKT1",
+        "AKT2",
+        "AKT3",
+        "PIK3CA",
+        "PIK3CB",
+        "PIK3CD",
+        "PIK3R1",
+        "PIK3R2",
+        "PIK3R3",
+        "PDPK1",
+        "PTEN",
+        "TSC1",
+        "TSC2",
+        "TBC1D7",
+        "RHEB",
+        "RRAGA",
+        "RRAGB",
+        "RRAGC",
+        "RRAGD",
+        "LAMTOR1",
+        "LAMTOR2",
+        "LAMTOR3",
+        "LAMTOR4",
+        "LAMTOR5",
+        "FLCN",
+        "FNIP1",
+        "FNIP2",
+        "NPRL2",
+        "NPRL3",
+        "DEPDC5",
+        "MIOS",
+        "WDR24",
+        "WDR59",
+        "SEH1L",
+        "SEC13",
+        "TTI1",
+        "TELO2",
+        "PRKAA1",
+        "PRKAA2",
+        "STK11",
+        "CAB39",
+        "CAB39L",
+        "STRADA",
+        "STRADB",
+        "GRB2",
+        "SOS1",
+        "SOS2",
+        "HRAS",
+        "KRAS",
+        "NRAS",
+        "RAF1",
+        "BRAF",
+        "MAP2K1",
+        "MAP2K2",
+        "MAPK1",
+        "MAPK3",
+        "RPS6KA1",
+        "RPS6KA2",
+        "RPS6KA3",
+        "RPS6KA6",
+        "CHUK",
+        "IKBKB",
+        "GSK3B",
+        "PRKCA",
+        "PRKCB",
+        "PRKCG",
+        "DVL1",
+        "DVL2",
+        "DVL3",
+        "RHOA",
+        "SGK1",
+        "RNF152",
+        "GRB10",
+        "DDIT4",
+        "IRS1",
+        "CLIP1",
+        "SKP2"
+      ],
+      "tf_genes": [
+        "SREBF1",
+        "HIF1A"
+      ],
+      "feedback_genes": [
+        "DEPTOR",
+        "DDIT4",
+        "GRB10",
+        "SESN2",
+        "ULK1",
+        "ULK2"
+      ],
+      "activity_genes": [
+        "EIF4EBP1",
+        "RPS6",
+        "SREBF1",
+        "HIF1A",
+        "VEGFA",
+        "SLC7A5"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "mTOR activity is phosphorylation-based. Downstream transcriptional targets capture activity indirectly.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "p53": {
+      "category": "B_interoceptive",
+      "core_genes": [
+        "TP53",
+        "MDM2",
+        "CDKN1A",
+        "BAX",
+        "BBC3"
+      ],
+      "primary_tf": [
+        "TP53"
+      ],
+      "mii": 0.717948717948718,
+      "sensor_genes": [
+        "ATM",
+        "ATR",
+        "CHEK1",
+        "CHEK2"
+      ],
+      "cascade_genes": [
+        "MDM2",
+        "MDM4",
+        "COP1",
+        "RCHY1",
+        "SIAH1",
+        "PPM1D",
+        "GTSE1",
+        "CCNG1",
+        "CCNG2"
+      ],
+      "tf_genes": [
+        "TP53",
+        "TP73"
+      ],
+      "feedback_genes": [
+        "MDM2",
+        "MDM4",
+        "COP1",
+        "RCHY1",
+        "PPM1D",
+        "GTSE1",
+        "PPP1R13L"
+      ],
+      "activity_genes": [
+        "CDKN1A",
+        "BAX",
+        "BBC3",
+        "GADD45A",
+        "MDM2",
+        "PMAIP1",
+        "SESN2",
+        "TIGAR",
+        "DDB2",
+        "RRM2B"
+      ],
+      "dissociation_risk": "MEDIUM",
+      "dissociation_note": "Stabilized post-translationally (MDM2 inhibition). In normal cells p53 protein is degraded; activity requires stabilization, not transcription.",
+      "pan_cellular": true,
+      "tissue_bias": []
+    },
+    "NPAS4": {
+      "category": "A_exteroceptive",
+      "core_genes": [
+        "NPAS4",
+        "ARNT2",
+        "CAMK2A",
+        "CAMK2B",
+        "CALM1"
+      ],
+      "primary_tf": [
+        "NPAS4"
+      ],
+      "mii": null,
+      "sensor_genes": [
+        "CAMK2A",
+        "CAMK2B",
+        "CALM1",
+        "CALM2",
+        "CALM3"
+      ],
+      "tf_genes": [
+        "NPAS4",
+        "ARNT2"
+      ],
+      "feedback_genes": [],
+      "activity_genes": [
+        "BDNF",
+        "NPTX2",
+        "PLK2",
+        "FRMPD4",
+        "GABRA1",
+        "GABRA2",
+        "GABRB2",
+        "GABRG2",
+        "GPHN",
+        "GAD1",
+        "GAD2",
+        "KCNA1",
+        "KCNA2",
+        "NRGN"
+      ],
+      "dissociation_risk": "HIGH",
+      "dissociation_note": "Rapid post-translational turnover (ubiquitin-proteasome). mRNA peaks transient (Lin et al. 2008 Nature). Activity TF targets (BDNF, NPTX2, GABRA1-2, GABRB2, GABRG2, GPHN, GAD1-2, KCNA1-2, NRGN) measure persistent engagement; readiness (NPAS4 mRNA) measures recent induction. ALWAYS report both R and A for neurons.",
+      "pan_cellular": true,
+      "tissue_bias": [
+        "neuron"
+      ]
+    }
+  },
+  "release_notes": "v0.3 catalog (perceptome tool v0.2.0): 44 modules. Adds NPAS4 (neuron-perception 44th canonical, Paper 4 Table S4). Adds per-module pan_cellular + tissue_bias flags."
+}

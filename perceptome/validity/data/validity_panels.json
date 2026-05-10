@@ -1,0 +1,27 @@
+{
+  "version": "0.3",
+  "description": "Validity panels for perturbation-vs-control analyses (paper4.5+ standard).",
+  "random_200_seed": 42,
+  "random_200_pool_genes_note": "Drawn from adata.var_names at runtime with the locked seed; bundled list is empty by design — reproducibility comes from the seed + dataset gene order.",
+  "housekeeping": {
+    "description": "Eisenberg & Levanon 2013 minimal stable housekeeping set, intersected with HPA-detectable.",
+    "genes": [
+      "ACTB", "GAPDH", "HPRT1", "PGK1", "PPIA", "RPL13A", "RPLP0", "TBP",
+      "TFRC", "UBC", "B2M", "GUSB", "POLR2A", "ALAS1", "RPS18", "YWHAZ"
+    ]
+  },
+  "cell_cycle": {
+    "description": "Tirosh et al. 2016 G1/S + G2/M cell cycle markers, intersected with the perceptome Cell Cycle module activity targets.",
+    "genes": [
+      "MKI67", "PCNA", "TOP2A", "MCM2", "MCM3", "MCM4", "MCM5", "MCM6",
+      "CCNA2", "CCNB1", "CCND1", "CCNE1", "CDK1", "CDK2", "CDK4", "CDK6",
+      "CDC20", "CDC25A", "CDC6", "CDT1", "AURKA", "AURKB", "BIRC5", "FOXM1"
+    ]
+  },
+  "thresholds": {
+    "random_200_max_abs_log2fc": 0.10,
+    "housekeeping_max_abs_log2fc": 0.20,
+    "cell_cycle_min_abs_log2fc": 0.30
+  },
+  "source_pre_reg": "paper4.7 organoid_regen/preregistration/phase1_prereg_v1.md (SHA 02229b1b9eb2...)"
+}

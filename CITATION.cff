@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use perceptome in your research, please cite both the software and the companion paper."
+type: software
+title: "perceptome: Cellular Perception Analysis Toolkit"
+version: "0.2.0"
+date-released: "2026-05-10"
+authors:
+  - family-names: "Spiro"
+    given-names: "Theodor"
+    orcid: "https://orcid.org/0009-0004-5382-9346"
+    affiliation: "Vaika Inc., East Aurora, NY, USA"
+    email: "tspiro@vaika.org"
+url: "https://github.com/mool32/perceptome"
+repository-code: "https://github.com/mool32/perceptome"
+license: MIT
+keywords:
+  - perceptual modules
+  - cellular signaling
+  - eigenspace projection
+  - single-cell RNA-seq
+  - cancer dedifferentiation
+  - aging
+  - transcriptional modules
+abstract: >
+  perceptome is an open-source Python toolkit implementing a 44-module cellular
+  perception framework with three analytic layers: geometry (44 modules in a
+  9-PC HPA-derived eigenspace), perceptivity (5-vector capacity / engagement /
+  specialization metric per cell type, with the upward-asymmetric capacity-floor
+  predictor closed across substrate-series Papers 4.5 - 4.8), and validity
+  (random-200 / housekeeping / cell-cycle scorecard for perturbation analyses).
+  Includes the cancer attractor capacity-direction reference (Paper 4.2 P3 PASS,
+  Sun 2021 paired HCC) and a focused 9-anchor drug operation matching the narrow
+  validated scope from Paper 4.1 (6 mechanism-pathway rescues + 3 stress-axis
+  controls; 11 falsified drug operations explicitly NOT supported). NPAS4 is the
+  44th canonical module per Paper 4.
+preferred-citation:
+  type: article
+  title: "The perceptual eigenspace of the cell: 43 transcriptional modules organize cancer and aging"
+  authors:
+    - family-names: "Spiro"
+      given-names: "Theodor"
+      orcid: "https://orcid.org/0009-0004-5382-9346"
+  year: 2026
+  notes: "In preparation"

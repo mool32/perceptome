@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perceptome"
+version = "0.2.0"
+description = "Cellular perception analysis toolkit — 44 perceptual modules, capacity layer, validity scorecard, cancer attractor reference"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+authors = [
+    { name = "Theodor Spiro", email = "tspiro@vaika.org" },
+]
+keywords = [
+    "perceptual modules",
+    "cellular signaling",
+    "eigenspace projection",
+    "single-cell RNA-seq",
+    "capacity",
+    "transcriptional modules",
+    "scanpy",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "numpy>=1.20",
+    "pandas>=1.3",
+    "scipy>=1.7",
+    "scikit-learn>=1.0",
+    "scanpy>=1.9",
+    "anndata>=0.8",
+]
+
+[project.optional-dependencies]
+plotting = [
+    "matplotlib>=3.4",
+    "seaborn>=0.11",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "ruff",
+]
+
+[project.urls]
+Homepage = "https://github.com/mool32/perceptome"
+Repository = "https://github.com/mool32/perceptome"
+Issues = "https://github.com/mool32/perceptome/issues"
+Changelog = "https://github.com/mool32/perceptome/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["perceptome*"]
+
+[tool.setuptools.package-data]
+perceptome = [
+    "catalog/data/*.json",
+    "perceptivity/data/*",
+    "eigenspace/data/*.json",
+    "reference/data/*.json",
+    "validity/data/*.json",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"

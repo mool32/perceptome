@@ -1,0 +1,394 @@
+{
+  "version": "0.3.attractor_v1",
+  "source": {
+    "paper4_2_pre_reg_sha": "b66b0a283a4f23441e2537ae83bafe39eba0ba461ce85e20470fafa7f6743d2d",
+    "p3_pass_threshold_cos": 0.2,
+    "p3_pass_count": 4,
+    "p3_total_count": 6,
+    "p3_dataset": "Sun 2021 GSE149614 paired HCC cohort",
+    "closing_memo": "perceptivity_metric/CLOSING_VERDICT_paper4_2_capacity_extension.md"
+  },
+  "attractor_cluster_cells": [
+    "gastric chief cells",
+    "pancreatic acinar cells",
+    "parietal cells",
+    "megakaryocytes",
+    "cytotrophoblasts",
+    "migrating cytotrophoblasts",
+    "late primary spermatocytes",
+    "gastric progenitor cells"
+  ],
+  "attractor_direction_modules": {
+    "AMPK": 0.0,
+    "AR": -0.8974025477873666,
+    "AhR": 0.0,
+    "Autophagy": 0.1808816938903588,
+    "BMP": 0.0,
+    "Calcium": -0.6933195577186901,
+    "Cell Cycle": 0.90492831832514,
+    "Circadian": 0.0,
+    "ER": 0.0,
+    "ERK/MAPK": 0.0,
+    "FXR": 0.0,
+    "GR": -1.147439600777167,
+    "HIF": 0.3571484637073281,
+    "HSF1": -0.10384499690471038,
+    "Hedgehog": 0.0,
+    "Hippo": 0.485870879872202,
+    "Insulin/FOXO": 0.0,
+    "JAK-STAT": 0.0,
+    "LXR": -0.7488901993949462,
+    "MR": -1.0717442469684113,
+    "NF-κB": -0.6002910791052232,
+    "NFAT": 0.0,
+    "NPAS4": 0.0,
+    "NRF2": -0.10003975010318333,
+    "Notch": 0.0,
+    "PI3K/PTEN": 0.0,
+    "PPARα": 0.0,
+    "PPARγ": 0.0,
+    "PR": 0.0,
+    "PXR/CAR": 0.0,
+    "RAR": 0.0,
+    "SREBP": -0.6290427057330765,
+    "TGF-β": 0.0,
+    "TR": -0.6101135175895211,
+    "Type I IFN": 0.0,
+    "UPR-ATF6": 0.44308551459543377,
+    "UPR-IRE1": 0.10112709734937209,
+    "UPR-PERK": -0.5285401223035122,
+    "VDR": 0.0,
+    "Wnt": 0.0,
+    "cAMP/CREB": -0.8617107548033878,
+    "cGAS-STING": 0.0,
+    "mTOR": -0.4190211266490884,
+    "p53": 0.0
+  },
+  "attractor_direction_eigenspace": [
+    0.830373580745368,
+    0.6936923467172894,
+    0.45498831761141084,
+    0.26956972884979213,
+    0.13671245339689458,
+    -0.0300244113288096,
+    0.3936493850897641,
+    0.7026716515256607,
+    -0.9693236200511918
+  ],
+  "eigenspace_PC_names": [
+    "PC1",
+    "PC2",
+    "PC3",
+    "PC4",
+    "PC5",
+    "PC6",
+    "PC7",
+    "PC8",
+    "PC9"
+  ],
+  "P3_per_celltype": {
+    "module_coverage_summary": {
+      "mean_coverage_43modules": 0.9700996677740862,
+      "modules_low_coverage_below_50pct": []
+    },
+    "attractor_direction_top5": {
+      "Cell Cycle": 0.90492831832514,
+      "Hippo": 0.485870879872202,
+      "UPR-ATF6": 0.44308551459543377,
+      "HIF": 0.3571484637073281,
+      "Autophagy": 0.1808816938903588
+    },
+    "attractor_direction_bottom5": {
+      "GR": -1.147439600777167,
+      "MR": -1.0717442469684113,
+      "AR": -0.8974025477873666,
+      "cAMP/CREB": -0.8617107548033878,
+      "LXR": -0.7488901993949462
+    },
+    "per_patient_sensitivity": {
+      "Hepatocyte": [
+        {
+          "patient": "HCC03",
+          "cosine": -0.05769920903675471,
+          "n_t": 3468,
+          "n_n": 677
+        },
+        {
+          "patient": "HCC04",
+          "cosine": 0.43428078210202953,
+          "n_t": 2454,
+          "n_n": 300
+        },
+        {
+          "patient": "HCC05",
+          "cosine": 0.19360022701156748,
+          "n_t": 1222,
+          "n_n": 42
+        },
+        {
+          "patient": "HCC06",
+          "cosine": 0.4222199590421923,
+          "n_t": 218,
+          "n_n": 174
+        },
+        {
+          "patient": "HCC07",
+          "cosine": 0.38905144023645394,
+          "n_t": 48,
+          "n_n": 46
+        },
+        {
+          "patient": "HCC08",
+          "cosine": 0.33321017755191285,
+          "n_t": 1640,
+          "n_n": 25
+        },
+        {
+          "patient": "HCC09",
+          "cosine": 0.18037428483586912,
+          "n_t": 1245,
+          "n_n": 131
+        },
+        {
+          "patient": "HCC10",
+          "cosine": 0.4293882855127745,
+          "n_t": 881,
+          "n_n": 33
+        }
+      ],
+      "T/NK": [
+        {
+          "patient": "HCC03",
+          "cosine": -0.1790727953715473,
+          "n_t": 203,
+          "n_n": 85
+        },
+        {
+          "patient": "HCC04",
+          "cosine": 0.4153800327495146,
+          "n_t": 253,
+          "n_n": 272
+        },
+        {
+          "patient": "HCC05",
+          "cosine": -0.1355502726690031,
+          "n_t": 385,
+          "n_n": 2024
+        },
+        {
+          "patient": "HCC06",
+          "cosine": -0.4093681410351305,
+          "n_t": 1445,
+          "n_n": 1277
+        },
+        {
+          "patient": "HCC07",
+          "cosine": 0.14098301438765204,
+          "n_t": 16,
+          "n_n": 2106
+        },
+        {
+          "patient": "HCC08",
+          "cosine": 0.07067454659466678,
+          "n_t": 669,
+          "n_n": 1952
+        },
+        {
+          "patient": "HCC09",
+          "cosine": 0.0489585610501788,
+          "n_t": 158,
+          "n_n": 340
+        },
+        {
+          "patient": "HCC10",
+          "cosine": 0.0838927140284051,
+          "n_t": 187,
+          "n_n": 156
+        }
+      ],
+      "Myeloid": [
+        {
+          "patient": "HCC03",
+          "cosine": 0.24481947182503644,
+          "n_t": 1047,
+          "n_n": 418
+        },
+        {
+          "patient": "HCC04",
+          "cosine": 0.27815980043644656,
+          "n_t": 650,
+          "n_n": 719
+        },
+        {
+          "patient": "HCC05",
+          "cosine": -0.3471303026617491,
+          "n_t": 971,
+          "n_n": 804
+        },
+        {
+          "patient": "HCC06",
+          "cosine": -0.0053552201235408155,
+          "n_t": 813,
+          "n_n": 844
+        },
+        {
+          "patient": "HCC07",
+          "cosine": 0.44484362316521997,
+          "n_t": 134,
+          "n_n": 800
+        },
+        {
+          "patient": "HCC08",
+          "cosine": 0.242838120458766,
+          "n_t": 968,
+          "n_n": 283
+        },
+        {
+          "patient": "HCC09",
+          "cosine": -0.24518024826089407,
+          "n_t": 310,
+          "n_n": 264
+        },
+        {
+          "patient": "HCC10",
+          "cosine": 0.2265640687120092,
+          "n_t": 526,
+          "n_n": 297
+        }
+      ],
+      "B": [
+        {
+          "patient": "HCC03",
+          "cosine": -0.21943463381130388,
+          "n_t": 61,
+          "n_n": 40
+        },
+        {
+          "patient": "HCC04",
+          "cosine": 0.03459271160194597,
+          "n_t": 24,
+          "n_n": 52
+        },
+        {
+          "patient": "HCC05",
+          "cosine": -0.09879601880600955,
+          "n_t": 73,
+          "n_n": 141
+        },
+        {
+          "patient": "HCC06",
+          "cosine": -0.35420280188127257,
+          "n_t": 331,
+          "n_n": 110
+        },
+        {
+          "patient": "HCC07",
+          "cosine": 0.36345681462032814,
+          "n_t": 33,
+          "n_n": 126
+        },
+        {
+          "patient": "HCC08",
+          "cosine": 0.0178494588232965,
+          "n_t": 56,
+          "n_n": 91
+        },
+        {
+          "patient": "HCC09",
+          "cosine": -0.08115361210048787,
+          "n_t": 23,
+          "n_n": 72
+        },
+        {
+          "patient": "HCC10",
+          "cosine": 9.219863916480733e-05,
+          "n_t": 13,
+          "n_n": 16
+        }
+      ],
+      "Endothelial": [
+        {
+          "patient": "HCC03",
+          "cosine": 0.38614281470444495,
+          "n_t": 20,
+          "n_n": 82
+        },
+        {
+          "patient": "HCC04",
+          "cosine": 0.4126541808214219,
+          "n_t": 30,
+          "n_n": 420
+        },
+        {
+          "patient": "HCC05",
+          "cosine": -0.06212446658146168,
+          "n_t": 523,
+          "n_n": 342
+        },
+        {
+          "patient": "HCC06",
+          "cosine": 0.42039376408366447,
+          "n_t": 552,
+          "n_n": 191
+        },
+        {
+          "patient": "HCC08",
+          "cosine": 0.4734541424509688,
+          "n_t": 32,
+          "n_n": 115
+        },
+        {
+          "patient": "HCC09",
+          "cosine": 0.4369479069323878,
+          "n_t": 30,
+          "n_n": 129
+        }
+      ],
+      "Fibroblast": [
+        {
+          "patient": "HCC04",
+          "cosine": 0.5154113898924509,
+          "n_t": 90,
+          "n_n": 54
+        },
+        {
+          "patient": "HCC05",
+          "cosine": 0.1675372953821484,
+          "n_t": 172,
+          "n_n": 25
+        },
+        {
+          "patient": "HCC06",
+          "cosine": 0.10256085185064819,
+          "n_t": 559,
+          "n_n": 74
+        },
+        {
+          "patient": "HCC07",
+          "cosine": 0.4059925577984251,
+          "n_t": 6,
+          "n_n": 18
+        },
+        {
+          "patient": "HCC08",
+          "cosine": 0.33277686919636906,
+          "n_t": 323,
+          "n_n": 55
+        },
+        {
+          "patient": "HCC09",
+          "cosine": 0.46054185748101356,
+          "n_t": 102,
+          "n_n": 50
+        },
+        {
+          "patient": "HCC10",
+          "cosine": 0.26387225069742826,
+          "n_t": 25,
+          "n_n": 23
+        }
+      ]
+    }
+  },
+  "interpretive_note": "Cancer cells move IN the attractor direction within capacity space without arriving AT the attractor capacity profile — direction reproducible across transformation, destination correspondence is not. Use attractor_direction_eigenspace as a reference vector for cosine alignment of (tumor − normal) shift vectors."
+}
