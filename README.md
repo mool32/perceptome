@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python: ≥3.8](https://img.shields.io/badge/Python-≥3.8-blue.svg)](https://www.python.org)
 [![Tests: 73/73](https://img.shields.io/badge/tests-73%2F73%20passing-green.svg)](#tests)
+<!-- ZENODO_DOI_BADGE_PLACEHOLDER -->
+[![DOI: pending](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://github.com/mool32/perceptome/releases/tag/v0.2.1)
 
 A Python toolkit for analyzing single-cell RNA-seq data through the lens of **44 cellular signaling pathways** (NF-κB, mTOR, UPR, p53, nuclear receptors, …) treated as a **perceptual system** — the machinery a cell uses to sense and respond to its environment.
 
