@@ -1,0 +1,62 @@
+{
+ "beacon": {
+  "single_cell_scaled": {
+   "pca_percentile": 0.0,
+   "pca_z": -3.4808027708466884,
+   "rotated_pca_percentile": 0.0,
+   "diffusion_percentile": 0.0005,
+   "diffusion_z": -1.7751500454163704,
+   "invariant": true,
+   "diagnostic": "PCA adequate \u2014 diffusion no tighter; the convergence is captured by linear geometry",
+   "diffusion_epsilon": 7.627972433463583
+  },
+  "pseudobulk": {
+   "pca_percentile": 0.45875,
+   "pca_z": -0.1742061619253042,
+   "rotated_pca_percentile": 0.45875,
+   "diffusion_percentile": 0.8843,
+   "diffusion_z": 0.8495494523583428,
+   "invariant": false,
+   "diagnostic": "beacon LOOSER in diffusion \u2014 linear structure dominates",
+   "diffusion_epsilon": 76.00684650407865
+  }
+ },
+ "lineage_controls": {
+  "germ_cells": {
+   "single_cell_scaled": {
+    "k": 6,
+    "pca_percentile": 0.08385,
+    "diffusion_percentile": 0.86585
+   },
+   "pseudobulk": {
+    "k": 6,
+    "pca_percentile": 0.0058,
+    "diffusion_percentile": 0.3373
+   }
+  },
+  "immune_cells": {
+   "single_cell_scaled": {
+    "k": 8,
+    "pca_percentile": 0.0,
+    "diffusion_percentile": 0.3745
+   },
+   "pseudobulk": {
+    "k": 8,
+    "pca_percentile": 5e-05,
+    "diffusion_percentile": 0.101
+   }
+  },
+  "retina": {
+   "single_cell_scaled": {
+    "k": 6,
+    "pca_percentile": 5e-05,
+    "diffusion_percentile": 0.0001
+   },
+   "pseudobulk": {
+    "k": 6,
+    "pca_percentile": 0.0,
+    "diffusion_percentile": 0.0223
+   }
+  }
+ }
+}

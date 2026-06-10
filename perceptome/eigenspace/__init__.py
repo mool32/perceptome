@@ -7,5 +7,9 @@ as the 44th module and reruns the eigendecomposition on 154 × 44.
 
 from .project import project
 from .rebuild import rebuild
+from .rotate import varimax
+from .manifold import DiffusionMap
+from .invariance import coordinate_invariance, beacon_compactness
 
-__all__ = ["project", "rebuild"]
+__all__ = ["project", "rebuild", "varimax", "DiffusionMap",
+           "coordinate_invariance", "beacon_compactness"]

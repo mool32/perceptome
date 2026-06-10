@@ -21,9 +21,28 @@ _NPZ = _DATA_DIR / "hpa_perceptivity_v03.npz"
 _META = _DATA_DIR / "hpa_perceptivity_v03.json"
 
 
-@lru_cache(maxsize=2)
-def load_hpa_perceptivity():
+_NPZ_SCSCALED = _DATA_DIR / "hpa_perceptivity_v03_scscaled.npz"
+_META_SCSCALED = _DATA_DIR / "hpa_perceptivity_v03_scscaled.json"
+
+_OPINT = _DATA_DIR / "operation_intensity_v1.json"  # Factor-2 reference (v0.4)
+
+
+@lru_cache(maxsize=4)
+def load_hpa_perceptivity(mode: str = "pseudobulk"):
     """Load the bundled 154 × 44 HPA perceptivity reference.
+
+    Parameters
+    ----------
+    mode : {"pseudobulk", "single_cell_scaled"}
+        - "pseudobulk" (default, since v0.2.2): R, A computed directly as
+          mean log1p(nCPM) over module genes per HPA cell type (pseudobulk units).
+          Use when comparing to other pseudobulk data or for cell-type-level analyses.
+        - "single_cell_scaled" (added in v0.2.3): HPA pseudobulk nCPM passed
+          through scanpy normalize_total(1e4) + log1p before module scoring,
+          matching the scale of per-cell scRNA-seq data after the same
+          preprocessing. Use this mode when projecting single-cell tumor
+          datasets per-cell into the eigenspace — guarantees that the per-cell
+          cancer z-scores are commensurate with the HPA reference distribution.
 
     Returns
     -------
@@ -31,15 +50,30 @@ def load_hpa_perceptivity():
         R, A, C, headroom : DataFrame (154 × 44)
         A_max             : Series (44,)  per-module max A across HPA
         cell_type_class   : Series (154,) HPA "Cell type class" label
+        mode              : str — which calibration was loaded
     """
-    if not _NPZ.exists() or not _META.exists():
+    if mode not in ("pseudobulk", "single_cell_scaled"):
+        raise ValueError(f"mode must be 'pseudobulk' or 'single_cell_scaled', got {mode!r}")
+
+    if mode == "pseudobulk":
+        npz_path, meta_path = _NPZ, _META
+    else:
+        npz_path, meta_path = _NPZ_SCSCALED, _META_SCSCALED
+
+    if not npz_path.exists() or not meta_path.exists():
+        if mode == "single_cell_scaled":
+            raise FileNotFoundError(
+                f"single-cell-scaled HPA reference not found at {npz_path}. "
+                "Run scripts/12_build_hpa_scscaled.py to generate. "
+                "Added in perceptome v0.2.3."
+            )
         raise FileNotFoundError(
-            f"HPA perceptivity reference not found at {_NPZ}. "
+            f"HPA perceptivity reference not found at {npz_path}. "
             "Run scripts/02_build_hpa_perceptivity.py to generate."
         )
 
-    arrs = np.load(_NPZ, allow_pickle=False)
-    with open(_META) as f:
+    arrs = np.load(npz_path, allow_pickle=False)
+    with open(meta_path) as f:
         meta = json.load(f)
 
     cell_types = meta["cell_types"]
@@ -55,7 +89,40 @@ def load_hpa_perceptivity():
     return {
         "R": R, "A": A, "C": C, "headroom": headroom,
         "A_max": A_max, "cell_type_class": cell_type_class,
+        "mode": mode,
     }
+
+
+@lru_cache(maxsize=1)
+def load_operation_intensity():
+    """Load the bundled Factor-2 reference (operation_intensity_v1).
+
+    Calibrated from the substrate-series corpus (papers 4.3-4.8 + paper4 memory)
+    by scripts/14_build_operation_intensity.py. Ordinal intensity bands per
+    (operation, module) — NOT a validated point estimate (see `disclaimer`).
+
+    Returns
+    -------
+    dict
+        meta  : dict (schema_version, definition, bands, disclaimer, operations,
+                cell_to_hpa_map)
+        table : dict {(operation, module): record}, where record has
+                intensity_band, direction, peak_effect, effect_metric, n_obs,
+                calib_saturated, peak_condition, calib_cell.
+    """
+    if not _OPINT.exists():
+        raise FileNotFoundError(
+            f"operation_intensity reference not found at {_OPINT}. "
+            "Run scripts/14_build_operation_intensity.py to generate. "
+            "Added in perceptome v0.4 (Consolidation)."
+        )
+    with open(_OPINT) as f:
+        payload = json.load(f)
+    table = {(r["operation"], r["module"]): r for r in payload["table"]}
+    meta = {k: payload[k] for k in
+            ("schema_version", "definition", "bands", "disclaimer", "operations",
+             "cell_to_hpa_map") if k in payload}
+    return {"meta": meta, "table": table}
 
 
 def hpa_capacity_floor(hi=4.5, lo=2.5):

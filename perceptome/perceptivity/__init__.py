@@ -27,11 +27,11 @@ Two-factor framework:
 """
 
 from .compute import compute_perceptivity, perceptivity_per_celltype, classify_quadrant
-from .floor import capacity_floor, predict_engagement
-from .reference import load_hpa_perceptivity, hpa_capacity_floor
+from .floor import capacity_floor, predict_engagement, OPERATIONS
+from .reference import load_hpa_perceptivity, hpa_capacity_floor, load_operation_intensity
 
 __all__ = [
     "compute_perceptivity", "perceptivity_per_celltype", "classify_quadrant",
-    "capacity_floor", "predict_engagement",
-    "load_hpa_perceptivity", "hpa_capacity_floor",
+    "capacity_floor", "predict_engagement", "OPERATIONS",
+    "load_hpa_perceptivity", "hpa_capacity_floor", "load_operation_intensity",
 ]

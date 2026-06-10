@@ -1,0 +1,595 @@
+study,paradigm,operation,context_class,condition,cell_type,module,module_in_catalog,score_type,effect,effect_metric,direction,A_baseline_hpa,verdict,source_file
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),AMPK,True,activity,0.0626,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),AMPK,True,activity,-0.0141,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),AR,True,activity,0.0674,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),AR,True,activity,-0.016,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),AhR,True,activity,0.6893,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),AhR,True,activity,0.6893,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Autophagy,True,activity,0.0717,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Autophagy,True,activity,-0.2629,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),BMP,True,activity,0.0,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),BMP,True,activity,-0.1103,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Calcium,True,activity,0.5024,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Calcium,True,activity,0.2466,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Cell Cycle,True,activity,0.4512,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Cell Cycle,True,activity,0.4512,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Circadian,True,activity,0.0,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Circadian,True,activity,-0.1967,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),ER,True,activity,0.1756,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),ER,True,activity,0.075,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),ERK/MAPK,True,activity,0.1808,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),ERK/MAPK,True,activity,-0.0775,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),FXR,True,activity,0.0536,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),FXR,True,activity,-0.0408,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),GR,True,activity,0.1486,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),GR,True,activity,-0.3989,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),HIF,True,activity,0.1483,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),HIF,True,activity,0.1483,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),HSF1,True,activity,0.1501,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),HSF1,True,activity,0.1501,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Hedgehog,True,activity,0.0,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Hedgehog,True,activity,-0.1918,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Hippo,True,activity,0.2983,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Hippo,True,activity,0.1489,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Insulin/FOXO,True,activity,0.0745,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Insulin/FOXO,True,activity,-0.004,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),JAK-STAT,True,activity,0.3387,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),JAK-STAT,True,activity,0.1819,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),LXR,True,activity,0.0045,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),LXR,True,activity,-0.391,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),MR,True,activity,0.0823,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),MR,True,activity,-0.1682,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),NF-κB,True,activity,0.3057,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),NF-κB,True,activity,0.2296,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),NFAT,True,activity,0.61,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),NFAT,True,activity,0.547,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),NRF2,True,activity,0.1522,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),NRF2,True,activity,-0.131,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Notch,True,activity,0.0166,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Notch,True,activity,0.0166,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),PI3K/PTEN,True,activity,0.0406,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),PI3K/PTEN,True,activity,-0.1534,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),PPARα,True,activity,0.0447,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),PPARα,True,activity,0.0447,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),PPARγ,True,activity,0.2941,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),PPARγ,True,activity,0.2941,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),PR,True,activity,0.0069,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),PR,True,activity,-0.0469,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),PXR/CAR,True,activity,0.0351,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),PXR/CAR,True,activity,-0.3543,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),RAR,True,activity,0.1139,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),RAR,True,activity,-0.0138,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),SREBP,True,activity,0.3207,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),SREBP,True,activity,0.3207,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),TGF-β,True,activity,0.0005,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),TGF-β,True,activity,-0.4749,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),TR,True,activity,0.0544,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),TR,True,activity,-0.0512,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Type I IFN,True,activity,0.2894,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Type I IFN,True,activity,0.2894,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),UPR-ATF6,True,activity,0.1299,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),UPR-ATF6,True,activity,0.1299,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),UPR-IRE1,True,activity,0.0976,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),UPR-IRE1,True,activity,-0.083,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),UPR-PERK,True,activity,0.3503,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),UPR-PERK,True,activity,0.2392,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),VDR,True,activity,0.0269,log2fc,flat,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),VDR,True,activity,-0.5425,log2fc,down,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),Wnt,True,activity,0.1435,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),Wnt,True,activity,0.1117,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),cAMP/CREB,True,activity,0.8662,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),cAMP/CREB,True,activity,0.2437,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),cGAS-STING,True,activity,0.1999,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),cGAS-STING,True,activity,0.1999,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),mTOR,True,activity,0.1759,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),mTOR,True,activity,0.1025,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,peak_vs_0h,immune(activated),p53,True,activity,0.1523,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.3,immune_activation,immune_activation,active,24h_vs_0h,immune(activated),p53,True,activity,0.1138,log2fc,up,,,paper4.3 immune/results/phase3/log2fc_table.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,AMPK,True,activity,-0.0232,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,AR,True,activity,0.7451,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,AhR,True,activity,0.0989,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Autophagy,True,activity,0.1344,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,BMP,True,activity,0.5973,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Calcium,True,activity,3.0294,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Cell Cycle,True,activity,0.0618,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Circadian,True,activity,-0.0873,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,ER,True,activity,0.4328,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,ERK/MAPK,True,activity,1.8012,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,FXR,True,activity,-0.3018,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,GR,True,activity,0.8228,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,HIF,True,activity,0.1417,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,HSF1,True,activity,0.8949,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Hedgehog,True,activity,-0.1254,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Hippo,True,activity,1.6686,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Insulin/FOXO,True,activity,-0.0963,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,JAK-STAT,True,activity,0.7439,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,LXR,True,activity,-0.1389,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,MR,True,activity,0.3796,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,NF-κB,True,activity,0.4146,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,NFAT,True,activity,0.4652,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,NRF2,True,activity,0.1775,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Notch,True,activity,0.6623,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,PI3K/PTEN,True,activity,-0.0791,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,PPARα,True,activity,-0.227,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,PPARγ,True,activity,-0.2571,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,PR,True,activity,0.486,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,PXR/CAR,True,activity,0.2178,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,RAR,True,activity,0.0825,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,SREBP,True,activity,0.2077,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,TGF-β,True,activity,0.4899,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,TR,True,activity,-0.3319,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Type I IFN,True,activity,-0.2751,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,UPR-ATF6,True,activity,0.0379,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,UPR-IRE1,True,activity,0.1321,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,UPR-PERK,True,activity,1.1647,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,VDR,True,activity,1.7188,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,Wnt,True,activity,-0.1376,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,cAMP/CREB,True,activity,3.6943,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,cGAS-STING,True,activity,-0.1598,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,mTOR,True,activity,0.3871,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_30m,myofiber,p53,True,activity,0.1969,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,AMPK,True,activity,0.3942,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,AR,True,activity,0.91,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,AhR,True,activity,0.5077,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Autophagy,True,activity,0.382,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,BMP,True,activity,-0.3265,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Calcium,True,activity,1.6878,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Cell Cycle,True,activity,-0.3504,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Circadian,True,activity,-0.6497,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,ER,True,activity,0.9681,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,ERK/MAPK,True,activity,0.6512,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,FXR,True,activity,-0.9073,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,GR,True,activity,-0.1169,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,HIF,True,activity,0.4978,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,HSF1,True,activity,1.268,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Hedgehog,True,activity,-0.3565,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Hippo,True,activity,3.1412,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Insulin/FOXO,True,activity,-0.0728,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,JAK-STAT,True,activity,1.4807,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,LXR,True,activity,-0.1749,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,MR,True,activity,0.6576,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,NF-κB,True,activity,0.1106,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,NFAT,True,activity,0.5775,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,NRF2,True,activity,0.2083,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Notch,True,activity,0.2764,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,PI3K/PTEN,True,activity,0.3748,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,PPARα,True,activity,-0.2473,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,PPARγ,True,activity,0.4645,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,PR,True,activity,0.5702,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,PXR/CAR,True,activity,1.0843,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,RAR,True,activity,-0.0386,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,SREBP,True,activity,0.178,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,TGF-β,True,activity,0.3926,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,TR,True,activity,-0.2819,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Type I IFN,True,activity,-0.3203,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,UPR-ATF6,True,activity,0.1278,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,UPR-IRE1,True,activity,0.609,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,UPR-PERK,True,activity,1.267,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,VDR,True,activity,1.0531,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,Wnt,True,activity,0.4471,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,cAMP/CREB,True,activity,2.8591,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,cGAS-STING,True,activity,-0.2583,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,mTOR,True,activity,0.5259,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_3h,myofiber,p53,True,activity,0.6374,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,AMPK,True,activity,-0.0048,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,AR,True,activity,0.6945,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,AhR,True,activity,0.5948,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Autophagy,True,activity,0.1727,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,BMP,True,activity,-0.4994,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Calcium,True,activity,0.0627,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Cell Cycle,True,activity,-0.2932,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Circadian,True,activity,-1.0309,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,ER,True,activity,0.5227,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,ERK/MAPK,True,activity,-0.0863,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,FXR,True,activity,-0.4706,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,GR,True,activity,-0.6819,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,HIF,True,activity,0.5312,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,HSF1,True,activity,1.2196,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Hedgehog,True,activity,-0.6178,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Hippo,True,activity,1.7646,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Insulin/FOXO,True,activity,0.182,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,JAK-STAT,True,activity,1.3275,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,LXR,True,activity,-0.4104,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,MR,True,activity,0.3556,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,NF-κB,True,activity,0.8912,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,NFAT,True,activity,0.1088,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,NRF2,True,activity,0.2678,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Notch,True,activity,0.4891,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,PI3K/PTEN,True,activity,0.0996,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,PPARα,True,activity,-0.4531,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,PPARγ,True,activity,0.3469,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,PR,True,activity,-0.0015,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,PXR/CAR,True,activity,1.0784,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,RAR,True,activity,0.2076,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,SREBP,True,activity,0.4876,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,TGF-β,True,activity,-0.1796,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,TR,True,activity,0.2829,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Type I IFN,True,activity,-0.5423,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,UPR-ATF6,True,activity,0.1942,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,UPR-IRE1,True,activity,0.5898,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,UPR-PERK,True,activity,0.7261,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,VDR,True,activity,1.0887,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,Wnt,True,activity,0.1936,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,cAMP/CREB,True,activity,0.3171,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,cGAS-STING,True,activity,0.0768,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,mTOR,True,activity,0.1327,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_8h,myofiber,p53,True,activity,1.0254,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,AMPK,True,activity,0.1331,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,AR,True,activity,0.4229,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,AhR,True,activity,0.4603,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Autophagy,True,activity,-0.0475,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,BMP,True,activity,-0.4271,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Calcium,True,activity,-0.3481,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Cell Cycle,True,activity,-0.3996,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Circadian,True,activity,-0.3346,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,ER,True,activity,0.2464,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,ERK/MAPK,True,activity,0.0208,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,FXR,True,activity,0.0291,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,GR,True,activity,-0.2945,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,HIF,True,activity,0.3242,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,HSF1,True,activity,0.4121,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Hedgehog,True,activity,0.0892,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Hippo,True,activity,0.6981,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Insulin/FOXO,True,activity,0.2898,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,JAK-STAT,True,activity,0.7499,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,LXR,True,activity,-0.1306,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,MR,True,activity,0.2511,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,NF-κB,True,activity,0.7031,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,NFAT,True,activity,0.0111,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,NRF2,True,activity,0.1953,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Notch,True,activity,0.0859,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,PI3K/PTEN,True,activity,-0.0139,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,PPARα,True,activity,-0.2746,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,PPARγ,True,activity,0.7063,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,PR,True,activity,-0.0815,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,PXR/CAR,True,activity,0.8545,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,RAR,True,activity,0.4001,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,SREBP,True,activity,0.6044,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,TGF-β,True,activity,-0.0243,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,TR,True,activity,0.2491,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Type I IFN,True,activity,-0.2939,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,UPR-ATF6,True,activity,0.1569,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,UPR-IRE1,True,activity,0.3092,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,UPR-PERK,True,activity,0.1191,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,VDR,True,activity,1.071,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,Wnt,True,activity,0.0749,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,cAMP/CREB,True,activity,-0.5073,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,cGAS-STING,True,activity,0.0344,log2fc,flat,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,mTOR,True,activity,-0.1269,log2fc,down,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.4,muscle_hypertrophy,hypertrophy,active,RE_24h,myofiber,p53,True,activity,0.4714,log2fc,up,,,paper4.4 muscle/results/02_re_activity_log2fc.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,AMPK,True,activity,-0.0065,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,AMPK,True,activity,0.0606,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,AR,True,activity,0.052,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,AR,True,activity,0.0575,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,AhR,True,activity,0.0373,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,AhR,True,activity,0.0134,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Autophagy,True,activity,0.0383,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Autophagy,True,activity,0.4932,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,BMP,True,activity,0.0167,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,BMP,True,activity,0.1331,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Calcium,True,activity,-0.2918,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Calcium,True,activity,0.1223,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Cell Cycle,True,activity,-0.1749,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Cell Cycle,True,activity,-0.7992,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Circadian,True,activity,0.0639,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Circadian,True,activity,0.0798,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,ER,True,activity,-0.1061,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,ER,True,activity,-0.1611,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,ERK/MAPK,True,activity,-0.157,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,ERK/MAPK,True,activity,0.0501,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,FXR,True,activity,0.0145,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,FXR,True,activity,0.0018,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,GR,True,activity,-0.0156,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,GR,True,activity,0.0004,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,HIF,True,activity,-0.1629,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,HIF,True,activity,-0.1025,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,HSF1,True,activity,0.0055,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,HSF1,True,activity,-0.0004,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Hedgehog,True,activity,0.0203,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Hedgehog,True,activity,0.0125,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Hippo,True,activity,0.0412,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Hippo,True,activity,0.0966,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Insulin/FOXO,True,activity,0.0304,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Insulin/FOXO,True,activity,0.0595,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,JAK-STAT,True,activity,-0.0059,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,JAK-STAT,True,activity,0.0321,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,LXR,True,activity,-0.0197,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,LXR,True,activity,0.0331,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,MR,True,activity,-0.0766,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,MR,True,activity,-0.1202,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,NF-κB,True,activity,0.0236,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,NF-κB,True,activity,0.0458,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,NFAT,True,activity,-0.0216,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,NFAT,True,activity,-0.0101,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,NRF2,True,activity,-0.071,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,NRF2,True,activity,-0.262,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Notch,True,activity,-0.1173,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Notch,True,activity,-0.1452,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,PI3K/PTEN,True,activity,0.079,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,PI3K/PTEN,True,activity,0.1378,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,PPARα,True,activity,-0.0973,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,PPARα,True,activity,-0.3532,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,PPARγ,True,activity,-0.0023,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,PPARγ,True,activity,0.0026,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,PR,True,activity,-0.021,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,PR,True,activity,-0.0134,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,PXR/CAR,True,activity,0.0,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,PXR/CAR,True,activity,0.0,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,RAR,True,activity,-0.0926,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,RAR,True,activity,-0.0491,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,SREBP,True,activity,0.1473,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,SREBP,True,activity,-0.1312,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,TGF-β,True,activity,-0.0058,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,TGF-β,True,activity,0.0059,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,TR,True,activity,-0.0011,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,TR,True,activity,-0.0347,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Type I IFN,True,activity,-0.0005,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Type I IFN,True,activity,0.0032,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,UPR-ATF6,True,activity,-0.1132,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,UPR-ATF6,True,activity,0.2133,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,UPR-IRE1,True,activity,0.027,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,UPR-IRE1,True,activity,0.273,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,UPR-PERK,True,activity,-0.0499,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,UPR-PERK,True,activity,0.262,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,VDR,True,activity,0.0,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,VDR,True,activity,0.0,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,Wnt,True,activity,-0.1295,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,Wnt,True,activity,0.168,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,cAMP/CREB,True,activity,-0.2006,log2fc,down,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,cAMP/CREB,True,activity,0.1843,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,cGAS-STING,True,activity,-0.0105,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,cGAS-STING,True,activity,-0.0051,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,mTOR,True,activity,-0.0391,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,mTOR,True,activity,-0.0156,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,active,active_phase,organoid,p53,True,activity,0.0296,log2fc,flat,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.6,organoid_differentiation,differentiation,mature,mature_phase,organoid,p53,True,activity,0.087,log2fc,up,,,paper4.6 organoid/results/02_phase_summary.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,AMPK,True,activity,-0.2116,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,AR,True,activity,-0.0285,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,AhR,True,activity,-0.0669,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Autophagy,True,activity,-0.2848,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,BMP,True,activity,0.0536,log2fc,up,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Calcium,True,activity,-0.6305,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Cell Cycle,True,activity,0.8075,log2fc,up,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Circadian,True,activity,-0.055,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,ER,True,activity,0.0845,log2fc,up,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,ERK/MAPK,True,activity,-0.4306,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,FXR,True,activity,-0.0784,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,GR,True,activity,-0.1513,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,HIF,True,activity,-0.65,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,HSF1,True,activity,0.2407,log2fc,up,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Hedgehog,True,activity,-0.0076,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Hippo,True,activity,0.5684,log2fc,up,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Insulin/FOXO,True,activity,-0.2343,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,JAK-STAT,True,activity,-0.0276,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,LXR,True,activity,-0.051,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,MR,True,activity,-0.0215,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,NF-κB,True,activity,-0.0532,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,NFAT,True,activity,-0.0085,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,NRF2,True,activity,0.0303,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Notch,True,activity,-0.1486,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,PI3K/PTEN,True,activity,-0.2859,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,PPARα,True,activity,-0.5597,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,PPARγ,True,activity,-0.0214,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,PR,True,activity,-0.0208,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,PXR/CAR,True,activity,0.0,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,RAR,True,activity,-0.0239,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,SREBP,True,activity,-0.4962,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,TGF-β,True,activity,-0.0244,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,TR,True,activity,-0.1834,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Type I IFN,True,activity,-0.0036,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,UPR-ATF6,True,activity,0.0234,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,UPR-IRE1,True,activity,-0.1807,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,UPR-PERK,True,activity,-0.1927,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,VDR,True,activity,0.0,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,Wnt,True,activity,0.0862,log2fc,up,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,cAMP/CREB,True,activity,-0.3974,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,cGAS-STING,True,activity,-0.004,log2fc,flat,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,mTOR,True,activity,-0.115,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.7,organoid_regeneration,regeneration,active,d1_vs_d4,organoid,p53,True,activity,-0.0581,log2fc,down,,,paper4.7 organoid_regen/results/02_full_module_log2fc.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,AMPK,True,activity,-0.0785,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,AR,True,activity,-0.0208,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,AhR,True,activity,0.0498,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Autophagy,True,activity,-0.0282,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,BMP,True,activity,-0.0438,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Calcium,True,activity,-0.4419,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Cell Cycle,True,activity,-0.1556,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Circadian,True,activity,0.0124,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,ER,True,activity,-0.0469,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,ERK/MAPK,True,activity,-0.2965,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,FXR,True,activity,0.4053,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,GR,True,activity,-0.0762,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,HIF,True,activity,-0.3644,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,HSF1,True,activity,-0.0156,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Hedgehog,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Hippo,True,activity,-0.1188,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Insulin/FOXO,True,activity,0.0222,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,JAK-STAT,True,activity,-0.0091,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,LXR,True,activity,0.1178,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,MR,True,activity,0.0278,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,NF-κB,True,activity,-0.0036,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,NFAT,True,activity,0.0038,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,NRF2,True,activity,0.1755,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Notch,True,activity,-0.1438,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,PI3K/PTEN,True,activity,-0.1901,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,PPARα,True,activity,0.7094,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,PPARγ,True,activity,0.1932,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,PR,True,activity,0.0545,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,PXR/CAR,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,RAR,True,activity,-0.0075,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,SREBP,True,activity,-0.2645,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,TGF-β,True,activity,0.0157,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,TR,True,activity,0.4414,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Type I IFN,True,activity,0.0102,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,UPR-ATF6,True,activity,-0.3348,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,UPR-IRE1,True,activity,-0.1771,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,UPR-PERK,True,activity,-0.2472,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,VDR,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,Wnt,True,activity,-0.044,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,cAMP/CREB,True,activity,-0.3315,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,cGAS-STING,True,activity,0.0098,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,mTOR,True,activity,0.0053,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,atRA,organoid,p53,True,activity,-0.1088,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,AMPK,True,activity,0.0049,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,AR,True,activity,0.2362,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,AhR,True,activity,0.0238,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Autophagy,True,activity,0.2394,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,BMP,True,activity,0.0441,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Calcium,True,activity,-0.1007,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Cell Cycle,True,activity,-0.2631,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Circadian,True,activity,-0.0209,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,ER,True,activity,0.032,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,ERK/MAPK,True,activity,-0.045,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,FXR,True,activity,-0.148,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,GR,True,activity,-0.0234,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,HIF,True,activity,0.303,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,HSF1,True,activity,0.0696,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Hedgehog,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Hippo,True,activity,-0.1387,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Insulin/FOXO,True,activity,-0.0236,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,JAK-STAT,True,activity,-0.0056,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,LXR,True,activity,-0.0494,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,MR,True,activity,0.0783,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,NF-κB,True,activity,0.0712,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,NFAT,True,activity,0.0052,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,NRF2,True,activity,0.0663,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Notch,True,activity,-0.0537,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,PI3K/PTEN,True,activity,0.02,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,PPARα,True,activity,-0.5498,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,PPARγ,True,activity,-0.0268,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,PR,True,activity,-0.0162,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,PXR/CAR,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,RAR,True,activity,-0.0836,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,SREBP,True,activity,0.0245,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,TGF-β,True,activity,0.0024,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,TR,True,activity,0.0872,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Type I IFN,True,activity,0.0034,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,UPR-ATF6,True,activity,0.0162,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,UPR-IRE1,True,activity,-0.0002,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,UPR-PERK,True,activity,0.3043,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,VDR,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,Wnt,True,activity,-0.0407,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,cAMP/CREB,True,activity,-0.0498,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,cGAS-STING,True,activity,0.006,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,mTOR,True,activity,0.2667,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,RXRi,organoid,p53,True,activity,-0.0007,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,AMPK,True,activity,-0.0029,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,AR,True,activity,-0.0297,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,AhR,True,activity,-0.0726,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Autophagy,True,activity,0.0105,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,BMP,True,activity,0.0143,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Calcium,True,activity,0.0511,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Cell Cycle,True,activity,0.0705,log2fc,up,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Circadian,True,activity,-0.014,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,ER,True,activity,0.0248,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,ERK/MAPK,True,activity,0.0219,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,FXR,True,activity,-0.0975,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,GR,True,activity,-0.0338,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,HIF,True,activity,0.0045,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,HSF1,True,activity,0.0324,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Hedgehog,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Hippo,True,activity,0.0424,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Insulin/FOXO,True,activity,-0.0188,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,JAK-STAT,True,activity,-0.0154,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,LXR,True,activity,-0.0119,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,MR,True,activity,-0.0135,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,NF-κB,True,activity,-0.0334,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,NFAT,True,activity,-0.0026,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,NRF2,True,activity,-0.0813,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Notch,True,activity,0.0394,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,PI3K/PTEN,True,activity,0.0052,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,PPARα,True,activity,-0.2359,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,PPARγ,True,activity,-0.0104,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,PR,True,activity,-0.0057,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,PXR/CAR,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,RAR,True,activity,-0.0202,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,SREBP,True,activity,-0.0763,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,TGF-β,True,activity,-0.0192,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,TR,True,activity,-0.0921,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Type I IFN,True,activity,-0.0041,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,UPR-ATF6,True,activity,-0.0489,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,UPR-IRE1,True,activity,-0.1116,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,UPR-PERK,True,activity,0.0125,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,VDR,True,activity,0.0,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,Wnt,True,activity,0.0495,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,cAMP/CREB,True,activity,0.0383,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,cGAS-STING,True,activity,-0.0044,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,mTOR,True,activity,0.0098,log2fc,flat,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4.8,organoid_retinoid,retinoid_perturbation,drug_perturbation,novita,organoid,p53,True,activity,-0.0539,log2fc,down,,,paper4.8 organoid_holdout/results/02_log2fc_perturbation_vs_dmso.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,cAMP/CREB,True,readiness,-0.05,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,cAMP/CREB,True,readiness,0.02,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,cAMP/CREB,True,activity,0.51,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,cAMP/CREB,True,activity,0.8,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Lacar,DG,cAMP/CREB,True,activity,0.795,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,ERK/MAPK,True,readiness,-0.12,cohens_d,down,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,ERK/MAPK,True,readiness,-0.03,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,ERK/MAPK,True,readiness,0.46,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,ERK/MAPK,True,readiness,0.6,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,ERK/MAPK,True,activity,0.2,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,ERK/MAPK,True,activity,0.58,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Lacar,DG,ERK/MAPK,True,activity,0.89,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,ERK/MAPK,True,activity,,cohens_d,na,,UNTESTABLE,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Lacar,DG,ERK/MAPK,True,activity,0.89,cohens_d,up,,UNTESTABLE,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,all_hippocampus,NFAT,True,readiness,-0.22,cohens_d,down,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,NFAT,True,activity,0.35,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,NFAT,True,activity,0.45,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,CA1,NFAT,True,activity,-0.2,cohens_d,down,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Lacar,DG,NFAT,True,activity,1.4,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,NF-κB,True,readiness,0.39,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,NF-κB,True,readiness,0.35,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,NF-κB,True,activity,0.29,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,NF-κB,True,activity,0.33,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Lacar,DG,NF-κB,True,readiness,0.78,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Lacar,DG,NF-κB,True,activity,0.1,cohens_d,up,,PARTIAL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,Wnt,True,readiness,0.75,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,Wnt,True,activity,0.24,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,Hippo,True,readiness,0.28,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,Hedgehog,True,readiness,0.45,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,Hedgehog,True,activity,0.31,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,HSF1,True,activity,1.4,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,cAMP/CREB,True,activity,,cohens_d,na,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,cAMP/CREB,True,activity,,cohens_d,na,,UNTESTABLE,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,NFAT,True,activity,,cohens_d,na,,UNTESTABLE,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,cAMP/CREB,True,composite,,cohens_d,na,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Ximerakis_aging,neurons,cAMP/CREB,True,readiness,0.03,cohens_d,flat,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Ximerakis_aging,neurons,cAMP/CREB,True,activity,-0.1,cohens_d,down,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,nan,neurons,cAMP/CREB,True,activity,,cohens_d,na,,PENDING,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Marco_1.5h,Excitatory,ERK/MAPK,True,activity,1.0,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Marco_1.5h,Excitatory,cAMP/CREB,True,activity,0.8,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,cAMP/CREB,True,activity,0.51,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_2h,all_hippocampus,ERK/MAPK,True,activity,-0.03,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Marco_1.5h,Excitatory,ERK/MAPK,True,activity,1.0,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_2h,all_hippocampus,ERK/MAPK,True,activity,-0.03,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_2h,all_hippocampus,cAMP/CREB,True,activity,-0.0,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,cAMP/CREB,True,activity,0.51,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d0,DG,ERK/MAPK,True,activity,0.2,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Marco_5d,Excitatory,cAMP/CREB,True,activity,0.64,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Marco_5d,Excitatory,ERK/MAPK,True,activity,0.62,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,all_hippocampus,cAMP/CREB,True,activity,0.19,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,all_hippocampus,ERK/MAPK,True,activity,0.21,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,NPAS4,True,activity,0.735,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Lacar,DG,NPAS4,True,activity,1.01,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,DG,NPAS4,True,activity,0.74,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,GSE271555_d1,CA1,NPAS4,True,activity,-0.004,cohens_d,flat,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_2h,all_hippocampus,ERK/MAPK,True,activity,-0.03,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_2h,all_hippocampus,cAMP/CREB,True,activity,-0.0,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,all_hippocampus,cAMP/CREB,True,activity,0.19,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,all_hippocampus,ERK/MAPK,True,activity,0.21,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,all_hippocampus,HSF1,True,activity,-0.68,cohens_d,down,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_24h,all_hippocampus,HSF1,True,activity,-0.56,cohens_d,down,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_24h,all_hippocampus,cAMP/CREB,True,activity,0.19,cohens_d,up,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_24h,all_hippocampus,HSF1,True,activity,-0.02,cohens_d,flat,,FAIL,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,amygdala_inhibitory,NPAS4,True,activity,0.65,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,amygdala_excitatory,NFAT,True,activity,0.45,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,amygdala_excitatory,HSF1,True,activity,-0.82,cohens_d,down,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Hochgerner_8h,all_hippocampus,UPR-ATF6,True,activity,0.27,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Jovasevic_96h,DG,cAMP/CREB,True,activity,-0.19,cohens_d,down,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Jovasevic_96h,DG,ERK/MAPK,True,activity,0.08,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Jovasevic_96h,DG,HSF1,True,activity,0.3,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Jovasevic_96h,DG,UPR-ATF6,True,activity,1.04,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Jovasevic_96h,DG,ER_chaperones,False,activity,0.83,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Jovasevic_96h,DG,Cyto_chaperones,False,activity,0.3,cohens_d,up,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Jovasevic_96h,DG,NPAS4,True,activity,-0.3,cohens_d,down,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4,memory_consolidation,memory_consolidation,active,Jovasevic_96h,DG,NFAT,True,activity,-0.21,cohens_d,down,,PASS,paper4 neuron perseption and memory/Memory Consolidation/repo/figures/figure2_scorecard_data.csv
+paper4.5,intestinal_homeostasis,terminal_differentiation,terminal/homeostasis,Goblet_vs_ISC,Goblet,UPR-ATF6,True,activity,-0.103,cohens_d,down,,FAIL,paper4.5 epithelial/results/02_scorecard.csv
+paper4.5,intestinal_homeostasis,terminal_differentiation,terminal/homeostasis,Paneth_vs_ISC,Paneth,UPR-IRE1,True,activity,-0.037,cohens_d,flat,,FAIL,paper4.5 epithelial/results/02_scorecard.csv
+paper4.5,intestinal_homeostasis,terminal_differentiation,terminal/homeostasis,Enterocyte_vs_ISC,Enterocyte,HSF1,True,activity,0.154,cohens_d,up,,FAIL,paper4.5 epithelial/results/02_scorecard.csv

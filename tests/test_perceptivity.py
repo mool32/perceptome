@@ -58,6 +58,58 @@ def test_predict_engagement_unknown_cell_type_raises():
         pct.predict_engagement("xyz_nonexistent_cell_type", ["HSF1"])
 
 
+# ---- Factor 2 (two-factor) regression tests — lock substrate-series biology ----
+
+def test_factor2_hypertrophy_capacious_ramps_up():
+    """paper4.4: hypertrophy drives an extreme proteostasis ramp in a capacious cell."""
+    row = pct.predict_engagement("myonuclei", ["UPR-PERK"], operation="hypertrophy").loc["UPR-PERK"]
+    assert row["operation_intensity"] == "extreme"
+    assert row["intensity_direction"] == "up"
+    assert row["capacity_floor"] == "capacious"
+    assert row["predicted_direction"] == "up"
+    assert row["predicted_magnitude"] == "extreme"
+
+
+def test_factor2_retinoid_suppresses_upratf6_down():
+    """paper4.8 T1 (upward-asymmetric): atRA actively suppresses UPR-ATF6 — confident
+    'down' even in a saturated cell."""
+    row = pct.predict_engagement(
+        "enteric stem cells", ["UPR-ATF6"], operation="retinoid_perturbation").loc["UPR-ATF6"]
+    assert row["intensity_direction"] == "suppressive"
+    assert row["predicted_direction"] == "down"            # robust (|effect| >= 0.30)
+    assert row["capacity_floor"] == "saturated_blocked_up"
+
+
+def test_factor2_terminal_diff_boundary_no_confident_ramp():
+    """paper4.5 boundary: terminal differentiation (homeostasis) drives no confident
+    ramp in Goblet UPR-ATF6 (effect within null floor)."""
+    row = pct.predict_engagement(
+        "goblet cells", ["UPR-ATF6"], operation="terminal_differentiation").loc["UPR-ATF6"]
+    assert row["predicted_direction"] in ("flat", "down_weak", "down")
+    assert row["predicted_magnitude"] in ("none", "low")
+    assert row["confidence"] == "low"                      # n=1 and/or saturated calib cell
+
+
+def test_factor2_invalid_operation_raises():
+    with pytest.raises(ValueError):
+        pct.predict_engagement("hepatocytes", ["HSF1"], operation="not_an_operation")
+
+
+def test_factor2_default_modules_for_operation():
+    """operation given without explicit modules -> all modules calibrated for it."""
+    pred = pct.predict_engagement("myonuclei", operation="hypertrophy")
+    assert len(pred) > 10
+    assert "operation_intensity" in pred.columns
+    assert set(pred["operation"].unique()) == {"hypertrophy"}
+
+
+def test_factor1_only_backward_compat_magnitude_unknown():
+    """No operation -> Factor-1 only; magnitude 'unknown', no Factor-2 columns."""
+    pred = pct.predict_engagement("cardiomyocytes", ["HSF1"])
+    assert pred.loc["HSF1", "predicted_magnitude"] == "unknown"
+    assert "operation_intensity" not in pred.columns
+
+
 def test_compute_perceptivity_with_synthetic():
     ref = pct.load_hpa_perceptivity()
     R = ref["R"].iloc[:10]

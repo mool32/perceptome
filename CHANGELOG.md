@@ -4,6 +4,32 @@ All notable changes to perceptome will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.3] — 2026-05-20
+
+Calibration patch. Adds a complementary HPA reference matrix calibrated for **per-cell single-cell tumor data**, enabling correct per-cell projection through the 9-PC eigenspace without scale artifacts.
+
+### Added
+
+- **`load_hpa_perceptivity(mode='single_cell_scaled')`** — new keyword argument. The bundled HPA reference now ships in two calibrations:
+  - `mode='pseudobulk'` (default, original behavior since v0.2.2): R, A computed directly from HPA pseudobulk nCPM as `mean log1p(nCPM)` per (cell type, module). Right for cell-type-level analyses.
+  - `mode='single_cell_scaled'` (new in v0.2.3): HPA pseudobulk nCPM passed through `sc.pp.normalize_total(target_sum=1e4) + sc.pp.log1p` before module scoring, matching the scale of per-cell scRNA-seq after standard preprocessing. Use this mode when projecting single-cell tumor datasets per-cell into the eigenspace.
+- **`perceptome/perceptivity/data/hpa_perceptivity_v03_scscaled.npz`** + `.json` — precomputed single-cell-scaled R/A/C/headroom matrices. Build script: `scripts/12_build_hpa_scscaled.py`.
+
+### Why this matters
+
+Without the single-cell-scaled reference, projecting per-cell tumor data into the eigenspace produces a scale artifact: per-cell module scores after standard preprocessing fall in a 0–0.5 range, while pseudobulk HPA reference sits in 1–3. Z-scoring per-cell tumor scores against pseudobulk μ, σ yields extreme negative z-vectors that collapse to the "low-engagement" eigenspace pole — top-1 nearest HPA cell type becomes erythrocytes for every cell. The single-cell-scaled reference puts HPA and per-cell tumor data on the same numerical footing and recovers biologically meaningful nearest-HPA assignments.
+
+The Paper 3 13-cancer convergence analysis (mean fraction of tumor cells whose top-1 nearest HPA is in the 8-beacon cluster) runs on this calibration in v0.2.3 and reproduces the original v3-paper numbers from a single unified pipeline.
+
+### Unchanged
+
+- Catalog (44 modules, v0.3).
+- 9-PC eigenspace `reference_v03.json` (PC1=0.99, PC4=0.78, PC8=0.40 bootstrap stability; var explained 73.8% total).
+- 8-beacon cluster identity (`attractor_v1.json`).
+- All v0.2.2 APIs are backward-compatible; `load_hpa_perceptivity()` without arguments still returns the pseudobulk reference.
+
+---
+
 ## [0.2.2] — 2026-05-10
 
 Discoverability + community-readiness patch. No code or data changes.

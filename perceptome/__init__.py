@@ -37,10 +37,12 @@ from .catalog import load_catalog, list_modules, get_genes, get_module_info, add
 from .score import score_modules, score_readiness, score_activity
 from .perceptivity import (
     compute_perceptivity, perceptivity_per_celltype, classify_quadrant,
-    capacity_floor, predict_engagement,
-    load_hpa_perceptivity, hpa_capacity_floor,
+    capacity_floor, predict_engagement, OPERATIONS,
+    load_hpa_perceptivity, hpa_capacity_floor, load_operation_intensity,
 )
-from .eigenspace import project, rebuild
+from .eigenspace import (
+    project, rebuild, varimax, DiffusionMap, coordinate_invariance, beacon_compactness,
+)
 from .compare import compare_conditions, divergence_score, compare_to_references, infrastructure_regime
 from .reference import load_attractor_direction, attractor_alignment
 from .drugs import drug_anchors, activity_layer_screen
@@ -60,10 +62,11 @@ __all__ = [
     "score_modules", "score_readiness", "score_activity",
     # perceptivity
     "compute_perceptivity", "perceptivity_per_celltype", "classify_quadrant",
-    "capacity_floor", "predict_engagement",
-    "load_hpa_perceptivity", "hpa_capacity_floor",
+    "capacity_floor", "predict_engagement", "OPERATIONS",
+    "load_hpa_perceptivity", "hpa_capacity_floor", "load_operation_intensity",
     # eigenspace
-    "project", "rebuild",
+    "project", "rebuild", "varimax", "DiffusionMap",
+    "coordinate_invariance", "beacon_compactness",
     # compare
     "compare_conditions", "divergence_score", "compare_to_references", "infrastructure_regime",
     # reference
