@@ -43,9 +43,9 @@ That's the geometry workflow. There are three more — see the tutorial.
 
 ## What you get — the eigenspace at a glance
 
-![perceptome eigenspace: 154 HPA cell types in PC1 × PC4 with the cancer attractor cluster marked](examples/figures/eigenspace_pc1_pc4.png)
+![perceptome eigenspace: 154 normal HPA cell types in PC1 × PC4 with the placental cytotrophoblast (anchor) and megakaryocyte (secondary) marked](examples/figures/eigenspace_pc1_pc4.png)
 
-154 normal human cell types from the Human Protein Atlas, projected into the 9-PC perceptome eigenspace and shown along **PC1 (perception breadth)** and **PC4 (cancer convergence axis)**. The dashed circle marks the **v0.2 cancer attractor** — a cluster of "active state" non-origin normal cell types that cancers converge toward during transformation, and the reference the tool currently bundles. The finding has since been substantially extended and published: **25 cancers of all lineages converge on the placental cytotrophoblast**, a normal invasive cell state that malignancy deepens ~6× within matched tumor–normal pairs — [Zenodo 10.5281/zenodo.20542130](https://doi.org/10.5281/zenodo.20542130). That refined direction folds into the bundled reference at v0.4. *(This figure shows the v0.2 attractor and will be regenerated for the cytotrophoblast result at v0.4.)*
+154 normal human cell types from the Human Protein Atlas, projected into the 9-PC perceptome eigenspace and shown along **PC1 (perception breadth)** and **PC4 (cancer convergence axis)**. The stars mark the **two-cell core** of the published convergence result: the **placental cytotrophoblast** (anchor) and the **megakaryocyte** (lineage-restricted secondary). Malignant cells of **25 cancers of all lineages converge on the cytotrophoblast** — a normal invasive cell state that malignancy deepens ~6× within matched tumor–normal pairs — [Zenodo 10.5281/zenodo.20542130](https://doi.org/10.5281/zenodo.20542130). *(The eigenspace shown is the tool's bundled v0.2 normal-cell reference; the convergence result is Spiro 2026, folding into the bundled cancer direction at v0.4.)*
 
 Any new cell — yours, a tumor cell, a drug-treated cell — projects into the same coordinate system and can be compared directly to all 154 reference cells and to known directions (cancer attractor, disease vectors, aging axes).
 
