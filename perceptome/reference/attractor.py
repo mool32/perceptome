@@ -34,6 +34,8 @@ def load_attractor_direction():
         eigenspace_PC_names              list[str]
         P3_per_celltype                  dict (Sun 2021 detail)
         source                           pre-reg sha + closing memo paths
+        anchor, anchor_label, secondary  v9 convergence core (cytotrophoblast + megakaryocyte)
+        published_refinement             dict (Spiro 2026 cytotrophoblast result, Zenodo DOI)
     """
     with open(_REF_FILE) as f:
         d = json.load(f)

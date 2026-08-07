@@ -50,3 +50,12 @@ def test_attractor_alignment_orthogonal_low_cosine():
     out = pct.attractor_alignment(-direction, mode="modules")
     assert out["cosine"] < -0.99
     assert out["passes_p3_threshold"] is False
+
+
+def test_attractor_published_anchor():
+    """Cancer reference reconciled to the published cytotrophoblast result (Spiro 2026)."""
+    attr = pct.load_attractor_direction()
+    assert attr["anchor"] == "cytotrophoblasts"
+    assert attr["secondary"] == "megakaryocytes"
+    assert attr["published_refinement"]["doi"] == "10.5281/zenodo.20542130"
+    assert attr["published_refinement"]["n_cancers"] == 25

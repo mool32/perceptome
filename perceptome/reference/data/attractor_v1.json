@@ -39,19 +39,19 @@
     "JAK-STAT": 0.0,
     "LXR": -0.7488901993949462,
     "MR": -1.0717442469684113,
-    "NF-κB": -0.6002910791052232,
+    "NF-\u03baB": -0.6002910791052232,
     "NFAT": 0.0,
     "NPAS4": 0.0,
     "NRF2": -0.10003975010318333,
     "Notch": 0.0,
     "PI3K/PTEN": 0.0,
-    "PPARα": 0.0,
-    "PPARγ": 0.0,
+    "PPAR\u03b1": 0.0,
+    "PPAR\u03b3": 0.0,
     "PR": 0.0,
     "PXR/CAR": 0.0,
     "RAR": 0.0,
     "SREBP": -0.6290427057330765,
-    "TGF-β": 0.0,
+    "TGF-\u03b2": 0.0,
     "TR": -0.6101135175895211,
     "Type I IFN": 0.0,
     "UPR-ATF6": 0.44308551459543377,
@@ -390,5 +390,17 @@
       ]
     }
   },
-  "interpretive_note": "Cancer cells move IN the attractor direction within capacity space without arriving AT the attractor capacity profile — direction reproducible across transformation, destination correspondence is not. Use attractor_direction_eigenspace as a reference vector for cosine alignment of (tumor − normal) shift vectors."
+  "interpretive_note": "Published refinement (Spiro 2026, Zenodo 10.5281/zenodo.20542130): the convergence anchor is the placental cytotrophoblast (megakaryocyte a lineage-restricted secondary), across 25 cancers of all lineages, with within-patient deepening. --- Cancer cells move IN the attractor direction within capacity space without arriving AT the attractor capacity profile \u2014 direction reproducible across transformation, destination correspondence is not. Use attractor_direction_eigenspace as a reference vector for cosine alignment of (tumor \u2212 normal) shift vectors.",
+  "anchor": "cytotrophoblasts",
+  "anchor_label": "placental cytotrophoblast",
+  "secondary": "megakaryocytes",
+  "published_refinement": {
+    "paper": "Cancers of all lineages converge on the placental cytotrophoblast, a normal invasive cell state that malignancy deepens",
+    "author": "Spiro, Theodor",
+    "year": 2026,
+    "doi": "10.5281/zenodo.20542130",
+    "n_cancers": 25,
+    "finding": "Malignant cells of 25 cancers of all lineages converge on a two-cell core anchored by the placental cytotrophoblast (megakaryocyte a lineage-restricted secondary); within matched tumor-normal pairs, malignancy deepens the state ~6x (colorectal 43/46, paired P<1e-12; kidney+liver 77/86; absent in high-baseline lung).",
+    "direction_status": "The attractor_direction vectors below remain the v0.2 Paper 4.2 P3 estimate (11-13 cancer cohort). A full recompute of the empirical convergence direction from the 25-cancer cohort is a future data release."
+  }
 }

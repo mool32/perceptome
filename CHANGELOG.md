@@ -4,6 +4,17 @@ All notable changes to perceptome will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+Cancer reference reconciled to the published convergence result.
+
+### Changed
+- **`attractor_v1.json` now names the convergence anchor** — the placental cytotrophoblast (megakaryocyte a lineage-restricted secondary) — and cites the published finding (Spiro 2026, *Cancers of all lineages converge on the placental cytotrophoblast*, Zenodo [10.5281/zenodo.20542130](https://doi.org/10.5281/zenodo.20542130); 25 cancers, within-patient deepening). `load_attractor_direction()` now returns `anchor`, `secondary`, and `published_refinement`.
+- **README hero figure regenerated** to mark this two-cell core instead of the earlier 8-cell attractor cluster.
+
+### Note
+- The bundled `attractor_direction` vectors remain the v0.2 Paper 4.2 P3 estimate (11–13 cancer cohort). A full recompute of the empirical convergence direction from the 25-cancer cohort is tracked for a future data release (requires the raw scRNA pipeline).
+
 ## [0.2.2] — 2026-05-10
 
 Discoverability + community-readiness patch. No code or data changes.
