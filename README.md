@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python: ≥3.8](https://img.shields.io/badge/Python-≥3.8-blue.svg)](https://www.python.org)
-[![Tests: 73/73](https://img.shields.io/badge/tests-73%2F73%20passing-green.svg)](#tests)
+[![Tests: 73/73](https://img.shields.io/badge/tests-84%2F84%20passing-green.svg)](#tests)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20113468.svg)](https://doi.org/10.5281/zenodo.20113468)
 
 A Python toolkit for analyzing single-cell RNA-seq data through the lens of **44 cellular signaling pathways** (NF-κB, mTOR, UPR, p53, nuclear receptors, …) treated as a **perceptual system** — the machinery a cell uses to sense and respond to its environment.
@@ -84,6 +84,7 @@ perceptome works one level up: **44 pathways, treated as the cell's signaling re
 | Subpackage | Function | What it answers |
 |---|---|---|
 | **catalog** | `pct.list_modules()`, `pct.get_genes(module, gene_set)` | What modules and gene panels are defined? |
+| **catalog (loop layer, v0.4)** | `pct.list_loops()`, `pct.loop_gene_sets(module)` | How does each module's negative feedback close, and which perturbations test it? *Curated, not yet validated* — see [`docs/LOOPS.md`](docs/LOOPS.md) |
 | **score** | `pct.score_modules`, `pct.score_readiness`, `pct.score_activity` | Module activity per cell from expression |
 | **eigenspace** | `pct.project`, `pct.rebuild` | Project into the 9-PC reference perceptual space |
 | **perceptivity** | `pct.compute_perceptivity`, `pct.predict_engagement`, `pct.capacity_floor` | Capacity, headroom, saturation per cell type × module |
@@ -132,7 +133,7 @@ When the preprints are posted, this section will link to them directly.
 ```bash
 pip install pytest
 pytest tests/ -v
-# 73/73 passing in <2 seconds
+# 84/84 passing in <2 seconds
 ```
 
 Coverage: catalog, scoring, perceptivity (with biological regression checks against published a-priori predictions), eigenspace projection, attractor reference, validity scorecard, drug anchors + activity_layer_screen, end-to-end pipeline, reproducibility.

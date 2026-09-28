@@ -13,12 +13,20 @@ Each module entry exposes:
   - pan_cellular           True if module operates across all cell types
   - tissue_bias            list of cell-class hints (does NOT exclude scoring)
   - mii                    Module Importance Index (or None if not yet computed)
+
+Loop layer (v0.4, separate file, v0.3 fields untouched): per-module negative-
+feedback structure — feedback_core, loop_targets (disjoint), perturbation
+classes and a testability tier. See load_loops() and docs/LOOPS.md.
 """
 
 from .modules import load_catalog, list_modules, get_genes, get_module_info, add_module
 from .validate import validate_catalog
+from .loops import (
+    load_loops, list_loops, get_loop, loop_gene_sets, loop_overlaps, validate_loops,
+)
 
 __all__ = [
     "load_catalog", "list_modules", "get_genes", "get_module_info",
     "add_module", "validate_catalog",
+    "load_loops", "list_loops", "get_loop", "loop_gene_sets", "loop_overlaps", "validate_loops",
 ]

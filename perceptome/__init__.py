@@ -34,6 +34,7 @@ See docs and examples/ for end-to-end pipelines.
 __version__ = "0.2.2"
 
 from .catalog import load_catalog, list_modules, get_genes, get_module_info, add_module, validate_catalog
+from .catalog import load_loops, list_loops, get_loop, loop_gene_sets, loop_overlaps, validate_loops
 from .score import score_modules, score_readiness, score_activity
 from .perceptivity import (
     compute_perceptivity, perceptivity_per_celltype, classify_quadrant,
@@ -56,6 +57,7 @@ __all__ = [
     "__version__",
     # catalog
     "load_catalog", "list_modules", "get_genes", "get_module_info", "add_module", "validate_catalog",
+    "load_loops", "list_loops", "get_loop", "loop_gene_sets", "loop_overlaps", "validate_loops",
     # score
     "score_modules", "score_readiness", "score_activity",
     # perceptivity

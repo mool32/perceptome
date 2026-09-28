@@ -1,0 +1,1256 @@
+{
+  "version": "0.4-loops",
+  "base_catalog": "0.3",
+  "status": "curated, not yet validated; tiers expected from cell-line biology, not yet checked against the Replogle et al. 2022 perturbation list",
+  "n_modules": 44,
+  "aliases": {
+    "PHD2": "EGLN1",
+    "GILZ": "TSC22D3",
+    "CTGF": "CCN2",
+    "CYR61": "CCN1",
+    "G6PC": "G6PC1",
+    "ACPP": "ACP3"
+  },
+  "tiers": {
+    "A": "active in standard screening lines (K562 / RPE1) with clean perturbations",
+    "B": "testable in a specific context (see context)",
+    "C": "needs an exogenous stimulus",
+    "D": "needs a ligand / lineage absent from standard lines",
+    "E": "no clean transcriptional loop; not a loop-integrity candidate"
+  },
+  "perturbation_classes": {
+    "break": "remove the feedback -> output up, cell-to-cell noise up, target-feedback coupling lost",
+    "input_down": "remove the input -> output down",
+    "input_up": "raise the input with the loop intact -> output up, noise compressed"
+  },
+  "loops": {
+    "AMPK": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "energy sensing is post-translational; no transcriptional feedback curated",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "AR": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no ligand in standard lines; FKBP5 feedback curated under GR",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "AhR": {
+      "tier": "C",
+      "feedback_core": [
+        "AHRR",
+        "CYP1A1",
+        "TIPARP"
+      ],
+      "loop_targets": [
+        "CYP1B1",
+        "NQO1"
+      ],
+      "feedback_mechanism": "AHR induces its repressor AHRR, the ligand-degrading CYP1A1 and the ADP-ribosyltransferase TIPARP",
+      "feedback_is_output": true,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "AHRR",
+          "TIPARP"
+        ],
+        "input_down": [
+          "AHR",
+          "ARNT"
+        ],
+        "input_up": []
+      },
+      "context": "needs AhR ligand; ARNT shared with HIF (specificity test); NQO1 shared with NRF2",
+      "v03_issues": "all three v0.3 feedback genes were also activity genes",
+      "refs": [
+        "Mimura et al. 1999 Genes Dev",
+        "MacPherson et al. 2013 Nucleic Acids Res"
+      ]
+    },
+    "Autophagy": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "flux is post-translational; transcriptional TFEB loop not curated",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "BMP": {
+      "tier": "C",
+      "feedback_core": [
+        "SMAD6",
+        "BAMBI"
+      ],
+      "loop_targets": [
+        "ID1",
+        "ID2",
+        "ID3"
+      ],
+      "feedback_mechanism": "BMP-induced inhibitory SMAD6 and pseudoreceptor BAMBI",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "SMAD6"
+        ],
+        "input_down": [
+          "SMAD1",
+          "SMAD5",
+          "BMPR1A",
+          "SMAD4"
+        ],
+        "input_up": []
+      },
+      "context": "needs BMP stimulation",
+      "v03_issues": "no feedback_genes in v0.3; SMAD6/BAMBI sat in activity_genes",
+      "refs": [
+        "Imamura et al. 1997 Nature",
+        "Onichtchouk et al. 1999 Nature"
+      ]
+    },
+    "Calcium": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "loop curated under NFAT (RCAN1)",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "Cell Cycle": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "oscillator, not a homeostatic negative-feedback module",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "Circadian": {
+      "tier": "D",
+      "feedback_core": [
+        "PER1",
+        "PER2",
+        "PER3",
+        "CRY1",
+        "CRY2",
+        "NR1D1",
+        "NR1D2"
+      ],
+      "loop_targets": [
+        "DBP",
+        "TEF"
+      ],
+      "feedback_mechanism": "the transcription-translation loop is the module itself",
+      "feedback_is_output": true,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "CRY1",
+          "CRY2",
+          "PER2"
+        ],
+        "input_down": [
+          "CLOCK",
+          "BMAL1"
+        ],
+        "input_up": []
+      },
+      "context": "unsynchronised cultured cells average the clock away",
+      "v03_issues": "CRY1/NR1D1/PER1/PER2 were both feedback and activity genes",
+      "refs": [
+        "Takahashi 2017 Nat Rev Genet"
+      ]
+    },
+    "ER": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no ligand in standard lines",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "ERK/MAPK": {
+      "tier": "A",
+      "feedback_core": [
+        "DUSP6",
+        "DUSP4",
+        "SPRY2",
+        "SPRY4",
+        "SPRED1"
+      ],
+      "loop_targets": [
+        "FOS",
+        "EGR1",
+        "ETV4",
+        "ETV5",
+        "PHLDA1"
+      ],
+      "feedback_mechanism": "MEK/ERK-induced phosphatases (DUSP4/6) and RTK-RAS inhibitors (SPRY/SPRED)",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "DUSP6",
+          "SPRY2",
+          "SPRY4",
+          "SPRED1"
+        ],
+        "input_down": [
+          "GRB2",
+          "SOS1",
+          "RAF1",
+          "MAP2K1",
+          "MAPK1"
+        ],
+        "input_up": [
+          "NF1"
+        ]
+      },
+      "context": "K562: pathway driven by BCR-ABL",
+      "v03_issues": "v0.3 feedback list has 21 genes incl. GADD45A/B/G (shared with NF-kB); DUSP1/DUSP6 were also targets. DUSP1 dropped from both sets (induced by GR/p38 as much as by ERK). PHLDA1 added as MEK-dependent output.",
+      "refs": [
+        "Pratilas et al. 2009 PNAS",
+        "Legewie et al. 2009 Mol Syst Biol"
+      ]
+    },
+    "FXR": {
+      "tier": "D",
+      "feedback_core": [
+        "NR0B2"
+      ],
+      "loop_targets": [
+        "ABCB11",
+        "SLC51A",
+        "FGF19",
+        "BAAT"
+      ],
+      "feedback_mechanism": "FXR induces the repressor SHP (NR0B2)",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "NR0B2"
+        ],
+        "input_down": [
+          "NR1H4"
+        ],
+        "input_up": []
+      },
+      "context": "hepatocyte / enterocyte only",
+      "v03_issues": "no feedback_genes in v0.3; NR0B2 sat in activity_genes",
+      "refs": [
+        "Goodwin et al. 2000 Mol Cell"
+      ]
+    },
+    "GR": {
+      "tier": "D",
+      "feedback_core": [
+        "FKBP5"
+      ],
+      "loop_targets": [
+        "TSC22D3",
+        "SGK1",
+        "PER1",
+        "KLF13"
+      ],
+      "feedback_mechanism": "GR induces FKBP5, which lowers GR ligand affinity and nuclear translocation",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "FKBP5"
+        ],
+        "input_down": [
+          "NR3C1"
+        ],
+        "input_up": []
+      },
+      "context": "needs glucocorticoid",
+      "v03_issues": "no feedback_genes in v0.3; FKBP5 sat in activity_genes; DUSP1 dropped (shared with ERK)",
+      "refs": [
+        "Vermeer et al. 2003 J Clin Endocrinol Metab",
+        "Binder 2009 Psychoneuroendocrinology"
+      ]
+    },
+    "HIF": {
+      "tier": "A",
+      "feedback_core": [
+        "EGLN3"
+      ],
+      "loop_targets": [
+        "VEGFA",
+        "SLC2A1",
+        "LDHA",
+        "PGK1",
+        "BNIP3",
+        "CA9"
+      ],
+      "feedback_mechanism": "HIF induces the prolyl hydroxylase EGLN3 (PHD3); EGLN1/VHL degradation machinery is constitutive",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "VHL",
+          "EGLN1"
+        ],
+        "input_down": [
+          "HIF1A",
+          "ARNT"
+        ],
+        "input_up": []
+      },
+      "context": "normoxic lines: basal activity low, VHL/EGLN1 knockdown strongly induces",
+      "v03_issues": "'PHD2' is an alias of EGLN1 (duplicate entry); EGLN3 was also an activity gene",
+      "refs": [
+        "Epstein et al. 2001 Cell",
+        "Aprelikova et al. 2004 J Cell Biochem"
+      ]
+    },
+    "HSF1": {
+      "tier": "A",
+      "feedback_core": [
+        "HSPA1A",
+        "HSPA1B",
+        "DNAJB1",
+        "HSP90AA1"
+      ],
+      "loop_targets": [
+        "HSPA6",
+        "HSPB1",
+        "BAG3"
+      ],
+      "feedback_mechanism": "chaperone titration: HSF1-induced HSP70/HSP90 rebind and inactivate HSF1",
+      "feedback_is_output": true,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "HSP90AB1",
+          "HSP90AA1",
+          "HSPA8"
+        ],
+        "input_down": [
+          "HSF1"
+        ],
+        "input_up": []
+      },
+      "context": "chaperone knockdowns are also proteotoxic; compare against HSF1 knockdown",
+      "v03_issues": "feedback and activity lists overlapped (HSPA1A, HSP90AA1); module internally incoherent in the step10 audit (gene coherence -0.06, FRAGILE)",
+      "refs": [
+        "Zou et al. 1998 Cell",
+        "Zheng et al. 2016 eLife",
+        "Krakowiak et al. 2018 eLife"
+      ]
+    },
+    "Hedgehog": {
+      "tier": "D",
+      "feedback_core": [
+        "PTCH1",
+        "HHIP"
+      ],
+      "loop_targets": [
+        "GLI1",
+        "PTCH2",
+        "FOXF1"
+      ],
+      "feedback_mechanism": "GLI induces the receptor PTCH1 and the ligand trap HHIP",
+      "feedback_is_output": true,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [],
+        "input_down": [
+          "SMO",
+          "GLI1",
+          "GLI2"
+        ],
+        "input_up": [
+          "PTCH1",
+          "SUFU"
+        ]
+      },
+      "context": "inactive outside developmental / ciliated contexts",
+      "v03_issues": "all three v0.3 feedback genes were also activity genes",
+      "refs": [
+        "Chuang & McMahon 1999 Nature"
+      ]
+    },
+    "Hippo": {
+      "tier": "B",
+      "feedback_core": [
+        "LATS2",
+        "NF2",
+        "AMOTL2"
+      ],
+      "loop_targets": [
+        "CCN2",
+        "CCN1",
+        "ANKRD1"
+      ],
+      "feedback_mechanism": "YAP/TAZ-TEAD induce LATS2, NF2 and AMOTL2, which re-inactivate YAP/TAZ",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "LATS2",
+          "NF2",
+          "AMOTL2"
+        ],
+        "input_down": [
+          "YAP1",
+          "WWTR1",
+          "TEAD1"
+        ],
+        "input_up": [
+          "LATS1"
+        ]
+      },
+      "context": "adherent cells (RPE1); YAP activity low in suspension K562",
+      "v03_issues": "v0.3 feedback held NKD1/NKD2 (Wnt) and BIRC2/3 (NF-kB); BIRC5 dropped from targets (survivin tracks proliferation); CTGF/CYR61 renamed CCN2/CCN1",
+      "refs": [
+        "Moroishi et al. 2015 Genes Dev"
+      ]
+    },
+    "Insulin/FOXO": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "feedback is post-translational",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "JAK-STAT": {
+      "tier": "A",
+      "feedback_core": [
+        "SOCS1",
+        "SOCS3",
+        "CISH"
+      ],
+      "loop_targets": [
+        "IRF1",
+        "BCL2L1",
+        "MYC",
+        "PIM1",
+        "OSMR"
+      ],
+      "feedback_mechanism": "STAT-induced SOCS/CIS proteins inhibit JAKs and compete for receptor docking sites",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "SOCS3",
+          "SOCS1",
+          "CISH",
+          "PTPN2"
+        ],
+        "input_down": [
+          "STAT5A",
+          "STAT5B",
+          "STAT3",
+          "JAK2",
+          "JAK1"
+        ],
+        "input_up": []
+      },
+      "context": "K562: constitutive STAT5 via BCR-ABL (CISH is the canonical STAT5 feedback); targets are STAT3/STAT1-oriented, PIM1/BCL2L1/MYC are shared STAT5 targets",
+      "v03_issues": "no feedback_genes in v0.3; SOCS1/SOCS3 sat in activity_genes",
+      "refs": [
+        "Starr et al. 1997 Nature",
+        "Matsumoto et al. 1997 Blood (CIS/STAT5)"
+      ]
+    },
+    "LXR": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no clean transcriptional feedback on the receptor",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "MR": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no ligand in standard lines",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "NF-κB": {
+      "tier": "C",
+      "feedback_core": [
+        "NFKBIA",
+        "TNFAIP3",
+        "NFKBIE"
+      ],
+      "loop_targets": [
+        "IL6",
+        "TNF",
+        "CXCL10",
+        "CCL2",
+        "ICAM1",
+        "IL1B",
+        "CXCL8",
+        "BCL2L1",
+        "MMP9",
+        "PTGS2"
+      ],
+      "feedback_mechanism": "NF-kB resynthesises its inhibitors IkBa/IkBe and the deubiquitinase A20",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "NFKBIA",
+          "TNFAIP3"
+        ],
+        "input_down": [
+          "RELA",
+          "IKBKB",
+          "IKBKG"
+        ],
+        "input_up": []
+      },
+      "context": "resting K562/RPE1 have little NF-kB activity; use TNF/IL-1 stimulation data",
+      "v03_issues": "v0.3 feedback list had 15 genes incl. UBE2I, PIAS4, GADD45A/B/G, BIRC2/3; NFKBIA/TNFAIP3 were also targets",
+      "refs": [
+        "Hoffmann et al. 2002 Science",
+        "Lee et al. 2000 Science",
+        "Nelson et al. 2004 Science"
+      ]
+    },
+    "NFAT": {
+      "tier": "D",
+      "feedback_core": [
+        "RCAN1"
+      ],
+      "loop_targets": [
+        "IL2",
+        "CSF2",
+        "IL4",
+        "FASLG",
+        "GRIA1",
+        "KCNA4"
+      ],
+      "feedback_mechanism": "NFAT induces RCAN1 (DSCR1), an inhibitor of calcineurin",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "RCAN1"
+        ],
+        "input_down": [
+          "PPP3CA",
+          "PPP3CB",
+          "PPP3R1",
+          "NFATC1",
+          "NFATC2"
+        ],
+        "input_up": []
+      },
+      "context": "needs Ca2+ stimulation in T cells / neurons",
+      "v03_issues": "no feedback_genes in v0.3; RCAN1 sat in activity_genes (also in Calcium)",
+      "refs": [
+        "Yang et al. 2000 Circ Res",
+        "Rothermel et al. 2003 Trends Cardiovasc Med"
+      ]
+    },
+    "NPAS4": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "post-translational turnover (see v0.3 note)",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "NRF2": {
+      "tier": "A",
+      "feedback_core": [],
+      "loop_targets": [
+        "NQO1",
+        "HMOX1",
+        "TXNRD1",
+        "GCLC",
+        "GCLM",
+        "SLC7A11",
+        "GPX2",
+        "FTH1"
+      ],
+      "feedback_mechanism": "post-translational: KEAP1-CUL3 ubiquitinates NRF2; no reliable transcriptional feedback",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [
+          "KEAP1",
+          "CUL3"
+        ],
+        "input_down": [
+          "NFE2L2"
+        ],
+        "input_up": []
+      },
+      "context": "break-only test: coupling metric not applicable, noise-compression metric applies",
+      "v03_issues": "no feedback_genes in v0.3",
+      "refs": [
+        "Itoh et al. 1999 Genes Dev",
+        "Kobayashi et al. 2004 Mol Cell Biol"
+      ]
+    },
+    "Notch": {
+      "tier": "D",
+      "feedback_core": [
+        "NRARP"
+      ],
+      "loop_targets": [
+        "HES1",
+        "HEY1",
+        "HEY2"
+      ],
+      "feedback_mechanism": "Notch induces NRARP, which destabilises the NICD-RBPJ complex",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "NRARP"
+        ],
+        "input_down": [
+          "RBPJ",
+          "NOTCH1",
+          "MAML1"
+        ],
+        "input_up": []
+      },
+      "context": "needs ligand-expressing neighbours",
+      "v03_issues": "NRARP/DTX1 were both feedback and activity genes",
+      "refs": [
+        "Lamar et al. 2001 Genes Dev"
+      ]
+    },
+    "PI3K/PTEN": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "feedback is post-translational (S6K-IRS1, AKT-FOXO)",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "PPARα": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no clean transcriptional feedback on the receptor",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "PPARγ": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no clean transcriptional feedback on the receptor",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "PR": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no ligand in standard lines",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "PXR/CAR": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no ligand in standard lines",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "RAR": {
+      "tier": "D",
+      "feedback_core": [
+        "CYP26A1"
+      ],
+      "loop_targets": [
+        "CRABP2",
+        "TGM2",
+        "RARB",
+        "HOXA1"
+      ],
+      "feedback_mechanism": "ligand catabolism: RAR induces CYP26A1, which degrades retinoic acid",
+      "feedback_is_output": true,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "CYP26A1"
+        ],
+        "input_down": [
+          "RARA"
+        ],
+        "input_up": []
+      },
+      "context": "needs retinoic acid",
+      "v03_issues": "no feedback_genes in v0.3; CYP26A1 sat in activity_genes",
+      "refs": [
+        "Ray et al. 1997 J Biol Chem"
+      ]
+    },
+    "SREBP": {
+      "tier": "A",
+      "feedback_core": [
+        "INSIG1"
+      ],
+      "loop_targets": [
+        "HMGCR",
+        "FASN",
+        "SCD",
+        "ACLY",
+        "LDLR"
+      ],
+      "feedback_mechanism": "SREBP induces INSIG1, which retains SCAP-SREBP in the ER",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "INSIG1",
+          "INSIG2"
+        ],
+        "input_down": [
+          "SCAP",
+          "SREBF2",
+          "SREBF1",
+          "MBTPS1",
+          "MBTPS2"
+        ],
+        "input_up": []
+      },
+      "context": "MBTPS1/2 shared with UPR-ATF6 (specificity test); targets mix SREBP1 lipogenic and SREBP2 sterol arms",
+      "v03_issues": "v0.3 feedback included LDLR/PCSK9 (uptake arm, metabolite-mediated) and LDLR was also a target",
+      "refs": [
+        "Yang et al. 2002 Cell",
+        "Horton et al. 2002 J Clin Invest"
+      ]
+    },
+    "TGF-β": {
+      "tier": "C",
+      "feedback_core": [
+        "SMAD7",
+        "SKIL",
+        "PMEPA1"
+      ],
+      "loop_targets": [
+        "SERPINE1",
+        "COL1A1",
+        "CCN2",
+        "FN1",
+        "TGFBI"
+      ],
+      "feedback_mechanism": "SMAD-induced inhibitory SMAD7, SnoN (SKIL) and PMEPA1",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "SMAD7",
+          "SKIL"
+        ],
+        "input_down": [
+          "SMAD4",
+          "SMAD3",
+          "TGFBR1",
+          "TGFBR2"
+        ],
+        "input_up": []
+      },
+      "context": "needs TGF-b stimulation or autocrine signalling",
+      "v03_issues": "no feedback_genes in v0.3; SMAD7 sat in activity_genes; CTGF renamed CCN2",
+      "refs": [
+        "Nakao et al. 1997 Nature",
+        "Stroschein et al. 1999 Science"
+      ]
+    },
+    "TR": {
+      "tier": "E",
+      "feedback_core": [],
+      "loop_targets": [],
+      "feedback_mechanism": "no clean transcriptional feedback on the receptor",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [],
+        "input_up": []
+      },
+      "context": "",
+      "v03_issues": "",
+      "refs": []
+    },
+    "Type I IFN": {
+      "tier": "C",
+      "feedback_core": [
+        "USP18"
+      ],
+      "loop_targets": [
+        "ISG15",
+        "MX1",
+        "OAS1",
+        "IFIT1",
+        "IFIT3",
+        "IFI44L"
+      ],
+      "feedback_mechanism": "ISG USP18 displaces JAK1 from IFNAR2",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "USP18"
+        ],
+        "input_down": [
+          "IFNAR1",
+          "IFNAR2",
+          "STAT1",
+          "STAT2",
+          "IRF9"
+        ],
+        "input_up": []
+      },
+      "context": "needs IFN or tonic IFN signalling",
+      "v03_issues": "no feedback_genes in v0.3; USP18 sat in activity_genes",
+      "refs": [
+        "Malakhova et al. 2006 EMBO J",
+        "Sarasin-Filipowicz et al. 2009 Mol Cell Biol"
+      ]
+    },
+    "UPR-ATF6": {
+      "tier": "A",
+      "feedback_core": [
+        "HSPA5"
+      ],
+      "loop_targets": [
+        "CALR",
+        "PDIA4",
+        "PDIA6",
+        "HSP90B1"
+      ],
+      "feedback_mechanism": "BiP (HSPA5) is both the ER-stress sensor and an ATF6-induced output that re-represses ATF6",
+      "feedback_is_output": true,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "HSPA5"
+        ],
+        "input_down": [
+          "ATF6",
+          "MBTPS1",
+          "MBTPS2"
+        ],
+        "input_up": []
+      },
+      "context": "HSPA5 knockdown activates all three UPR arms; ATF6 knockdown gives arm specificity; MBTPS1/2 are shared with SREBP (built-in specificity test)",
+      "v03_issues": "HSPA5 and CALR were both feedback and activity genes; HSPA5/PDIA4 shared with UPR-IRE1 in paper-4 sets",
+      "refs": [
+        "Bertolotti et al. 2000 Nat Cell Biol",
+        "Shen et al. 2002 Dev Cell"
+      ]
+    },
+    "UPR-IRE1": {
+      "tier": "B",
+      "feedback_core": [
+        "DNAJB9"
+      ],
+      "loop_targets": [
+        "SEC61A1",
+        "EDEM1",
+        "ERO1A"
+      ],
+      "feedback_mechanism": "XBP1s induces ERdj4 (DNAJB9), which recruits BiP to repress IRE1",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "DNAJB9",
+          "HSPA5"
+        ],
+        "input_down": [
+          "ERN1",
+          "XBP1"
+        ],
+        "input_up": []
+      },
+      "context": "only three unshared targets (HSPA5 removed: shared with ATF6)",
+      "v03_issues": "no feedback_genes in v0.3; DNAJB9 sat in activity_genes",
+      "refs": [
+        "Amin-Wetzel et al. 2017 Cell"
+      ]
+    },
+    "UPR-PERK": {
+      "tier": "A",
+      "feedback_core": [
+        "PPP1R15A"
+      ],
+      "loop_targets": [
+        "DDIT3",
+        "ASNS",
+        "ATF3",
+        "TRIB3",
+        "SESN2"
+      ],
+      "feedback_mechanism": "ATF4/CHOP induce GADD34 (PPP1R15A), which dephosphorylates eIF2a",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "PPP1R15A"
+        ],
+        "input_down": [
+          "EIF2AK3",
+          "ATF4"
+        ],
+        "input_up": []
+      },
+      "context": "readout is the integrated stress response; in erythroid K562 the eIF2a kinase HRI (EIF2AK1) is a second input, so EIF2AK3 knockdown alone may under-shoot",
+      "v03_issues": "no feedback_genes in v0.3; PPP1R15A sat in activity_genes",
+      "refs": [
+        "Novoa et al. 2001 J Cell Biol",
+        "Marciniak et al. 2004 Genes Dev"
+      ]
+    },
+    "VDR": {
+      "tier": "D",
+      "feedback_core": [
+        "CYP24A1"
+      ],
+      "loop_targets": [
+        "CAMP",
+        "TRPV6",
+        "S100A8",
+        "DEFB4A"
+      ],
+      "feedback_mechanism": "ligand catabolism: VDR induces CYP24A1, which degrades 1,25(OH)2D3",
+      "feedback_is_output": true,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "CYP24A1"
+        ],
+        "input_down": [
+          "VDR"
+        ],
+        "input_up": []
+      },
+      "context": "needs vitamin D",
+      "v03_issues": "CYP24A1 was both feedback and activity gene",
+      "refs": [
+        "Jones et al. 2012 Arch Biochem Biophys"
+      ]
+    },
+    "Wnt": {
+      "tier": "C",
+      "feedback_core": [
+        "AXIN2",
+        "NKD1",
+        "RNF43",
+        "ZNRF3"
+      ],
+      "loop_targets": [
+        "LEF1",
+        "TCF7",
+        "MYC",
+        "CCND1",
+        "SP5"
+      ],
+      "feedback_mechanism": "beta-catenin induces AXIN2/NKD1 (destruction complex) and RNF43/ZNRF3 (receptor clearance)",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "AXIN2",
+          "RNF43",
+          "ZNRF3"
+        ],
+        "input_down": [
+          "CTNNB1",
+          "TCF7L2"
+        ],
+        "input_up": [
+          "APC",
+          "CSNK1A1",
+          "GSK3B"
+        ]
+      },
+      "context": "low basal Wnt in K562/RPE1; MYC/CCND1 also track proliferation",
+      "v03_issues": "v0.3 feedback had 23 genes mixing extracellular antagonists (DKK/SFRP/WIF1) with cell-intrinsic feedback",
+      "refs": [
+        "Lustig et al. 2002 Mol Cell Biol",
+        "Koo et al. 2012 Nature",
+        "Hao et al. 2012 Nature"
+      ]
+    },
+    "cAMP/CREB": {
+      "tier": "C",
+      "feedback_core": [
+        "CREM",
+        "PDE4B",
+        "PDE4D"
+      ],
+      "loop_targets": [
+        "BDNF",
+        "NR4A1",
+        "EGR1",
+        "ARC",
+        "FOS",
+        "FOSB",
+        "ATF3",
+        "NR4A2",
+        "NR4A3"
+      ],
+      "feedback_mechanism": "CREB induces the repressor ICER (CREM) and cAMP-degrading PDE4",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "PDE4B",
+          "PDE4D",
+          "CREM"
+        ],
+        "input_down": [
+          "CREB1",
+          "PRKACA"
+        ],
+        "input_up": []
+      },
+      "context": "needs cAMP stimulation; FOS/EGR1 shared with ERK, ATF3 with UPR-PERK",
+      "v03_issues": "no feedback_genes in v0.3",
+      "refs": [
+        "Molina et al. 1993 Cell",
+        "D'Sa et al. 2002 J Neurochem"
+      ]
+    },
+    "cGAS-STING": {
+      "tier": "C",
+      "feedback_core": [
+        "TREX1"
+      ],
+      "loop_targets": [
+        "IFNB1",
+        "CXCL10",
+        "ISG15",
+        "IFIT1",
+        "MX1",
+        "OAS1"
+      ],
+      "feedback_mechanism": "IRF3/IFN-inducible exonuclease TREX1 degrades the cytosolic DNA trigger",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "TREX1"
+        ],
+        "input_down": [
+          "CGAS",
+          "STING1",
+          "TBK1",
+          "IRF3"
+        ],
+        "input_up": []
+      },
+      "context": "readout overlaps Type I IFN; specificity only through input knockdowns",
+      "v03_issues": "v0.3 feedback mixed NFKBIA/NFKBIB (NF-kB arm) and ADAR (MDA5 arm)",
+      "refs": [
+        "Stetson et al. 2008 Cell",
+        "Ablasser et al. 2014 J Immunol"
+      ]
+    },
+    "mTOR": {
+      "tier": "B",
+      "feedback_core": [],
+      "loop_targets": [
+        "SLC7A5",
+        "SREBF1",
+        "VEGFA",
+        "HIF1A",
+        "RPS6",
+        "EIF4EBP1"
+      ],
+      "feedback_mechanism": "post-translational (S6K1-IRS1, GRB10, DEPTOR); mTORC1 output is mostly translational, so mRNA targets are a weak readout",
+      "feedback_is_output": false,
+      "feedback_readable": false,
+      "perturbations": {
+        "break": [],
+        "input_down": [
+          "RPTOR",
+          "MTOR",
+          "RHEB"
+        ],
+        "input_up": [
+          "TSC1",
+          "TSC2"
+        ]
+      },
+      "context": "input_up (TSC1/2) vs input_down only; no clean break perturbation",
+      "v03_issues": "v0.3 feedback list (DDIT4, SESN2, ULK1/2, DEPTOR, GRB10) mixed upstream inhibitors with mTOR substrates",
+      "refs": [
+        "Harrington et al. 2004 J Cell Biol",
+        "Hsu et al. 2011 Science"
+      ]
+    },
+    "p53": {
+      "tier": "B",
+      "feedback_core": [
+        "MDM2",
+        "PPM1D"
+      ],
+      "loop_targets": [
+        "CDKN1A",
+        "BAX",
+        "BBC3",
+        "GADD45A",
+        "PMAIP1",
+        "SESN2",
+        "TIGAR",
+        "DDB2",
+        "RRM2B"
+      ],
+      "feedback_mechanism": "p53 induces its E3 ligase MDM2 and the phosphatase WIP1 (PPM1D)",
+      "feedback_is_output": false,
+      "feedback_readable": true,
+      "perturbations": {
+        "break": [
+          "MDM2",
+          "PPM1D",
+          "MDM4"
+        ],
+        "input_down": [
+          "TP53",
+          "ATM"
+        ],
+        "input_up": []
+      },
+      "context": "requires TP53-wild-type cells (RPE1); K562 is TP53-null",
+      "v03_issues": "MDM2 was both feedback and activity gene; PPP1R13L shared with NF-kB",
+      "refs": [
+        "Lahav et al. 2004 Nat Genet",
+        "Batchelor et al. 2008 Mol Cell"
+      ]
+    }
+  }
+}

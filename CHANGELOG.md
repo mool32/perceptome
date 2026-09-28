@@ -6,7 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-Cancer reference reconciled to the published convergence result.
+Cancer reference reconciled to the published convergence result. Loop layer (v0.4) added.
+
+### Added
+- **Loop layer v0.4** (`catalog/data/loops_v04.json`, built by `scripts/12_build_loops_v04.py`; see `docs/LOOPS.md`). Per module: curated `feedback_core` (transcriptionally induced negative feedback, with references), `loop_targets` disjoint from it, feedback mechanism, `feedback_is_output` / `feedback_readable` flags, perturbation classes (`break` / `input_down` / `input_up`) and a testability tier (A 8 · B 4 · C 8 · D 8 · E 16). Status: curated, not yet validated.
+- API: `load_loops`, `list_loops`, `get_loop`, `loop_gene_sets`, `loop_overlaps`, `validate_loops`.
+- `scripts/13_check_perturbseq_overlap.py` — reports which loops a Perturb-seq screen can test (reads metadata only).
+- `tests/test_loops.py`.
+
+### Note
+- The v0.3 catalog is unchanged, so all published scores reproduce. Its `feedback_genes` field has known problems (only 17/44 modules filled; 15/17 overlap `activity_genes`; `PHD2` is an alias of EGLN1; misassigned genes under NF-κB and Hippo) — use the loop layer for any feedback analysis.
 
 ### Changed
 - **`attractor_v1.json` now names the convergence anchor** — the placental cytotrophoblast (megakaryocyte a lineage-restricted secondary) — and cites the published finding (Spiro 2026, *Cancers of all lineages converge on the placental cytotrophoblast*, Zenodo [10.5281/zenodo.20542130](https://doi.org/10.5281/zenodo.20542130); 25 cancers, within-patient deepening). `load_attractor_direction()` now returns `anchor`, `secondary`, and `published_refinement`.
