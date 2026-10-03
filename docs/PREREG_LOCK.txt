@@ -1,0 +1,14 @@
+Pre-registration lock: loop integrity v1
+Locked (UTC): 2026-10-03T11:34:43Z
+State at lock: no expression value of the screen read; only obs/var metadata of the pseudobulk files.
+Tag: prereg-loop-v1 (on the commit that adds this file)
+
+sha256:
+81e8c5a49447a7eb6b83d47915329a03fb35a5895e7ca2a73ba1f29df8af213b  docs/PREREG_loop_integrity_v1.md
+416019e1964379120839eb2c1c0d5cfb7c8e8f2505eb9e5da56e24a3cd593997  scripts/14_loop_integrity_prereg_v1.py
+02c7f0a4155820da48b8d49e22f2cd7c0187194bd17cab02bb93e0804dc4e047  data/evidence/replogle2022_K562_gwps_contrasts.tsv
+a5de9cbd9b3d717ad86dac65232ce845f7ac7395d92a2b6712e5b4603e62b53c  perceptome/catalog/data/loops_v04.json
+63efa5ab663fbd542b955a0f724d26f36d0d0ea9f52e424148c33b64aa0137e5  perceptome/catalog/loops.py
+cdfa8318141103b94df516e722d4f6c3e11808f230c6692b0984e238492eefd8  tests/test_loop_integrity_prereg.py
+
+Verify: grep -E '^[0-9a-f]{64}  ' docs/PREREG_LOCK.txt | sha256sum -c

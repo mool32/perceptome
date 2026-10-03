@@ -68,8 +68,8 @@ almost nothing (1 and 2 loops); K562_gwps tests 10 of 28 loops. Adding a
 >= 50 % knockdown requirement leaves six loops with a break-vs-input_down
 contrast (ERK/MAPK, HIF, JAK-STAT, SREBP, UPR-IRE1, UPR-PERK); p53 is formally
 testable in K562_gwps but K562 lacks functional p53, so it serves as a
-negative control. The draft pre-registration built on this is
-`docs/PREREG_loop_integrity_v1_DRAFT.md`.
+negative control. The pre-registration built on this is
+`docs/PREREG_loop_integrity_v1.md`.
 
 The `tier` field still records the biology-based expectation; it was not
 rewritten from the screen.
