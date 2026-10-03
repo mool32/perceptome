@@ -1,0 +1,138 @@
+module	class	gene	in_screen	n_cells	fold_expr
+AhR	break	AHRR	yes	145	0.4057
+AhR	break	TIPARP	yes	44	0.8401
+AhR	input_down	AHR	yes	128	0.0
+AhR	input_down	ARNT	yes	95	0.1737
+BMP	break	SMAD6	yes	162	0.39
+BMP	input_down	SMAD1	yes	342	0.1381
+BMP	input_down	SMAD5	yes	127	0.0384
+BMP	input_down	BMPR1A	no	0	
+BMP	input_down	SMAD4	yes	161	0.1565
+Circadian	break	CRY1	yes	330	0.0244
+Circadian	break	CRY2	yes	305	0.1229
+Circadian	break	PER2	no	0	
+Circadian	input_down	CLOCK	yes	188	0.6558
+Circadian	input_down	BMAL1	yes	265	0.0
+ERK/MAPK	break	DUSP6	no	0	
+ERK/MAPK	break	SPRY2	yes	392	0.112
+ERK/MAPK	break	SPRY4	yes	226	0.3408
+ERK/MAPK	break	SPRED1	yes	75	0.3763
+ERK/MAPK	input_down	GRB2	yes	436	0.7684
+ERK/MAPK	input_down	SOS1	yes	115	0.2533
+ERK/MAPK	input_down	RAF1	yes	135	0.4884
+ERK/MAPK	input_down	MAP2K1	yes	220	0.324
+ERK/MAPK	input_down	MAPK1	yes	305	0.1767
+ERK/MAPK	input_up	NF1	yes	143	0.0516
+FXR	break	NR0B2	no	0	
+FXR	input_down	NR1H4	yes	168	
+GR	break	FKBP5	yes	213	0.1099
+GR	input_down	NR3C1	yes	160	0.3906
+HIF	break	VHL	yes	378	0.1132
+HIF	break	EGLN1	yes	319	0.3629
+HIF	input_down	HIF1A	yes	163	0.1734
+HIF	input_down	ARNT	yes	95	0.1737
+HSF1	break	HSP90AB1	yes	74	0.2047
+HSF1	break	HSP90AA1	yes	251	0.1043
+HSF1	break	HSPA8	yes	232	0.6829
+HSF1	input_down	HSF1	yes	241	0.843
+Hedgehog	input_down	SMO	no	0	
+Hedgehog	input_down	GLI1	yes	184	0.9579
+Hedgehog	input_down	GLI2	yes	229	0.0
+Hedgehog	input_up	PTCH1	no	0	
+Hedgehog	input_up	SUFU	no	0	
+Hippo	break	LATS2	no	0	
+Hippo	break	NF2	yes	322	0.0846
+Hippo	break	AMOTL2	no	0	
+Hippo	input_down	YAP1	no	0	
+Hippo	input_down	WWTR1	no	0	
+Hippo	input_down	TEAD1	yes	59	0.2237
+Hippo	input_up	LATS1	yes	174	0.1036
+JAK-STAT	break	SOCS3	yes	40	0.3315
+JAK-STAT	break	SOCS1	yes	101	0.1866
+JAK-STAT	break	CISH	yes	222	0.0419
+JAK-STAT	break	PTPN2	yes	261	0.1968
+JAK-STAT	input_down	STAT5A	yes	474	0.1537
+JAK-STAT	input_down	STAT5B	yes	129	0.2731
+JAK-STAT	input_down	STAT3	yes	170	0.6292
+JAK-STAT	input_down	JAK2	yes	268	0.0441
+JAK-STAT	input_down	JAK1	yes	78	0.2791
+NF-κB	break	NFKBIA	yes	255	0.6077
+NF-κB	break	TNFAIP3	no	0	
+NF-κB	input_down	RELA	yes	185	0.2953
+NF-κB	input_down	IKBKB	yes	116	0.0392
+NF-κB	input_down	IKBKG	yes	190	0.2055
+NFAT	break	RCAN1	yes	58	0.963
+NFAT	input_down	PPP3CA	yes	124	0.2565
+NFAT	input_down	PPP3CB	yes	85	0.35
+NFAT	input_down	PPP3R1	yes	143	0.1426
+NFAT	input_down	NFATC1	yes	289	1.0238
+NFAT	input_down	NFATC2	yes	280	0.499
+NRF2	break	KEAP1	yes	266	0.1167
+NRF2	break	CUL3	yes	268	0.3082
+NRF2	input_down	NFE2L2	yes	140	0.6251
+Notch	break	NRARP	yes	215	0.0631
+Notch	input_down	RBPJ	yes	123	0.3337
+Notch	input_down	NOTCH1	no	0	
+Notch	input_down	MAML1	yes	187	0.7311
+RAR	break	CYP26A1	no	0	
+RAR	input_down	RARA	yes	211	0.558
+SREBP	break	INSIG1	yes	121	0.3789
+SREBP	break	INSIG2	yes	317	0.1362
+SREBP	input_down	SCAP	yes	334	0.1844
+SREBP	input_down	SREBF2	yes	191	0.1298
+SREBP	input_down	SREBF1	yes	127	0.8868
+SREBP	input_down	MBTPS1	yes	149	0.0782
+SREBP	input_down	MBTPS2	yes	400	0.1581
+TGF-β	break	SMAD7	no	0	
+TGF-β	break	SKIL	yes	234	0.1013
+TGF-β	input_down	SMAD4	yes	161	0.1565
+TGF-β	input_down	SMAD3	yes	148	0.0719
+TGF-β	input_down	TGFBR1	yes	46	1.3783
+TGF-β	input_down	TGFBR2	no	0	
+Type I IFN	break	USP18	no	0	
+Type I IFN	input_down	IFNAR1	yes	87	0.1347
+Type I IFN	input_down	IFNAR2	yes	183	0.2579
+Type I IFN	input_down	STAT1	yes	127	0.0972
+Type I IFN	input_down	STAT2	yes	69	0.2951
+Type I IFN	input_down	IRF9	yes	130	0.5116
+UPR-ATF6	break	HSPA5	yes	299	0.5742
+UPR-ATF6	input_down	ATF6	yes	127	0.1069
+UPR-ATF6	input_down	MBTPS1	yes	149	0.0782
+UPR-ATF6	input_down	MBTPS2	yes	400	0.1581
+UPR-IRE1	break	DNAJB9	yes	289	0.238
+UPR-IRE1	break	HSPA5	yes	299	0.5742
+UPR-IRE1	input_down	ERN1	yes	361	0.3458
+UPR-IRE1	input_down	XBP1	yes	273	0.095
+UPR-PERK	break	PPP1R15A	yes	91	0.4862
+UPR-PERK	input_down	EIF2AK3	yes	194	0.1608
+UPR-PERK	input_down	ATF4	yes	103	0.3444
+VDR	break	CYP24A1	no	0	
+VDR	input_down	VDR	yes	125	0.0
+Wnt	break	AXIN2	no	0	
+Wnt	break	RNF43	no	0	
+Wnt	break	ZNRF3	no	0	
+Wnt	input_down	CTNNB1	yes	39	0.4065
+Wnt	input_down	TCF7L2	yes	185	0.4053
+Wnt	input_up	APC	yes	361	0.5963
+Wnt	input_up	CSNK1A1	yes	256	0.2395
+Wnt	input_up	GSK3B	yes	227	0.2245
+cAMP/CREB	break	PDE4B	no	0	
+cAMP/CREB	break	PDE4D	no	0	
+cAMP/CREB	break	CREM	yes	100	0.3848
+cAMP/CREB	input_down	CREB1	yes	198	0.2324
+cAMP/CREB	input_down	PRKACA	yes	64	0.1405
+cGAS-STING	break	TREX1	no	0	
+cGAS-STING	input_down	CGAS	no	0	
+cGAS-STING	input_down	STING1	yes	263	0.089
+cGAS-STING	input_down	TBK1	yes	267	0.1556
+cGAS-STING	input_down	IRF3	yes	342	0.1098
+mTOR	input_down	RPTOR	yes	105	0.1705
+mTOR	input_down	MTOR	yes	128	0.2432
+mTOR	input_down	RHEB	yes	67	0.1269
+mTOR	input_up	TSC1	yes	81	0.1851
+mTOR	input_up	TSC2	yes	250	1.1172
+p53	break	MDM2	yes	116	0.1285
+p53	break	PPM1D	yes	78	0.3715
+p53	break	MDM4	yes	122	0.1264
+p53	input_down	TP53	yes	220	0.3194
+p53	input_down	ATM	yes	157	0.1951

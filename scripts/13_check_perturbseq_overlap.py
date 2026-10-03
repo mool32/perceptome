@@ -48,20 +48,21 @@ def main():
         p.error("give --h5ad or --perts")
 
     out = sys.stdout
-    out.write("module\ttier\tbreak\tinput_down\tinput_up\tfeedback_measured\ttargets_measured\ttestable\n")
+    out.write("module\ttier\tbreak\tinput_down\tinput_up\tfeedback_measured\toutput_measured\ttestable\n")
     for name in pct.list_loops(tuple(a.tiers)):
         e = pct.get_loop(name)
         present = {k: [f"{g}({cells[g]})" for g in v if cells.get(g, 0) >= a.min_cells]
                    for k, v in e["perturbations"].items()}
         fb = [g for g in e["feedback_core"] if g in readout]
-        tg = [g for g in e["loop_targets"] if g in readout]
+        output = pct.loop_output_genes(name)
+        tg = [g for g in output if g in readout]
         has_contrast = bool(present["break"] or present["input_up"]) and bool(present["input_down"])
         enough_readout = len(tg) >= 3 and (fb or not e["feedback_readable"] or e["feedback_is_output"])
         testable = has_contrast and (enough_readout if readout else True)
         out.write("\t".join([
             name, e["tier"], ",".join(present["break"]), ",".join(present["input_down"]),
             ",".join(present["input_up"]), f"{len(fb)}/{len(e['feedback_core'])}",
-            f"{len(tg)}/{len(e['loop_targets'])}", "YES" if testable else "no",
+            f"{len(tg)}/{len(output)}", "YES" if testable else "no",
         ]) + "\n")
 
 

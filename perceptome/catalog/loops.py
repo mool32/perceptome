@@ -54,6 +54,21 @@ def loop_gene_sets(module, loops=None):
     return {"feedback": list(entry["feedback_core"]), "targets": list(entry["loop_targets"])}
 
 
+def loop_output_genes(module, loops=None):
+    """Genes that read out the module's output.
+
+    loop_targets, plus feedback_core when the feedback IS the output
+    (chaperone titration, clock, ligand catabolism): there the feedback genes
+    are the module's main induced products, so excluding them would discard
+    the readout.
+    """
+    entry = get_loop(module, loops)
+    out = list(entry["loop_targets"])
+    if entry["feedback_is_output"]:
+        out = list(entry["feedback_core"]) + [g for g in out if g not in entry["feedback_core"]]
+    return out
+
+
 def loop_overlaps(loops=None, field="loop_targets"):
     """Genes that appear in `field` of more than one module: {gene: [modules]}.
 

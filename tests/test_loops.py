@@ -69,3 +69,11 @@ def test_v03_catalog_unchanged_by_loop_layer():
 def test_get_loop_unknown_module():
     with pytest.raises(KeyError):
         pct.get_loop("NonExistentModule")
+
+
+def test_loop_output_genes_includes_feedback_only_when_output():
+    hsf1 = pct.get_loop("HSF1")
+    out = pct.loop_output_genes("HSF1")
+    assert set(hsf1["feedback_core"]) <= set(out) and set(hsf1["loop_targets"]) <= set(out)
+    p53 = pct.get_loop("p53")
+    assert pct.loop_output_genes("p53") == p53["loop_targets"]

@@ -47,6 +47,7 @@ import perceptome as pct
 pct.list_loops("A")            # ['ERK/MAPK', 'HIF', 'HSF1', 'JAK-STAT', 'NRF2', 'SREBP', 'UPR-ATF6', 'UPR-PERK']
 pct.get_loop("p53")            # full entry
 pct.loop_gene_sets("p53")      # {'feedback': [...], 'targets': [...]}  — disjoint
+pct.loop_output_genes("HSF1")  # readout genes; includes feedback when feedback_is_output
 pct.loop_overlaps()            # genes shared between modules' targets (biology, not errors)
 pct.validate_loops()           # [] when clean
 ```
@@ -57,6 +58,21 @@ Some input nodes are shared on purpose and give free specificity checks:
 `MBTPS1/2` (UPR-ATF6 and SREBP), `ARNT` (HIF and AhR). A loop-integrity metric
 should move both modules when a shared node is knocked down and only one when a
 module-specific node is.
+
+## Evidence from Replogle et al. 2022 (metadata only)
+
+`data/evidence/` holds the per-screen testability table and every loop
+perturbation in K562_gwps with cell counts and the authors' knockdown
+efficiency. Summary: the essential-gene screens (K562_essential, RPE1) test
+almost nothing (1 and 2 loops); K562_gwps tests 10 of 28 loops. Adding a
+>= 50 % knockdown requirement leaves six loops with a break-vs-input_down
+contrast (ERK/MAPK, HIF, JAK-STAT, SREBP, UPR-IRE1, UPR-PERK); p53 is formally
+testable in K562_gwps but K562 lacks functional p53, so it serves as a
+negative control. The draft pre-registration built on this is
+`docs/PREREG_loop_integrity_v1_DRAFT.md`.
+
+The `tier` field still records the biology-based expectation; it was not
+rewritten from the screen.
 
 ## Checking a Perturb-seq screen
 

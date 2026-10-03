@@ -22,11 +22,11 @@ classes and a testability tier. See load_loops() and docs/LOOPS.md.
 from .modules import load_catalog, list_modules, get_genes, get_module_info, add_module
 from .validate import validate_catalog
 from .loops import (
-    load_loops, list_loops, get_loop, loop_gene_sets, loop_overlaps, validate_loops,
+    load_loops, list_loops, get_loop, loop_gene_sets, loop_output_genes, loop_overlaps, validate_loops,
 )
 
 __all__ = [
     "load_catalog", "list_modules", "get_genes", "get_module_info",
     "add_module", "validate_catalog",
-    "load_loops", "list_loops", "get_loop", "loop_gene_sets", "loop_overlaps", "validate_loops",
+    "load_loops", "list_loops", "get_loop", "loop_gene_sets", "loop_output_genes", "loop_overlaps", "validate_loops",
 ]
