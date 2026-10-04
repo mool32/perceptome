@@ -1,0 +1,11 @@
+Pre-registration lock: gate 0' (co-retention beyond gene histories)
+Locked (UTC): 2026-10-04T15:36:29Z
+State: z_coh not computed on any real catalog; gate 0 (P5-style z) results seen, see docs/PREREG_gate0prime.md section 1.
+Tag: prereg-gate0prime
+
+sha256:
+e81e201d0d39aa75793400b0b899f830ecc0243ac615a409ca84e66b9b1c6e7f  docs/PREREG_gate0prime.md
+3d2be5d4bd8347269dfa889e3eedbd2ea14370d5174d27ee9d51cb50e84da3cb  scripts/19_gate0prime_coretention.py
+19888b5a2d5f980729869bac73aa3fc3a56a0b0d8126cc24324faf6cee314cba  tests/test_gate0prime.py
+
+Verify: grep -E '^[0-9a-f]{64}  ' docs/PREREG_LOCK_gate0prime.txt | sha256sum -c

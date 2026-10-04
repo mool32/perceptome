@@ -1,0 +1,296 @@
+{
+  "K_fraction": 0.6,
+  "n_permutations": 10000,
+  "observed_total_intact": 401,
+  "null_mean": 400.1915,
+  "null_std": 5.050547272326039,
+  "p_value_total": 0.4752,
+  "P5_A_pass": false,
+  "per_module": {
+    "Cytosolic dsDNA sensing (cGAS-STING-IRF3)": {
+      "observed": 8,
+      "null_mean": 8.8409,
+      "null_std": 0.9599933281018155,
+      "z": -0.8759435877150334
+    },
+    "Cytosolic viral RNA sensing (RIG-I/MDA5-MAVS-IRF7)": {
+      "observed": 6,
+      "null_mean": 8.1879,
+      "null_std": 0.9274662204091317,
+      "z": -2.3590077480502263
+    },
+    "Type I interferon receptor (ISGF3)": {
+      "observed": 5,
+      "null_mean": 8.1978,
+      "null_std": 0.9250271131161506,
+      "z": -3.456979751898873
+    },
+    "Interferon-gamma (STAT1)": {
+      "observed": 6,
+      "null_mean": 8.827,
+      "null_std": 0.9754337496724212,
+      "z": -2.8981978539797173
+    },
+    "IL-6-family gp130 cytokine (STAT3)": {
+      "observed": 6,
+      "null_mean": 8.8245,
+      "null_std": 0.96545313195411,
+      "z": -2.925569255012013
+    },
+    "Common gamma-chain cytokine IL-2 (STAT5)": {
+      "observed": 7,
+      "null_mean": 8.8179,
+      "null_std": 0.9529635827249644,
+      "z": -1.907627985952812
+    },
+    "Type 2 cytokine IL-4/IL-13 (STAT6)": {
+      "observed": 6,
+      "null_mean": 8.822,
+      "null_std": 0.9709356312341205,
+      "z": -2.9064748570541785
+    },
+    "Bacterial cell-wall pattern (TLR4-MyD88-NF-kB)": {
+      "observed": 7,
+      "null_mean": 8.1809,
+      "null_std": 0.9279952532206186,
+      "z": -1.2725280607865954
+    },
+    "Non-canonical NF-kB (lymphotoxin/CD40/BAFF-RELB)": {
+      "observed": 7,
+      "null_mean": 8.1815,
+      "null_std": 0.928093610580312,
+      "z": -1.2730396875173395
+    },
+    "TGF-beta (SMAD2/3)": {
+      "observed": 9,
+      "null_mean": 8.1746,
+      "null_std": 0.9365440939966467,
+      "z": 0.8813252950831757
+    },
+    "BMP (SMAD1/5)": {
+      "observed": 9,
+      "null_mean": 8.8232,
+      "null_std": 0.9585101773064278,
+      "z": 0.1844529189004934
+    },
+    "Canonical Wnt (beta-catenin-TCF)": {
+      "observed": 8,
+      "null_mean": 8.1686,
+      "null_std": 0.9212893356595419,
+      "z": -0.18300439772191718
+    },
+    "Hedgehog (PTCH1-GLI)": {
+      "observed": 9,
+      "null_mean": 8.8257,
+      "null_std": 0.9642196378419182,
+      "z": 0.1807679424473376
+    },
+    "Notch juxtacrine (RBPJ)": {
+      "observed": 6,
+      "null_mean": 8.8169,
+      "null_std": 0.9679743746608171,
+      "z": -2.9100976985956426
+    },
+    "Hippo mechanical / cell-density (YAP-TEAD)": {
+      "observed": 9,
+      "null_mean": 8.1729,
+      "null_std": 0.9290885802763911,
+      "z": 0.8902272803244969
+    },
+    "EGF-family growth factor (ERK-AP-1)": {
+      "observed": 9,
+      "null_mean": 8.1843,
+      "null_std": 0.9211587865292282,
+      "z": 0.8855150837494808
+    },
+    "FGF (FRS2-ETS)": {
+      "observed": 9,
+      "null_mean": 8.8211,
+      "null_std": 0.9780055163443608,
+      "z": 0.1829233036115196
+    },
+    "Insulin/IGF (PI3K-AKT-FOXO)": {
+      "observed": 9,
+      "null_mean": 8.1905,
+      "null_std": 0.9304889843517763,
+      "z": 0.8699726849146278
+    },
+    "Amino-acid sufficiency (mTORC1-TFEB)": {
+      "observed": 9,
+      "null_mean": 8.1774,
+      "null_std": 0.929477939490766,
+      "z": 0.8850129358106963
+    },
+    "Energy charge / AMP (AMPK-ERRalpha)": {
+      "observed": 9,
+      "null_mean": 8.1706,
+      "null_std": 0.9381341268709927,
+      "z": 0.8840953294880556
+    },
+    "Oxygen tension (PHD-HIF)": {
+      "observed": 9,
+      "null_mean": 8.8163,
+      "null_std": 0.9705433066071808,
+      "z": 0.18927542825695978
+    },
+    "ER cholesterol depletion (SCAP-SREBP-2)": {
+      "observed": 10,
+      "null_mean": 8.8077,
+      "null_std": 0.9568284642505155,
+      "z": 1.2460958725072304
+    },
+    "Oxysterol excess (LXR)": {
+      "observed": 9,
+      "null_mean": 8.8266,
+      "null_std": 0.9711500604952872,
+      "z": 0.17855119106059342
+    },
+    "Bile acid (FXR-SHP)": {
+      "observed": 7,
+      "null_mean": 7.8419,
+      "null_std": 1.0566477132895333,
+      "z": -0.7967650801789128
+    },
+    "Fatty-acid ligand (CD36-PPARalpha)": {
+      "observed": 10,
+      "null_mean": 8.8238,
+      "null_std": 0.961433076194074,
+      "z": 1.2233820836038858
+    },
+    "Intracellular glucose flux (MondoA/ChREBP-TXNIP)": {
+      "observed": 8,
+      "null_mean": 8.8107,
+      "null_std": 0.9755334489396044,
+      "z": -0.8310324990713788
+    },
+    "Electrophile / oxidative stress (KEAP1-NRF2)": {
+      "observed": 11,
+      "null_mean": 8.8213,
+      "null_std": 0.9622714326010099,
+      "z": 2.264122082592637
+    },
+    "Aryl-hydrocarbon xenobiotic (AHR-AHRR)": {
+      "observed": 9,
+      "null_mean": 8.812,
+      "null_std": 0.9621101808005151,
+      "z": 0.1954038152299531
+    },
+    "Xenobiotic drug sensing (PXR/CAR)": {
+      "observed": 9,
+      "null_mean": 8.8285,
+      "null_std": 0.9707150714808132,
+      "z": 0.1766738820057455
+    },
+    "Cytosolic proteotoxic stress / heat shock (HSF1)": {
+      "observed": 13,
+      "null_mean": 8.8321,
+      "null_std": 0.9542062617694353,
+      "z": 4.36792354754751
+    },
+    "Integrated stress response (eIF2alpha-ATF4)": {
+      "observed": 8,
+      "null_mean": 8.1965,
+      "null_std": 0.9370633649865946,
+      "z": -0.20969766543248805
+    },
+    "ER unfolded protein (IRE1-XBP1)": {
+      "observed": 11,
+      "null_mean": 8.8352,
+      "null_std": 0.9657333793547781,
+      "z": 2.2416124846449206
+    },
+    "Mitochondrial proteotoxic stress (OMA1-DELE1-ATF5)": {
+      "observed": 6,
+      "null_mean": 8.1832,
+      "null_std": 0.9315781019324145,
+      "z": -2.34355014944135
+    },
+    "DNA double-strand break (ATM-p53)": {
+      "observed": 9,
+      "null_mean": 8.1763,
+      "null_std": 0.9238064245284291,
+      "z": 0.8916370119643524
+    },
+    "Circadian timing (CLOCK/BMAL1-PER/CRY)": {
+      "observed": 9,
+      "null_mean": 8.1858,
+      "null_std": 0.9231892330394673,
+      "z": 0.8819426948030618
+    },
+    "Glucocorticoid (NR3C1-FKBP5)": {
+      "observed": 12,
+      "null_mean": 8.8301,
+      "null_std": 0.9645900631874661,
+      "z": 3.286266488714529
+    },
+    "Estrogen (ESR1)": {
+      "observed": 7,
+      "null_mean": 8.8213,
+      "null_std": 0.9599824529646361,
+      "z": -1.8972221777340068
+    },
+    "Thyroid hormone (THR-DIO3)": {
+      "observed": 9,
+      "null_mean": 8.8317,
+      "null_std": 0.9642484690161557,
+      "z": 0.17454007489555115
+    },
+    "Vitamin D (VDR-CYP24A1)": {
+      "observed": 7,
+      "null_mean": 7.8447,
+      "null_std": 1.0468915464364015,
+      "z": -0.8068648589964662
+    },
+    "Retinoic acid (RAR-CYP26A1)": {
+      "observed": 9,
+      "null_mean": 8.8302,
+      "null_std": 0.9562258938137996,
+      "z": 0.17757310390620376
+    },
+    "Gs-coupled GPCR / cAMP (PKA-CREB)": {
+      "observed": 9,
+      "null_mean": 8.1619,
+      "null_std": 0.9176537418874289,
+      "z": 0.913307451104812
+    },
+    "Gq-coupled GPCR / calcium (calcineurin-NFAT)": {
+      "observed": 10,
+      "null_mean": 8.1743,
+      "null_std": 0.9236446881783058,
+      "z": 1.9766258858704717
+    },
+    "Osmotic tonicity (WNK-NFAT5)": {
+      "observed": 10,
+      "null_mean": 8.8186,
+      "null_std": 0.9630649199301157,
+      "z": 1.2267085796103212
+    },
+    "Zinc / heavy metal (MTF1-metallothionein)": {
+      "observed": 5,
+      "null_mean": 7.835,
+      "null_std": 1.0454544466403115,
+      "z": -2.7117393867428654
+    },
+    "Labile heme (BACH1-HMOX1)": {
+      "observed": 9,
+      "null_mean": 8.8288,
+      "null_std": 0.9623359912213613,
+      "z": 0.17790044388002155
+    },
+    "Proteasome capacity bounce-back (NFE2L1)": {
+      "observed": 13,
+      "null_mean": 8.8329,
+      "null_std": 0.9694212654981321,
+      "z": 4.298544036847342
+    },
+    "Ribosome-collision / ribotoxic stress (ZAK-JNK/p38-AP-1)": {
+      "observed": 10,
+      "null_mean": 8.1812,
+      "null_std": 0.9035300548404576,
+      "z": 2.0129933589438345
+    }
+  },
+  "n_modules_z_gt_2": 6,
+  "P5_B_pass": false,
+  "verdict_primary": "FAIL"
+}
