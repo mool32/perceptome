@@ -1,0 +1,138 @@
+module	class	gene	n_cells	fold_expr	kd_gene_measured	ctrl_mean_umi	ctrl_frac_nonzero	readable	n_output_measured	eligible
+AhR	break	AHRR	0		False			False	3	False
+AhR	break	TIPARP	0		True	0.7739999890327454	0.4632	False	2	False
+AhR	input_down	AHR	0		True	0.8230000138282776	0.4938	False	3	False
+AhR	input_down	ARNT	0		True	0.149399995803833	0.1356	False	3	False
+BMP	break	SMAD6	0		True	0.11980000138282776	0.109	False	3	False
+BMP	input_down	SMAD1	0		True	0.1793999969959259	0.1602	False	3	False
+BMP	input_down	SMAD5	0		True	0.9825999736785889	0.5734	False	3	False
+BMP	input_down	BMPR1A	0		True	0.24379999935626984	0.2104	False	3	False
+BMP	input_down	SMAD4	0		True	0.5019999742507935	0.3738	False	3	False
+Circadian	break	CRY1	0		True	0.11959999799728394	0.1078	False	3	False
+Circadian	break	CRY2	0		False			False	4	False
+Circadian	break	PER2	0		False			False	4	False
+Circadian	input_down	CLOCK	718	0.189519290902962	True	0.5184000134468079	0.3716	False	4	False
+Circadian	input_down	BMAL1	0		False			False	4	False
+ERK/MAPK	break	DUSP6	0		True	0.24699999392032623	0.1926	False	3	False
+ERK/MAPK	break	SPRY2	0		True	0.3440000116825104	0.2638	False	3	False
+ERK/MAPK	break	SPRY4	0		False			False	3	False
+ERK/MAPK	break	SPRED1	0		True	0.4447999894618988	0.3344	False	3	False
+ERK/MAPK	input_down	GRB2	186	0.5501812089853583	True	1.0549999475479126	0.607	True	3	False
+ERK/MAPK	input_down	SOS1	0		True	0.42579999566078186	0.3276	False	3	False
+ERK/MAPK	input_down	RAF1	0		True	0.6019999980926514	0.4234	False	3	False
+ERK/MAPK	input_down	MAP2K1	0		True	0.5827999711036682	0.4158	False	3	False
+ERK/MAPK	input_down	MAPK1	0		True	0.6973999738693237	0.4616	False	3	False
+ERK/MAPK	input_up	NF1	64	0.04509575138815833	True	0.7572000026702881	0.4896	False	3	False
+FXR	break	NR0B2	0		False			False	0	False
+FXR	input_down	NR1H4	0		False			False	0	False
+GR	break	FKBP5	0		True	0.3653999865055084	0.2772	False	2	False
+GR	input_down	NR3C1	0		True	0.8492000102996826	0.535	False	2	False
+HIF	break	VHL	63	0.2942849361059053	True	0.16300000250339508	0.1498	False	6	False
+HIF	break	EGLN1	0		True	0.652999997138977	0.4488	False	6	False
+HIF	input_down	HIF1A	0		True	4.264400005340576	0.9272	True	6	False
+HIF	input_down	ARNT	0		True	0.149399995803833	0.1356	False	6	False
+HSF1	break	HSP90AB1	0		True	22.31060028076172	0.9988	True	6	False
+HSF1	break	HSP90AA1	0		True	32.16859817504883	0.9998	True	5	False
+HSF1	break	HSPA8	148	0.804820438786229	True	12.744199752807617	0.9914	True	6	False
+HSF1	input_down	HSF1	22	1.3629280835873423	True	0.5162000060081482	0.3854	False	6	False
+Hedgehog	input_down	SMO	0		False			False	1	False
+Hedgehog	input_down	GLI1	0		False			False	1	False
+Hedgehog	input_down	GLI2	0		False			False	1	False
+Hedgehog	input_up	PTCH1	0		False			False	1	False
+Hedgehog	input_up	SUFU	0		True	0.09799999743700027	0.0922	False	1	False
+Hippo	break	LATS2	0		True	0.22419999539852142	0.1876	False	3	False
+Hippo	break	NF2	0		True	1.0721999406814575	0.5944	True	3	False
+Hippo	break	AMOTL2	0		True	0.51419997215271	0.3468	False	3	False
+Hippo	input_down	YAP1	0		True	0.5893999934196472	0.4134	False	3	False
+Hippo	input_down	WWTR1	0		True	2.2697999477386475	0.788	True	3	False
+Hippo	input_down	TEAD1	0		True	1.2655999660491943	0.6408	True	3	False
+Hippo	input_up	LATS1	0		True	0.1850000023841858	0.1628	False	3	False
+JAK-STAT	break	SOCS3	0		False			False	5	False
+JAK-STAT	break	SOCS1	0		False			False	5	False
+JAK-STAT	break	CISH	0		False			False	5	False
+JAK-STAT	break	PTPN2	0		True	0.34779998660087585	0.2832	False	5	False
+JAK-STAT	input_down	STAT5A	95	0.0	False			False	5	False
+JAK-STAT	input_down	STAT5B	173	0.10597550945044704	False			False	5	False
+JAK-STAT	input_down	STAT3	0		True	0.5166000127792358	0.3764	False	5	False
+JAK-STAT	input_down	JAK2	0		False			False	5	False
+JAK-STAT	input_down	JAK1	0		True	1.7111999988555908	0.7622	True	5	False
+NF-κB	break	NFKBIA	0		True	0.3061999976634979	0.2274	False	4	False
+NF-κB	break	TNFAIP3	0		False			False	4	False
+NF-κB	input_down	RELA	0		True	0.391400009393692	0.3098	False	4	False
+NF-κB	input_down	IKBKB	0		True	0.31299999356269836	0.2564	False	4	False
+NF-κB	input_down	IKBKG	0		True	0.2639999985694885	0.2256	False	4	False
+NFAT	break	RCAN1	0		True	0.2062000036239624	0.17	False	0	False
+NFAT	input_down	PPP3CA	0		True	0.756600022315979	0.4884	False	0	False
+NFAT	input_down	PPP3CB	0		True	0.8181999921798706	0.5198	False	0	False
+NFAT	input_down	PPP3R1	0		True	0.38019999861717224	0.3038	False	0	False
+NFAT	input_down	NFATC1	0		False			False	0	False
+NFAT	input_down	NFATC2	0		False			False	0	False
+NRF2	break	KEAP1	163	0.0	True	0.4251999855041504	0.3366	False	7	False
+NRF2	break	CUL3	102	0.04411432213784675	True	1.521399974822998	0.715	True	7	True
+NRF2	input_down	NFE2L2	0		True	1.0922000408172607	0.6144	True	7	False
+Notch	break	NRARP	0		False			False	1	False
+Notch	input_down	RBPJ	0		True	0.8712000250816345	0.5398	False	1	False
+Notch	input_down	NOTCH1	0		False			False	1	False
+Notch	input_down	MAML1	0		True	0.12240000069141388	0.1124	False	1	False
+RAR	break	CYP26A1	0		False			False	2	False
+RAR	input_down	RARA	0		True	0.2815999984741211	0.2378	False	2	False
+SREBP	break	INSIG1	0		True	0.155799999833107	0.129	False	5	False
+SREBP	break	INSIG2	0		True	0.2321999967098236	0.1952	False	5	False
+SREBP	input_down	SCAP	78	0.0	True	0.15360000729560852	0.1392	False	5	False
+SREBP	input_down	SREBF2	0		False			False	5	False
+SREBP	input_down	SREBF1	0		True	0.13519999384880066	0.1236	False	5	False
+SREBP	input_down	MBTPS1	190	0.051592711471642745	True	0.5848000049591064	0.4188	False	5	False
+SREBP	input_down	MBTPS2	154	0.08808141287709445	True	0.21799999475479126	0.187	False	5	False
+TGF-β	break	SMAD7	0		True	0.526199996471405	0.3792	False	5	False
+TGF-β	break	SKIL	0		True	1.1549999713897705	0.5922	True	5	False
+TGF-β	input_down	SMAD4	0		True	0.5019999742507935	0.3738	False	5	False
+TGF-β	input_down	SMAD3	0		True	0.8853999972343445	0.5316	False	5	False
+TGF-β	input_down	TGFBR1	0		True	0.2321999967098236	0.1992	False	5	False
+TGF-β	input_down	TGFBR2	0		True	0.5440000295639038	0.3766	False	5	False
+Type I IFN	break	USP18	0		False			False	2	False
+Type I IFN	input_down	IFNAR1	0		True	0.7157999873161316	0.4698	False	2	False
+Type I IFN	input_down	IFNAR2	0		True	0.23360000550746918	0.2002	False	2	False
+Type I IFN	input_down	STAT1	0		True	0.7468000054359436	0.475	False	2	False
+Type I IFN	input_down	STAT2	0		True	0.16840000450611115	0.148	False	2	False
+Type I IFN	input_down	IRF9	0		True	0.0982000008225441	0.0908	False	2	False
+UPR-ATF6	break	HSPA5	75	0.1540203040349827	True	11.45740032196045	0.9896	True	4	True
+UPR-ATF6	input_down	ATF6	0		True	0.5726000070571899	0.4114	False	5	False
+UPR-ATF6	input_down	MBTPS1	190	0.051592711471642745	True	0.5848000049591064	0.4188	False	5	False
+UPR-ATF6	input_down	MBTPS2	154	0.08808141287709445	True	0.21799999475479126	0.187	False	5	False
+UPR-IRE1	break	DNAJB9	0		True	0.0934000015258789	0.0846	False	3	False
+UPR-IRE1	break	HSPA5	75	0.1540203040349827	True	11.45740032196045	0.9896	True	3	True
+UPR-IRE1	input_down	ERN1	0		False			False	3	False
+UPR-IRE1	input_down	XBP1	0		True	0.6980000138282776	0.4656	False	3	False
+UPR-PERK	break	PPP1R15A	0		True	1.1826000213623047	0.598	True	4	False
+UPR-PERK	input_down	EIF2AK3	0		False			False	4	False
+UPR-PERK	input_down	ATF4	49	0.10614179329857903	True	1.3863999843597412	0.6888	True	4	False
+VDR	break	CYP24A1	0		False			False	0	False
+VDR	input_down	VDR	0		False			False	0	False
+Wnt	break	AXIN2	0		False			False	3	False
+Wnt	break	RNF43	0		False			False	3	False
+Wnt	break	ZNRF3	0		False			False	3	False
+Wnt	input_down	CTNNB1	0		True	0.8227999806404114	0.5322	False	3	False
+Wnt	input_down	TCF7L2	0		True	0.7182000279426575	0.4754	False	3	False
+Wnt	input_up	APC	0		True	0.753000020980835	0.473	False	3	False
+Wnt	input_up	CSNK1A1	13	0.11264792690694506	True	2.646399974822998	0.8886	True	3	False
+Wnt	input_up	GSK3B	95	0.18871743696621726	True	0.5228000283241272	0.3814	False	3	False
+cAMP/CREB	break	PDE4B	0		False			False	3	False
+cAMP/CREB	break	PDE4D	0		False			False	3	False
+cAMP/CREB	break	CREM	0		True	0.40380001068115234	0.321	False	3	False
+cAMP/CREB	input_down	CREB1	0		True	0.41839998960494995	0.315	False	3	False
+cAMP/CREB	input_down	PRKACA	0		True	0.37439998984336853	0.2996	False	3	False
+cGAS-STING	break	TREX1	0		False			False	1	False
+cGAS-STING	input_down	CGAS	0		False			False	1	False
+cGAS-STING	input_down	STING1	0		False			False	1	False
+cGAS-STING	input_down	TBK1	0		True	0.37059998512268066	0.2974	False	1	False
+cGAS-STING	input_down	IRF3	0		True	0.46939998865127563	0.3566	False	1	False
+mTOR	input_down	RPTOR	30	0.3166900290821441	False			False	6	False
+mTOR	input_down	MTOR	102	0.2313552106521201	True	0.28220000863075256	0.2362	False	6	False
+mTOR	input_down	RHEB	0		True	3.3958001136779785	0.9104	True	6	False
+mTOR	input_up	TSC1	0		True	0.210999995470047	0.182	False	6	False
+mTOR	input_up	TSC2	0		True	0.23240000009536743	0.2018	False	6	False
+p53	break	MDM2	0		True	0.8295999765396118	0.4408	False	9	False
+p53	break	PPM1D	0		True	0.1136000007390976	0.1018	False	9	False
+p53	break	MDM4	0		True	0.32019999623298645	0.2626	False	9	False
+p53	input_down	TP53	0		True	0.29420000314712524	0.2502	False	9	False
+p53	input_down	ATM	0		True	0.5152000188827515	0.3778	False	9	False

@@ -1,0 +1,27 @@
+{
+ "obs_columns": [
+  "gem_group",
+  "gene",
+  "gene_id",
+  "transcript",
+  "gene_transcript",
+  "sgID_AB",
+  "mitopercent",
+  "UMI_count",
+  "z_gemgroup_UMI",
+  "core_scale_factor",
+  "core_adjusted_UMI_count"
+ ],
+ "knockdown_column": "gene",
+ "n_cells_total": 247914,
+ "n_control_cells": 11485,
+ "n_readout_genes": 8749,
+ "n_candidate_rows": 137,
+ "n_present_in_screen": 22,
+ "n_readable": 18,
+ "eligible": [
+  "CUL3|NRF2|break",
+  "HSPA5|UPR-ATF6|break",
+  "HSPA5|UPR-IRE1|break"
+ ]
+}
