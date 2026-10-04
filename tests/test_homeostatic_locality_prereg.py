@@ -130,3 +130,52 @@ def test_builder_on_small_h5ad(tmp_path):
     z = ((L[k] - L[ctrl].mean(0)) / np.maximum(L[ctrl].std(0), pb.SIGMA_FLOOR)).mean(0)
     assert np.allclose(d["Z"][i], z, atol=1e-3)
     assert d["Z"][i][3] > 1.0
+
+
+def test_extractor_subset_gives_identical_pseudobulk(tmp_path):
+    """Amendment 1: script 17 on the 17a subset == script 17 on the full file (incl. control sampling)."""
+    import argparse
+
+    import anndata as ad
+    import pandas as pd
+    import scipy.sparse as sp
+
+    def load(name, fname):
+        spec = importlib.util.spec_from_file_location(name, ROOT / "scripts" / fname)
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        return m
+
+    pb, ex = load("pbA", "17_xatlas_pseudobulk.py"), load("exA", "17a_extract_subset.py")
+    pb.N_CTRL = ex.pb.N_CTRL = 150                       # force real sampling from 400 controls
+    ex.ROWS_PER_CHUNK = 37
+    rng = np.random.default_rng(3)
+    genes = ["HMGCR", "SCAP", "FASN", "LDLR"] + [f"G{i}" for i in range(30)]
+    lab = np.array(["NTC"] * 400 + ["SCAP"] * 90 + ["HMGCR"] * 70 + ["OTHER"] * 300)[rng.permutation(860)]
+    C = rng.poisson(rng.uniform(0.3, 4, len(genes)), (len(lab), len(genes))).astype(np.float32)
+    filt = rng.random(len(lab)) > 0.1
+    obs = pd.DataFrame({"gene_target": pd.Categorical(lab),
+                        "sample": pd.Categorical(rng.choice(["s1", "s2"], len(lab))),
+                        "pass_guide_filter": filt}, index=[f"c{i}" for i in range(len(lab))])
+    full = tmp_path / "full.h5ad"
+    ad.AnnData(X=sp.csr_matrix(C), obs=obs, var=pd.DataFrame(index=genes)).write_h5ad(full)
+    flags = dict(target_col="gene_target", control_label="NTC", batch_col="sample", gene_col=None,
+                 filter_col="pass_guide_filter")
+    sub = tmp_path / "sub.h5ad"
+    import sys
+    argv = sys.argv
+    sys.argv = ["17a", "--h5ad", str(full), "--out", str(sub), "--work", str(tmp_path / "w"),
+                "--target_col", "gene_target", "--control_label", "NTC", "--batch_col", "sample",
+                "--filter_col", "pass_guide_filter"]
+    try:
+        ex.main()
+    finally:
+        sys.argv = argv
+    pb.MIN_CTRL_PER_BATCH = 10
+    pb.build(argparse.Namespace(h5ad=str(full), out=str(tmp_path / "pf"), **flags))
+    pb.build(argparse.Namespace(h5ad=str(sub), out=str(tmp_path / "ps"), **flags))
+    a, b = np.load(tmp_path / "pf" / "pseudobulk.npz"), np.load(tmp_path / "ps" / "pseudobulk.npz")
+    for k in ("kd", "n_cells", "genes"):
+        assert np.array_equal(a[k], b[k]), k
+    for k in ("Z", "fold", "ctrl_mean_umi", "ctrl_mean_log"):
+        assert np.allclose(a[k], b[k], equal_nan=True), k

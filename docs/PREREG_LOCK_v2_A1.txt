@@ -1,0 +1,19 @@
+Pre-registration lock: homeostatic locality v2, amendment 1
+Locked (UTC): 2026-10-04T08:53:57Z
+Supersedes the hashes of docs/PREREG_LOCK_v2.txt for scripts/17 and the tests; all other files unchanged.
+State: no knockdown or readout expression value of X-Atlas/Orion read (see amendment, header).
+Tag: prereg-locality-v2-a1
+
+sha256:
+1cedb66548cb22e4e2bd8f38a97a5254f5ed8e1c811b9349a19299e8d2eb0509  docs/PREREG_homeostatic_locality_v2.md
+c06f9149f5170211111882ea6f802b74d277e7bf13bc342029036c163baa7e0b  docs/PREREG_homeostatic_locality_v2_AMENDMENT_1.md
+879ef74452209053129a7fe8ba0f543fa9718650d087e83e7fa80f2cf4d45419  scripts/17_xatlas_pseudobulk.py
+495db81e31c0386505a53be994d2012d421a787527c044e30d1594b42c8dd5e6  scripts/17a_extract_subset.py
+e96b08d2711322b769d445e6f9c462c54313d75721c2f02bd9474eae6f7bd697  scripts/18_homeostatic_locality_prereg_v2.py
+c60e4d4ca1ac27b4f71037739d1fad14b57a268f76742490ae1e299363c5bf84  tests/test_homeostatic_locality_prereg.py
+03affa007b14e2246153619941eacf9d9940edb47a7a3d7ce78e9e1cf89a4e04  perceptome/catalog/data/modules_v03.json
+a5de9cbd9b3d717ad86dac65232ce845f7ac7395d92a2b6712e5b4603e62b53c  perceptome/catalog/data/loops_v04.json
+7ca14e3eb3ae2c78966a658579a379e851192de7d65aed7054446c8ad62df902  perceptome/catalog/modules.py
+63efa5ab663fbd542b955a0f724d26f36d0d0ea9f52e424148c33b64aa0137e5  perceptome/catalog/loops.py
+
+Verify: grep -E '^[0-9a-f]{64}  ' docs/PREREG_LOCK_v2_A1.txt | sha256sum -c

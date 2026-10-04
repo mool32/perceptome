@@ -110,6 +110,12 @@ def read_column(group, name):
         codes = np.asarray(node["codes"][()])
         out = np.where(codes >= 0, cats[np.clip(codes, 0, None)], "")
         return out.astype(str)
+    if isinstance(node, h5py.Group) and "values" in node and "mask" in node:
+        # anndata >= 0.12 nullable arrays: mask True = missing
+        v = np.asarray(node["values"][()])
+        v = v.astype(str) if v.dtype.kind in "SO" else v
+        mask = np.asarray(node["mask"][()]).astype(bool)
+        return np.where(mask, "", v.astype(str)) if v.dtype.kind in "SUO" else np.where(mask, 0, v)
     v = np.asarray(node[()])
     return v.astype(str) if v.dtype.kind in "SO" else v
 
