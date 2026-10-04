@@ -16,6 +16,7 @@ Cancer reference reconciled to the published convergence result. Loop layer (v0.
 - `loop_output_genes(module)` — readout set; includes `feedback_core` when `feedback_is_output` (HSF1, UPR-ATF6, AhR, VDR, RAR, Circadian, Hedgehog). `scripts/13_check_perturbseq_overlap.py` now counts this set.
 - `data/evidence/` — Replogle 2022 metadata-only evidence (testability per screen; K562_gwps perturbations with cell counts and author knockdown efficiency).
 - `docs/PREREG_loop_integrity_v1.md` — locked (tag prereg-loop-v1).
+- `docs/RESULTS_loop_integrity_v1.md` + `results/loop_integrity_v1/` — pre-registered run on K562_gwps: **NULL** (no noise signature of a broken loop; mean-level specificity of loop gene sets holds, descriptive).
 
 ### Note
 - The v0.3 catalog is unchanged, so all published scores reproduce. Its `feedback_genes` field has known problems (only 17/44 modules filled; 15/17 overlap `activity_genes`; `PHD2` is an alias of EGLN1; misassigned genes under NF-κB and Hippo) — use the loop layer for any feedback analysis.

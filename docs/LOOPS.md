@@ -1,8 +1,11 @@
 # Loop layer (v0.4)
 
-**Status: curated, not yet validated.** Nothing in this layer is used by any
-scoring function yet; it is the data foundation for planned loop-integrity
-metrics. Tiers are expected from cell-line biology and have not been checked
+**Status: curated; level-2 (noise) readout tested and not supported.** The
+pre-registered loop-integrity test (`docs/RESULTS_loop_integrity_v1.md`) returned
+NULL: in K562 Perturb-seq a broken loop did not leave a dispersion signature
+distinguishable from a removed input. The same run supports the layer's
+**mean-level** specificity (shared-node and module-specific knockdowns move the
+expected outputs). Nothing in this layer is used by a scoring function yet. Tiers are expected from cell-line biology and have not been checked
 against a Perturb-seq perturbation list.
 
 ## Why a separate layer

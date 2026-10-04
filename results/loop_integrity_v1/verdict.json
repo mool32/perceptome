@@ -1,0 +1,64 @@
+{
+ "depth_D": 5223,
+ "n_cells_dropped_below_D": 6165,
+ "G2": {
+  "frac_abs_Z2_gt_1.96": 0.02512562814070352,
+  "n": 199,
+  "pass": true
+ },
+ "G1": {
+  "ERK/MAPK": {
+   "median_M1_input_down": null,
+   "any_ci_below_0": false,
+   "pass": false
+  },
+  "HIF": {
+   "median_M1_input_down": -0.22564039360127436,
+   "any_ci_below_0": true,
+   "pass": true
+  },
+  "JAK-STAT": {
+   "median_M1_input_down": -0.08441566632873873,
+   "any_ci_below_0": true,
+   "pass": true
+  },
+  "SREBP": {
+   "median_M1_input_down": -0.5290524146662746,
+   "any_ci_below_0": true,
+   "pass": true
+  },
+  "UPR-IRE1": {
+   "median_M1_input_down": null,
+   "any_ci_below_0": false,
+   "pass": false
+  },
+  "UPR-PERK": {
+   "median_M1_input_down": 0.05534736810615705,
+   "any_ci_below_0": false,
+   "pass": false
+  }
+ },
+ "loops_passing_G1": [
+  "HIF",
+  "JAK-STAT",
+  "SREBP"
+ ],
+ "H1": {
+  "n_break": 7,
+  "n_input_down": 10,
+  "mean_Z2_break": 0.49636964107643916,
+  "p_sign_flip": 0.023897610238976102,
+  "p_mann_whitney": 0.23735088440970795,
+  "pass": false
+ },
+ "H1_spec": {
+  "break_coef": 0.6374850607789154,
+  "p_one_sided": 0.03078230142052135,
+  "pass": true
+ },
+ "N1": {
+  "violated_by": [],
+  "not_violated": true
+ },
+ "decision": "NULL: decision rule not met"
+}
