@@ -171,13 +171,18 @@ def part_c(bulk_path, out):
     a = ad.read_h5ad(bulk_path)          # pseudobulk is small; X = z-normalised expression per perturbation
     genes = (a.var["gene_name"].astype(str).to_numpy() if "gene_name" in a.var
              else np.asarray(a.var_names, dtype=str))
-    gpos = {g: i for i, g in enumerate(genes)}
     lab = np.asarray(a.obs_names, dtype=str)
     sym = np.array([s.split("_")[1] if "_" in s else s for s in lab])
     ncell = a.obs["num_cells_filtered"].to_numpy()
     fold = a.obs["fold_expr"].to_numpy() if "fold_expr" in a.obs else np.full(len(lab), np.nan)
     Z = np.asarray(a.X, dtype=np.float32)
     base = a.var["mean"].to_numpy() if "mean" in a.var else np.full(len(genes), np.nan)
+    # Replogle's normalized pseudobulk holds +inf for a few genes (zero control variance in some
+    # gem groups). Drop every gene with any non-finite value rather than let inf propagate.
+    good = np.isfinite(Z).all(0)
+    dropped_genes = genes[~good].tolist()
+    Z, genes, base = Z[:, good], genes[good], base[good]
+    gpos = {g: i for i, g in enumerate(genes)}
 
     # one row per gene: the guide group with most cells
     best = {}
@@ -226,12 +231,14 @@ def part_c(bulk_path, out):
             "baseline_activity_gene_mean": float(np.nanmean(mb)) if mb else "",
             "evo_cohort": next((k for k, v in EVO_COHORTS.items() if m in v), ""),
         })
+    loc_cols = sorted({k for r in eff for k in r if k.startswith("locality::")})
     write_tsv(out / "C_buffering_per_kd.tsv", eff, ["kd", "n_cells", "fold_expr", "rms_response",
-                                                     "rms_pctile_among_efficient", "modules"])
+                                                     "rms_pctile_among_efficient", "modules"] + loc_cols)
+    (out / "C_dropped_nonfinite_genes.txt").write_text("\n".join(dropped_genes) + "\n")
     write_tsv(out / "C_buffering_per_module.tsv", per_mod, ["module", "evo_cohort", "n_kd_efficient", "kds",
                                                            "median_rms_pctile", "median_locality",
                                                            "baseline_activity_gene_mean"])
-    return per_mod, len(eff)
+    return per_mod, len(eff), len(dropped_genes)
 
 
 def main():
@@ -239,15 +246,16 @@ def main():
     p.add_argument("--sc", required=True)
     p.add_argument("--bulk", required=True)
     p.add_argument("--out", required=True)
+    p.add_argument("--only_c", action="store_true", help="run part C only (pseudobulk)")
     a = p.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    per_mod, n_eff = part_c(a.bulk, out)
-    A, B = parts_ab(a.sc, out)
+    per_mod, n_eff, n_drop = part_c(a.bulk, out)
+    A, B = ([], []) if a.only_c else parts_ab(a.sc, out)
     summary = {
         "status": "EXPLORATORY — hypothesis generation only, data already used by a locked test",
         "A_n_cases": len(A), "A_n_readable": sum(1 for r in A if r.get("readable")),
-        "B_n_cases": len(B), "C_n_efficient_kds": n_eff,
+        "B_n_cases": len(B), "C_n_efficient_kds": n_eff, "C_n_genes_dropped_nonfinite": n_drop,
     }
     (out / "summary.json").write_text(json.dumps(summary, indent=1))
     print(json.dumps(summary, indent=1))
