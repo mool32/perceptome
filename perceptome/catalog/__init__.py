@@ -17,8 +17,10 @@ Each module entry exposes:
 
 from .modules import load_catalog, list_modules, get_genes, get_module_info, add_module
 from .validate import validate_catalog
+from .aliases import ALIASES, aliases_of, resolve_genes
 
 __all__ = [
     "load_catalog", "list_modules", "get_genes", "get_module_info",
     "add_module", "validate_catalog",
+    "ALIASES", "aliases_of", "resolve_genes",
 ]

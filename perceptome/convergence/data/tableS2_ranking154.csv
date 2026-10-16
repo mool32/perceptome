@@ -1,0 +1,155 @@
+cell_type,recurrence,median_depth_pct,mean_depth_pct,occupancy_pct,qc_status,pre_quarantine_occupancy_pct
+adipocytes,0.0,0.0,0.0,0.0,candidate,0.0
+adrenal cortex cells,0.0,0.0,0.0,0.0,candidate,0.0
+adrenal medulla cells,0.0,0.0,0.01,0.01,candidate,0.01
+alveolar cells type 1,0.0,0.0,0.04,0.04,candidate,0.04
+alveolar cells type 2,0.0,0.0,0.04,0.01,candidate,0.01
+astrocytes,0.0,0.0,0.01,0.01,candidate,0.01
+b-cells,0.0,0.0,0.04,0.04,candidate,0.03
+basal keratinocytes,0.0,0.27,0.59,0.63,candidate,0.63
+basal prostatic cells,0.0,0.0,0.0,0.0,candidate,0.0
+bergmann glia,0.0,0.0,0.03,0.04,candidate,0.04
+brain excitatory neurons,0.0,0.0,0.04,0.05,candidate,0.05
+brain inhibitory neurons,0.0,0.0,0.04,0.04,candidate,0.04
+breast hormone-responsive cells,0.0,0.0,0.0,0.0,candidate,0.0
+breast lactating cells,0.0,0.07,0.12,0.15,candidate,0.14
+breast myoepithelial cells,1.0,0.5,0.94,0.98,candidate,0.92
+breast secretory cells,0.0,0.38,0.92,0.91,candidate,0.9
+cardiomyocytes,0.0,0.0,0.01,0.02,candidate,0.02
+cdc,0.0,0.0,0.01,0.01,candidate,0.01
+cholangiocytes,0.0,0.0,0.0,0.0,candidate,0.0
+choroid plexus epithelial cells,0.0,0.0,0.01,0.01,candidate,0.01
+colonocytes,0.0,0.0,0.24,0.28,candidate,0.28
+cone photoreceptor cells,0.0,0.0,0.04,0.05,candidate,0.05
+conjunctival goblet cells,0.0,0.0,0.01,0.01,candidate,0.01
+corticotrophs,0.0,0.0,0.07,0.08,candidate,0.08
+cytotrophoblasts,18.0,10.75,11.03,11.1,candidate,10.89
+decidual stromal cells,0.0,0.03,0.26,0.16,candidate,0.15
+differentiating spermatogonia,5.0,1.12,2.53,2.42,candidate,2.42
+distal convoluted tubule cells,0.0,0.0,0.0,0.0,candidate,0.0
+early primary spermatocytes,4.0,2.15,2.87,2.21,candidate,2.15
+early spermatids,0.0,0.15,0.55,0.57,candidate,0.54
+endometrial ciliated cells,0.0,0.0,0.0,0.0,candidate,0.0
+endometrial glandular cells,0.0,0.0,0.0,0.0,candidate,0.0
+endometrial luminal cells,0.0,0.0,0.0,0.0,candidate,0.0
+endometrial secretory cells,0.0,0.0,0.21,0.08,candidate,0.08
+endometrial stromal cells,0.0,0.0,0.0,0.0,candidate,0.0
+enteric stem cells,2.0,0.53,1.43,1.57,candidate,1.56
+enteric transient amplifying cells,0.0,0.0,0.18,0.21,candidate,0.21
+enterocytes,0.0,0.0,0.03,0.03,candidate,0.03
+ependymal cells,0.0,0.0,0.02,0.03,candidate,0.03
+epicardial cells,0.0,0.0,0.0,0.0,candidate,0.0
+epididymal basal cells,0.0,0.05,0.12,0.14,candidate,0.14
+epididymal clear cells,4.0,1.12,3.0,2.62,candidate,2.61
+epididymal efferent duct absorptive cells,0.0,0.0,0.02,0.01,candidate,0.01
+epididymal efferent duct ciliated cells,0.0,0.22,0.32,0.33,candidate,0.33
+epididymal principal cells,0.0,0.15,0.31,0.35,candidate,0.35
+erythrocyte progenitors,2.0,0.62,1.32,1.47,candidate,1.45
+erythrocytes,,,,,quarantined,9.45
+esophageal apical cells,9.0,2.38,3.47,3.58,candidate,2.99
+esophageal basal cells,1.0,1.18,1.53,1.5,candidate,1.49
+esophageal suprabasal cells,1.0,0.4,1.36,1.2,candidate,1.17
+extravillous trophoblasts,0.0,0.03,0.57,0.59,candidate,0.59
+fallopian secretory cells,0.0,0.0,0.15,0.04,candidate,0.04
+fallopian tube ciliated cells,0.0,0.0,0.0,0.0,candidate,0.0
+fibro-adipogenic progenitors,0.0,0.0,0.0,0.0,candidate,0.0
+fibroblasts,0.0,0.0,0.0,0.0,candidate,0.0
+foveolar cells,0.0,0.0,0.01,0.0,candidate,0.0
+gastric chief cells,10.0,2.73,6.52,7.33,candidate,5.52
+gastric progenitor cells,13.0,4.55,10.36,9.37,candidate,9.15
+goblet cells,0.0,0.0,0.07,0.08,candidate,0.08
+gonadotrophs,0.0,0.0,0.0,0.0,candidate,0.0
+granulosa cells,1.0,0.3,0.78,0.72,candidate,0.72
+hematopoietic stem cells,0.0,0.0,0.0,0.0,candidate,0.0
+hepatic stellate cells,0.0,0.0,0.07,0.05,candidate,0.05
+hepatocytes,0.0,0.0,0.09,0.11,candidate,0.11
+hofbauer cells,6.0,1.47,2.95,3.26,candidate,3.09
+innate lymphoid cells,0.0,0.0,0.0,0.0,candidate,0.0
+kupffer cells,0.0,0.03,0.34,0.39,candidate,0.35
+lacrimal acinar cells,0.0,0.0,0.17,0.2,candidate,0.2
+lactotrophs,0.0,0.0,0.04,0.05,candidate,0.05
+late primary spermatocytes,1.0,0.78,1.12,1.0,candidate,0.89
+late spermatids,11.0,3.82,8.34,8.62,candidate,5.98
+leydig cells,0.0,0.0,0.1,0.12,candidate,0.12
+loop of henle epithelial cells,0.0,0.0,0.0,0.0,candidate,0.0
+lymphatic endothelial cells,0.0,0.0,0.0,0.0,candidate,0.0
+macrophages,0.0,0.0,0.03,0.03,candidate,0.03
+mast cells,0.0,0.0,0.11,0.13,candidate,0.12
+medullary thymic epithelial cells,0.0,0.0,0.0,0.0,candidate,0.0
+megakaryocyte progenitors,0.0,0.03,0.06,0.06,candidate,0.06
+megakaryocyte-erythroid progenitors,0.0,0.0,0.1,0.12,candidate,0.08
+megakaryocytes,18.0,8.22,13.51,12.81,candidate,8.27
+melanocytes,0.0,0.0,0.17,0.2,candidate,0.2
+mesothelial cells,0.0,0.0,0.0,0.0,candidate,0.0
+microglia,0.0,0.0,0.05,0.06,candidate,0.06
+migrating cytotrophoblasts,5.0,2.45,2.99,3.18,candidate,3.18
+monocyte progenitors,0.0,0.0,0.02,0.02,candidate,0.01
+monocytes,0.0,0.0,0.03,0.04,candidate,0.04
+mucous neck cells,1.0,0.12,0.43,0.42,candidate,0.4
+myonuclei,0.0,0.0,0.01,0.01,candidate,0.01
+myosatellite cells,0.0,0.0,0.0,0.0,candidate,0.0
+müller glia,0.0,0.0,0.12,0.09,candidate,0.09
+neuroendocrine cells,0.0,0.0,0.01,0.01,candidate,0.01
+neutrophil progenitors,0.0,0.0,0.11,0.13,candidate,0.1
+neutrophils,0.0,0.0,0.02,0.03,candidate,0.02
+nk-cells,0.0,0.0,0.01,0.01,candidate,0.01
+ocular epithelial cells,0.0,0.03,0.31,0.27,candidate,0.27
+oligodendrocyte progenitor cells,0.0,0.0,0.27,0.33,candidate,0.33
+oligodendrocytes,0.0,0.03,0.33,0.37,candidate,0.37
+oocytes,0.0,0.23,0.49,0.45,candidate,0.45
+other brain neurons,0.0,0.0,0.08,0.09,candidate,0.09
+ovarian stromal cells,0.0,0.0,0.14,0.14,candidate,0.13
+pancreatic acinar cells,6.0,3.33,6.97,7.45,candidate,6.45
+pancreatic duct cells,0.0,0.0,0.11,0.09,candidate,0.09
+pancreatic islet cells,0.0,0.0,0.07,0.08,candidate,0.07
+paneth cells,2.0,0.05,1.52,1.75,candidate,1.66
+papillary tip epithelial cells,0.0,0.0,0.02,0.01,candidate,0.01
+parietal cells,0.0,0.22,0.61,0.69,candidate,0.59
+pdcs,0.0,0.0,0.15,0.18,candidate,0.15
+pericytes,0.0,0.0,0.01,0.01,candidate,0.01
+peritubular myoid cells,0.0,0.0,0.01,0.01,candidate,0.01
+pituicytes/fscs,0.0,0.0,0.0,0.0,candidate,0.0
+pituitary stem cells,0.0,0.0,0.0,0.0,candidate,0.0
+plasma cells,0.0,0.0,0.13,0.15,candidate,0.12
+platelets,,,,,quarantined,2.51
+podocytes,0.0,0.0,0.01,0.01,candidate,0.01
+prostatic club cells,0.0,0.0,0.0,0.0,candidate,0.0
+prostatic glandular cells,0.0,0.0,0.02,0.03,candidate,0.03
+prostatic hillock cells,0.0,0.0,0.1,0.04,candidate,0.04
+proximal tubule cells,0.0,0.0,0.0,0.0,candidate,0.0
+renal collecting duct intercalated cells,0.0,0.0,0.0,0.0,candidate,0.0
+renal collecting duct principal cells,0.0,0.0,0.02,0.0,candidate,0.0
+renal connecting tubule cells,0.0,0.0,0.0,0.0,candidate,0.0
+respiratory basal cells,0.0,0.0,0.01,0.0,candidate,0.0
+respiratory ciliated cells,0.0,0.03,0.26,0.22,candidate,0.22
+respiratory deuterosomal cells,0.0,0.0,0.06,0.02,candidate,0.02
+respiratory ionocytes,0.0,0.0,0.0,0.0,candidate,0.0
+respiratory secretory cells,0.0,0.0,0.01,0.01,candidate,0.01
+retinal amacrine cells,0.0,0.0,0.15,0.18,candidate,0.18
+retinal bipolar cells,0.0,0.0,0.09,0.1,candidate,0.1
+retinal ganglion cells,0.0,0.0,0.02,0.03,candidate,0.03
+retinal horizontal cells,0.0,0.0,0.1,0.1,candidate,0.1
+retinal pigment epithelial cells,0.0,0.0,0.08,0.05,candidate,0.05
+rod photoreceptor cells,0.0,0.0,0.02,0.01,candidate,0.01
+salivary acinar cells,0.0,0.0,0.01,0.01,candidate,0.01
+salivary basal cells,0.0,0.0,0.0,0.0,candidate,0.0
+salivary duct cells,0.0,0.0,0.06,0.04,candidate,0.04
+salivary ionocytes,0.0,0.0,0.01,0.0,candidate,0.0
+salivary myoepithelial cells,0.0,0.0,0.0,0.0,candidate,0.0
+schwann cells,0.0,0.0,0.0,0.0,candidate,0.0
+sertoli cells,0.0,0.0,0.16,0.19,candidate,0.19
+smooth muscle cells,0.0,0.0,0.02,0.0,candidate,0.0
+somatotrophs,0.0,0.0,0.0,0.0,candidate,0.0
+submucosal glandular cells,0.0,0.0,0.03,0.04,candidate,0.04
+suprabasal keratinocytes,0.0,0.15,0.48,0.52,candidate,0.5
+syncytiotrophoblasts,2.0,1.18,2.11,2.2,candidate,2.19
+t-cells,0.0,0.0,0.0,0.0,candidate,0.0
+thymic myoid cells,0.0,0.0,0.0,0.0,candidate,0.0
+thymocytes,0.0,0.0,0.0,0.0,candidate,0.0
+thyrotrophs,0.0,0.0,0.16,0.19,candidate,0.19
+transitional alveolar cells,0.0,0.0,0.0,0.0,candidate,0.0
+tuft cells,0.0,0.15,0.41,0.44,candidate,0.43
+undifferentiated spermatogonia,2.0,0.05,1.1,1.23,candidate,1.23
+urothelial cells,0.0,0.0,0.08,0.05,candidate,0.05
+vascular endothelial cells,0.0,0.0,0.0,0.0,candidate,0.0
+vascular smooth muscle cells,0.0,0.0,0.0,0.0,candidate,0.0

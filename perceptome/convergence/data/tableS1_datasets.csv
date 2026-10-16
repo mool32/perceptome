@@ -1,0 +1,26 @@
+cancer,source,tissue,platform,n_cells_QC,origin_class,malignant_label
+HCC,Sun 2021,liver,10x,54978,epithelial,author
+BRCA,Wu 2021,breast,10x,65104,epithelial,author
+Glioblastoma,Census,brain,10x,25661,glial,Census
+Ovarian serous,Census,ovary,10x,28950,epithelial,Census
+RCC,Census,kidney,10x,26012,epithelial,Census
+Melanoma,Census,skin,10x,12030,neural-crest,Census
+Prostate,Census,prostate,10x,26109,epithelial,Census
+HNSCC,Census,head/neck,10x,14808,epithelial,author
+Neuroblastoma,Census,adrenal,10x,30000,neural-crest,Census
+B-ALL,Census,bone marrow,10x,29132,hematopoietic,Census
+DLBCL,Census,lymph node,10x,12786,hematopoietic,Census
+Squamous lung,Census,lung,10x,19707,epithelial,Census
+TNBC,Census,breast,10x,15419,epithelial,Census
+PDAC,Peng 2019,pancreas,10x,505,epithelial,author
+NSCLC,Census,lung,10x,204,epithelial,Census
+AML,van Galen 2019,bone marrow,Seq-Well,6274,hematopoietic,author
+MM,Ledergor 2018,bone marrow,InDrops,5138,hematopoietic,author
+BCC,Yost 2019,skin,10x,5526,epithelial,heuristic
+Colorectal,Pelka 2021,colon,10x/Seq-Well,23712,epithelial,author
+Small-cell lung,Census,lung,10x,22388,neuroendocrine,Census
+Gastric,Census,stomach,10x,4632,epithelial,Census
+Germ-cell (embryonal),GSE228501,testis,10x,443,germ cell,marker
+Osteosarcoma,GSE162454,bone,10x,16214,mesenchymal,marker
+Ewing sarcoma,GSE130024,bone (PDX),10x,2007,mesenchymal,marker
+Seminoma,GSE197778,testis,10x,660,germ cell,marker

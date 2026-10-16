@@ -69,6 +69,8 @@ include = ["perceptome*"]
 [tool.setuptools.package-data]
 perceptome = [
     "catalog/data/*.json",
+    "convergence/data/*.json",
+    "convergence/data/*.csv",
     "perceptivity/data/*",
     "eigenspace/data/*.json",
     "reference/data/*.json",

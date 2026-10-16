@@ -33,7 +33,10 @@ See docs and examples/ for end-to-end pipelines.
 
 __version__ = "0.2.2"
 
-from .catalog import load_catalog, list_modules, get_genes, get_module_info, add_module, validate_catalog
+from .catalog import (
+    load_catalog, list_modules, get_genes, get_module_info, add_module, validate_catalog,
+    aliases_of, resolve_genes,
+)
 from .score import score_modules, score_readiness, score_activity
 from .perceptivity import (
     compute_perceptivity, perceptivity_per_celltype, classify_quadrant,
@@ -50,12 +53,18 @@ from .validity import (
     validate_perturbation, scorecard,
 )
 from .network import compute_network, compare_networks, module_heterogeneity
+from . import convergence
+from .convergence import (
+    assign_cells, assign_to_reference, core_fraction, region_occupancy,
+    within_patient_occupancy, recurrence_ranking, load_convergence_reference,
+)
 from .utils import cosine
 
 __all__ = [
     "__version__",
     # catalog
     "load_catalog", "list_modules", "get_genes", "get_module_info", "add_module", "validate_catalog",
+    "aliases_of", "resolve_genes",
     # score
     "score_modules", "score_readiness", "score_activity",
     # perceptivity
@@ -77,6 +86,9 @@ __all__ = [
     "validate_perturbation", "scorecard",
     # network
     "compute_network", "compare_networks", "module_heterogeneity",
+    # convergence (Paper 3)
+    "convergence", "assign_cells", "assign_to_reference", "core_fraction", "region_occupancy",
+    "within_patient_occupancy", "recurrence_ranking", "load_convergence_reference",
     # utils
     "cosine",
 ]
