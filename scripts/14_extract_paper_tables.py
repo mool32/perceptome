@@ -15,19 +15,24 @@ Output (perceptome/convergence/data/):
     tableS6_complexity.csv     transcriptome complexity of the cells assigned to each normal cell type
     tableS7_core_signature.csv the core's target-defining module signature
     tableS8_origins.csv        cancer -> cell of origin
+and, into perceptome/catalog/data/:
+    module_criteria_s9b.json   Table S9b, the four operational criteria per module (as printed)
 
 Each table is verified against a total the paper states itself (448,399 QC cells; 574,451 assignments;
 contributions summing to 0.711; 154 / 44 / 25 rows) before it is written; the script exits non-zero
 if a check fails, so a transcription slip cannot go unnoticed.
 """
 
+import json
 import re
 import sys
 from pathlib import Path
 
 import pandas as pd
 
-OUT = Path(__file__).resolve().parents[1] / "perceptome" / "convergence" / "data"
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "perceptome" / "convergence" / "data"
+CATALOG_DATA = ROOT / "perceptome" / "catalog" / "data"
 
 _MATH = str.maketrans({"\U0001D705": "κ", "\U0001D6FC": "α", "\U0001D6FE": "γ", "\U0001D6FD": "β"})
 _NUM = r"-?\d+(?:\.\d+)?"
@@ -217,6 +222,84 @@ def table_s8(lines):
     return df
 
 
+# ── Table S9b: the four operational criteria per module ──────────────────────
+
+def _columns(header):
+    """Start offsets of the six columns of a Table S9b page, from its header line."""
+    header = header.replace("\x0c", "")          # the page-break form feed precedes the header of page 2
+    return [header.index(k) for k in ("module", "sensor", "TF output", "feedback element", "receptor field", "conf.")]
+
+
+def _split_cells(line, cols):
+    """Slice a table line at the column offsets, nudging a boundary left when it would cut a token.
+
+    The text layer is not a perfect grid: a long cell can run a character or two into the next
+    column (e.g. 'NFE2L2 heterodimerized KEAP1'), and a dash in the receptor column can sit just
+    left of its header. Both are repaired here.
+    """
+    bounds = list(cols[1:]) + [len(line) + 1]
+    adj = []
+    for b in bounds:
+        while 0 < b < len(line) and line[b - 1] != " " and line[b] != " ":
+            b -= 1
+        adj.append(b)
+    cells = [line[a:b].strip() for a, b in zip([cols[0]] + adj[:-1], adj)]
+    for k in (1, 2, 3):                         # a dash glued to the end of the cell before the receptor field
+        if cells[k].endswith("\u2014") and len(cells[k]) > 1 and k == 3:
+            cells[3] = cells[3][:-1].strip()
+            cells[4] = "\u2014"
+    return cells
+
+
+def table_s9b(lines):
+    block = section(lines, r"^Table S9b\.", r"^Note S-N\.")
+    heads = [i for i, l in enumerate(block) if re.match(r"^\s?module\s+sensor\s+TF output", l)]
+    assert len(heads) == 2, heads
+    rows = {}
+    for h, end in zip(heads, heads[1:] + [len(block)]):
+        cols = _columns(block[h])
+        cur = None
+        for l in block[h + 1:end]:
+            if not l.strip() or re.fullmatch(r"\s*\d+\s*", l):
+                continue
+            cells = _split_cells(l, cols)
+            if cells[0]:
+                cur = norm(cells[0])
+                rows[cur] = [[c] if c else [] for c in cells[1:]]
+            elif cur:
+                for k, c in enumerate(cells[1:]):
+                    if c:
+                        rows[cur][k].append(c)
+    out = {}
+    for m, parts in rows.items():
+        sensor, tf, fb, rf, conf = (" ".join(p) for p in parts)
+        def genes(t):
+            """Comma-separated symbols; a trailing fragment cut off by the print ('TRIB3 p\u2026') is dropped."""
+            items = [re.sub(r"\s*\S*\u2026\s*$", "", g).strip() for g in t.split(",")]
+            return [g for g in items if g]
+        out[m] = {
+            "sensor": genes(sensor),
+            "tf_output": tf,
+            "tf_output_truncated": tf.endswith("\u2026"),
+            "feedback": [] if fb == "unclear" else genes(fb),
+            "feedback_named": fb != "unclear",
+            "receptor_field_recorded": rf not in ("\u2014", ""),
+            "confidence": conf,
+        }
+    assert len(out) == 44, len(out)
+    # statements of the paper itself
+    assert sum(v["feedback_named"] for v in out.values()) == 38                       # 'named for 38 of 44 modules'
+    assert {m for m, v in out.items() if not v["feedback_named"]} == \
+        {"AR", "PR", "PPAR\u03b3", "NPAS4", "PI3K/PTEN", "Hippo"}                        # 'six are marked unclear'
+    assert sum(not v["receptor_field_recorded"] for v in out.values()) == 16          # 'blank for sixteen modules'
+    cat = json.loads((CATALOG_DATA / "modules_v03.json").read_text(encoding="utf-8"))["modules"]
+    absent = {m for m, v in out.items() if v["feedback"] and not set(v["feedback"]) & set(cat[m]["core_genes"])}
+    assert absent == {"AMPK", "Autophagy", "Calcium", "Cell Cycle", "ER", "Notch", "SREBP", "TR", "cGAS-STING", "mTOR"}, absent
+    for v in out.values():       # 16 recorded at construction (blank receptor field), 28 re-curated
+        v["annotation"] = "recorded at catalog construction" if not v["receptor_field_recorded"] else "re-curated"
+    return out
+
+
 def main(path):
     lines = Path(path).read_text(encoding="utf-8").split("\n")
     OUT.mkdir(parents=True, exist_ok=True)
@@ -231,6 +314,14 @@ def main(path):
     for name, df in tables.items():
         df.to_csv(OUT / name, index=False)
         print(f"  {name:30s} {len(df):4d} rows  (checks passed)")
+    s9b = table_s9b(lines)
+    (CATALOG_DATA / "module_criteria_s9b.json").write_text(
+        json.dumps({"_source": "Spiro (2026), Supporting Information, Table S9b, as printed (gene lists and "
+                               "free-text cells are abbreviated in the print; the complete table is "
+                               "tableS9b_module_criteria.csv in the Zenodo record). 'recorded at catalog "
+                               "construction' modules have a blank receptor field in the paper.",
+                    "modules": dict(sorted(s9b.items()))}, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"  {'module_criteria_s9b.json':30s} {len(s9b):4d} rows  (checks passed)")
 
 
 if __name__ == "__main__":

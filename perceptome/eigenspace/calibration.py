@@ -300,6 +300,46 @@ def hpa_reference_scores(expression, catalog=None, gene_set="core",
     return pd.DataFrame(out)[modules]
 
 
+def read_hpa_single_cell_type(path, genes=None, value_column="nCPM"):
+    """Stream the HPA ``rna_single_cell_type.tsv`` table.
+
+    Returns ``(expression, library_size)``: ``expression`` is genes x cell types for the requested
+    ``genes`` (all genes if None); ``library_size`` is the per-cell-type total over *all* genes in
+    the file, which ``normalize_total`` needs. Where several rows share a gene symbol the last one
+    wins, as in ``scripts/02_build_hpa_perceptivity.py``.
+
+    Columns are found by header name (``Gene name``, ``Cell type``, ``value_column``); a four-column
+    file without those names is read positionally (gene, gene name, cell type, nCPM).
+    """
+    keep = None if genes is None else set(genes)
+    expr, totals = {}, {}
+    with open(path, encoding="utf-8") as f:
+        header = f.readline().rstrip("\n").split("\t")
+        col = {name: i for i, name in enumerate(header)}
+        if {"Gene name", "Cell type", value_column} <= set(col):
+            i_gene, i_ct, i_val = col["Gene name"], col["Cell type"], col[value_column]
+        elif len(header) == 4:
+            i_gene, i_ct, i_val = 1, 2, 3
+        else:
+            raise ValueError(f"Expected columns 'Gene name', 'Cell type' and {value_column!r}; found {header}")
+        need = max(i_gene, i_ct, i_val)
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) <= need:
+                continue
+            try:
+                v = float(parts[i_val])
+            except ValueError:
+                continue
+            ct, g = parts[i_ct], parts[i_gene]
+            totals[ct] = totals.get(ct, 0.0) + v
+            if keep is None or g in keep:
+                expr.setdefault(g, {})[ct] = v
+    cell_types = sorted(totals)
+    expression = pd.DataFrame(expr, index=cell_types).T
+    return expression, pd.Series(totals).reindex(cell_types)
+
+
 def scale_diagnostic(z):
     """Median over samples of the mean standardized score across modules (reference SDs)."""
     return float(np.nanmedian(np.nanmean(np.asarray(z, dtype=float), axis=1)))

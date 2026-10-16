@@ -35,7 +35,7 @@ __version__ = "0.2.2"
 
 from .catalog import (
     load_catalog, list_modules, get_genes, get_module_info, add_module, validate_catalog,
-    aliases_of, resolve_genes,
+    aliases_of, resolve_genes, module_criteria,
 )
 from .score import score_modules, score_readiness, score_activity
 from .perceptivity import (
@@ -43,7 +43,10 @@ from .perceptivity import (
     capacity_floor, predict_engagement,
     load_hpa_perceptivity, hpa_capacity_floor,
 )
-from .eigenspace import project, project_shift, rebuild, Calibration, load_calibration, hpa_reference_scores
+from .eigenspace import (
+    project, project_shift, rebuild, Calibration, load_calibration, hpa_reference_scores,
+    read_hpa_single_cell_type,
+)
 from .compare import compare_conditions, divergence_score, compare_to_references, infrastructure_regime
 from .reference import load_attractor_direction, attractor_alignment
 from .drugs import drug_anchors, activity_layer_screen
@@ -64,7 +67,7 @@ __all__ = [
     "__version__",
     # catalog
     "load_catalog", "list_modules", "get_genes", "get_module_info", "add_module", "validate_catalog",
-    "aliases_of", "resolve_genes",
+    "aliases_of", "resolve_genes", "module_criteria",
     # score
     "score_modules", "score_readiness", "score_activity",
     # perceptivity
@@ -73,7 +76,7 @@ __all__ = [
     "load_hpa_perceptivity", "hpa_capacity_floor",
     # eigenspace
     "project", "project_shift", "rebuild",
-    "Calibration", "load_calibration", "hpa_reference_scores",
+    "Calibration", "load_calibration", "hpa_reference_scores", "read_hpa_single_cell_type",
     # compare
     "compare_conditions", "divergence_score", "compare_to_references", "infrastructure_regime",
     # reference

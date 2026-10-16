@@ -13,9 +13,9 @@ documented in docs/EIGENSPACE_EVOLUTION.md.
 
 from .project import project, project_shift
 from .rebuild import rebuild
-from .calibration import Calibration, load_calibration, hpa_reference_scores
+from .calibration import Calibration, load_calibration, hpa_reference_scores, read_hpa_single_cell_type
 
 __all__ = [
     "project", "project_shift", "rebuild",
-    "Calibration", "load_calibration", "hpa_reference_scores",
+    "Calibration", "load_calibration", "hpa_reference_scores", "read_hpa_single_cell_type",
 ]
