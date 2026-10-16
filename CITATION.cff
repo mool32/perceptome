@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use perceptome in your research, please cite both the software (DOI below) and the companion paper when posted."
+message: "If you use perceptome in your research, please cite the software (DOI below) and the paper whose method it implements (preferred citation: Spiro 2026, Zenodo 10.5281/zenodo.20542130)."
 type: software
 title: "perceptome: Cellular Perception Analysis Toolkit"
 version: "0.2.2"
@@ -26,30 +26,44 @@ repository-code: "https://github.com/mool32/perceptome"
 license: MIT
 keywords:
   - perceptual modules
+  - regulatory modules
   - cellular signaling
   - eigenspace projection
+  - cell-state space
   - single-cell RNA-seq
+  - cancer convergence
   - cancer dedifferentiation
   - aging
   - transcriptional modules
 abstract: >
   perceptome is an open-source Python toolkit implementing a 44-module cellular
-  perception framework with three analytic layers: geometry (44 modules in a
-  9-PC HPA-derived eigenspace), perceptivity (5-vector capacity / engagement /
+  perception framework with four analytic layers: geometry (44 regulatory modules
+  placed in a fixed 9-dimensional eigenspace derived from 154 Human Protein Atlas
+  normal cell types, in the standardized coordinates of Spiro 2026), convergence
+  (the assay of that paper: assignment of single cells to the nearest of 152 normal
+  cell types, occupancy of the convergence region, and the within-patient test of
+  whether malignant epithelium occupies that region more often than the same
+  patient's normal epithelium), perceptivity (5-vector capacity / engagement /
   specialization metric per cell type, with the upward-asymmetric capacity-floor
   predictor closed across substrate-series Papers 4.5 - 4.8), and validity
   (random-200 / housekeeping / cell-cycle scorecard for perturbation analyses).
-  Includes the cancer attractor capacity-direction reference (Paper 4.2 P3 PASS,
-  Sun 2021 paired HCC) and a focused 9-anchor drug operation matching the narrow
-  validated scope from Paper 4.1 (6 mechanism-pathway rescues + 3 stress-axis
-  controls; 11 falsified drug operations explicitly NOT supported). NPAS4 is the
-  44th canonical module per Paper 4.
+  Includes the Paper 4.2 cancer capacity-direction reference (P3 PASS, Sun 2021
+  paired HCC) and a focused 9-anchor drug operation matching the narrow validated
+  scope from Paper 4.1 (6 mechanism-pathway rescues + 3 stress-axis controls; 11
+  falsified drug operations explicitly NOT supported). NPAS4 is the 44th canonical
+  module per Paper 4.
 preferred-citation:
   type: article
-  title: "The perceptual eigenspace of the cell: 43 transcriptional modules organize cancer and aging"
+  status: preprint
+  title: "Diverse cancers converge on one region of normal cell-state space in a cancer-blind coordinate system"
   authors:
     - family-names: "Spiro"
       given-names: "Theodor"
       orcid: "https://orcid.org/0009-0004-5382-9346"
+      affiliation: "Vaika Inc., East Aurora, NY, USA"
   year: 2026
-  notes: "In preparation"
+  doi: "10.5281/zenodo.20542130"
+  url: "https://doi.org/10.5281/zenodo.20542130"
+  publisher:
+    name: "Zenodo"
+  notes: "Preprint archived at Zenodo (CC-BY 4.0), manuscript version v11. Supersedes the first draft, 'The perceptual eigenspace of the cell: 43 transcriptional modules organize cancer and aging' (v0.1.0 of this software)."

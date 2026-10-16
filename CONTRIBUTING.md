@@ -13,12 +13,13 @@ Contributions are welcome. The bar varies by what you're contributing — bug fi
 | **New scoring method** | Document scope (when to use vs default), benchmark against `mean_raw` on the bundled tutorial data | PR with discussion in an issue first |
 | **New module added to the catalog** | See "New canonical module" below — high bar | PR + issue + reference |
 | **New reference vector** (disease, aging, attractor variant, drug anchor) | See "New reference vector" below | PR + issue + script |
+| **A statement about the convergence result** (docs, docstrings, notebooks) | Must match what Paper 3 supports; see "Statements about convergence" below | Standard PR |
 
 ## Standard PR process
 
 1. Open an issue describing the change before opening the PR (especially for anything beyond a bug fix). Saves both of us time if the direction isn't going to be accepted.
 2. Fork the repo, branch off `main`, make your changes.
-3. Run the test suite and ensure all 73 tests still pass:
+3. Run the test suite and make sure it passes (it uses only the bundled data — no network, no downloads):
    ```bash
    pytest tests/ -v
    ```
@@ -29,17 +30,27 @@ Contributions are welcome. The bar varies by what you're contributing — bug fi
 
 ## High bar: new canonical module
 
-Adding a 45th (or 46th, ...) module to the catalog is a scientific change, not a coding change. The four perceptual criteria from the framework's foundation must hold:
+Adding a 45th (or 46th, ...) module to the catalog is a scientific change, not a coding change. In Paper 3 a module is "a self-contained regulatory unit specified by four operational criteria", and a candidate is kept only if it represents a biologically distinct regulatory input or response, if its activity can be inferred from a defined transcriptional output rather than from the expression of a single pathway component, and if its sensor, transcriptional regulator and target-gene response are characterized well enough to fix the direction of pathway activity. The four criteria:
 
-1. **Sensor present** — the module is activated by an identifiable upstream signal (ligand-receptor, metabolite, mechanical, …)
-2. **TF output** — the module has a primary transcription factor (or factor family) whose targets are measurable in scRNA-seq
-3. **Cyclical feedback** — the module has a negative feedback loop closing within minutes-to-hours of activation
-4. **Receptor field specificity** — the module is not a downstream consequence of one of the existing 44 modules
+1. **Signal-sensing component** — an identifiable upstream input (ligand-receptor, metabolite, mechanical, …)
+2. **Transcription-factor output** — a transcription factor (or family) with documented target genes, measurable in scRNA-seq
+3. **Cyclical negative-feedback element** — a feedback element induced by the module's own activity
+4. **Receptor-field specificity** — the class of input the sensor reads, written down. A candidate that substantially duplicates a module already in the catalog, lacks a defined transcriptional output, or acts mainly post-transcriptionally is dropped.
+
+**Document it the way Table S9b of Paper 3 does** (`pct.module_criteria()` shows the format): the sensor, the TF output, the feedback element and the receptor field, in prose, with a confidence grade. Three rules come from how the paper audits its own table:
+
+- **Say "unclear" rather than filling a criterion in.** Six of the 44 modules carry an unclear feedback element.
+- **Check the named feedback element against the genes you actually score.** For ten modules it is not among them, so the score cannot read the feedback arm; record that.
+- **Never write a criterion back retrospectively without saying so.** The receptor field is blank for the 16 modules annotated at catalog construction, which the paper reports as a gap in the record rather than filling it in.
+
+Be clear in the PR about what the criteria are: the paper's own audit treats them as a record of how the panel was curated, not as a verified property of the scored genes (three curators given the criteria alone built materially different catalogs).
 
 Plus, infrastructure for the new module:
 
 - **Gene panel** — `core_genes` (3-5 sensor cascade + TF), `activity_genes` (5-15 TF target genes), optional `sensor_genes` / `cascade_genes` / `tf_genes` / `feedback_genes`
-- **Recompute scripts updated** — `scripts/01_build_catalog.py`, `scripts/02_build_hpa_perceptivity.py` (HPA reference now N × 45), `scripts/03_build_eigenspace.py` (eigenspace rebuilt from N × 45 R matrix). The `scripts/04_build_attractor_reference.py` and `scripts/06_recompute_disease_vectors.py` will need to rerun on the updated eigenspace.
+- **Gene symbols** — current HGNC symbols, with the coverage checked on the HPA reference and on at least one cohort (`pct.score_modules(...)["coverage"]` and `["missing_genes"]`). The paper lost three catalog genes to renamed symbols and to a loader that stripped `-<digits>` suffixes (Note S-Q); record any renamed symbol in `perceptome/catalog/aliases.py`.
+- **Recompute scripts updated** — `scripts/01_build_catalog_v03.py`, `scripts/02_build_hpa_perceptivity.py` (HPA reference now N × 45), `scripts/03_build_eigenspace.py` (eigenspace rebuilt from N × 45 R matrix). Then `scripts/04_build_attractor_reference.py`, `scripts/06_recompute_disease_vectors.py` and `scripts/07_recompute_aging_reference.py` rerun on the updated eigenspace, and `scripts/13_build_single_cell_calibration.py` if the single-cell calibration is shipped.
+- **Does the space survive the change?** — rebuild the eigenspace and report the Kaiser count and the per-PC eigenvector cosine against the previous reference, as the paper's NPAS4 leave-one-out does (Note S2); `scripts/15_paper_reproduction_report.py` shows which published numbers the new reference still reproduces. The paper's tables bundled in `perceptome/convergence/data/` belong to the 44-module catalog; say so in `docs/PAPER_MAP.md` rather than leaving them to look current.
 - **At least one published a-priori prediction reproduced** — add a regression test to `tests/test_integration.py` of the form "starting cell C, module M, expected `capacity_floor` = X, observed = X" with citation to the empirical study that pre-registered the prediction.
 - **Updated `docs/SCOPE.md`** — record the validation evidence + scope conditions for the new module
 - **CHANGELOG entry** — under "Added" with explicit version bump rationale (catalog change = at least minor bump, e.g. v0.2 → v0.3)
@@ -52,8 +63,13 @@ Adding a disease, aging, attractor, or drug reference vector means another colum
 
 - **Source documented** — what scRNA-seq dataset, what comparison (disease vs control, old vs young, tumor vs normal), what cell-group definitions
 - **Reproducible build script** — added to `scripts/`, follows the pattern of `06_recompute_disease_vectors.py` or `07_recompute_aging_reference.py`
+- **Standardized coordinates** — store the per-module delta and derive the eigenspace vector with `pct.project_shift` (module delta divided by the reference SD, then the fixed loadings), and set `eigenspace_convention: standardized` in the file. Do not project a difference of raw scores through the loadings: that is the pre-0.3 convention and its cosines are not comparable with the bundled vectors.
 - **At least one validation test** — vector loads, has expected sign on a key module
 - **Avoid double-counting** — don't add a vector that's near-duplicate of an existing one (cosine > 0.85 with an existing reference); explain how it's complementary
+
+## High bar: statements about convergence
+
+Claims about the convergence result are held to what Paper 3 supports. Read [`docs/SCOPE.md`](docs/SCOPE.md) first: the region is the robust finding and the anchor is catalog-conditional; the within-patient increase is the unit of evidence (the patient, not the cell); convergence is a static endpoint, not a measured trajectory; and a list of statements the paper retracted (baseline gating, fold-change framing, the cGAS-STING reading, the polyploidy argument) must not come back in code, docstrings or documentation. A change to `pct.convergence` that alters a number the paper prints needs the paper's value, the new value and the reason in the PR; `tests/test_paper_reference.py` and `tests/test_convergence.py` hold those numbers.
 
 ## What gets rejected
 
@@ -79,7 +95,7 @@ No automated formatter currently. Match the existing style:
 ## Testing
 
 ```bash
-# Full suite (1.9 sec on a laptop)
+# Full suite (a few seconds on a laptop; no network needed)
 pytest tests/ -v
 
 # Single file while iterating
@@ -89,7 +105,7 @@ pytest tests/test_perceptivity.py -v
 pytest tests/ --cov=perceptome --cov-report=term-missing
 ```
 
-The test suite includes biological regression checks (paper4.4 / 4.5 / 4.7 a-priori predictions, attractor direction signs, HPA reference v1.4 spot-checks). If a contribution changes one of these numbers, the PR must justify why and reference the empirical work that supports the new value.
+The test suite includes biological regression checks (paper4.4 / 4.5 / 4.7 a-priori predictions, attractor direction signs, HPA reference v1.4 spot-checks) and, since the Paper 3 alignment, the numbers of that paper that the bundled data can reproduce (`tests/test_paper_reference.py`: component count, variance, stability tiers, gene lists, Table S9b counts, the totals of the transcribed tables) and the convergence workflow on cells synthesized from the bundled reference (`tests/test_convergence.py`, `tests/test_pipeline_qc_aliases.py`). If a contribution changes one of these numbers, the PR must justify why and reference the empirical work that supports the new value.
 
 ## Getting in touch
 

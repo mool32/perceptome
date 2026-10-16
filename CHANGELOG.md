@@ -6,14 +6,57 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-Cancer reference reconciled to the published convergence result.
+Alignment with the final Paper 3 — Spiro (2026), *Diverse cancers converge on one region of normal cell-state space in a cancer-blind coordinate system* ([Zenodo 10.5281/zenodo.20542130](https://doi.org/10.5281/zenodo.20542130), manuscript v11) — and correction of statements it retracts. [`docs/PAPER_MAP.md`](docs/PAPER_MAP.md) maps every part of the paper onto the code and lists which printed numbers the bundled data do and do not reproduce.
 
-### Changed
-- **`attractor_v1.json` now names the convergence anchor** — the placental cytotrophoblast (megakaryocyte a lineage-restricted secondary) — and cites the published finding (Spiro 2026, *Cancers of all lineages converge on the placental cytotrophoblast*, Zenodo [10.5281/zenodo.20542130](https://doi.org/10.5281/zenodo.20542130); 25 cancers, within-patient deepening). `load_attractor_direction()` now returns `anchor`, `secondary`, and `published_refinement`.
-- **README hero figure regenerated** to mark this two-cell core instead of the earlier 8-cell attractor cluster.
+### Changed — behaviour (read before upgrading)
+- **`pct.project` standardizes by default.** The paper places a cell in the space by z-scoring each module against the reference calibration and projecting through the fixed loadings. Versions ≤ 0.2.2 multiplied raw scores by the loadings, leaving all cells with one large shared offset (mean pairwise cosine between the 154 normal cell types 0.97; 0.002 once standardized, matching the paper's near-orthogonal states), labelling every HPA cell type `low_perception`, and reversing the paper's PC1 orientation. `project(..., standardize=False)` restores the old output. Modules missing from the input are now neutral (placed at the reference mean) rather than raw zero; `missing_modules=` marks uncovered modules.
+- `project` warns when per-cell-scale scores meet the pseudobulk calibration (paper Notes S-B, S-H); `n_pcs` defaults to all PCs of the reference.
+- **`compare_conditions()["delta_eigenspace"]`** is computed with `pct.project_shift` (module delta divided by the reference SD, then the loadings), so it equals the difference between the projected condition means.
+- **The bundled attractor / disease / aging eigenspace vectors are re-expressed in the standardized coordinates** from their stored per-module deltas (`scripts/12_restandardize_reference_vectors.py`, idempotent; cosine with the old vectors 0.97–0.99, magnitudes larger). Cosines against them from earlier versions are not comparable. Build scripts 04/06/07 use `project_shift`.
+- `score_modules` coverage frame gains `aliases_used`, and a `UserWarning` names catalog genes that exact matching misses but their current symbol would recover (see Added).
+- `load_attractor_direction()` / `attractor_v1.json` (the entry that was unreleased before this one cited the paper under its working title, *Cancers of all lineages converge on the placental cytotrophoblast*; the published title is *Diverse cancers converge on one region of normal cell-state space in a cancer-blind coordinate system*): the published refinement now states the paper's current result (region robust, anchor catalog-conditional; megakaryocyte a secondary target that falls with transcriptome complexity; no baseline gating) and marks the 8-cell cluster as the superseded Paper 4.2 estimate.
 
-### Note
-- The bundled `attractor_direction` vectors remain the v0.2 Paper 4.2 P3 estimate (11–13 cancer cohort). A full recompute of the empirical convergence direction from the 25-cancer cohort is tracked for a future data release (requires the raw scRNA pipeline).
+### Changed — documentation and examples
+- README rewritten around the paper; `docs/SCOPE.md`, `docs/QUICKSTART.md` and `docs/EIGENSPACE_EVOLUTION.md` updated (the axes as the paper describes them, the standardized projection, what is retracted).
+- `CITATION.cff`: preferred citation is now the final paper (Zenodo 10.5281/zenodo.20542130, a preprint) instead of the first draft; software version and DOIs unchanged.
+- `CONTRIBUTING.md`: the criteria for a new module are the paper's four operational criteria documented as in Table S9b (an *unclear* entry is acceptable, the named feedback element is checked against the scored genes, nothing is written back retrospectively); new reference vectors must be in the standardized coordinates (`project_shift`); a section on statements about the convergence result.
+- `ROADMAP.md`: the Paper 3 alignment is the next release; the follow-ups the paper leaves open are listed; later releases renumbered (proposal for the maintainer).
+- `examples/tutorial.ipynb`: Workflow 1 describes the axes as the paper does and no longer attributes a convergence axis to PC4; Workflow 3 compares a *shift* (`project_shift`) with the reference directions; pointers to the convergence recipe. `examples/recipe_cancer_attractor.ipynb`: marked as the legacy Paper 4.2 test, eigenspace mode via `project_shift`. Builders: `scripts/08_…`, `scripts/10_…`.
+- `pyproject.toml`: description and keywords.
+
+### Added
+- **`pct.convergence`** — the paper's assay: `assign_cells` / `assign_to_reference` (QC with ≥ 1,000 detected genes, `normalize_total(1e4)`+`log1p`, 44-module scoring, standardization, top-1 nearest of 152 normal cell types by cosine, erythrocyte and platelet quarantined before assignment, shape-only variant), `core_fraction` / `region_occupancy` / `enrichment`, `within_patient_occupancy` (paired Wilcoxon + sign test with the paper's conventions, ≥ 20 cells per arm, optional complexity matching), `recurrence_ranking`, `core_signature` / `module_contributions`, `prepare_expression`.
+- **Bundled paper reference** (`pct.load_convergence_reference()`): definitions of the anchor / core / four-cell neighbourhood / 14-cell region, QC rules, cohort-level within-patient results (`published_within_patient()`), the retractions and limits, and Supporting-Information Tables S1, S2, S4, S6, S7, S8, extracted by `scripts/14_extract_paper_tables.py` with the totals the paper states asserted (448,399 QC cells, 574,451 assignments, contributions summing to 0.711, occupancy ≈ 100%).
+- **Reference calibrations** (`pct.load_calibration`, `pct.Calibration`, `pct.hpa_reference_scores`, `pct.read_hpa_single_cell_type`): `pseudobulk` bundled; `single_cell_scaled` buildable from the HPA table with `scripts/13_build_single_cell_calibration.py`, which publishes it only if the megakaryocyte / cytotrophoblast z-profiles reproduce Table S7. `pct.project_shift` projects module differences.
+- **Gene-symbol handling (Note S-Q):** `pct.aliases_of`, `score_modules(resolve_aliases=True)` for the renamed MB21D1/TMEM173/ARNTL (→ CGAS/STING1/BMAL1) and a few renamed activity-list genes. Off by default because the bundled reference was built by exact matching (cGAS-STING on 3 genes, Circadian on 4); the paper lists re-derivation with the corrected catalog as not completed.
+- **`pct.module_criteria()`** — Table S9b: sensor, TF output, feedback element, receptor field and confidence for all 44 modules (as printed; abbreviated), with the paper's counts asserted (38 feedback elements named, 6 unclear, receptor field blank for 16, ten named feedback elements outside the scored genes).
+- `scripts/15_paper_reproduction_report.py` — which printed numbers a calibration reproduces; rerun it with `--calibration single_cell_scaled` after building that calibration.
+- Documentation: [`docs/CONVERGENCE.md`](docs/CONVERGENCE.md), [`docs/PAPER_MAP.md`](docs/PAPER_MAP.md); a new section in [`docs/SCOPE.md`](docs/SCOPE.md) with the paper's validated, retracted, suggestive and unsupported claims; `examples/recipe_convergence_occupancy.ipynb`.
+- README figure rebuilt as the paper's objective plane (cosines to the two core cells) with the published convergence ranking, light and dark, plus its data table (`scripts/09_build_eigenspace_figure.py`).
+- Tests: 103 new (177 total) — statements of the paper the bundled reference reproduces (Kaiser 9; 73.8% of variance; Fig. S1 stability tiers; NPAS4 leave-one-out; Table S9 gene lists; twelve shared genes over 17 modules), the standardized-projection invariants, the paper's exact statistical conventions, the full per-cell pipeline on cells synthesized from the bundled reference, every transcribed table against the totals the paper states, and documentation integrity (relative links resolve, notebooks are valid and carry no error output, documented scripts exist).
+
+### Fixed
+- Catalog: Hippo's feedback entry (NKD1, NKD2, BIRC2, BIRC3, BIRC5) withdrawn as the paper states — NKD1/NKD2 are Wnt antagonists and the BIRCs YAP targets, not feedback inhibitors.
+- `docs/EIGENSPACE_EVOLUTION.md` attributed the drop from 12 to 9 components partly to NPAS4; the paper's leave-one-out (Note S2) shows a 43-module rebuild reproduces all nine components (cosine ≥ 0.95).
+- `examples/tutorial.ipynb`: the synthetic-shift demo drew its noise before seeding the generator, so its printed cosine changed on every run; it is now seeded (output regenerated: +0.931).
+- Stale text: README "73 tests" (74 existed) and "This is v0.2.0"; `eigenspace` docstrings still describing 12 PCs; `reference/__init__.py` saying the disease and aging vectors were pending recomputation (done in 0.2.0); `project`'s default `n_pcs=12` against a 9-PC reference.
+
+### Corrected statements (the paper retracts or qualifies them)
+- "Malignancy deepens the state ~6×" → the effect is reported in percentage points (about +10; the fold-change is inflated by a small normal denominator).
+- "kidney + liver 77/86" → 77 of 86 is the four-dataset pool (colorectal ×2, kidney, liver).
+- "Absent in high-baseline lung" → **retracted**: a cell-selection artifact; clean malignant lung cells deepen (10 of 10 patients). No baseline-gating claim is made.
+- "25 cancers converge on the cytotrophoblast" → the convergence *region* is the robust finding; the cytotrophoblast is the anchor under this catalog (independent catalog reconstructions name the gastric progenitor).
+- "Megakaryocyte, a lineage-restricted secondary" → carried as a secondary target because it falls with transcriptome complexity like the quarantined erythrocyte, not because it is blood-specific.
+- "PC1 = perception breadth; PC4 = cancer convergence axis" → the paper describes PC1 as inflammatory → terminal germline, PC2 as quiescent → proliferative, PC3 as signaling-dominated immune → metabolic epithelia, and convergence as a high-dimensional nearest-neighbour property, not an axis or a 2-D location.
+- Convergence is "not convergent evolution", and a static convergent endpoint is not a proven dynamical attractor.
+
+### Removed
+- `examples/figures/eigenspace_pc1_pc4.png` (replaced by `convergence_region.png` / `convergence_region_dark.png`).
+
+### Not done (and why)
+- The `single_cell_scaled` calibration is not bundled: it derives from the HPA single-cell-type table, which is not redistributed (and was not reachable while this was prepared). Several printed numbers of the paper (Fig. 1B variance labels, Fig. S8, Table S7, the four-cell neighbourhood cosine) are computed on it and are therefore not reproduced digit for digit by the bundled pseudobulk matrix — see `docs/PAPER_MAP.md`.
+- Not implemented: the mixed-effects pooled model, the module-by-module comparison of malignant and normal occupants of the state (Fig. 6; colorectal only in the paper), the contraction statistics against the matched-averaging null, the specification curve, and the Perturb-seq / immune / reprogramming analyses (their results are recorded in the convergence reference; scripts E3–E44 are in the paper's Zenodo record).
+- Notebook outputs: `examples/tutorial.ipynb` and `examples/recipe_cancer_attractor.ipynb` download PBMC3K, which could not be fetched while this was prepared. The cells whose code or output changes with the standardized projection (the tutorial's projection cell and reference comparison; the recipe's eigenspace cell) are stored without output; the others keep the outputs of the previous run, which the changes do not affect. Regenerate with `scripts/08_build_tutorial_notebook.py` / `scripts/10_build_recipe_attractor.py` followed by `jupyter nbconvert --execute --inplace`. `examples/recipe_convergence_occupancy.ipynb` (`scripts/16_build_recipe_convergence.py`) needs no download and ships fully executed.
 
 ## [0.2.2] — 2026-05-10
 
@@ -22,7 +65,7 @@ Discoverability + community-readiness patch. No code or data changes.
 ### Added
 
 - **`CONTRIBUTING.md`** — explicit PR process with bar varying by contribution type. Bug fixes and docs casual; new canonical modules require the four perceptual criteria + at least one published a-priori prediction reproduced as a regression test in `tests/test_integration.py`. Operations falsified by Paper 4.1 (drug-disease cosine matching, TF-autoregulation as 1st-class layer, equilibrium framings, FDA-prediction by clean-signature score, snapshot-pulsatile classification) are explicitly listed as rejected — reintroducing them would invite users to do the analyses the data already refused.
-- **README hero figure** ([`examples/figures/eigenspace_pc1_pc4.png`](examples/figures/eigenspace_pc1_pc4.png)) — 154 HPA cell types projected to PC1 × PC4 with the 8-cell cancer attractor cluster marked. Demonstrates the central Paper 4.2 finding visually before any prose.
+- **README hero figure** (`examples/figures/eigenspace_pc1_pc4.png`, replaced in the Paper 3 alignment release) — 154 HPA cell types projected to PC1 × PC4 with the 8-cell cancer attractor cluster marked. Demonstrates the central Paper 4.2 finding visually before any prose.
 - **Two focused use-case recipes** (5-10 cells each, single workflow):
   - [`examples/recipe_cancer_attractor.ipynb`](examples/recipe_cancer_attractor.ipynb) — does my (tumor − normal) shift align with the cancer-transformation direction?
   - [`examples/recipe_experimental_design.ipynb`](examples/recipe_experimental_design.ipynb) — given a cell type and a pathway, will it ramp up under stimulus, or is it saturated?

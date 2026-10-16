@@ -1,6 +1,6 @@
-"""Build the v0.3 reference eigenspace (12-PC from 154 × 44 HPA).
+"""Build the v0.3 reference eigenspace (9 PCs by the Kaiser criterion, from the 154 × 44 HPA matrix).
 
-Method matches Paper 3 v0.2 procedure (uses READINESS, R = core_genes):
+Method matches the Paper 3 procedure (uses READINESS, R = core_genes; the pseudobulk calibration):
   1. Load 154 × 44 R matrix from HPA perceptivity reference (= mean log1p(nCPM)
      of core_genes per cell type per module). This matches the v0.2 paper3
      pipeline where score_modules(gene_set='core', method='mean_raw') was the default.

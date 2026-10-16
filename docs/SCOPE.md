@@ -2,23 +2,74 @@
 
 This page draws the boundary explicitly. The framework has been pre-registered, tested, and (in many cases) falsified across multiple substrate domains. Knowing the boundary is part of using the tool well.
 
-The discipline: *every framework claim with broad scope was tested. Falsified claims are recorded with the same prominence as validated ones.* Five framings of the drug-pharmacology question were tested in a single day and all killed; one substrate-series predicted scope condition was empirically narrowed; one cancer-attractor formulation split into a static-killed / dynamic-passed verdict.
+The discipline: *every framework claim with broad scope was tested. Falsified and retracted claims are recorded with the same prominence as validated ones.* Five framings of the drug-pharmacology question were tested in a single day and all killed; one substrate-series predicted scope condition was empirically narrowed; one cancer-attractor formulation split into a static-killed / dynamic-passed verdict; and the convergence paper (Paper 3) retracts its own earlier baseline-gating reading and withdraws several arguments (section 1).
 
 This page exists so that **users do not waste effort on operations the framework does not support**.
 
 ---
 
-## 1. Geometry layer (eigenspace)
+## 1. Convergence layer (Paper 3)
+
+Source: Spiro (2026), *Diverse cancers converge on one region of normal cell-state space in a cancer-blind coordinate system* ([Zenodo 10.5281/zenodo.20542130](https://doi.org/10.5281/zenodo.20542130)). Implemented by `pct.convergence`; the numbers are in `pct.load_convergence_reference()`; the user guide is [`CONVERGENCE.md`](CONVERGENCE.md).
 
 ### Validated
 
-- **Project any cell into 9-PC HPA-derived perceptual space.** PC1 = perception breadth (Paper 3 PC1 preserved, |cos|=0.90). PC4 carries the cancer convergence direction (Paper 3 PC4 preserved, |cos|=0.71). PC1-PC6 bootstrap-stable.
-- **Compute (tumor − normal) shift in eigenspace coordinates** and compare to known directions (cancer attractor — Paper 4.2 P3 PASS in Sun 2021 paired HCC).
+- **Malignant cells of 25 cancers occupy a restricted region of the fixed normal-cell space.** Mean pairwise cosine distance 0.16 (0.166) among malignant states against 0.99 among their near-orthogonal normal origins. The region survives leave-one-cohort-out (core fraction 25.4–28.4% vs 27.1%; the cytotrophoblast's recurrence rank is 2 in all 25 panels), dropping five of the 44 modules (17.5 ± 2.5%, never below 11.7%), dimensionality (six vs nine dimensions), the assignment rule (soft, top-k) and a 36-way specification curve under the single-cell calibration.
+- **Most of that contraction is shared transcriptional output; a smaller module-shape convergence remains.** The raw contraction is matched by a matched-averaging null (0.166 vs 0.129). With magnitude removed the malignant centroids cluster more tightly than the null in two of three scalings (raw module space: 0.33 vs 0.49, below all 200 draws; reference scaling: 0.026 vs 0.034, P = 0.03); under a third scaling the advantage disappears (0.40 vs 0.38). The paper reports all three.
+- **The placental cytotrophoblast is the lineage-independent anchor under this catalog.** A top target in 18 of 25 cancers; 11.1% of malignant cells vs 0.66% by chance (16.9-fold); the cytotrophoblast's assignment rises with transcriptome complexity (6.8% → 21.6%) while the megakaryocyte's falls (13.2% → 3.5%), tracking the quarantined erythrocyte — so the megakaryocyte is carried as a secondary target only. The region is not the manifold's centre (the medoid receives zero convergence) and not the germline.
+- **Within patients, malignant epithelium occupies the core more than matched normal epithelium** — the paper's most defensible claim. Colorectal 18.9% vs 3.2%, 43 of 46 patients (+10.5 points with magnitude removed, 44/46; +12.9 points resampled to matched complexity, 43/46); an independent colorectal dataset 23/25; kidney 6/7 and liver 5/8 same-signed; pooled over four datasets 77 of 86 patients (+13.0 points, mixed model with a dataset random intercept); held-out gastric 18/22; lung 10/10. Not specific to this catalog: KEGG, Reactome, Hallmark and PROGENy reproduce it at the same size or larger.
+- **The state is physiological, not cancer-specific.** Healthy tissue occupies it to a tissue-dependent degree (lung epithelium 16.1%, neural 7.6%, kidney 0.5%), and fibrotic lung — the strictest non-malignant comparator — does not enter it (+3.8 points raw, +1.3 shape-only; n.s.), whereas malignant lung does (+15.7 points).
+- **The target-defining signature is reproduced by cancer.** The programs that make the core unusual among normal cells (about a dozen suppressed brakes: Circadian, Type I IFN, JAK-STAT, PI3K/PTEN, Notch, Wnt, SREBP …) correlate with what cancers contribute as they converge: module-level Spearman ρ = +0.88 (bootstrap 95% CI 0.78–0.93), gene-level ρ = 0.56. Type I IFN is the one brake cancer does not reproduce.
+- **Malignant cells already in the state add stress and growth programs** rather than moving further along the defining axis (ρ = +0.36; colorectal only).
+
+### Retracted or superseded in the paper
+
+- **Baseline gating** — the reading that the within-patient increase is present where normal tissue sits low and absent in high-baseline lung — and with it the prostate "saturated high-baseline" justification. The apparent absence in lung was a cell-selection artifact (the Census lung "tumour" arm was ~9% annotated-malignant cells and ~91% normal-adjacent epithelium). No baseline-gating claim is made.
+- **The fold-change framing** ("about sixfold"): inflated by a small normal denominator. The effect is reported in percentage points (~ +10, flat against baseline on the additive scale).
+- **The comparison against random 25-cell-type draws** (a Stayton-type test) and the fold-contraction it produced; the null ignored the averaging itself.
+- **The shared-polyploidy argument** for the two core cells (the anchor is the mononuclear diploid villous cytotrophoblast).
+- **"Malignant occupants run cGAS-STING hotter"**: the module was scored on a three-gene fragment lacking both sensors (Note S-Q).
+- **The argument that malignant-cell contamination makes the reported numbers a lower bound** (tested on HCC and BRCA; not borne out).
+- Four candidate organizing principles of the state — driver-gene enrichment, module evolutionary age, an exteroception–interoception axis, immune privilege — were tested and falsified.
+
+### Suggestive or open
+
+- **Time resolution.** Lung-adenocarcinoma cells under erlotinib move into the state and do not return (shape-only core 29% → 53% → 30% → ~40%); a cell line without lineage tracing, so movement cannot be separated from selection. The coordinate is not moved by single-gene knockdown (Perturb-seq, K562, an unfavourable substrate; combinatorial knockdowns untested).
+- **Pre-invasive prediction.** Holds in colorectum (adenoma above matched normal in 3/3) and directionally in breast (DCIS between normal and invasive); fails in esophagus (non-dysplastic Barrett's below normal squamous in 4/4); dysplasia is untested.
+- **Metastasis.** The matched lymph-node metastasis sits lower than the primary (breast 21.8% → 13.4%, 6/6) — nodal not distant metastases, small numbers.
+- **Prostate** is an open negative: two paired cohorts disagree about the baseline itself, neither shows an increase.
+- **Reprogramming.** The fraction of cells assigned to the cytotrophoblast rises tenfold late in mouse fibroblast-to-iPSC reprogramming (ρ = +0.76); the starting fibroblasts score anomalously high and the dataset has no cell-type labels, so the paper calls it suggestive only.
+
+### Not supported
+
+- **A proven attractor, or convergent evolution.** The test is a static geometric one: a convergent endpoint across origins, not a measured trajectory. The paper says "convergence, not convergent evolution".
+- **That the cytotrophoblast is *the* convergence target independent of the catalog.** Three independent reconstructions of the catalog (three instances of one model family, sharing a prior) reproduce the region but name the gastric progenitor; the anchor is a statement about this catalog, and the 154-type gallery is sparse in progenitor and fetal cells.
+- **Inheritance of immune privilege.** Across 62 colorectal tumours the core fraction is unrelated to T/NK infiltration (ρ = +0.04 shape-only, +0.13 raw).
+- **Ranking cancers by convergence fraction.** The ordering is sensitive to malignant-label quality (one colon dataset moved from 13% to 36% after an author-validated relabeling) and to platform effects.
+- **A cancer-specific destination.** Normal tissues occupy the state; the unit of the result is a physiological state whose occupancy malignancy increases.
+
+### Preconditions for using the assay
+
+- **Per-cell data need the single-cell-scaled calibration.** Under the pseudobulk calibration cells collapse onto low-complexity targets (core fraction 7% vs 17%; 99.6% of independent normal single cells onto erythroid targets).
+- **≥ 1,000 detected genes per cell**, the erythrocyte and platelet quarantined, **≥ 20 cells per arm per patient**, the patient as the unit of replication.
+- **A matched, correct comparator** (e.g. crypt-base progenitors for colorectal cancer) and **malignant-cell purity** (author-annotated compartments; CNV-inference floors across all 25 cohorts are deferred in the paper).
+- **Gene symbols**: three catalog genes have been renamed; the corrected catalog has not been re-derived end to end (Note S-Q).
+- **The criteria are curation records.** The four operational criteria were not validated empirically as a selection rule (feedback genes are not enriched for cancer-driver status); a feedback element is named for 38 of 44 modules and, for ten of them, is not among the scored genes. The curated gene list was assembled with cancer biology in view: reshuffling the same 206 genes into random modules still gives 14% convergence against 6% for random genome-wide panels and 21% for the real modules, so roughly two-thirds of the effect is carried by the gene set, not by its grouping.
+
+---
+
+## 2. Geometry layer (eigenspace)
+
+### Validated
+
+- **Project any cell into the fixed 9-PC reference space built from 154 normal HPA cell types** (standardized coordinates: module scores z-scored against the reference calibration, then the loadings). Nine components by the Kaiser criterion (73.8% of variance); PC1–PC6 bootstrap-stable (0.63–0.99), PC7–PC9 probable (0.40–0.54). The axes are individually interpretable: PC1 runs from inflammatory cells to terminal germline cells, PC2 from quiescent to proliferative cells, PC3 from signaling-dominated immune cells to metabolic epithelia. The first Paper 3 draft's labels — PC1 as "perception breadth", PC4 as a "cancer convergence axis" — are not used by the final paper, which describes convergence as a high-dimensional nearest-neighbour property rather than an axis or a 2-D location.
+- **Calibration matters.** The bundled calibration is `pseudobulk`; per-cell data need `single_cell_scaled` (see section 1).
+- **Compute (tumor − normal) shift in eigenspace coordinates** (`pct.project_shift`) and compare to known directions (legacy cancer capacity-direction — Paper 4.2 P3 PASS in Sun 2021 paired HCC; the 8-cell attractor cluster of that analysis is superseded by section 1).
 - **Per-cell or per-cluster scoring**, with `mean_raw` (default), `mean_zscore` (within-dataset only), or `scanpy_corrected` (proliferation contexts).
 
 ### Recomputed for v0.3
 
-- Disease (RA/AD/IPF/DKD) and aging (inflammaging/collapse) reference vectors rebuilt from raw scRNA-seq on v0.3 eigenspace. See `CHANGELOG.md` for details + biological refinement (shared aging modules narrowed from 4 to 2).
+- Disease (RA/AD/IPF/DKD) and aging (inflammaging/collapse) reference vectors rebuilt from raw scRNA-seq on v0.3 eigenspace and expressed in the standardized coordinates. See `CHANGELOG.md` for details + biological refinement (shared aging modules narrowed from 4 to 2). The paper excludes its rheumatoid-arthritis atlas from the disease controls because its median is 286 detected genes per cell, below the 1,000-gene floor: check the complexity of the RA data behind the RA vector before relying on it.
 - Cross-version comparison: PC1 ports across v0.1↔v0.3 with high fidelity; PC2-PC3 underwent rotation (see `EIGENSPACE_EVOLUTION.md`).
 
 ### Not supported
@@ -31,7 +82,7 @@ This page exists so that **users do not waste effort on operations the framework
 
 ---
 
-## 2. Perceptivity layer (capacity)
+## 3. Perceptivity layer (capacity)
 
 ### Validated
 
@@ -57,11 +108,12 @@ This page exists so that **users do not waste effort on operations the framework
 
 ### Catalog scope limitation
 
-- 44 modules cover general signaling. Tissue-specific modules (HNF4α liver, MYOD muscle) not yet in catalog (planned for v0.3). NPAS4 added as 44th canonical because it passes all four perceptual criteria; HPA shows it neuron-enriched (mean A_NPAS4 in neurons = 2.97 vs ≤2.13 in other classes).
+- 44 modules cover general signaling. Tissue-specific modules (HNF4α liver, MYOD muscle) not yet in catalog (planned). NPAS4 added as 44th canonical because it passes all four operational criteria; HPA shows it neuron-enriched (mean A_NPAS4 in neurons = 2.97 vs ≤2.13 in other classes). It does not shape the cross-tissue space: a 43-module rebuild reproduces all nine components with eigenvector cosine ≥ 0.95 (paper Note S2).
+- The four criteria record how the modules were curated; the paper could not validate the feedback criterion empirically, and the curated gene list carries a residual cancer-biology prior (section 1).
 
 ---
 
-## 3. Validity layer
+## 4. Validity layer
 
 ### Validated
 
@@ -74,7 +126,7 @@ This page exists so that **users do not waste effort on operations the framework
 
 ---
 
-## 4. Drug perturbation analysis
+## 5. Drug perturbation analysis
 
 Paper 4.1 closed 2026-05-09. The full audit trail is in `PAPER4_1_CANONICAL_RESULTS.md` and `killed_hypotheses.csv` in the source tree.
 
@@ -118,7 +170,7 @@ Pattern noted explicitly in Paper 4.1 §4: every theoretical interpretation of W
 
 ---
 
-## 5. Methodological commitments
+## 6. Methodological commitments
 
 The tool reflects these disciplines from the underlying research:
 

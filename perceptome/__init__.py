@@ -1,34 +1,43 @@
-"""perceptome — cellular perception analysis toolkit (v0.2.0).
+"""perceptome — the cancer-blind coordinate system of cell state (44 regulatory modules).
 
-Three layers of analysis:
+Implements Spiro (2026), "Diverse cancers converge on one region of normal cell-state space in a
+cancer-blind coordinate system" (Zenodo 10.5281/zenodo.20542130), and the capacity / validity /
+drug layers of the companion papers. Four layers of analysis:
 
-  1. GEOMETRY   Where does the cell live in module space?
-                  pct.score_modules()    44 modules per cell
-                  pct.project()          → 9-PC eigenspace (HPA-derived)
-                  pct.compare_to_references()  cosines vs disease/aging/attractor/drugs
+  1. GEOMETRY      Where does the cell live among normal cell states?
+                     pct.score_modules()      44 regulatory modules per cell (mean_raw)
+                     pct.project()            standardize against a calibration, project into the
+                                              fixed 9-PC space built from 154 normal HPA cell types
+                     pct.compare_to_references()  cosines vs legacy cancer / disease / aging directions
 
-  2. PERCEPTIVITY   What can the cell DO? (capacity layer, NEW in v0.2)
-                  pct.compute_perceptivity()   R, A, C, headroom, BS, GS, I, quadrant
-                  pct.predict_engagement()     two-factor framework, capacity floor
-                  pct.load_hpa_perceptivity()  154 × 44 reference matrices
+  2. CONVERGENCE   Do malignant cells sit in one region of that space, and more so than the
+                   same patient's normal cells?  (pct.convergence, Paper 3)
+                     assign_cells()           QC -> score -> project -> nearest of 152 normal cell types
+                     within_patient_occupancy()   paired tumour vs matched-normal test
+                     load_convergence_reference() the paper's definitions, results and SI tables
 
-  3. VALIDITY   Did the measurement reach biology, or hit an artifact?
-                  pct.validate_perturbation()  random-200 / housekeeping / cell-cycle scorecard
+  3. PERCEPTIVITY  What can the cell DO? (capacity layer)
+                     pct.compute_perceptivity()   R, A, C, headroom, BS, GS, I, quadrant
+                     pct.predict_engagement()     two-factor framework, capacity floor
+                     pct.load_hpa_perceptivity()  154 x 44 reference matrices
 
-Quick start:
+  4. VALIDITY      Did the measurement reach biology, or hit an artifact?
+                     pct.validate_perturbation()  random-200 / housekeeping / cell-cycle scorecard
+
+Quick start (per-cell data need the single_cell_scaled calibration; see docs/CONVERGENCE.md):
     import scanpy as sc
     import perceptome as pct
 
-    adata = sc.read_h5ad("your_data.h5ad")
-    scores = pct.score_modules(adata)["scores"]              # 44 modules per cell
-    coords = pct.project(scores)                             # 9-PC eigenspace
-    perc = pct.compute_perceptivity(
-        pct.score_readiness(adata), pct.score_activity(adata),
-        cell_type=adata.obs["cell_type"], cell_class=adata.obs["tissue"],
-    )
-    refs = pct.compare_to_references(coords["coordinates"])  # disease/aging/attractor
+    adata = sc.read_h5ad("cohort.h5ad")                      # tumour + matched normal, HGNC symbols
+    res = pct.convergence.assign_cells(adata, calibration="single_cell_scaled")
+    test = pct.within_patient_occupancy(
+        res["assignment"], adata.obs["patient"], adata.obs["arm"], malignant="tumour", normal="normal")
 
-See docs and examples/ for end-to-end pipelines.
+    scores = pct.score_modules(adata)["scores"]              # 44 modules per cell
+    coords = pct.project(scores)["coordinates"]              # standardized 9-PC coordinates
+
+See docs/ and examples/ for end-to-end pipelines, docs/SCOPE.md for what the framework does and
+does not support, and docs/PAPER_MAP.md for how the paper maps onto the code.
 """
 
 __version__ = "0.2.2"

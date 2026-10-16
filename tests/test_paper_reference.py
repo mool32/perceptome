@@ -116,3 +116,28 @@ def test_definitional_module_pairs_share_a_gene(table_s9):
     assert "XBP1" in table_s9["UPR-ATF6"] and "XBP1" in table_s9["UPR-IRE1"]
     assert "STAT1" in table_s9["JAK-STAT"] and "STAT1" in table_s9["Type I IFN"]
     assert not set(table_s9["ERK/MAPK"]) & set(table_s9["NF-κB"])
+
+
+# ── reproduction report (script 15) ──────────────────────────────────────────
+
+def _load_report_script():
+    import importlib.util
+    path = Path(__file__).resolve().parents[1] / "scripts" / "15_paper_reproduction_report.py"
+    spec = importlib.util.spec_from_file_location("paper_report", path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_reproduction_report_separates_what_the_bundle_reproduces_from_what_it_does_not():
+    """The shipped pseudobulk reference reproduces the Methods numbers (Kaiser, 73.8%) and the
+    near-orthogonality of unrelated states; Fig. 1B variance labels, Fig. S8, Table S7 and the
+    neighbourhood cosine are computed on the single-cell-scaled calibration and differ."""
+    rows = _load_report_script().rows_for(pct.load_calibration("pseudobulk"), "pseudobulk")
+    verdict = {r[1]: r[4] for r in rows}
+    assert len(rows) == 11
+    assert verdict["components with eigenvalue > 1 (Kaiser)"] == "match"
+    assert verdict["variance of the nine components"] == "match"
+    assert verdict["random pairs: mean cosine"] == "match"
+    assert verdict["PC1 / PC2 share of variance (Fig. 1B)"] == "differs"
+    assert verdict["Table S7: core z-scores, max |diff| over 88 values"] == "differs"

@@ -1,0 +1,155 @@
+cell_type,core_proximity,member_balance,occupancy_pct,recurrence_of_25,quarantined
+adipocytes,-0.2891,0.0953,0.0,0.0,False
+adrenal cortex cells,-0.287,-0.0142,0.0,0.0,False
+adrenal medulla cells,0.5127,0.5552,0.01,0.0,False
+alveolar cells type 1,0.0349,-0.6481,0.04,0.0,False
+alveolar cells type 2,-0.2435,-0.5362,0.01,0.0,False
+astrocytes,-0.2718,0.0997,0.01,0.0,False
+b-cells,-0.1869,-0.0022,0.04,0.0,False
+basal keratinocytes,-0.2233,-0.5002,0.63,0.0,False
+basal prostatic cells,-0.589,0.0299,0.0,0.0,False
+bergmann glia,-0.1303,0.1288,0.04,0.0,False
+brain excitatory neurons,-0.0587,0.298,0.05,0.0,False
+brain inhibitory neurons,-0.0328,0.2808,0.04,0.0,False
+breast hormone-responsive cells,-0.4132,-0.363,0.0,0.0,False
+breast lactating cells,-0.0889,-0.3504,0.15,0.0,False
+breast myoepithelial cells,-0.2092,-0.1193,0.98,1.0,False
+breast secretory cells,-0.2276,-0.2582,0.91,0.0,False
+cardiomyocytes,-0.1983,0.4027,0.02,0.0,False
+cdc,-0.2445,-0.2114,0.01,0.0,False
+cholangiocytes,-0.0666,0.0063,0.0,0.0,False
+choroid plexus epithelial cells,-0.3417,0.2576,0.01,0.0,False
+colonocytes,-0.1441,-0.4022,0.28,0.0,False
+cone photoreceptor cells,0.5311,0.0752,0.05,0.0,False
+conjunctival goblet cells,-0.4195,-0.4044,0.01,0.0,False
+corticotrophs,0.1425,0.2746,0.08,0.0,False
+cytotrophoblasts,0.7779,-0.4443,11.1,18.0,False
+decidual stromal cells,-0.1131,-0.0882,0.16,0.0,False
+differentiating spermatogonia,0.7734,0.2287,2.42,5.0,False
+distal convoluted tubule cells,-0.2459,0.352,0.0,0.0,False
+early primary spermatocytes,0.7714,0.31,2.21,4.0,False
+early spermatids,0.4503,0.5365,0.57,0.0,False
+endometrial ciliated cells,-0.4206,-0.5255,0.0,0.0,False
+endometrial glandular cells,-0.5638,-0.5408,0.0,0.0,False
+endometrial luminal cells,-0.5647,-0.5377,0.0,0.0,False
+endometrial secretory cells,-0.1838,-0.3657,0.08,0.0,False
+endometrial stromal cells,-0.5816,-0.1985,0.0,0.0,False
+enteric stem cells,0.2724,-0.3253,1.57,2.0,False
+enteric transient amplifying cells,0.2171,-0.2356,0.21,0.0,False
+enterocytes,-0.1082,-0.1453,0.03,0.0,False
+ependymal cells,-0.2415,0.0388,0.03,0.0,False
+epicardial cells,-0.1451,0.5832,0.0,0.0,False
+epididymal basal cells,-0.3315,-0.4192,0.14,0.0,False
+epididymal clear cells,-0.1106,-0.2176,2.62,4.0,False
+epididymal efferent duct absorptive cells,-0.23,-0.3896,0.01,0.0,False
+epididymal efferent duct ciliated cells,-0.1108,-0.1688,0.33,0.0,False
+epididymal principal cells,0.1736,-0.4968,0.35,0.0,False
+erythrocyte progenitors,0.7693,0.1288,1.47,2.0,False
+erythrocytes,0.7624,0.4282,,,True
+esophageal apical cells,-0.2394,-0.5539,3.58,9.0,False
+esophageal basal cells,0.1889,-0.481,1.5,1.0,False
+esophageal suprabasal cells,0.0123,-0.5504,1.2,1.0,False
+extravillous trophoblasts,0.4308,-0.7052,0.59,0.0,False
+fallopian secretory cells,-0.0963,-0.3236,0.04,0.0,False
+fallopian tube ciliated cells,-0.2298,-0.2173,0.0,0.0,False
+fibro-adipogenic progenitors,-0.3302,0.3243,0.0,0.0,False
+fibroblasts,-0.7276,-0.2162,0.0,0.0,False
+foveolar cells,-0.2852,-0.4181,0.0,0.0,False
+gastric chief cells,0.3199,0.2717,7.33,10.0,False
+gastric progenitor cells,0.6878,-0.2227,9.37,13.0,False
+goblet cells,-0.0724,-0.379,0.08,0.0,False
+gonadotrophs,-0.0438,0.51,0.0,0.0,False
+granulosa cells,0.3569,-0.2488,0.72,1.0,False
+hematopoietic stem cells,0.3058,0.4778,0.0,0.0,False
+hepatic stellate cells,0.0681,0.1863,0.05,0.0,False
+hepatocytes,-0.2301,-0.0834,0.11,0.0,False
+hofbauer cells,0.4321,-0.2815,3.26,6.0,False
+innate lymphoid cells,-0.3159,-0.0813,0.0,0.0,False
+kupffer cells,-0.0204,-0.2639,0.39,0.0,False
+lacrimal acinar cells,-0.1224,0.263,0.2,0.0,False
+lactotrophs,0.0316,0.3467,0.05,0.0,False
+late primary spermatocytes,0.5188,0.4698,1.0,1.0,False
+late spermatids,0.4394,0.5698,8.62,11.0,False
+leydig cells,-0.1247,0.5261,0.12,0.0,False
+loop of henle epithelial cells,-0.3925,0.3574,0.0,0.0,False
+lymphatic endothelial cells,-0.5035,-0.2629,0.0,0.0,False
+macrophages,-0.3705,-0.3026,0.03,0.0,False
+mast cells,-0.2575,-0.1356,0.13,0.0,False
+medullary thymic epithelial cells,-0.3801,0.3834,0.0,0.0,False
+megakaryocyte progenitors,0.7078,0.1166,0.06,0.0,False
+megakaryocyte-erythroid progenitors,0.6674,0.1888,0.12,0.0,False
+megakaryocytes,0.7779,0.4443,12.81,18.0,False
+melanocytes,-0.1395,-0.4114,0.2,0.0,False
+mesothelial cells,-0.4823,0.1994,0.0,0.0,False
+microglia,0.0526,0.2167,0.06,0.0,False
+migrating cytotrophoblasts,0.6061,-0.6546,3.18,5.0,False
+monocyte progenitors,0.4257,-0.0009,0.02,0.0,False
+monocytes,-0.2113,-0.2883,0.04,0.0,False
+mucous neck cells,0.2177,0.1161,0.42,1.0,False
+myonuclei,-0.4764,0.2133,0.01,0.0,False
+myosatellite cells,-0.5228,0.2033,0.0,0.0,False
+müller glia,0.22,-0.3708,0.09,0.0,False
+neuroendocrine cells,0.0897,-0.1869,0.01,0.0,False
+neutrophil progenitors,0.2855,0.0152,0.13,0.0,False
+neutrophils,-0.365,-0.1636,0.03,0.0,False
+nk-cells,-0.1803,-0.0834,0.01,0.0,False
+ocular epithelial cells,-0.4003,-0.51,0.27,0.0,False
+oligodendrocyte progenitor cells,-0.1037,0.2828,0.33,0.0,False
+oligodendrocytes,0.0816,0.1822,0.37,0.0,False
+oocytes,0.7151,0.2284,0.45,0.0,False
+other brain neurons,0.0836,0.251,0.09,0.0,False
+ovarian stromal cells,-0.3592,0.0941,0.14,0.0,False
+pancreatic acinar cells,-0.5058,-0.2983,7.45,6.0,False
+pancreatic duct cells,-0.3589,-0.4176,0.09,0.0,False
+pancreatic islet cells,0.0157,-0.0631,0.08,0.0,False
+paneth cells,0.4075,-0.066,1.75,2.0,False
+papillary tip epithelial cells,-0.3541,0.146,0.01,0.0,False
+parietal cells,0.5078,0.29,0.69,0.0,False
+pdcs,0.3664,-0.0172,0.18,0.0,False
+pericytes,-0.6084,-0.189,0.01,0.0,False
+peritubular myoid cells,-0.1488,0.6021,0.01,0.0,False
+pituicytes/fscs,-0.5081,-0.0783,0.0,0.0,False
+pituitary stem cells,-0.2313,0.4298,0.0,0.0,False
+plasma cells,0.0613,-0.2092,0.15,0.0,False
+platelets,0.6903,0.5153,,,True
+podocytes,-0.3837,0.4791,0.01,0.0,False
+prostatic club cells,-0.5389,-0.2239,0.0,0.0,False
+prostatic glandular cells,-0.4657,0.3199,0.03,0.0,False
+prostatic hillock cells,-0.3749,-0.2991,0.04,0.0,False
+proximal tubule cells,-0.4393,0.3463,0.0,0.0,False
+renal collecting duct intercalated cells,-0.4704,0.2665,0.0,0.0,False
+renal collecting duct principal cells,-0.32,0.2368,0.0,0.0,False
+renal connecting tubule cells,-0.3528,0.2978,0.0,0.0,False
+respiratory basal cells,-0.479,-0.3441,0.0,0.0,False
+respiratory ciliated cells,0.1272,-0.204,0.22,0.0,False
+respiratory deuterosomal cells,0.0903,-0.2559,0.02,0.0,False
+respiratory ionocytes,0.0453,-0.0242,0.0,0.0,False
+respiratory secretory cells,-0.3432,-0.4354,0.01,0.0,False
+retinal amacrine cells,0.2474,0.1807,0.18,0.0,False
+retinal bipolar cells,0.2593,0.1843,0.1,0.0,False
+retinal ganglion cells,0.4744,0.2047,0.03,0.0,False
+retinal horizontal cells,0.4701,0.0985,0.1,0.0,False
+retinal pigment epithelial cells,0.3966,0.1612,0.05,0.0,False
+rod photoreceptor cells,0.4566,0.158,0.01,0.0,False
+salivary acinar cells,-0.5672,-0.1567,0.01,0.0,False
+salivary basal cells,-0.5524,-0.2536,0.0,0.0,False
+salivary duct cells,-0.3024,-0.0262,0.04,0.0,False
+salivary ionocytes,-0.4458,-0.0567,0.0,0.0,False
+salivary myoepithelial cells,-0.6945,-0.1538,0.0,0.0,False
+schwann cells,-0.6694,-0.2008,0.0,0.0,False
+sertoli cells,0.3571,0.6556,0.19,0.0,False
+smooth muscle cells,-0.6432,-0.1445,0.0,0.0,False
+somatotrophs,0.1378,0.4383,0.0,0.0,False
+submucosal glandular cells,-0.3454,-0.2476,0.04,0.0,False
+suprabasal keratinocytes,-0.1722,-0.5281,0.52,0.0,False
+syncytiotrophoblasts,0.4331,-0.7045,2.2,2.0,False
+t-cells,-0.3324,-0.0169,0.0,0.0,False
+thymic myoid cells,-0.7209,-0.0171,0.0,0.0,False
+thymocytes,0.1444,0.2157,0.0,0.0,False
+thyrotrophs,0.2659,0.3432,0.19,0.0,False
+transitional alveolar cells,-0.2934,-0.5071,0.0,0.0,False
+tuft cells,0.6894,0.1944,0.44,0.0,False
+undifferentiated spermatogonia,0.4529,0.4618,1.23,2.0,False
+urothelial cells,-0.3613,-0.5392,0.05,0.0,False
+vascular endothelial cells,-0.5619,-0.2968,0.0,0.0,False
+vascular smooth muscle cells,-0.7614,-0.1459,0.0,0.0,False

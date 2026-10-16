@@ -1,11 +1,18 @@
-"""Cancer capacity-direction attractor reference (Paper 4.2 P3 PASS).
+"""Legacy cancer capacity-direction reference (Paper 4.2 P3 PASS).
 
-The attractor direction is a vector in (a) the 44-module per-module Δ space
-and (b) the v0.3 12-PC eigenspace. Use it to test whether a (tumor − normal)
-shift vector aligns with the observed cancer-transformation direction.
+The direction is a vector in (a) the 44-module per-module Δ space and (b) the
+9-PC reference eigenspace (standardized coordinates). Use it to test whether a
+(tumor − normal) shift vector aligns with the capacity-space direction cancers
+take during transformation.
 
 P3 PASS criterion (locked): cosine(shift, attractor_direction) > +0.20
 in ≥ 4 of 6 cell types per cohort. Sun 2021 HCC paired cohort PASS.
+
+Scope. "Attractor" names this Paper 4.2 estimate (11–13 cancers, an 8-cell cluster);
+it is not the claim of Paper 3, which tests convergence of 25 cancers onto one region
+of normal cell-state space by nearest-cell assignment (``pct.convergence``) and
+explicitly does not claim a dynamical attractor: a convergent endpoint in static
+snapshots is not a proven attractor.
 """
 
 import json
@@ -30,12 +37,13 @@ def load_attractor_direction():
         version
         attractor_cluster_cells          list[str]  8 HPA cell types
         attractor_direction_modules      Series (modules → Δ A_baseline)
-        attractor_direction_eigenspace   ndarray (n_pcs,)
+        attractor_direction_eigenspace   ndarray (n_pcs,)  standardized coordinates
         eigenspace_PC_names              list[str]
         P3_per_celltype                  dict (Sun 2021 detail)
         source                           pre-reg sha + closing memo paths
-        anchor, anchor_label, secondary  v9 convergence core (cytotrophoblast + megakaryocyte)
-        published_refinement             dict (Spiro 2026 cytotrophoblast result, Zenodo DOI)
+        anchor, anchor_label, secondary  Paper 3 convergence core (cytotrophoblast + megakaryocyte);
+                                         the anchor is catalog-conditional (see anchor_status)
+        published_refinement             dict (Spiro 2026, Zenodo DOI; supersedes the 8-cell cluster)
     """
     with open(_REF_FILE) as f:
         d = json.load(f)
