@@ -65,15 +65,15 @@
     "p53": 0.0
   },
   "attractor_direction_eigenspace": [
-    0.830373580745368,
-    0.6936923467172894,
-    0.45498831761141084,
-    0.26956972884979213,
-    0.13671245339689458,
-    -0.0300244113288096,
-    0.3936493850897641,
-    0.7026716515256607,
-    -0.9693236200511918
+    1.1126222693868848,
+    1.1865867825680385,
+    0.8252705636487015,
+    0.3741700693232466,
+    0.006237587394276628,
+    -0.24728983422335088,
+    0.27093593590533693,
+    1.021338864723905,
+    -1.0321613375031253
   ],
   "eigenspace_PC_names": [
     "PC1",
@@ -402,5 +402,7 @@
     "n_cancers": 25,
     "finding": "Malignant cells of 25 cancers of all lineages converge on a two-cell core anchored by the placental cytotrophoblast (megakaryocyte a lineage-restricted secondary); within matched tumor-normal pairs, malignancy deepens the state ~6x (colorectal 43/46, paired P<1e-12; kidney+liver 77/86; absent in high-baseline lung).",
     "direction_status": "The attractor_direction vectors below remain the v0.2 Paper 4.2 P3 estimate (11-13 cancer cohort). A full recompute of the empirical convergence direction from the 25-cancer cohort is a future data release."
-  }
+  },
+  "eigenspace_convention": "standardized",
+  "eigenspace_convention_note": "Eigenspace vectors are module deltas divided by the reference SD and projected through the fixed loadings (pct.project_shift), i.e. the paper's standardized coordinates. Versions <= 0.2.2 stored the unscaled projection (delta @ loadings)."
 }

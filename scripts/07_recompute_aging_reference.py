@@ -104,7 +104,7 @@ def process_tissue(name, cfg, eigenspace_loadings, module_order):
 
     delta = scores.loc[adata.obs.index[old_mask]].mean() - scores.loc[adata.obs.index[young_mask]].mean()
     delta_vec = np.array([delta.get(m, 0.0) for m in module_order])
-    eig_vec = delta_vec @ eigenspace_loadings
+    eig_vec = pct.project_shift(pd.Series(delta_vec, index=module_order)).values
 
     top_up = delta.sort_values(ascending=False).head(5)
     top_down = delta.sort_values().head(5)
@@ -167,6 +167,7 @@ def main():
         "n_modules": 44,
         "scoring_method": "mean_raw",
         "gene_set": "core",
+        "eigenspace_convention": "standardized",
         "supersedes": "v0.1 aging_reference.json (12-PC), pinned as aging_reference_v02pinned.json",
         "tissue_vectors": {
             name: {

@@ -248,7 +248,7 @@ def process_disease(name, cfg):
         delta = d_scores.mean() - c_scores.mean()
 
         delta_vec = np.array([delta.get(m, 0.0) for m in module_order])
-        eig_vec = delta_vec @ eigenspace_loadings
+        eig_vec = pct.project_shift(pd.Series(delta_vec, index=module_order)).values
 
         per_group[group_name] = {
             "n_disease": int(d_mask.sum()),
@@ -266,7 +266,7 @@ def process_disease(name, cfg):
         return None
 
     aggregate_delta /= n_groups_with_data
-    aggregate_eig = aggregate_delta @ eigenspace_loadings
+    aggregate_eig = pct.project_shift(pd.Series(aggregate_delta, index=module_order)).values
 
     return {
         "dataset": cfg["dataset_name"],
@@ -301,6 +301,7 @@ def main():
         "gene_set": "core",
         "regenerated": "2026-05-10",
         "source_pipeline": "tool/perceptome2/scripts/06_recompute_disease_vectors.py",
+        "eigenspace_convention": "standardized",
         "supersedes": "v0.1 disease_vectors.json (12-PC), pinned as disease_vectors_v02pinned.json",
     }
 

@@ -40,7 +40,7 @@ from .perceptivity import (
     capacity_floor, predict_engagement,
     load_hpa_perceptivity, hpa_capacity_floor,
 )
-from .eigenspace import project, rebuild
+from .eigenspace import project, project_shift, rebuild, Calibration, load_calibration, hpa_reference_scores
 from .compare import compare_conditions, divergence_score, compare_to_references, infrastructure_regime
 from .reference import load_attractor_direction, attractor_alignment
 from .drugs import drug_anchors, activity_layer_screen
@@ -63,7 +63,8 @@ __all__ = [
     "capacity_floor", "predict_engagement",
     "load_hpa_perceptivity", "hpa_capacity_floor",
     # eigenspace
-    "project", "rebuild",
+    "project", "project_shift", "rebuild",
+    "Calibration", "load_calibration", "hpa_reference_scores",
     # compare
     "compare_conditions", "divergence_score", "compare_to_references", "infrastructure_regime",
     # reference
