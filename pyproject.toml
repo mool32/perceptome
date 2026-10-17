@@ -54,6 +54,8 @@ dev = [
     "pytest>=7.0",
     "pytest-cov",
     "ruff",
+    "statsmodels",   # cross-check of pct.pooled_within_patient (tests skip without it)
+    "nbformat",      # notebook validity tests (skipped without it)
 ]
 
 [project.urls]

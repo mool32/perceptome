@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python: ≥3.8](https://img.shields.io/badge/Python-≥3.8-blue.svg)](https://www.python.org)
-[![Tests: 177](https://img.shields.io/badge/tests-177%20passing-green.svg)](#tests)
+[![Tests: 205](https://img.shields.io/badge/tests-205%20passing-green.svg)](#tests)
 [![Software DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20113468.svg)](https://doi.org/10.5281/zenodo.20113468)
 [![Paper DOI](https://img.shields.io/badge/paper-10.5281%2Fzenodo.20542130-blue.svg)](https://doi.org/10.5281/zenodo.20542130)
 
@@ -118,7 +118,7 @@ perceptome works one level up: **44 modules, read through their induced transcri
 | **catalog** | `pct.list_modules()`, `pct.get_genes(module, gene_set)`, `pct.module_criteria()`, `pct.aliases_of` | What modules and gene panels are defined? What are their four operational criteria (Table S9b)? |
 | **score** | `pct.score_modules`, `pct.score_readiness`, `pct.score_activity` | Module activity per cell from expression |
 | **eigenspace** | `pct.project`, `pct.project_shift`, `pct.load_calibration`, `pct.rebuild` | Standardize against a reference calibration and project into the fixed 9-PC space |
-| **convergence** | `pct.convergence.assign_cells`, `assign_to_reference`, `core_fraction`, `region_occupancy`, `within_patient_occupancy`, `recurrence_ranking`, `core_signature`, `load_convergence_reference` | Which normal cell type is each cell nearest to; how much of a cohort sits in the core; is the tumour arm deeper than the matched normal arm |
+| **convergence** | `pct.convergence.assign_cells`, `assign_to_reference`, `core_fraction`, `region_occupancy`, `within_patient_occupancy`, `pooled_within_patient`, `occupant_contrast`, `contraction`, `recurrence_ranking`, `core_signature`, `load_convergence_reference` | Which normal cell type is each cell nearest to; how much of a cohort sits in the core; is the tumour arm deeper than the matched normal arm (and pooled over datasets); how do malignant and normal occupants of the state differ; how tightly do cancers contract relative to their origins |
 | **perceptivity** | `pct.compute_perceptivity`, `pct.predict_engagement`, `pct.capacity_floor` | Capacity, headroom, saturation per cell type × module |
 | **compare** | `pct.compare_conditions`, `pct.compare_to_references`, `pct.infrastructure_regime`, `pct.divergence_score` | Disease vs control deltas, regime classification |
 | **reference** | `pct.load_attractor_direction`, `pct.attractor_alignment` | Legacy cancer capacity-direction (Paper 4.2) |
@@ -169,7 +169,7 @@ Every operation has a documented validation status in [`docs/SCOPE.md`](docs/SCO
 ```bash
 pip install pytest
 pytest tests/ -v
-# 177 passing in a few seconds
+# 205 passing in a few seconds
 ```
 
 Coverage: catalog (and its agreement with the paper's Table S9 / S9b), scoring and gene aliases, standardized projection and calibrations, the convergence pipeline (assignment, quarantine, shape-only, within-patient test with the paper's exact statistical conventions, complexity matching, recurrence ranking), bundled paper tables (with the totals the paper itself states), statements of the paper that the bundled reference reproduces (Kaiser 9, 73.8% of variance, Fig. S1 stability tiers, NPAS4 leave-one-out), perceptivity (with biological regression checks against published a-priori predictions), attractor reference, validity scorecard, drug anchors + activity_layer_screen, end-to-end pipeline, reproducibility.

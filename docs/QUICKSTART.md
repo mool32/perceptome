@@ -223,7 +223,9 @@ print(test["n_deeper"], "of", test["n_patients"], "patients deeper;",
 pct.convergence.published_within_patient()       # the paper's cohort-level results to compare with
 ```
 
-The full guide — calibrations, shape-only, complexity matching, the conventions that match the paper, and its pitfalls — is [`CONVERGENCE.md`](CONVERGENCE.md); a runnable offline example is [`examples/recipe_convergence_occupancy.ipynb`](../examples/recipe_convergence_occupancy.ipynb).
+Further analyses of the paper, each on the same objects: `pct.pooled_within_patient` (several datasets, dataset random intercept), `pct.occupant_contrast` (how malignant and normal occupants of the state differ, module by module) and `pct.contraction` (how tightly cancers sit relative to their normal origins).
+
+The full guide — calibrations, shape-only, complexity matching, pooling, the conventions that match the paper, and its pitfalls — is [`CONVERGENCE.md`](CONVERGENCE.md); a runnable offline example is [`examples/recipe_convergence_occupancy.ipynb`](../examples/recipe_convergence_occupancy.ipynb).
 
 ---
 

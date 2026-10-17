@@ -32,18 +32,28 @@ def _wilcoxon_p(a, b, alternative):
         return 1.0
 
 
+def _nearest_candidates(genes_m, genes_n):
+    """For each normal cell, the malignant cells whose detected-gene count is nearest to its own."""
+    candidates = []
+    for g in genes_n:
+        d = np.abs(genes_m - g)
+        candidates.append(np.flatnonzero(d == d.min()))
+    return candidates
+
+
+def _draw_matches(candidates, n_draws, rng):
+    """``n_draws`` resamples of malignant cells: one cell per normal cell, random among the nearest."""
+    return [np.array([rng.choice(c) for c in candidates]) for _ in range(n_draws)]
+
+
 def _matched_fraction(hit_m, genes_m, genes_n, n_draws, rng):
     """Core fraction of malignant cells resampled to the normal arm's detected-gene distribution.
 
     Each normal cell is paired with a malignant cell of nearest gene count (random among equally
     near ones, with replacement); the malignant fraction is averaged over ``n_draws`` draws.
     """
-    candidates = []
-    for g in genes_n:
-        d = np.abs(genes_m - g)
-        candidates.append(np.flatnonzero(d == d.min()))
-    draws = [np.mean([hit_m[rng.choice(c)] for c in candidates]) for _ in range(n_draws)]
-    return float(np.mean(draws))
+    candidates = _nearest_candidates(genes_m, genes_n)
+    return float(np.mean([hit_m[picks].mean() for picks in _draw_matches(candidates, n_draws, rng)]))
 
 
 def within_patient_occupancy(assignment, patient, arm, malignant, normal, region="core",

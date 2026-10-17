@@ -81,13 +81,14 @@ def cell_profile(cell_type, rng, noise=0.15):
 
 
 def make_cohort(effects, seed, normal_core=0.04, tissue="colonocytes",
-                core_types=("cytotrophoblasts", "megakaryocytes")):
-    \"\"\"Per patient: a matched-normal and a tumour arm; `effects` = tumour minus normal core-like probability.\"\"\"
+                core_types=("cytotrophoblasts", "megakaryocytes"), floor_demo=True):
+    \"\"\"Per patient: a matched-normal and a tumour arm; `effects` = tumour minus normal core-like probability.
+    With `floor_demo` the last patient gets only 12 normal cells (below the 20-cell floor).\"\"\"
     rng = np.random.default_rng(seed)
     rows, meta = [], []
     for i, effect in enumerate(effects, 1):
         for arm, p_core in (("normal", normal_core), ("tumour", max(normal_core + effect, 0.0))):
-            n = 12 if (i == len(effects) and arm == "normal") else int(rng.integers(40, 60))
+            n = 12 if (floor_demo and i == len(effects) and arm == "normal") else int(rng.integers(40, 60))
             for _ in range(n):
                 cell_type = rng.choice(core_types, p=[0.6, 0.4]) if rng.random() < p_core else tissue
                 rows.append(cell_profile(cell_type, rng))
@@ -206,9 +207,9 @@ print(f"null cohort: {null_test['n_deeper']} of {null_test['n_patients']} patien
 shape_assignment = cv.assign_cells(adata, calibration="pseudobulk", shape_only=True)["assignment"]
 shape_test = pct.within_patient_occupancy(shape_assignment, patient, arm_all, malignant="tumour", normal="normal")
 
-n_genes = pd.Series((np.asarray(adata.X) > 0).sum(axis=1), index=adata.obs_names)       # detected genes per cell
-matched_test = pct.within_patient_occupancy(
-    assignment, patient, arm_all, malignant="tumour", normal="normal", n_genes=n_genes, match_complexity=True)
+matched_test = pct.within_patient_occupancy(                      # detected genes per cell come with the assignment
+    assignment, patient, arm_all, malignant="tumour", normal="normal",
+    n_genes=result["n_genes"], match_complexity=True)
 
 controls = pd.DataFrame({
     "mean difference (points)": [100 * test["mean_delta"], 100 * shape_test["mean_delta"], 100 * matched_test["matched_delta"]],
@@ -216,7 +217,25 @@ controls = pd.DataFrame({
 }, index=["raw", "shape-only", "complexity-matched"]).round(1)
 print(controls.to_string())"""),
 
-    md("""## 5. Set the result beside the paper's cohorts
+    md("""## 5. Pooling cohorts
+
+Patients of several datasets are not exchangeable, and pooling them in one sign test can manufacture a Simpson's-paradox artifact. The paper's control (Note S-D) is a mixed model of the per-patient malignant-minus-normal difference with a **dataset random intercept**; `pct.pooled_within_patient` fits it (REML, Wald z, one-sided P for a deepening). Here a second synthetic dataset with a different baseline and smaller effects is pooled with the first:"""),
+
+    code("""effects_b = [0.15, 0.10, 0.18, 0.12, 0.08, 0.14, 0.05, 0.11]
+adata_b = make_cohort(effects_b, seed=2, normal_core=0.08, floor_demo=False)
+assignment_b = cv.assign_cells(adata_b, calibration="pseudobulk")["assignment"]
+test_b = pct.within_patient_occupancy(
+    assignment_b, adata_b.obs["patient"], adata_b.obs["arm"], malignant="tumour", normal="normal")
+
+pooled = pct.pooled_within_patient({"dataset A": test["per_patient"], "dataset B": test_b["per_patient"]})
+print(pooled["per_dataset"].round(1).to_string())
+print(f"\\nfixed deepening {pooled['estimate_points']:+.1f} points (SE {pooled['se_points']:.1f}), "
+      f"z = {pooled['z']:.1f}, one-sided P = {pooled['p_one_sided']:.1g}")
+print(f"variance between datasets {pooled['sigma2_dataset']:.5f}, between patients within a dataset {pooled['sigma2_residual']:.5f}")"""),
+
+    md("""Two datasets cannot support a random-effect estimate — the paper's own four (two of them colorectal) are already coarse, and the one-sided P does not propagate the uncertainty of the variance estimate. The model is the control the paper uses, not a licence to pool few datasets.
+
+## 6. Set the result beside the paper's cohorts
 
 `pct.convergence.published_within_patient()` carries the paper's cohort-level results (the effect sizes of the *real* datasets, which this synthetic cohort is not meant to resemble):"""),
 
@@ -233,7 +252,8 @@ print("\\npooled over four datasets (colorectal x2, kidney, liver):",
 - **Malignant-cell purity.** A tumour arm that is mostly normal-adjacent epithelium is diluted to the normal baseline — the Census lung "tumour" arm was about 9% annotated-malignant, which produced the retracted "no deepening in lung". Use author-annotated malignant compartments.
 - **The right comparator.** Compare with the epithelium the cancer arises from (colorectal cancer: the crypt base), not with the tissue at large.
 - **Do not rank cancers** by convergence fraction: the order moves with malignant-label quality and residual platform effects.
-- **Pooling across datasets** needs a mixed model with a dataset random intercept (not implemented here; fit it with `statsmodels` on `per_patient`).
+- **Pooling across datasets** with `pct.pooled_within_patient` (a dataset random intercept, section 5), not with one sign test over all patients.
+- **Beyond occupancy:** how malignant and normal occupants of the state differ module by module (`pct.occupant_contrast`) and how tightly cancers contract relative to their origins (`pct.contraction`) are in [`docs/CONVERGENCE.md`](../docs/CONVERGENCE.md).
 - **What a positive result is.** An increase of occupancy of a pre-existing region of normal cell-state space — a convergent endpoint across origins, not a measured trajectory and not a proven attractor.
 
 Full guide: [`docs/CONVERGENCE.md`](../docs/CONVERGENCE.md) · scope and retractions: [`docs/SCOPE.md`](../docs/SCOPE.md) · paper-to-code map: [`docs/PAPER_MAP.md`](../docs/PAPER_MAP.md)."""),

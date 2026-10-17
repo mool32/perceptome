@@ -14,6 +14,9 @@ drug layers of the companion papers. Four layers of analysis:
                    same patient's normal cells?  (pct.convergence, Paper 3)
                      assign_cells()           QC -> score -> project -> nearest of 152 normal cell types
                      within_patient_occupancy()   paired tumour vs matched-normal test
+                     pooled_within_patient()      the same pooled over datasets (mixed model)
+                     occupant_contrast()          malignant vs normal occupants of the state, per module
+                     contraction()                cancer centroids vs their normal origins
                      load_convergence_reference() the paper's definitions, results and SI tables
 
   3. PERCEPTIVITY  What can the cell DO? (capacity layer)
@@ -69,6 +72,7 @@ from . import convergence
 from .convergence import (
     assign_cells, assign_to_reference, core_fraction, region_occupancy,
     within_patient_occupancy, recurrence_ranking, load_convergence_reference,
+    pooled_within_patient, occupant_contrast, contraction,
 )
 from .utils import cosine
 
@@ -101,6 +105,7 @@ __all__ = [
     # convergence (Paper 3)
     "convergence", "assign_cells", "assign_to_reference", "core_fraction", "region_occupancy",
     "within_patient_occupancy", "recurrence_ranking", "load_convergence_reference",
+    "pooled_within_patient", "occupant_contrast", "contraction",
     # utils
     "cosine",
 ]

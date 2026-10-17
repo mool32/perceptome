@@ -103,6 +103,8 @@ def assign_cells(adata, calibration="pseudobulk", min_genes=1000, shape_only=Fal
         coordinates   standardized eigenspace coordinates
         coverage      per-module gene coverage
         qc            QC report
+        n_genes       detected genes per cell that passed QC (for complexity matching and the
+                      depth balance of ``occupant_contrast``)
     """
     from ..score import score_modules
 
@@ -119,8 +121,10 @@ def assign_cells(adata, calibration="pseudobulk", min_genes=1000, shape_only=Fal
     cal = calibration if isinstance(calibration, Calibration) else load_calibration(calibration)
     assignment, coords = assign_to_reference(scores, calibration=cal, shape_only=shape_only,
                                              missing_modules=uncovered, return_coordinates=True)
+    from .qc import detected_genes
+    n_genes = pd.Series(detected_genes(adata.X), index=adata.obs_names, name="n_genes_detected")
     return {"assignment": assignment, "scores": scores, "coordinates": coords,
-            "coverage": coverage, "qc": qc}
+            "coverage": coverage, "qc": qc, "n_genes": n_genes}
 
 
 def _nearest(assignment):

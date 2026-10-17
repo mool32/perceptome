@@ -20,10 +20,9 @@ Before it is tagged:
 ## Follow-ups the paper leaves open [PLANNED]
 
 - **Re-derive the reference with the corrected catalog.** Three genes were lost to renamed symbols or a loader (Note S-Q); the paper states the corrected catalog "has not been re-derived end to end". Then switch `resolve_aliases` on by default and rebuild the eigenspace, calibrations and reference vectors.
-- **Mixed-effects pooled test** with a dataset random intercept (optional `statsmodels` extra); pooling patients across datasets can manufacture a Simpson's-paradox artifact.
 - **A copy-number-based malignant floor** for the convergence workflow (the paper defers it "to production"): malignant-cell purity is the documented failure mode of the within-patient test.
-- **Module-by-module comparison of malignant and normal occupants** (Fig. 6), as a tested function once the selection rule for the reported modules is available; replication outside colorectal.
-- **Contraction statistics against the matched-averaging null** — needs a normal single-cell reference (Tabula Sapiens or the Human Cell Atlas), which also serves the cross-atlas validation below.
+- **The rule that selects the reported modules in the occupant comparison** (Fig. 6; `pct.occupant_contrast` returns P and a Benjamini-Hochberg q and leaves the threshold open), and replication outside colorectal.
+- **A bundled normal single-cell reference for the matched-averaging null** (Tabula Sapiens or the Human Cell Atlas, which also serves the cross-atlas validation below) with a definition of a coherent micro-population, and the specification curve of the shape contraction once its variants are defined (`pct.contraction_null` is in place in generic form).
 - **Cohorts the paper names as missing:** esophageal dysplasia (the pre-invasive prediction failed in non-dysplastic Barrett's metaplasia), distant rather than nodal metastases, a normal breast arm with more than one sample.
 - **Recompute the empirical convergence direction** from the 25-cancer cohort; the bundled attractor direction is still the Paper 4.2 estimate (11–13 cancers).
 - **A larger example gallery** (further cohorts through `pct.convergence`).

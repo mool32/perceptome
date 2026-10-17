@@ -50,7 +50,8 @@ def test_assign_cells_recovers_the_cell_type_of_reference_derived_cells(cells):
     a = res["assignment"]
     truth = cells.obs["truth"].reindex(a.index)
     assert (a["nearest"] == truth).mean() > 0.95
-    assert set(res) == {"assignment", "scores", "coordinates", "coverage", "qc"}
+    assert set(res) == {"assignment", "scores", "coordinates", "coverage", "qc", "n_genes"}
+    assert (res["n_genes"] >= 1000).all() and list(res["n_genes"].index) == list(a.index)
     assert res["scores"].shape == (len(a), 44) and res["coordinates"].shape == (len(a), 9)
     assert res["qc"]["n_input"] == res["qc"]["n_pass"] == cells.n_obs
 

@@ -78,9 +78,51 @@ Pitfalls the paper documents:
 - **The right comparator.** Colorectal cancer arises from crypt-base progenitors, not from the tissue at large; against differentiated surface epithelium the effect is overstated (+19.1 points vs +14.8 against the crypt base).
 - **Do not rank cancers by convergence fraction.** The ordering is sensitive to malignant-label quality (an author-validated relabeling moved one colon dataset from 13% to 36%) and to residual platform effects.
 - **Report points, not folds.** The fold-change is inflated by a small normal denominator; on the additive scale the increase is roughly constant (~+10 points) across tissues.
-- **Pooling.** Pooling patients across datasets can manufacture a Simpson's-paradox artifact; the paper uses a mixed model with a dataset random intercept (+13.0 points over four datasets). That model is not implemented here — fit it with `statsmodels` on the `per_patient` frames.
+- **Pooling.** Pooling patients across datasets can manufacture a Simpson's-paradox artifact; the paper uses a mixed model with a dataset random intercept (+13.0 points over four datasets). `pct.pooled_within_patient` fits it (see below).
 - **Gene symbols.** Three catalog genes have been renamed (MB21D1, TMEM173, ARNTL → CGAS, STING1, BMAL1). With current symbols cGAS-STING is scored on three genes and Circadian on four, matching the bundled reference; `resolve_aliases=True` recovers all five but then differs from the reference until it is re-derived.
+
+## Pooling cohorts
+
+Several datasets of the same question are pooled with the paper's mixed model (Note S-D): the per-patient malignant-minus-normal difference, an intercept, and a random intercept per dataset (REML, Wald z, one-sided P for a deepening):
+
+```python
+tests = {name: pct.within_patient_occupancy(a, patient, arm, malignant="tumour", normal="normal")
+         for name, (a, patient, arm) in cohorts.items()}
+pooled = pct.pooled_within_patient({name: t["per_patient"] for name, t in tests.items()})
+pooled["estimate_points"], pooled["se_points"], pooled["z"], pooled["p_one_sided"]    # paper: +13.0, 1.87, 6.95, 1.9e-12
+pooled["per_dataset"]                                                                  # patients, patients deeper, mean difference
+```
+
+With few datasets the between-dataset variance is estimated coarsely (the paper's four are two colorectal cohorts, kidney and liver), and the one-sided P does not propagate the uncertainty of that estimate; say so when you report it.
+
+## What malignancy adds inside the state (Fig. 6)
+
+Among the cells that already occupy the core, how does a malignant cell differ from a normal cell of the same patient? `occupant_contrast` compares the two occupant populations module by module — per patient (≥ 10 occupants in each arm), a paired Wilcoxon test across patients, and a detection-depth balance (the malignant occupants resampled to the normal occupants' detected-gene distribution, as in Note S-F):
+
+```python
+res = pct.convergence.assign_cells(adata, calibration="single_cell_scaled")
+out = pct.occupant_contrast(res["scores"], res["assignment"], adata.obs["patient"], adata.obs["arm"],
+                            malignant="tumour", normal="normal", n_genes=res["n_genes"])
+out["table"]                       # per module: raw and depth-balanced difference, patients higher, P, BH q
+out["rho_core_signature"]          # Spearman over the modules against the core's defining signature (paper: +0.36)
+out["depth"]                       # detected genes of the occupants, raw and balanced (paper: 4,351 vs 2,395 -> 2,640 vs 2,496)
+```
+
+The paper reports this for colorectal only ("awaits replication") and names sixteen modules that separate the occupants; it does not state the rule that selected them, so the table gives P and a Benjamini-Hochberg q (an addition of this package) and the threshold is yours. The paper's reading — malignancy superimposes stress, growth and metabolic programs on the shared state rather than moving cells further along the axis that defines it — is a statement about that colorectal comparison, not a property this function establishes.
+
+## Contraction
+
+The paper's cross-origin contraction pairs each cancer's malignant centroid (the mean of its quality-controlled cells in the nine-dimensional space) with its normal cell of origin (Table S8) and compares the mean pairwise cosine distance among the origins (about 0.99: near-orthogonal states) with that among the malignant centroids (about 0.16):
+
+```python
+res = pct.convergence.assign_cells(adata, calibration="single_cell_scaled")
+origins = pct.load_convergence_reference()["tables"]["S8"]["cell_of_origin"]      # cancer -> normal cell of origin
+c = pct.contraction(res["coordinates"], adata.obs["cancer"], origins=origins, calibration="single_cell_scaled")
+c["mean_distance"], c["origin_mean_distance"], c["ratio"]
+```
+
+The paper takes this headline apart, and so should you. The raw contraction is largely a matched-averaging and shared-magnitude effect: aggregates of unrelated normal cells formed by the same averaging reach about 0.13 (`pct.convergence.contraction_null`, which needs normal single-cell data of your own, projected with the same calibration, and your definition of a coherent micro-population). The comparison with random draws of 25 normal cell types (a Stayton-type test) and the fold-contraction it produced are withdrawn. What survives is a small convergence in module shape; the paper reports it as a specification curve because the result depends on how magnitude-removed scores are rescaled (two of three standardizations support it, one does not). Run `contraction` on `shape_only=True` coordinates and on the other variants, and report them side by side.
 
 ## What is not implemented here
 
-The contraction statistics against the matched-averaging null (they need normal single-cell data), the 36-way specification curve, the mixed-effects pooled model, the module-by-module comparison of malignant and normal occupants of the state (Fig. 6), the Perturb-seq, immune and reprogramming analyses, and the independent-catalog reconstructions. Their results are recorded in `pct.load_convergence_reference()`; the analysis scripts (E3–E44) are in the Zenodo record of the paper.
+The 36-way specification curve (the manuscript does not define its within-cell-centred and per-cell-rank variants or the third standardization exactly enough to code them), the Perturb-seq, immune and reprogramming analyses, and the independent-catalog reconstructions. The paper's seven-tissue normal pool for the matched-averaging null is not part of the package either. Results of the analyses are recorded in `pct.load_convergence_reference()`; the analysis scripts (E3–E44) are in the Zenodo record of the paper.
