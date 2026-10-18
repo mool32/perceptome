@@ -1,0 +1,715 @@
+{
+ "_source": "Spiro (2026), Supporting Information, Table S9b, as printed (gene lists and free-text cells are abbreviated in the print; the complete table is tableS9b_module_criteria.csv in the Zenodo record). 'recorded at catalog construction' modules have a blank receptor field in the paper.",
+ "modules": {
+  "AMPK": {
+   "sensor": [
+    "PRKAG1",
+    "PRKAG2",
+    "PRKAG3"
+   ],
+   "tf_output": "No direct AMPK transcription factor; output via T…",
+   "tf_output_truncated": true,
+   "feedback": [
+    "ULK1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "medium",
+   "annotation": "re-curated"
+  },
+  "AR": {
+   "sensor": [
+    "AR"
+   ],
+   "tf_output": "AR",
+   "tf_output_truncated": false,
+   "feedback": [],
+   "feedback_named": false,
+   "receptor_field_recorded": true,
+   "confidence": "low",
+   "annotation": "re-curated"
+  },
+  "AhR": {
+   "sensor": [
+    "AHR"
+   ],
+   "tf_output": "AHR, ARNT",
+   "tf_output_truncated": false,
+   "feedback": [
+    "AHRR",
+    "CYP1A1",
+    "TIPARP"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "Autophagy": {
+   "sensor": [
+    "MTOR",
+    "RPTOR",
+    "RRAGA"
+   ],
+   "tf_output": "TFEB, TFE3, FOXO3",
+   "tf_output_truncated": false,
+   "feedback": [
+    "RRAGD",
+    "FLCN"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "medium",
+   "annotation": "re-curated"
+  },
+  "BMP": {
+   "sensor": [
+    "BMPR1A",
+    "BMPR1B",
+    "ACVR1"
+   ],
+   "tf_output": "SMAD1, SMAD5, SMAD9 with SMAD4",
+   "tf_output_truncated": false,
+   "feedback": [
+    "SMAD6",
+    "BAMBI"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "Calcium": {
+   "sensor": [
+    "CALM1",
+    "CALM2",
+    "CALM3"
+   ],
+   "tf_output": "NFATC1, NFATC2, NFATC3",
+   "tf_output_truncated": false,
+   "feedback": [
+    "RCAN1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "medium",
+   "annotation": "re-curated"
+  },
+  "Cell Cycle": {
+   "sensor": [
+    "CCND1",
+    "CDK4",
+    "CDK6"
+   ],
+   "tf_output": "E2F1, E2F2, E2F3",
+   "tf_output_truncated": false,
+   "feedback": [
+    "E2F7",
+    "E2F8"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "Circadian": {
+   "sensor": [
+    "CSNK1D",
+    "CSNK1E",
+    "PRKAA1"
+   ],
+   "tf_output": "CLOCK, BMAL1, NPAS2",
+   "tf_output_truncated": false,
+   "feedback": [
+    "PER1",
+    "PER2",
+    "PER3"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "ER": {
+   "sensor": [
+    "ESR1",
+    "ESR2"
+   ],
+   "tf_output": "ESR1, ESR2",
+   "tf_output_truncated": false,
+   "feedback": [
+    "NRIP1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "medium",
+   "annotation": "re-curated"
+  },
+  "ERK/MAPK": {
+   "sensor": [
+    "EGFR",
+    "FGFR1",
+    "FGFR2"
+   ],
+   "tf_output": "FOS, JUN, JUND",
+   "tf_output_truncated": false,
+   "feedback": [
+    "DUSP1",
+    "DUSP2",
+    "DUSP3"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "FXR": {
+   "sensor": [
+    "NR1H4"
+   ],
+   "tf_output": "NR1H4, RXRA",
+   "tf_output_truncated": false,
+   "feedback": [
+    "NR0B2",
+    "FGF19"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "GR": {
+   "sensor": [
+    "NR3C1"
+   ],
+   "tf_output": "NR3C1",
+   "tf_output_truncated": false,
+   "feedback": [
+    "FKBP5"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "HIF": {
+   "sensor": [
+    "EGLN1",
+    "EGLN2",
+    "EGLN3"
+   ],
+   "tf_output": "HIF1A, EPAS1, ARNT",
+   "tf_output_truncated": false,
+   "feedback": [
+    "EGLN1",
+    "EGLN2",
+    "EGLN3"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "HSF1": {
+   "sensor": [
+    "HSF1"
+   ],
+   "tf_output": "HSF1, HSF2",
+   "tf_output_truncated": false,
+   "feedback": [
+    "HSP90AA1",
+    "HSP90AB1",
+    "HSPA1A"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "Hedgehog": {
+   "sensor": [
+    "PTCH1",
+    "PTCH2",
+    "SMO"
+   ],
+   "tf_output": "GLI1, GLI2, GLI3",
+   "tf_output_truncated": false,
+   "feedback": [
+    "PTCH1",
+    "PTCH2",
+    "HHIP"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "Hippo": {
+   "sensor": [
+    "CDH1",
+    "NF2",
+    "FRMD6"
+   ],
+   "tf_output": "YAP1, WWTR1, TEAD1",
+   "tf_output_truncated": false,
+   "feedback": [],
+   "feedback_named": false,
+   "receptor_field_recorded": false,
+   "confidence": "low",
+   "annotation": "recorded at catalog construction"
+  },
+  "Insulin/FOXO": {
+   "sensor": [
+    "INSR",
+    "IGF1R",
+    "IRS1"
+   ],
+   "tf_output": "FOXO1, FOXO3, FOXO4",
+   "tf_output_truncated": false,
+   "feedback": [
+    "INSR",
+    "IRS2"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "medium",
+   "annotation": "re-curated"
+  },
+  "JAK-STAT": {
+   "sensor": [
+    "IL6ST",
+    "IL6R",
+    "OSMR"
+   ],
+   "tf_output": "STAT1, STAT2, STAT3",
+   "tf_output_truncated": false,
+   "feedback": [
+    "SOCS1",
+    "SOCS3",
+    "CISH"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "LXR": {
+   "sensor": [
+    "NR1H3",
+    "NR1H2"
+   ],
+   "tf_output": "NR1H3, NR1H2, RXRA",
+   "tf_output_truncated": false,
+   "feedback": [
+    "MYLIP",
+    "ABCA1",
+    "ABCG1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "MR": {
+   "sensor": [
+    "NR3C2"
+   ],
+   "tf_output": "NR3C2",
+   "tf_output_truncated": false,
+   "feedback": [
+    "FKBP5"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "medium",
+   "annotation": "re-curated"
+  },
+  "NF-κB": {
+   "sensor": [
+    "TLR4",
+    "IL1R1",
+    "TNFRSF1A"
+   ],
+   "tf_output": "NFKB1, NFKB2, RELA",
+   "tf_output_truncated": false,
+   "feedback": [
+    "NFKBIA",
+    "TNFAIP3",
+    "CYLD"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "NFAT": {
+   "sensor": [
+    "PPP3CA",
+    "PPP3CB",
+    "PPP3R1"
+   ],
+   "tf_output": "NFATC1, NFATC2, NFATC3",
+   "tf_output_truncated": false,
+   "feedback": [
+    "RCAN1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "NPAS4": {
+   "sensor": [
+    "CAMK2A",
+    "CAMK2B",
+    "CALM1"
+   ],
+   "tf_output": "NPAS4, ARNT2",
+   "tf_output_truncated": false,
+   "feedback": [],
+   "feedback_named": false,
+   "receptor_field_recorded": true,
+   "confidence": "low",
+   "annotation": "re-curated"
+  },
+  "NRF2": {
+   "sensor": [
+    "KEAP1"
+   ],
+   "tf_output": "NFE2L2 heterodimerized with MAFF, MAFG, MAFK",
+   "tf_output_truncated": false,
+   "feedback": [
+    "KEAP1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "Notch": {
+   "sensor": [
+    "NOTCH1",
+    "NOTCH2",
+    "NOTCH3"
+   ],
+   "tf_output": "RBPJ, RBPJL",
+   "tf_output_truncated": false,
+   "feedback": [
+    "NUMB",
+    "NUMBL",
+    "NRARP"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "PI3K/PTEN": {
+   "sensor": [
+    "INSR",
+    "IGF1R",
+    "EGFR"
+   ],
+   "tf_output": "FOXO1, FOXO3, FOXO4",
+   "tf_output_truncated": false,
+   "feedback": [],
+   "feedback_named": false,
+   "receptor_field_recorded": true,
+   "confidence": "low",
+   "annotation": "re-curated"
+  },
+  "PPARα": {
+   "sensor": [
+    "PPARA"
+   ],
+   "tf_output": "PPARA, RXRA",
+   "tf_output_truncated": false,
+   "feedback": [
+    "ACOX1",
+    "CPT1A",
+    "CYP4A11"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "medium",
+   "annotation": "re-curated"
+  },
+  "PPARγ": {
+   "sensor": [
+    "PPARG"
+   ],
+   "tf_output": "PPARG, RXRA",
+   "tf_output_truncated": false,
+   "feedback": [],
+   "feedback_named": false,
+   "receptor_field_recorded": true,
+   "confidence": "low",
+   "annotation": "re-curated"
+  },
+  "PR": {
+   "sensor": [
+    "PGR"
+   ],
+   "tf_output": "PGR",
+   "tf_output_truncated": false,
+   "feedback": [],
+   "feedback_named": false,
+   "receptor_field_recorded": true,
+   "confidence": "low",
+   "annotation": "re-curated"
+  },
+  "PXR/CAR": {
+   "sensor": [
+    "NR1I2",
+    "NR1I3"
+   ],
+   "tf_output": "NR1I2, NR1I3, RXRA",
+   "tf_output_truncated": false,
+   "feedback": [
+    "CYP3A4",
+    "CYP2B6",
+    "UGT1A1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "RAR": {
+   "sensor": [
+    "RARA",
+    "RARB",
+    "RARG"
+   ],
+   "tf_output": "RARA, RARB, RARG",
+   "tf_output_truncated": false,
+   "feedback": [
+    "CYP26A1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "SREBP": {
+   "sensor": [
+    "SCAP",
+    "INSIG1",
+    "INSIG2"
+   ],
+   "tf_output": "SREBF1, SREBF2",
+   "tf_output_truncated": false,
+   "feedback": [
+    "INSIG1",
+    "INSIG2",
+    "PCSK9"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "TGF-β": {
+   "sensor": [
+    "TGFBR1",
+    "TGFBR2",
+    "TGFBR3"
+   ],
+   "tf_output": "SMAD2, SMAD3 with SMAD4",
+   "tf_output_truncated": false,
+   "feedback": [
+    "SMAD7",
+    "SKIL",
+    "PMEPA1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "TR": {
+   "sensor": [
+    "THRA",
+    "THRB"
+   ],
+   "tf_output": "THRA, THRB, RXRA",
+   "tf_output_truncated": false,
+   "feedback": [
+    "DIO3"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "Type I IFN": {
+   "sensor": [
+    "IFNAR1",
+    "IFNAR2"
+   ],
+   "tf_output": "STAT1, STAT2, IRF9",
+   "tf_output_truncated": false,
+   "feedback": [
+    "USP18"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "UPR-ATF6": {
+   "sensor": [
+    "ATF6",
+    "ATF6B",
+    "HSPA5"
+   ],
+   "tf_output": "ATF6, ATF6B",
+   "tf_output_truncated": false,
+   "feedback": [
+    "HSPA5",
+    "CALR",
+    "PDIA3"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "UPR-IRE1": {
+   "sensor": [
+    "ERN1",
+    "ERN2",
+    "HSPA5"
+   ],
+   "tf_output": "XBP1",
+   "tf_output_truncated": false,
+   "feedback": [
+    "DNAJB9",
+    "HSPA5"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "UPR-PERK": {
+   "sensor": [
+    "EIF2AK3",
+    "HSPA5"
+   ],
+   "tf_output": "ATF4, DDIT3, ATF3",
+   "tf_output_truncated": false,
+   "feedback": [
+    "PPP1R15A",
+    "TRIB3"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "VDR": {
+   "sensor": [
+    "VDR"
+   ],
+   "tf_output": "VDR, RXRA",
+   "tf_output_truncated": false,
+   "feedback": [
+    "CYP24A1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "Wnt": {
+   "sensor": [
+    "FZD1",
+    "FZD2",
+    "FZD3"
+   ],
+   "tf_output": "TCF7, TCF7L1, TCF7L2",
+   "tf_output_truncated": false,
+   "feedback": [
+    "AXIN2",
+    "NKD1",
+    "NKD2"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "cAMP/CREB": {
+   "sensor": [
+    "PRKAR1A",
+    "PRKAR2A",
+    "PRKAR2B"
+   ],
+   "tf_output": "CREB1, ATF1, CREM",
+   "tf_output_truncated": false,
+   "feedback": [
+    "CREM",
+    "PDE4B"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": true,
+   "confidence": "high",
+   "annotation": "re-curated"
+  },
+  "cGAS-STING": {
+   "sensor": [
+    "CGAS",
+    "IFI16",
+    "AIM2"
+   ],
+   "tf_output": "IRF3, IRF7, NFKB1",
+   "tf_output_truncated": false,
+   "feedback": [
+    "TREX1",
+    "DNASE2",
+    "SAMHD1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "mTOR": {
+   "sensor": [
+    "INSR",
+    "IGF1R",
+    "TNFRSF1A"
+   ],
+   "tf_output": "SREBF1, HIF1A",
+   "tf_output_truncated": false,
+   "feedback": [
+    "DEPTOR",
+    "DDIT4",
+    "GRB10"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  },
+  "p53": {
+   "sensor": [
+    "ATM",
+    "ATR",
+    "CHEK1"
+   ],
+   "tf_output": "TP53, TP73",
+   "tf_output_truncated": false,
+   "feedback": [
+    "MDM2",
+    "MDM4",
+    "COP1"
+   ],
+   "feedback_named": true,
+   "receptor_field_recorded": false,
+   "confidence": "rec.",
+   "annotation": "recorded at catalog construction"
+  }
+ }
+}

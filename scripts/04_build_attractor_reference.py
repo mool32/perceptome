@@ -24,6 +24,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import perceptome as pct  # noqa: E402
 from perceptome.perceptivity import load_hpa_perceptivity  # noqa: E402
 
 P42_RESULTS = Path("/Users/teo/Desktop/research/perceptual_modules/perceptivity_metric/results/paper4_2_capacity_extension_results.json")
@@ -108,12 +109,8 @@ def main():
         if mod in delta_per_module.index:
             delta_per_module[mod] = float(d)
 
-    # Project into eigenspace
-    loadings = np.zeros((len(module_order), n_pcs))
-    for j in range(n_pcs):
-        for i, m in enumerate(module_order):
-            loadings[i, j] = eig["loadings"][f"PC{j+1}"].get(m, 0.0)
-    delta_eigenspace = delta_per_module.values @ loadings
+    # Project into the standardized reference coordinates (module delta / reference SD, then loadings)
+    delta_eigenspace = pct.project_shift(delta_per_module).values
     pc_names = [f"PC{i+1}" for i in range(n_pcs)]
 
     # Sun 2021 per-cell-type cosines (P3 PASS detail)
@@ -136,6 +133,7 @@ def main():
         "attractor_direction_modules": delta_per_module.to_dict(),
         "attractor_direction_eigenspace": delta_eigenspace.tolist(),
         "eigenspace_PC_names": pc_names,
+        "eigenspace_convention": "standardized",
         "P3_per_celltype": per_ct_cosines,
         "interpretive_note": (
             "Cancer cells move IN the attractor direction within capacity space "

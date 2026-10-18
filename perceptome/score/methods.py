@@ -17,10 +17,13 @@ Two convenience wrappers expose the core/activity dichotomy explicitly:
 These are the inputs to pct.perceptivity.compute().
 """
 
+import warnings
+
 import numpy as np
 import pandas as pd
 
 from ..catalog import load_catalog, get_genes
+from ..catalog.aliases import aliases_of, resolve_genes
 
 
 def score_modules(
@@ -31,6 +34,7 @@ def score_modules(
     min_genes=2,
     return_per_cell=True,
     cluster_column=None,
+    resolve_aliases=False,
 ):
     """Compute per-cell (or per-cluster) module activity scores.
 
@@ -49,12 +53,18 @@ def score_modules(
         If False and cluster_column given, return per-cluster means.
     cluster_column : str | None
         adata.obs column for cluster aggregation when return_per_cell=False.
+    resolve_aliases : bool
+        Also match the current HGNC symbol of renamed catalog genes (MB21D1/TMEM173/ARNTL ->
+        CGAS/STING1/BMAL1). Default False: genes are matched by the exact catalog symbol, which
+        is how the bundled reference was built (cGAS-STING on 3 genes, Circadian on 4 when the
+        data use current symbols; paper Note S-Q). A warning names any gene that exact matching
+        misses but an alias would recover.
 
     Returns
     -------
     dict
         scores         DataFrame (cells/clusters × n_modules)
-        coverage       DataFrame (modules × {n_genes_total, n_genes_found, coverage, genes_found})
+        coverage       DataFrame (modules × {n_genes_total, n_genes_found, coverage, genes_found, aliases_used})
         missing_genes  dict {module: [missing genes]}
         cognitive_load Series (per cell/cluster: count of modules above the across-cells median)
     """
@@ -68,11 +78,20 @@ def score_modules(
     scores_dict = {}
     cov_rows = []
     missing = {}
+    recoverable = {}
 
     for mod in modules:
         genes = get_genes(mod, gene_set=gene_set, catalog=cat)
-        found = [g for g in genes if g in var_set]
-        notf = [g for g in genes if g not in var_set]
+        if resolve_aliases:
+            found, notf, aliased = resolve_genes(genes, var_set)
+        else:
+            found = [g for g in genes if g in var_set]
+            notf = [g for g in genes if g not in var_set]
+            aliased = {}
+            for g in notf:
+                alt = next((a for a in aliases_of(g) if a in var_set), None)
+                if alt:
+                    recoverable[g] = alt
         missing[mod] = notf
         cov_rows.append({
             "module": mod,
@@ -80,6 +99,7 @@ def score_modules(
             "n_genes_found": len(found),
             "coverage": len(found) / len(genes) if genes else 0.0,
             "genes_found": ",".join(found),
+            "aliases_used": ",".join(f"{g}>{a}" for g, a in aliased.items()),
         })
 
         if len(found) < min_genes:
@@ -112,6 +132,14 @@ def score_modules(
             raise ValueError(
                 f"method must be one of mean_raw|scanpy_corrected|mean_zscore, got {method!r}"
             )
+
+    if recoverable:
+        warnings.warn(
+            "Catalog genes not found by symbol but present under their current symbol: "
+            + ", ".join(f"{g} -> {a}" for g, a in sorted(recoverable.items()))
+            + ". They are left out so that scores match the bundled reference, which was built by "
+              "exact matching (cGAS-STING on 3 genes, Circadian on 4); pass resolve_aliases=True to "
+              "include them (paper Note S-Q).", UserWarning, stacklevel=2)
 
     scores_df = pd.DataFrame(scores_dict, index=adata.obs_names)
 

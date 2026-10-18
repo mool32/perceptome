@@ -1,6 +1,6 @@
 # Quickstart — your first analysis with perceptome
 
-You have an scRNA-seq dataset and a question about cellular signaling. This page walks you through the four most common workflows in under 100 lines of code.
+You have an scRNA-seq dataset and a question about cellular regulatory state. This page walks you through the five most common workflows in about 100 lines of code. (The paper behind the tool — Spiro 2026, *Diverse cancers converge on one region of normal cell-state space in a cancer-blind coordinate system* — calls the 44 units *regulatory modules*; older pages and the API use *perceptual modules*. Same objects.)
 
 ## Install
 
@@ -32,20 +32,22 @@ The catalog has **44 modules** — see `pct.list_modules()`. Use `pct.get_genes(
 
 ## Workflow 1 — Geometry: where do my cells live in module space?
 
-The 9-PC HPA-derived eigenspace is the canonical perceptual coordinate system. PC1 is preserved from Paper 3 (perception breadth, myeloid+ to germ−); PC4 carries the cancer convergence direction (Paper 4.2).
+The fixed 9-PC reference space, built from 154 normal HPA cell types, is the canonical coordinate system. Cells are placed in it by z-scoring each module score against a reference calibration and projecting through the loadings. In the paper's description PC1 runs from inflammatory cells to terminal germline cells, PC2 from quiescent to proliferative cells, PC3 from signaling-dominated immune cells to metabolic epithelia; convergence is *not* an axis (it is a nearest-neighbour property of the full nine dimensions — Workflow 5).
 
 ```python
 scores = pct.score_modules(adata, method="mean_raw")["scores"]
 # scores: DataFrame (cells × 44 modules)
 
-coords = pct.project(scores)["coordinates"]
-# coords: DataFrame (cells × 9 PCs)
+coords = pct.project(scores, calibration="single_cell_scaled")["coordinates"]
+# coords: DataFrame (cells × 9 PCs), standardized against the per-cell reference
 
 # Add coords back to your AnnData if you want to plot them with scanpy
 import numpy as np
 adata.obsm["X_perceptome"] = coords.values
 sc.pl.scatter(adata, basis="perceptome", color="cell_type")
 ```
+
+**Calibration.** `pct.project` standardizes against the `pseudobulk` calibration by default (cell-type-level HPA scale). Per-cell scores sit on a much lower scale, so `pct.project` warns when it sees them: for per-cell data pass `calibration="single_cell_scaled"`, the reference the paper re-derives under the same `normalize_total(1e4)`+`log1p` preprocessing (bundled; see [`CONVERGENCE.md`](CONVERGENCE.md)). Under the pseudobulk calibration relative positions of cell types remain informative, but absolute positions, nearest-cell-type assignment and cosines to reference directions are not reliable. Versions ≤ 0.2.2 did not standardize at all (`standardize=False` reproduces that).
 
 **When to use which scoring method:**
 - `mean_raw` (default) — safe for cross-dataset comparisons. Use this unless you have a specific reason not to.
@@ -139,9 +141,9 @@ print(delta["delta_eigenspace"])      # 9-PC perturbation vector
 print(delta["infrastructure_regime"]) # supply_chain | firefighting | collapse | unsupported
 ```
 
-### Cancer attractor alignment (Paper 4.2)
+### Legacy cancer capacity-direction alignment (Paper 4.2)
 
-If your perturbation is a transformation (e.g., tumor vs adjacent normal in paired cohort), test whether the shift aligns with the cancer-transformation direction:
+If your perturbation is a transformation (e.g., tumor vs adjacent normal in paired cohort), test whether the shift aligns with the capacity-space direction cancers take during transformation (the Paper 4.2 estimate from 11–13 cancers; for where cancers *converge* in normal cell-state space, use Workflow 5):
 
 ```python
 shift_vector = delta["delta_modules"]["delta"]   # 44 modules
@@ -204,10 +206,35 @@ Background null = all drugs in `adata.obs[pert_col]` not in `test_perturbations`
 
 ---
 
+## Workflow 5 — Convergence of malignant cells onto a normal-cell region (Paper 3)
+
+The paper's falsifiable assay: does malignant epithelium occupy a region of normal cell-state space more often than the same patient's normal epithelium? Needs paired tumour / adjacent-normal single-cell data with a patient and an arm column.
+
+```python
+res = pct.convergence.assign_cells(adata)   # QC -> 44 modules -> standardize (single_cell_scaled) -> project -> nearest of 152 normal cell types
+a = res["assignment"]
+
+pct.region_occupancy(a)          # anchor / core / neighbourhood / region: % of cells and fold over chance
+test = pct.within_patient_occupancy(
+    a, adata.obs["patient"], adata.obs["arm"], malignant="tumour", normal="normal")
+print(test["n_deeper"], "of", test["n_patients"], "patients deeper;",
+      "paired Wilcoxon P =", test["wilcoxon_two_sided"], ";", "sign test P =", test["sign_test_one_sided"])
+
+pct.convergence.published_within_patient()       # the paper's cohort-level results to compare with
+```
+
+Further analyses of the paper, each on the same objects: `pct.pooled_within_patient` (several datasets, dataset random intercept), `pct.occupant_contrast` (how malignant and normal occupants of the state differ, module by module) and `pct.contraction` (how tightly cancers sit relative to their normal origins).
+
+The full guide — calibrations, shape-only, complexity matching, pooling, the conventions that match the paper, and its pitfalls — is [`CONVERGENCE.md`](CONVERGENCE.md); a runnable offline example is [`examples/recipe_convergence_occupancy.ipynb`](../examples/recipe_convergence_occupancy.ipynb).
+
+---
+
 ## Where to go next
 
-- **`docs/EIGENSPACE_EVOLUTION.md`** — relationship between v0.1 12-PC and v0.3 9-PC eigenspaces. Read if comparing tool output to Paper 3.
-- **`docs/SCOPE.md`** — explicit boundaries of the framework. What it answers, what it doesn't.
+- **`docs/CONVERGENCE.md`** — the convergence / within-patient assay in detail.
+- **`docs/PAPER_MAP.md`** — where each part of Paper 3 lives in the code, and which printed numbers the bundled data do and do not reproduce.
+- **`docs/EIGENSPACE_EVOLUTION.md`** — relationship between the first draft's 12-PC and the current 9-PC eigenspaces.
+- **`docs/SCOPE.md`** — explicit boundaries of the framework. What it answers, what it doesn't, what was retracted.
 - **`README.md`** — full API reference and bundled data inventory.
 - **`CHANGELOG.md`** — version history.
 - **GitHub issues** — feature requests and bug reports.
@@ -225,3 +252,9 @@ Background null = all drugs in `adata.obs[pert_col]` not in `test_perturbations`
 5. **Using `compare_to_references` for drug-disease matching.** It doesn't include drugs in v0.2 (cosine matching falsified by Paper 4.1). Use `pct.activity_layer_screen` for the validated drug operation.
 
 6. **Trusting v0.1 PC2-PC3 interpretation in v0.3.** PC1 is preserved across versions. PC2-PC3 underwent rotation/reordering — see `EIGENSPACE_EVOLUTION.md`.
+
+7. **Projecting per-cell data with the pseudobulk calibration.** Per-cell scores sit far below the HPA scale; assignment to normal cell types then collapses onto low-complexity reference types (the paper's Notes S-B / S-H). Use the bundled `single_cell_scaled` calibration (`pct.project(scores, calibration="single_cell_scaled")`; the default of `assign_cells`), and keep ≥ 1,000 detected genes per cell — shallow data (the tutorial's PBMC3K has a median of 820) land on the low-complexity end of the space even under the right calibration.
+
+8. **Reading the cytotrophoblast as the convergence target independent of the catalog.** The paper's robust finding is the *region*; the cytotrophoblast is the anchor under this catalog, and the megakaryocyte (the other core cell) falls with transcriptome complexity. Report within-patient increases in percentage points, shape-only alongside raw.
+
+9. **Expecting catalog genes under both spellings.** MB21D1/TMEM173/ARNTL were renamed (CGAS/STING1/BMAL1): current-symbol data score cGAS-STING on three genes and Circadian on four, as the bundled reference does. `score_modules` warns; `resolve_aliases=True` recovers them (see `SCOPE.md`).

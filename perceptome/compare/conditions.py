@@ -6,7 +6,7 @@ import pandas as pd
 from scipy import stats
 
 from ..utils import cosine
-from ..eigenspace.project import _load_reference
+from ..eigenspace.project import _load_reference, project_shift
 from .regime import infrastructure_regime
 
 
@@ -22,9 +22,14 @@ def compare_conditions(
     """Per-module + eigenspace delta between two conditions.
 
     Returns a dict with delta_modules (per-module test stats), delta_eigenspace
-    (12-PC perturbation vector), magnitude, top_modules, disease_type, and
+    (9-PC perturbation vector), magnitude, top_modules, disease_type, and
     infrastructure_regime. If cell_type_column / obs1 / obs2 provided, also
     returns per_cell_type breakdown plus cross-cell-type cosine convergence.
+
+    The eigenspace vector is the module delta carried into the standardized
+    reference coordinates (``pct.project_shift``: each module divided by its
+    reference SD, then the loadings), so it equals the difference between the
+    projected condition means.
     """
     modules = sorted(scores_condition1.columns)
 
@@ -54,21 +59,14 @@ def compare_conditions(
     if project_to_eigenspace:
         ref = _load_reference(reference) if (reference is None or isinstance(reference, str)) else reference
         module_order = ref["module_order"]
-        n_pcs = ref["n_pcs"]
 
-        loadings = np.zeros((len(module_order), n_pcs))
-        for j in range(n_pcs):
-            for i, mod in enumerate(module_order):
-                loadings[i, j] = ref["loadings"][f"PC{j+1}"].get(mod, 0.0)
+        def _to_eigenspace(deltas):
+            return project_shift(deltas.reindex(module_order).fillna(0.0), reference=ref).values
 
-        delta_vec = np.array([
-            delta_df.loc[mod, "delta"] if mod in delta_df.index else 0.0
-            for mod in module_order
-        ])
-        delta_12d = delta_vec @ loadings
-        pc_names = [f"PC{i+1}" for i in range(n_pcs)]
-        out["delta_eigenspace"] = pd.Series(delta_12d, index=pc_names, name="delta")
-        out["magnitude"] = float(np.linalg.norm(delta_12d))
+        delta_eig = _to_eigenspace(delta_df["delta"])
+        pc_names = [f"PC{i+1}" for i in range(len(delta_eig))]
+        out["delta_eigenspace"] = pd.Series(delta_eig, index=pc_names, name="delta")
+        out["magnitude"] = float(np.linalg.norm(delta_eig))
 
     top = delta_df.reindex(delta_df["delta"].abs().sort_values(ascending=False).index).head(10)
     out["top_modules"] = top
@@ -99,14 +97,10 @@ def compare_conditions(
             ct_delta = _compare_one(scores_condition1.loc[m1], scores_condition2.loc[m2])
 
             if project_to_eigenspace:
-                vec = np.array([
-                    ct_delta.loc[mod, "delta"] if mod in ct_delta.index else 0.0
-                    for mod in module_order
-                ])
-                ct_12d = vec @ loadings
-                ct_vectors[ct] = ct_12d
-                eig_vec = ct_12d.tolist()
-                mag = float(np.linalg.norm(ct_12d))
+                ct_eig = _to_eigenspace(ct_delta["delta"])
+                ct_vectors[ct] = ct_eig
+                eig_vec = ct_eig.tolist()
+                mag = float(np.linalg.norm(ct_eig))
             else:
                 eig_vec, mag = None, None
 

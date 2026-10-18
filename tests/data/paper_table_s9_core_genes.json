@@ -1,0 +1,312 @@
+{
+ "_source": "Spiro (2026), Supporting Information, Table S9 — the 44 regulatory modules and their component genes (206 unique core genes). Transcribed from the paper PDF; the catalog's core_genes are regression-tested against it.",
+ "modules": {
+  "AMPK": [
+   "PRKAA1",
+   "PRKAA2",
+   "PRKAB1",
+   "STK11",
+   "ADIPOQ"
+  ],
+  "AR": [
+   "AR",
+   "KLK3",
+   "TMPRSS2",
+   "FKBP5",
+   "NKX3-1"
+  ],
+  "AhR": [
+   "AHR",
+   "ARNT",
+   "CYP1A1",
+   "CYP1B1",
+   "AHRR"
+  ],
+  "Autophagy": [
+   "ULK1",
+   "BECN1",
+   "MAP1LC3B",
+   "TFEB",
+   "ATG5"
+  ],
+  "BMP": [
+   "BMPR1A",
+   "SMAD1",
+   "SMAD5",
+   "SMAD6",
+   "ID1"
+  ],
+  "Calcium": [
+   "CALM1",
+   "CAMK2A",
+   "ITPR1",
+   "PLCG1"
+  ],
+  "Cell Cycle": [
+   "CCND1",
+   "CDK4",
+   "RB1",
+   "E2F1",
+   "MKI67"
+  ],
+  "Circadian": [
+   "CLOCK",
+   "ARNTL",
+   "PER1",
+   "NR1D1",
+   "CRY1"
+  ],
+  "ER": [
+   "ESR1",
+   "TFF1",
+   "GREB1",
+   "PGR",
+   "CCND1"
+  ],
+  "ERK/MAPK": [
+   "MAPK1",
+   "MAPK3",
+   "MAP2K1",
+   "DUSP1",
+   "FOS"
+  ],
+  "FXR": [
+   "NR1H4",
+   "NR0B2",
+   "FGF19",
+   "ABCB11",
+   "SLC51A"
+  ],
+  "GR": [
+   "NR3C1",
+   "FKBP5",
+   "TSC22D3",
+   "SGK1",
+   "DUSP1"
+  ],
+  "HIF": [
+   "HIF1A",
+   "VEGFA",
+   "EGLN1",
+   "SLC2A1",
+   "LDHA"
+  ],
+  "HSF1": [
+   "HSF1",
+   "HSPA1A",
+   "HSP90AA1",
+   "HSPA4",
+   "DNAJB1"
+  ],
+  "Hedgehog": [
+   "SMO",
+   "PTCH1",
+   "GLI1",
+   "GLI2",
+   "SUFU"
+  ],
+  "Hippo": [
+   "YAP1",
+   "WWTR1",
+   "LATS1",
+   "LATS2",
+   "TEAD1"
+  ],
+  "Insulin/FOXO": [
+   "INSR",
+   "IRS1",
+   "AKT2",
+   "FOXO1",
+   "GSK3B"
+  ],
+  "JAK-STAT": [
+   "JAK1",
+   "STAT1",
+   "STAT3",
+   "SOCS1",
+   "SOCS3"
+  ],
+  "LXR": [
+   "NR1H3",
+   "ABCA1",
+   "ABCG1",
+   "MYLIP",
+   "NR1H2"
+  ],
+  "MR": [
+   "NR3C2",
+   "SGK1",
+   "SCNN1A",
+   "NDRG2",
+   "FKBP5"
+  ],
+  "NF-κB": [
+   "NFKB1",
+   "RELA",
+   "IKBKB",
+   "NFKBIA",
+   "TNFAIP3"
+  ],
+  "NFAT": [
+   "NFATC1",
+   "NFATC2",
+   "PPP3CA",
+   "RCAN1",
+   "IL2"
+  ],
+  "NPAS4": [
+   "NPAS4",
+   "ARNT2",
+   "CAMK2A",
+   "CAMK2B",
+   "CALM1"
+  ],
+  "NRF2": [
+   "NFE2L2",
+   "KEAP1",
+   "NQO1",
+   "HMOX1",
+   "TXNRD1"
+  ],
+  "Notch": [
+   "NOTCH1",
+   "HES1",
+   "HEY1",
+   "DLL1",
+   "RBPJ"
+  ],
+  "PI3K/PTEN": [
+   "PIK3CA",
+   "AKT1",
+   "PTEN",
+   "FOXO3",
+   "PDK1"
+  ],
+  "PPARα": [
+   "PPARA",
+   "CYP4A11",
+   "ACOX1",
+   "CPT1A",
+   "FABP1"
+  ],
+  "PPARγ": [
+   "PPARG",
+   "FABP4",
+   "LPL",
+   "ADIPOQ",
+   "CD36"
+  ],
+  "PR": [
+   "PGR",
+   "TNFSF11",
+   "WNT4",
+   "HAND2",
+   "FOXO1"
+  ],
+  "PXR/CAR": [
+   "NR1I2",
+   "CYP3A4",
+   "CYP2B6",
+   "ABCB1",
+   "UGT1A1"
+  ],
+  "RAR": [
+   "RARA",
+   "RARB",
+   "CYP26A1",
+   "CRABP2",
+   "TGM2"
+  ],
+  "SREBP": [
+   "SREBF1",
+   "SREBF2",
+   "HMGCR",
+   "FASN",
+   "SCD"
+  ],
+  "TGF-β": [
+   "TGFB1",
+   "TGFBR1",
+   "SMAD2",
+   "SMAD3",
+   "SMAD7"
+  ],
+  "TR": [
+   "THRA",
+   "THRB",
+   "DIO1",
+   "DIO2",
+   "THRSP"
+  ],
+  "Type I IFN": [
+   "IFNAR1",
+   "STAT1",
+   "STAT2",
+   "IRF9",
+   "USP18"
+  ],
+  "UPR-ATF6": [
+   "ATF6",
+   "HSPA5",
+   "CALR",
+   "PDIA4",
+   "XBP1"
+  ],
+  "UPR-IRE1": [
+   "ERN1",
+   "XBP1",
+   "DNAJB9",
+   "SEC61A1",
+   "EDEM1"
+  ],
+  "UPR-PERK": [
+   "EIF2AK3",
+   "ATF4",
+   "DDIT3",
+   "PPP1R15A",
+   "ASNS"
+  ],
+  "VDR": [
+   "VDR",
+   "CYP24A1",
+   "CYP27B1",
+   "CAMP",
+   "S100A8"
+  ],
+  "Wnt": [
+   "CTNNB1",
+   "APC",
+   "GSK3B",
+   "AXIN2",
+   "TCF7"
+  ],
+  "cAMP/CREB": [
+   "PRKACA",
+   "CREB1",
+   "PDE4B",
+   "ADCY6",
+   "CREM"
+  ],
+  "cGAS-STING": [
+   "MB21D1",
+   "TMEM173",
+   "IRF3",
+   "IFNB1",
+   "CXCL10"
+  ],
+  "mTOR": [
+   "MTOR",
+   "RPTOR",
+   "RPS6KB1",
+   "EIF4EBP1",
+   "RHEB"
+  ],
+  "p53": [
+   "TP53",
+   "MDM2",
+   "CDKN1A",
+   "BAX",
+   "BBC3"
+  ]
+ }
+}

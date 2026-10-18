@@ -2,10 +2,12 @@
 
 import numpy as np
 import pandas as pd
+import pytest
 
 import perceptome as pct
 
 
+@pytest.mark.filterwarnings("ignore:Module scores sit")
 def test_pipeline_score_project_compare(tiny_adata):
     """Score → project → compare_to_references runs end-to-end without error."""
     scores = pct.score_modules(tiny_adata, method="mean_raw")["scores"]

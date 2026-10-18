@@ -1,0 +1,26 @@
+cancer,cell_of_origin,origin_class
+HCC,hepatocytes,epithelial
+BRCA,breast hormone-responsive cells,epithelial
+Glioblastoma,astrocytes,glial
+Ovarian serous,fallopian secretory cells,epithelial
+RCC,proximal tubule cells,epithelial
+Melanoma,melanocytes,neural-crest
+Prostate,prostatic glandular cells,epithelial
+HNSCC,suprabasal keratinocytes,epithelial
+Neuroblastoma,adrenal medulla cells,neural-crest
+B-ALL,b-cells,hematopoietic
+DLBCL,b-cells,hematopoietic
+Squamous lung,respiratory ciliated cells,epithelial
+TNBC,breast myoepithelial cells,epithelial
+PDAC,pancreatic duct cells,epithelial
+NSCLC,alveolar cells type 2,epithelial
+AML,hematopoietic stem cells,hematopoietic
+MM,plasma cells,hematopoietic
+BCC,basal keratinocytes,epithelial
+Colorectal,colonocytes,epithelial
+Small-cell lung,neuroendocrine cells,neuroendocrine
+Gastric,mucous neck cells,epithelial
+Germ-cell,undifferentiated spermatogonia,germ cell
+Osteosarcoma,fibroblasts,mesenchymal
+Ewing sarcoma,fibroblasts,mesenchymal
+Seminoma,undifferentiated spermatogonia,germ cell

@@ -1,0 +1,197 @@
+{
+  "version": "1.0",
+  "source": {
+    "title": "Diverse cancers converge on one region of normal cell-state space in a cancer-blind coordinate system",
+    "author": "Spiro, Theodor",
+    "year": 2026,
+    "doi": "10.5281/zenodo.20542130",
+    "license": "CC-BY-4.0",
+    "manuscript": "Paper 3, v11 (main text and Supporting Information)",
+    "note": "Every number below is transcribed from the manuscript; where a value is derived or a membership is not fully determined by the printed tables, the entry says so.",
+    "tables": {
+      "S1": "tableS1_datasets.csv",
+      "S2": "tableS2_ranking154.csv",
+      "S4": "tableS4_modules.csv",
+      "S6": "tableS6_complexity.csv",
+      "S7": "tableS7_core_signature.csv",
+      "S8": "tableS8_origins.csv"
+    }
+  },
+  "definitions": {
+    "n_reference_cell_types": 154,
+    "quarantine": ["erythrocytes", "platelets"],
+    "quarantine_note": "Post-cellular bodies and the documented low-complexity artifact (Notes S3, S-K). They are removed from the candidate pool before the nearest-neighbour step and their cells are reassigned to the best surviving neighbour, leaving 152 candidates.",
+    "n_candidates": 152,
+    "anchor": "cytotrophoblasts",
+    "anchor_label": "placental cytotrophoblast",
+    "secondary": "megakaryocytes",
+    "secondary_label": "megakaryocyte",
+    "secondary_status": "Carried no further than a secondary target: its assignment falls with detected-gene count exactly as the quarantined erythrocyte does (Fig. 3D, Fig. S7). It is not set aside for being blood-specific.",
+    "regions": {
+      "anchor": ["cytotrophoblasts"],
+      "core": ["cytotrophoblasts", "megakaryocytes"],
+      "three_cell_core": ["cytotrophoblasts", "megakaryocytes", "migrating cytotrophoblasts"],
+      "neighbourhood": ["cytotrophoblasts", "megakaryocytes", "gastric progenitor cells", "late spermatids"]
+    },
+    "region_names": {
+      "anchor": "the placental cytotrophoblast alone",
+      "core": "two-cell core: cytotrophoblast + megakaryocyte (main text, within-patient test)",
+      "three_cell_core": "core + migrating cytotrophoblast (referee-control notes, ~2% chance baseline)",
+      "neighbourhood": "four-cell majority-enriched neighbourhood",
+      "region": "14-cell broader region (rank rule below)"
+    },
+    "region_rule": {
+      "k": 14,
+      "rank_by": ["recurrence", "median_depth_pct", "mean_depth_pct"],
+      "note": "Boundaries are ranks in the cross-cancer recurrence ranking (Table S2). The core and the four-cell neighbourhood are fixed by that ranking (their Table S2 occupancies sum to the printed 23.9% and 41.9%). Places 13 and 14 are a five-way tie at recurrence 2 that the printed table does not resolve; the tie-break above gives 77.6% where Fig. 3F prints 76.9%."
+    },
+    "qc": {
+      "min_genes_per_cell": 1000,
+      "normalize_total": 10000,
+      "normalize_if_max_above": 100,
+      "max_cells_per_cohort": 4000,
+      "recurrence_top_n": 5,
+      "min_cells_per_arm": 20,
+      "assignment": "top-1 nearest normal cell-type centroid by cosine in the nine-dimensional space",
+      "calibration": "single_cell_scaled (per-cell data); pseudobulk collapses cells onto low-complexity targets"
+    }
+  },
+  "headline": {
+    "n_cancers": 25,
+    "contraction": {
+      "malignant_mean_pairwise_cosine_distance": 0.166,
+      "origins_mean_pairwise_cosine_distance": 0.99,
+      "matched_averaging_null_mean": 0.129,
+      "matched_averaging_null_interval": [0.074, 0.213],
+      "malignant_at_25_cells_per_cancer": 0.174,
+      "malignant_at_4000_cells_per_cancer": 0.166,
+      "shape_only": {
+        "raw_module_space": {"malignant": 0.326, "null": 0.493, "draws_below": "every one of 200"},
+        "reference_scaling": {"malignant": 0.026, "null": 0.034, "draws_below": "292 of 300", "permutation_P": 0.03},
+        "magnitude_removed_reference_scaling": {"malignant": 0.400, "null": 0.382, "percentile": 66, "supports_convergence": false}
+      },
+      "statement": "Most of the raw contraction is shared transcriptional output and the averaging itself; a smaller module-shape convergence remains under two of three scalings."
+    },
+    "enrichment": [
+      {"boundary": "anchor", "k": 1, "occupancy_pct": 11.1, "chance_pct": 0.66, "fold": 16.9},
+      {"boundary": "core", "k": 2, "occupancy_pct": 23.9, "chance_pct": 1.3, "fold": 18.2},
+      {"boundary": "neighbourhood", "k": 4, "occupancy_pct": 41.9, "chance_pct": 2.6, "fold": 15.9},
+      {"boundary": "region", "k": 14, "occupancy_pct": 76.9, "chance_pct": 9.2, "fold": 8.4}
+    ],
+    "recurrence": {"cytotrophoblasts": 18, "megakaryocytes": 18, "of": 25},
+    "complexity_control": {
+      "cytotrophoblast_assignment_pct": [6.8, 21.6],
+      "megakaryocyte_assignment_pct": [13.2, 3.5],
+      "erythrocyte_assignment_pct": [16.6, 3.5],
+      "axis": "deciles of detected genes per malignant cell, lowest to highest"
+    },
+    "cell_counts": {
+      "qc_pool_25_cohorts": 448399,
+      "after_1000_gene_filter_before_cap": 312000,
+      "convergence_panel_after_4000_cap": 83819,
+      "table_s6_assignments_incl_normal_atlases": 574451
+    },
+    "dimensionality": {"core_pct_6d": 18.9, "core_pct_9d": 27.1, "contraction_6d": 0.131, "contraction_9d": 0.166, "note": "The magnitude depends on dimensionality; the anchor does not (cytotrophoblast is the top target in six dimensions)."},
+    "two_d_vs_nine_d": {"b_all_core_pct_pc1_pc2": 8.2, "b_all_core_pct_9d": 60.8, "pooled_pc1_pc2": 6.8, "pooled_9d": 23.9, "note": "Convergence is a high-dimensional nearest-neighbour property, not a 2-D location."},
+    "robustness": {
+      "leave_one_cancer_out": {"core_pct_range": [25.4, 28.4], "full_panel_core_pct": 27.1, "cytotrophoblast_recurrence_rank": 2},
+      "drop_five_modules_200_draws": {"core_pct_mean": 17.5, "core_pct_sd": 2.5, "unperturbed_core_pct": 17.4, "worst_core_pct": 11.7, "anchor_top3_five_module_drops_pct": 84, "anchor_top3_single_module_drops_pct": 100},
+      "random_genome_wide_panels_core_pct": 6,
+      "real_modules_core_pct": 21,
+      "reshuffled_curated_genes_core_pct": 14,
+      "specification_curve": {"n_specifications": 36, "single_cell_calibration_specs_above_chance": 18, "median_pct": 7.2, "worst_fold_over_chance": 2.9}
+    },
+    "calibration": {"single_cell_scaled_core_pct": 17, "pseudobulk_core_pct": 7, "pseudobulk_normal_single_cells_onto_erythroid_pct": 99.6},
+    "catalog_dependence": {
+      "independent_curations": 3,
+      "gene_overlap_with_incumbent_jaccard": [0.28, 0.31],
+      "region_reproduces": true,
+      "region_shared_top10_cell_types": ["gastric progenitor cells", "gastric chief cells", "pancreatic acinar cells", "esophageal apical cells", "megakaryocytes"],
+      "anchor_reproduces": false,
+      "cytotrophoblast_rank_in_independent_catalogs": [26, 35],
+      "winner_in_independent_catalogs": "gastric progenitor cells",
+      "core_occupancy_pct": {"independent_mean": 12.0, "independent_sd": 4.3, "incumbent": 24.7},
+      "statement": "The four criteria constrain the region but do not by themselves select the cell inside it: the cytotrophoblast is the anchor under this catalog."
+    },
+    "signature": {
+      "released_brake_vs_cancer_contribution_spearman": 0.88,
+      "bootstrap_ci": [0.78, 0.93],
+      "gene_level_spearman": 0.56,
+      "n_genes_detectable": 202,
+      "most_below_trend_module": "Type I IFN",
+      "brake_modules": ["Circadian", "Type I IFN", "JAK-STAT", "PI3K/PTEN", "Notch", "Wnt", "SREBP"]
+    }
+  },
+  "within_patient": [
+    {"id": "colorectal_pelka", "tissue": "colon", "cohort": "Pelka 2021", "design": "paired tumour / adjacent normal, separate samples",
+     "n_patients": 46, "n_deeper": 43, "normal_pct": 3.2, "malignant_pct": 18.9, "statistic": "median",
+     "paired_wilcoxon_P": "<1e-12", "shape_only": {"delta_points": 10.5, "n_deeper": 44, "n_patients": 46, "wilcoxon_P": 1e-13, "sign_test_P": "<1e-10"},
+     "complexity_matched": {"delta_points": 12.9, "n_deeper": 43, "n_patients": 46, "wilcoxon_P": 1e-8, "raw_delta_points": 15.5},
+     "crypt_base_comparator": {"n_deeper": 35, "n_patients": 39, "delta_points": 14.8}},
+    {"id": "colorectal_hta", "tissue": "colon", "cohort": "Human Tumor Atlas (CELLxGENE Census)", "design": "paired",
+     "n_patients": 25, "n_deeper": 23, "one_sided_P": 2e-6},
+    {"id": "kidney_ccrcc", "tissue": "kidney", "cohort": "clear-cell RCC (Census)", "design": "paired",
+     "n_patients": 7, "n_deeper": 6, "normal_pct": 5.3, "malignant_pct": 11.5, "statistic": "median", "paired_wilcoxon_P": 0.055},
+    {"id": "liver_hcc_sun", "tissue": "liver", "cohort": "Sun 2021 HCC", "design": "paired; 8 of 10 patients have >=20 hepatocytes in both arms",
+     "n_patients": 8, "n_deeper": 5, "normal_pct": 10.9, "malignant_pct": 19.4, "statistic": "median", "paired_wilcoxon_P": 0.074},
+    {"id": "pooled_four_datasets", "tissue": "colon, kidney, liver", "cohort": "pooled", "design": "four datasets, patient is the unit",
+     "n_patients": 86, "n_deeper": 77, "sign_test_P": 7e-15,
+     "mixed_effects": {"delta_points": 13.0, "se": 1.87, "z": 6.95, "one_sided_P": 1.9e-12, "random_intercept": "dataset"}},
+    {"id": "gastric_gse150290", "tissue": "stomach", "cohort": "Kim 2022 GSE150290 (held out)", "design": "paired; analysed only after the account was fixed; 22 of 23 patients meet the 20-cell floor",
+     "n_patients": 22, "n_deeper": 18, "normal_pct": 8.8, "malignant_pct": 14.2, "statistic": "mean", "paired_wilcoxon_P": 0.001,
+     "shape_only": {"delta_points": 3.4, "n_deeper": 15, "n_patients": 22, "wilcoxon_P": 0.04, "sign_test_P": 0.07, "verdict": "suggestive"}},
+    {"id": "lung_gse131907", "tissue": "lung", "cohort": "Kim 2020 GSE131907", "design": "paired, author tumour-subtype annotation",
+     "n_patients": 10, "n_deeper": 10, "normal_pct": 23.4, "malignant_pct": 39.0, "statistic": "mean", "paired_wilcoxon_P": 0.002,
+     "shape_only": {"normal_pct": 18.2, "malignant_pct": 30.3, "delta_points": 12.1, "n_deeper": 9, "n_patients": 10, "wilcoxon_P": 0.004, "sign_test_P": 0.011}},
+    {"id": "prostate_census", "tissue": "prostate", "cohort": "CELLxGENE paired tumour / adjacent benign", "design": "paired",
+     "n_patients": 15, "n_deeper": 7, "normal_pct": 15.0, "verdict": "no deepening (open negative)"},
+    {"id": "prostate_song", "tissue": "prostate", "cohort": "Song 2022 GSE176031", "design": "paired benign / tumour",
+     "n_patients": 4, "normal_pct": 2.1, "malignant_pct": 3.8, "paired_P": 0.38, "verdict": "no deepening (open negative); the two prostate cohorts disagree about the baseline itself"},
+    {"id": "ipf_negative_control", "tissue": "lung", "cohort": "Habermann 2020 GSE135893", "design": "fibrotic vs control donors (not paired); strictest non-malignant comparator",
+     "n_donors": 22, "control_pct": 16.1, "disease_pct": 19.9, "delta_points": 3.8, "P": 0.12,
+     "shape_only": {"control_pct": 7.6, "disease_pct": 8.9, "delta_points": 1.3, "P": 0.21}},
+    {"id": "breast_primary_vs_node_metastasis", "tissue": "breast", "cohort": "Tokura 2022 GSE195861", "design": "primary vs matched lymph-node metastasis (suggestive; nodal, small n)",
+     "n_patients": 6, "n_lower": 6, "primary_pct": 21.8, "metastasis_pct": 13.4, "paired_P": 0.03,
+     "shape_only": {"primary_pct": 14.3, "metastasis_pct": 9.6, "n_lower": 5, "P": 0.06}},
+    {"id": "colorectal_adenoma_series", "tissue": "colon", "cohort": "Zheng 2022 GSE161277", "design": "normal -> adenoma -> carcinoma, same patient",
+     "n_patients": 3, "n_adenoma_above_normal": 3, "mean_pct": {"normal": 4.1, "adenoma": 11.2, "carcinoma": 16.8}},
+    {"id": "breast_dcis", "tissue": "breast", "cohort": "Tokura 2022 GSE195861", "design": "unpaired donors; normal arm is a single sample (directional only)",
+     "mean_pct": {"normal": 7.7, "dcis": 11.3, "idc": 21.8, "node_metastasis": 13.4}},
+    {"id": "barrett_esophagus", "tissue": "esophagus", "cohort": "Gier 2023 GSE291080", "design": "Barrett metaplasia vs the same donor's normal squamous epithelium",
+     "n_patients": 4, "n_lower": 4, "barrett_pct": 2.1, "normal_squamous_pct": 7.7, "verdict": "prediction fails in esophagus; dysplasia untested"}
+  ],
+  "tissue_baselines_pct": {
+    "lung_epithelium_control": 16.1, "kidney": 0.5, "neural": 7.6, "breast_epithelium_wu_2021": 25,
+    "note": "Normal epithelium occupies the state to a tissue-dependent degree: it is a physiological state, not a cancer-specific destination."
+  },
+  "time_resolved": {
+    "dataset": "PC9 lung-adenocarcinoma cells through erlotinib (Aissa 2021, GSE134839)",
+    "shape_only_core_pct": {"untreated": 29, "day_2": 53, "day_4": 30, "day_9_to_11": 40},
+    "caveat": "Cell line, survivorship thins later timepoints, no lineage tracing: movement of cells cannot be separated from selection."
+  },
+  "retracted": [
+    "Baseline gating of the within-patient increase (present where normal tissue sits low, absent in high-baseline lung). The 'absent in lung' reading was a cell-selection artifact: the Census lung 'tumour' arm was ~9% annotated-malignant cells and ~91% normal-adjacent alveolar epithelium. With cleanly identified malignant cells lung deepens like every other tissue tested (GSE131907: 10 of 10 patients). No baseline-gating claim is made.",
+    "The fold-change framing of the within-patient increase (about sixfold). The fold-change is inflated by the small normal denominator; the effect is reported in percentage points (about +10 points, flat against baseline on the additive scale).",
+    "The prostate 'saturated high-baseline tissue' justification (it rested on the baseline-gating hypothesis). Prostate is reported as an open negative.",
+    "The comparison against random 25-cell-type draws (a Stayton-type test) and the fold-contraction it produced: the null ignored the averaging itself. Superseded by the matched-averaging null (Note S-G).",
+    "The structural argument that the two core cells share polyploidy by endoreduplication: the anchor is the mononuclear diploid villous cytotrophoblast.",
+    "The reading that malignant occupants run the cGAS-STING module hotter: the module was scored on a three-gene fragment without either sensor (Note S-Q).",
+    "The argument that malignant-cell contamination makes the reported numbers a lower bound (tested on HCC and BRCA; not borne out)."
+  ],
+  "falsified_organizing_principles": [
+    "driver-gene enrichment", "module evolutionary age", "an exteroception-interoception axis", "immune privilege"
+  ],
+  "limits": [
+    "Convergence is a static geometric test: a convergent endpoint across origins, not a measured trajectory, and not a proven dynamical attractor.",
+    "The convergence region is the robust finding; the cytotrophoblast anchor is conditional on this catalog (independent curations reproduce the region but name the gastric progenitor).",
+    "Most of the raw contraction is shared transcriptional output; the module-shape residue is real but modest and specification-dependent.",
+    "The corrected gene-symbol catalog (Note S-Q) has not been re-derived end to end; headline numbers use the legacy symbol handling.",
+    "A CNV-inference malignant-cell floor across all 25 cohorts is deferred; three cohorts are marker-labelled.",
+    "The 154-type gallery is sparse in progenitor and fetal cells; the trophoblast reference comes from a different dataset and platform (Vento-Tormo 2018).",
+    "Immune privilege is not inherited (62 colorectal tumours: no association with T/NK infiltration).",
+    "Single-gene perturbation does not move the state (Perturb-seq in K562, an unfavourable substrate; combinatorial knockdowns untested).",
+    "Pre-invasive prediction holds in colorectum and directionally in breast but fails in esophagus (non-dysplastic Barrett's); dysplasia is untested.",
+    "The post-colonization reading (metastasis sits lower) rests on nodal metastases and small numbers.",
+    "The within-patient module comparison (Fig. 6) is colorectal only."
+  ]
+}

@@ -1,10 +1,12 @@
 """Compare sample positions to reference vector databases.
 
-References supported (under perceptome/reference/data/):
+References supported (under perceptome/reference/data/), all expressed in the standardized
+reference coordinates of ``pct.project``:
   - disease   AD/DKD/RA/IPF perturbation vectors
   - aging     inflammaging + collapse axes
-  - drugs     CMap/LINCS L1000 (recomputed for v0.3 in last commit)
-  - attractor Cancer capacity-direction (Paper 4.2 P3, NEW in v0.3)
+  - attractor legacy cancer capacity-direction (Paper 4.2 P3). For the convergence of cancers onto
+              a region of normal cell-state space (Paper 3) use ``pct.convergence`` instead.
+Drug vectors are not supported (cosine matching falsified, Paper 4.1).
 """
 
 import json
@@ -36,7 +38,10 @@ def compare_to_references(
     Parameters
     ----------
     coordinates : DataFrame
-        Samples × PCs (output of project()).
+        Samples × PCs: positions from ``project()['coordinates']`` (displacement from the average
+        normal cell, in the standardized coordinates) or shifts from ``project_shift`` (condition
+        differences — the right query for per-cell data scored against the pseudobulk calibration,
+        where the scale offset between data and reference cancels in a difference).
     include_diseases / include_aging / include_attractor : bool
     references_dir : str | Path | None
         Override the bundled reference directory.
@@ -48,7 +53,7 @@ def compare_to_references(
         cos_inflammaging        Series
         cos_collapse            Series
         aging_type              Series  (inflammaging|perception_collapse|mixed|neutral)
-        cos_attractor           Series  (cosine with cancer capacity-direction)
+        cos_attractor           Series  (cosine with the legacy cancer capacity-direction)
         attractor_quadrant      Series  (high|medium|low alignment)
         eigenspace_region       Series  categorical PC1/PC2 region label
     """
@@ -150,8 +155,10 @@ def _attractor_alignment(coordinates, ref_dir, n_pcs):
 def _classify_region(coordinates):
     """Coarse PC1/PC2 region label.
 
-    NOTE: Cancer detection requires tissue-matched comparison via compare_conditions(),
-    not absolute PC1 — cross-tissue PC1 differences (~3-5) dwarf cancer signal (~0.06).
+    A legacy heuristic on the standardized PC1 / PC2 coordinates; the labels predate the
+    paper's description of the axes (PC1: inflammatory → terminal germline cells, PC2: quiescent →
+    proliferative) and carry no claim of the paper. Cancer detection requires tissue-matched
+    comparison (compare_conditions() or pct.within_patient_occupancy), not absolute position.
     """
     labels = []
     for _, r in coordinates.iterrows():

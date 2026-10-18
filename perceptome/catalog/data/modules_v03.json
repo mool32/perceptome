@@ -892,13 +892,8 @@
         "GLI2",
         "SNAI2"
       ],
-      "feedback_genes": [
-        "NKD1",
-        "NKD2",
-        "BIRC2",
-        "BIRC3",
-        "BIRC5"
-      ],
+      "feedback_genes": [],
+      "feedback_note": "Earlier entry (NKD1, NKD2, BIRC2, BIRC3, BIRC5) withdrawn: NKD1/NKD2 are Wnt antagonists (they belong to the Wnt module) and the BIRCs are YAP targets, not feedback inhibitors. No induced feedback gene can be named with confidence (paper Table S9b).",
       "activity_genes": [
         "CTGF",
         "CYR61",
