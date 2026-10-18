@@ -38,8 +38,8 @@ The fixed 9-PC reference space, built from 154 normal HPA cell types, is the can
 scores = pct.score_modules(adata, method="mean_raw")["scores"]
 # scores: DataFrame (cells × 44 modules)
 
-coords = pct.project(scores)["coordinates"]
-# coords: DataFrame (cells × 9 PCs), standardized
+coords = pct.project(scores, calibration="single_cell_scaled")["coordinates"]
+# coords: DataFrame (cells × 9 PCs), standardized against the per-cell reference
 
 # Add coords back to your AnnData if you want to plot them with scanpy
 import numpy as np
@@ -47,7 +47,7 @@ adata.obsm["X_perceptome"] = coords.values
 sc.pl.scatter(adata, basis="perceptome", color="cell_type")
 ```
 
-**Calibration.** The bundled calibration is `pseudobulk` (cell-type-level HPA scale). Per-cell scores sit on a much lower scale, so `pct.project` warns when it sees them: for per-cell data the paper uses a `single_cell_scaled` reference, which you build once from the HPA table (`scripts/13_build_single_cell_calibration.py`; see [`CONVERGENCE.md`](CONVERGENCE.md)). Relative positions of cell types remain informative under the pseudobulk calibration; absolute positions, nearest-cell-type assignment and cosines to reference directions are not reliable until you use the matching calibration. Versions ≤ 0.2.2 did not standardize at all (`standardize=False` reproduces that).
+**Calibration.** `pct.project` standardizes against the `pseudobulk` calibration by default (cell-type-level HPA scale). Per-cell scores sit on a much lower scale, so `pct.project` warns when it sees them: for per-cell data pass `calibration="single_cell_scaled"`, the reference the paper re-derives under the same `normalize_total(1e4)`+`log1p` preprocessing (bundled; see [`CONVERGENCE.md`](CONVERGENCE.md)). Under the pseudobulk calibration relative positions of cell types remain informative, but absolute positions, nearest-cell-type assignment and cosines to reference directions are not reliable. Versions ≤ 0.2.2 did not standardize at all (`standardize=False` reproduces that).
 
 **When to use which scoring method:**
 - `mean_raw` (default) — safe for cross-dataset comparisons. Use this unless you have a specific reason not to.
@@ -211,7 +211,7 @@ Background null = all drugs in `adata.obs[pert_col]` not in `test_perturbations`
 The paper's falsifiable assay: does malignant epithelium occupy a region of normal cell-state space more often than the same patient's normal epithelium? Needs paired tumour / adjacent-normal single-cell data with a patient and an arm column.
 
 ```python
-res = pct.convergence.assign_cells(adata, calibration="single_cell_scaled")   # QC -> 44 modules -> project -> nearest of 152 normal cell types
+res = pct.convergence.assign_cells(adata)   # QC -> 44 modules -> standardize (single_cell_scaled) -> project -> nearest of 152 normal cell types
 a = res["assignment"]
 
 pct.region_occupancy(a)          # anchor / core / neighbourhood / region: % of cells and fold over chance
@@ -253,7 +253,7 @@ The full guide — calibrations, shape-only, complexity matching, pooling, the c
 
 6. **Trusting v0.1 PC2-PC3 interpretation in v0.3.** PC1 is preserved across versions. PC2-PC3 underwent rotation/reordering — see `EIGENSPACE_EVOLUTION.md`.
 
-7. **Projecting per-cell data with the pseudobulk calibration.** Per-cell scores sit far below the HPA scale; assignment to normal cell types then collapses onto low-complexity reference types (the paper's Notes S-B / S-H). Use a `single_cell_scaled` calibration, and keep ≥ 1,000 detected genes per cell.
+7. **Projecting per-cell data with the pseudobulk calibration.** Per-cell scores sit far below the HPA scale; assignment to normal cell types then collapses onto low-complexity reference types (the paper's Notes S-B / S-H). Use the bundled `single_cell_scaled` calibration (`pct.project(scores, calibration="single_cell_scaled")`; the default of `assign_cells`), and keep ≥ 1,000 detected genes per cell — shallow data (the tutorial's PBMC3K has a median of 820) land on the low-complexity end of the space even under the right calibration.
 
 8. **Reading the cytotrophoblast as the convergence target independent of the catalog.** The paper's robust finding is the *region*; the cytotrophoblast is the anchor under this catalog, and the megakaryocyte (the other core cell) falls with transcriptome complexity. Report within-patient increases in percentage points, shape-only alongside raw.
 

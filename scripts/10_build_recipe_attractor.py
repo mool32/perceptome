@@ -74,7 +74,7 @@ print(result.to_string(index=False))"""),
 - `4 of 6` (or more) cell types passing = cohort-level PASS, matching Sun 2021 paired HCC outcome
 - Negative cosines indicate the shift goes *against* the attractor direction — biologically meaningful (some compartments don't transform, e.g. cytotoxic immune cells)
 
-In the synthetic PBMC3K split above the cosines will be near zero (random split, no real biology). On real paired tumor/normal data (e.g. Sun 2021 GSE149614 HCC) you'd expect the malignant compartment + 2-3 stromal compartments to pass."""),
+In the synthetic PBMC3K split above there is no biology: the "tumor" and "normal" arms are alternate cells of the same type, so each shift is noise and its cosine with the attractor direction is a random number — here between +0.54 and −0.55, with two cell types (dendritic cells, CD4 T cells) above the +0.20 threshold by chance. That is why the P3 criterion is a cohort-level pattern (≥ 4 of 6 cell types) and not a single pass; this split gets 2 of 6. On real paired tumor/normal data (e.g. Sun 2021 GSE149614 HCC) you'd expect the malignant compartment + 2-3 stromal compartments to pass."""),
 
     md("""## Eigenspace alignment (optional — coordinate-space view)
 

@@ -42,7 +42,7 @@ def _bh(p):
 
 def occupant_contrast(scores, assignment, patient, arm, malignant, normal, region="core",
                       min_cells=10, n_genes=None, balance_depth=True, n_draws=20, seed=0,
-                      statistic="mean", calibration="pseudobulk", ranking=None):
+                      statistic="mean", calibration="single_cell_scaled", ranking=None):
     """Per-module difference between malignant and matched-normal occupants of a region.
 
     Parameters

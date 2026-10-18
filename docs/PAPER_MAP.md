@@ -9,7 +9,7 @@ This page says, for each part of the paper, **where it lives in the code and how
 | **reproduced** | a test recomputes the printed number from the bundled data |
 | **implemented** | code exists and is tested on synthetic data built from the bundled reference |
 | **bundled** | the paper's own numbers are shipped as data (checked against totals the paper states) |
-| **external** | needs data that are not redistributed here (HPA single-cell-type table, cancer cohorts) |
+| **external** | needs data that are not redistributed here (cancer cohorts, normal single-cell data) |
 | **not implemented** | analysis not part of this package |
 
 ## The coordinate system
@@ -22,9 +22,15 @@ This page says, for each part of the paper, **where it lives in the code and how
 | Nine components by the Kaiser criterion, 73.8% of variance; bootstrap stability 0.63–0.99 (PC1–PC6) and 0.40–0.54 (PC7–PC9), PC8 below PC9 — Note S1, Fig. S1 | `eigenspace/data/reference_v03.json` | **reproduced** (rebuilding from the bundled 154 × 44 matrix gives the shipped reference exactly) |
 | NPAS4 leave-one-out: 43-module rebuild reproduces all nine components, per-PC cosine ≥ 0.95, mean 0.99 over PC1–PC6 — Note S2 | `tests/test_paper_reference.py` | **reproduced** (min 0.951, mean 0.993) |
 | PC1 runs from inflammatory to terminal germline cells | `pct.project` | **reproduced** in sign and ordering (neutrophils, monocytes, macrophages negative; oocytes, megakaryocytes positive) |
-| Unrelated normal states are near-orthogonal (cosine distance ~0.99) | `pct.project` | **reproduced** qualitatively (mean pairwise cosine 0.002 over the 154 types; 0.976 distance among the 25 origins) |
+| Unrelated normal states are near-orthogonal (cosine distance ~0.99) | `pct.project` | **reproduced** qualitatively (mean pairwise cosine 0.002 over the 154 types); the printed 0.99 among the 25 origins is **not matched to the digit**: 0.976 on the pseudobulk calibration, 1.000 on the single-cell one (0.990 with the magnitude removed) |
 | z-score against the reference, then project — Methods, Note S1 | `pct.project` (`standardize=True`), `pct.load_calibration` | **implemented**. Earlier versions skipped the z-scoring |
-| Pseudobulk and single-cell-scaled calibrations — Notes S1, S-B, S-H | `pct.eigenspace.calibration`; `scripts/13_build_single_cell_calibration.py` | pseudobulk **bundled**; single-cell-scaled **external** (build it; the script publishes it only if Table S7 is reproduced) |
+| Pseudobulk and single-cell-scaled calibrations — Notes S1, S-B, S-H | `pct.load_calibration`; `scripts/13_build_single_cell_calibration.py` | both **bundled**. The single-cell one was built from the HPA single-cell-type table (nCPM scaled to 1e4 per cell type over all genes, log1p, module mean, standardized with the sample SD of the 154 cell types, the fixed pseudobulk loadings); the same release reproduces the pseudobulk matrix to 2e-7 |
+| Table S7: core z-scores of the megakaryocyte and the cytotrophoblast over the 44 modules | `pct.convergence.check_calibration_against_table_s7` | **reproduced for 43 of 44 modules**: 85 of the 86 printed values equal the computed ones once rounded, the 86th (PXR/CAR) within 0.006. **Not reproduced: the cGAS-STING row** (printed +0.77 / +1.16, computed +0.66 / +1.03) — the module Note S-Q says was scored on three genes without a sensor, and the one the paper calls inverted in this table |
+| Table S7: "target distinctiveness" (z of the core's mean score against the other 152 cell types) and its negative, "core suppression" | `pct.convergence.target_distinctiveness` | **reproduced** for 43 modules (within 0.003, 41 of them within 0.0006); cGAS-STING again differs (+0.852 vs printed +0.977) |
+| Fig. S8: six of 946 module pairs exceed \|r\| > 0.7 (the six named), mean \|r\| 0.21 | `tests/test_paper_reference.py` | **reproduced** on the single-cell matrix (the pseudobulk one gives 20 pairs and 0.27) |
+| Fig. 1B: PC1 31%, PC2 21% "of variance" | `tests/test_paper_reference.py` | **reproduced** as the shares of the two axes among the nine retained ones when the 154 cell types are projected under the single-cell calibration (31.3% / 21.1%); see observation 1 |
+| The convergent cells form a neighbourhood: mutual cosine 0.77 against −0.01 for random pairs; the medoid of the normal manifold is an alveolar type-1 pneumocyte | same | **reproduced** (0.77; −0.00; the medoid by cosine distance, with transitional alveolar cells second); the pseudobulk calibration gives 0.52 and another medoid |
+| Note S-N (iii): the eigenspace rebuilt from the normal cells and the shipped reference are "near-identical but not identical (cell-to-cell geometry r = 0.964)" | same | **reproduced** (0.965): the rebuilt space is the PCA of the single-cell matrix, compared with the shipped loadings applied to it |
 
 ## The convergence assay
 
@@ -52,31 +58,38 @@ This page says, for each part of the paper, **where it lives in the code and how
 
 Auditing the scored panel found catalog genes that matched neither HPA nor most cohorts: three renamed symbols (MB21D1→CGAS and TMEM173→STING1 in cGAS-STING, ARNTL→BMAL1 in Circadian) and NKX3-1, lost by a loader that stripped `-<digits>` suffixes. Here: `pct.aliases_of`, `score_modules(resolve_aliases=...)`, a warning that names recoverable genes, and a `prepare_expression` that never strips suffixes. The paper states that the corrected catalog **has not been re-derived end to end**; neither has the bundled reference (cGAS-STING is scored on three genes and Circadian on four), which is why `resolve_aliases` defaults to off.
 
-## What the bundled data do not reproduce
+## What is reproduced, and what is not
 
-The following printed numbers are computed on the **single-cell-scaled** calibration (Fig. 1B variance labels, Fig. S8, Table S7, the neighbourhood cosine) or on a rebuilt matrix; the shipped pseudobulk reference gives different values. `python scripts/15_paper_reproduction_report.py` prints this table for any calibration; rerun it with `--calibration single_cell_scaled` after building that calibration — the rows should then turn to "match".
+`python scripts/15_paper_reproduction_report.py [--calibration pseudobulk|single_cell_scaled]` prints this comparison. Following the paper's Methods, the eigenspace is built on the pseudobulk reference and the reference is re-derived under the single-cell scaling for per-cell data, so the rows belong to different calibrations:
 
-| Statement (paper) | Paper | Bundled pseudobulk reference |
-|---|---|---|
-| PC1 / PC2 share of variance (Fig. 1B) | 31% / 21% | 29.2% / 13.7% (the nine-component total, 73.8%, does match) |
-| Module pairs with \|r\| > 0.7 of 946 (Fig. S8) | 6 | 20 |
-| Mean \|r\| over the 946 pairs | 0.21 | 0.27 |
-| The six pairs | ATF6–IRE1, JAK-STAT–Type I IFN, ERK–NF-κB, PERK–p53, NF-κB–PERK, BMP–Hippo | 5 of the 6 (JAK-STAT–Type I IFN is below 0.7) |
-| Table S7 z-scores of the two core cells | printed (2 decimals) | Pearson r 0.71 (megakaryocyte) / 0.78 (cytotrophoblast); not equal |
-| Mean cosine distance among the 25 origins | 0.99 | 0.976 |
-| Mutual cosine within the four-cell neighbourhood | 0.77 | 0.52 |
-| Manifold medoid | alveolar type 1 | respiratory ciliated cells (Euclidean, 9-D) |
+| Statement (paper) | Paper | Pseudobulk | Single-cell-scaled |
+|---|---|---|---|
+| Components with eigenvalue > 1; variance of the nine (construction) | 9; 73.8% | 9; 73.9% | (the construction is the pseudobulk one) |
+| Module pairs with \|r\| > 0.7 of 946; mean \|r\| (Fig. S8) | 6; 0.21 | 20; 0.27 | **6; 0.21** |
+| The six pairs | ATF6–IRE1, JAK-STAT–Type I IFN, ERK–NF-κB, PERK–p53, NF-κB–PERK, BMP–Hippo | 5 of 6 | **6 of 6** |
+| Table S7 core z-scores, 86 printed values (all modules but cGAS-STING) | equal once rounded | 0 of 86 | **85 of 86** (max difference 0.0058) |
+| Table S7, cGAS-STING row | +0.77 / +1.16 | −0.13 / +0.29 | +0.66 / +1.03 — **not reproduced** |
+| PC1 / PC2 share of the variance in the nine axes (Fig. 1B) | 31% / 21% | 39.5% / 18.6% | **31.3% / 21.1%** |
+| Mean cosine distance among the 25 origins | 0.99 | 0.976 | 1.000 (0.990 shape-only) — **not reproduced** |
+| Mutual cosine within the four-cell neighbourhood | 0.77 | 0.52 | **0.77** |
+| Mean cosine of random pairs | −0.01 | −0.00 | −0.00 |
+| Medoid of the normal manifold (cosine distance, 9-D) | alveolar type 1 | salivary basal cells | **alveolar type 1** |
+| Rebuilt vs shipped space, cell-to-cell geometry r (Note S-N iii) | 0.964 | — | **0.965** |
+
+Not reproduced because the data are not here: everything that needs a cancer cohort (the 25 cancers' contraction 0.166, the within-patient results, the occupant comparison, the pooled model's +13.0 points), the matched-averaging null (needs normal single-cell data), and the analyses of the Zenodo scripts E3–E44.
 
 ## Observations for the paper's author
 
 Found while aligning the repository; none changes the code.
 
-1. **Fig. 1B variance labels vs the Methods.** The nine-component total (73.8%), the Kaiser count and the Fig. S1 stability tiers match the shipped `reference_v03` exactly; the PC1 / PC2 labels (31% / 21%) do not (29.2% / 13.7%). Presumably they come from a PCA of the single-cell-scaled matrix.
-2. **Note S-N (iii): the rebuilt k = 44 space differs from the shipped reference (cell-to-cell r = 0.964).** Rebuilding from the bundled 154 × 44 matrix reproduces `reference_v03` to machine precision (eigenvalues to 2e-15), so the matrix behind the paper's rebuild is a different one.
+1. **Fig. 1B variance labels: a different base from the Methods.** "The first component (31% of variance)" and "the second (21%)" are, on the bundled data, the shares of PC1 and PC2 among the nine retained axes when the 154 cell types are projected under the single-cell calibration (31.3% / 21.1%). As shares of the total variance of the 44 modules they are 19.4% / 13.1% there (and 29.2% / 13.7% in the pseudobulk construction, where the nine components carry 73.8%). The Fig. S11 caption calls the numbers "share of total variance".
+2. **Note S-N (iii)** needed no correction: the rebuilt k = 44 space is the PCA of the single-cell-scaled matrix and differs from the shipped loadings applied to it by r = 0.965 (paper 0.964). (Rebuilding from the pseudobulk matrix reproduces `reference_v03` to machine precision.)
 3. **Fig. 3F vs Table S2.** The 14-cell region prints 76.9% (8.4×). The twelve cells with recurrence ≥ 4 sum to 73.95% in Table S2; places 13–14 are a five-way tie at recurrence 2 (enteric stem cells, erythrocyte progenitors, Paneth cells, syncytiotrophoblasts, undifferentiated spermatogonia), and depending on which two are taken the 14-cell sum is 76.7–77.9%. The printed 76.9% is attainable, but the table does not say which pair was used. `region_members("region")` breaks the tie by median then mean depth (77.6%).
 4. **"Table 1"** is cited (Results, Fig. 3F; Note S-K) but is not in the manuscript.
 5. **Note S-Q lists three genes lost "for two reasons"** (NKX3-1; MB21D1/TMEM173; ARNTL) — four symbols in three modules.
 6. **Table S9b note: the named feedback element is absent from the scored genes "in 11 of the 38 modules that name one".** The eleven listed include Hippo, whose feedback entry the same note withdraws (it is among the six "unclear", not the 38); ten of the 38 remain, which is what `pct.module_criteria()` gives.
+7. **Table S7's cGAS-STING row (and its "target distinct." +0.977) is not reproduced** by the three genes Note S-Q says the module was scored on (IRF3, IFNB1, CXCL10: +0.66 / +1.03 / +0.852), while the other 43 modules are reproduced to the last printed digit with the same code. No subset of the five catalog genes, and no variant of the scaling, gives the printed pair; the row may come from an earlier state of the reference.
+8. **The 0.99 among the 25 origins**: on the single-cell calibration the mean cosine distance is 1.000 in the raw space and 0.990 with the overall magnitude removed; the text does not say which space the printed value refers to.
 
 ## The pre-paper repository
 

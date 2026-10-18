@@ -82,7 +82,8 @@ def test_script_publishes_when_the_table_s7_check_passes(tmp_path, monkeypatch):
     script = _load_script()
     monkeypatch.setattr(script, "check_calibration_against_table_s7",
                         lambda cal: {"megakaryocyte_r": 1.0, "cytotrophoblast_r": 1.0,
-                                     "max_abs_diff": 0.0, "mean_abs_diff": 0.0, "matches": True})
+                                     "max_abs_diff": 0.0, "mean_abs_diff": 0.0, "max_abs_diff_checked": 0.0,
+                                     "n_checked": 86, "n_exact": 86, "known_deviations": {}, "matches": True})
     out = tmp_path / "cal.json"
     assert script.main([str(hpa), "--out", str(out)]) == 0
     assert out.exists()

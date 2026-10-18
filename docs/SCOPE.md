@@ -50,7 +50,7 @@ Source: Spiro (2026), *Diverse cancers converge on one region of normal cell-sta
 
 ### Preconditions for using the assay
 
-- **Per-cell data need the single-cell-scaled calibration.** Under the pseudobulk calibration cells collapse onto low-complexity targets (core fraction 7% vs 17%; 99.6% of independent normal single cells onto erythroid targets).
+- **Per-cell data need the single-cell-scaled calibration** (bundled; the default of the per-cell pipeline). Under the pseudobulk calibration cells collapse onto low-complexity targets (core fraction 7% vs 17%; 99.6% of independent normal single cells onto erythroid targets).
 - **≥ 1,000 detected genes per cell**, the erythrocyte and platelet quarantined, **≥ 20 cells per arm per patient**, the patient as the unit of replication.
 - **A matched, correct comparator** (e.g. crypt-base progenitors for colorectal cancer) and **malignant-cell purity** (author-annotated compartments; CNV-inference floors across all 25 cohorts are deferred in the paper).
 - **Gene symbols**: three catalog genes have been renamed; the corrected catalog has not been re-derived end to end (Note S-Q).
@@ -63,7 +63,7 @@ Source: Spiro (2026), *Diverse cancers converge on one region of normal cell-sta
 ### Validated
 
 - **Project any cell into the fixed 9-PC reference space built from 154 normal HPA cell types** (standardized coordinates: module scores z-scored against the reference calibration, then the loadings). Nine components by the Kaiser criterion (73.8% of variance); PC1–PC6 bootstrap-stable (0.63–0.99), PC7–PC9 probable (0.40–0.54). The axes are individually interpretable: PC1 runs from inflammatory cells to terminal germline cells, PC2 from quiescent to proliferative cells, PC3 from signaling-dominated immune cells to metabolic epithelia. The first Paper 3 draft's labels — PC1 as "perception breadth", PC4 as a "cancer convergence axis" — are not used by the final paper, which describes convergence as a high-dimensional nearest-neighbour property rather than an axis or a 2-D location.
-- **Calibration matters.** The bundled calibration is `pseudobulk`; per-cell data need `single_cell_scaled` (see section 1).
+- **Calibration matters.** Both calibrations are bundled: `pseudobulk` for cell-type-level scores, `single_cell_scaled` for per-cell data (see section 1).
 - **Compute (tumor − normal) shift in eigenspace coordinates** (`pct.project_shift`) and compare to known directions (legacy cancer capacity-direction — Paper 4.2 P3 PASS in Sun 2021 paired HCC; the 8-cell attractor cluster of that analysis is superseded by section 1).
 - **Per-cell or per-cluster scoring**, with `mean_raw` (default), `mean_zscore` (within-dataset only), or `scanpy_corrected` (proliferation contexts).
 

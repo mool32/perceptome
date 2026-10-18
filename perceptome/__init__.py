@@ -27,17 +27,18 @@ drug layers of the companion papers. Four layers of analysis:
   4. VALIDITY      Did the measurement reach biology, or hit an artifact?
                      pct.validate_perturbation()  random-200 / housekeeping / cell-cycle scorecard
 
-Quick start (per-cell data need the single_cell_scaled calibration; see docs/CONVERGENCE.md):
+Quick start (per-cell data are standardized against the bundled single_cell_scaled calibration, the
+default of the per-cell pipeline; see docs/CONVERGENCE.md):
     import scanpy as sc
     import perceptome as pct
 
     adata = sc.read_h5ad("cohort.h5ad")                      # tumour + matched normal, HGNC symbols
-    res = pct.convergence.assign_cells(adata, calibration="single_cell_scaled")
+    res = pct.convergence.assign_cells(adata)
     test = pct.within_patient_occupancy(
         res["assignment"], adata.obs["patient"], adata.obs["arm"], malignant="tumour", normal="normal")
 
     scores = pct.score_modules(adata)["scores"]              # 44 modules per cell
-    coords = pct.project(scores)["coordinates"]              # standardized 9-PC coordinates
+    coords = pct.project(scores, calibration="single_cell_scaled")["coordinates"]   # standardized 9-PC coordinates
 
 See docs/ and examples/ for end-to-end pipelines, docs/SCOPE.md for what the framework does and
 does not support, and docs/PAPER_MAP.md for how the paper maps onto the code.

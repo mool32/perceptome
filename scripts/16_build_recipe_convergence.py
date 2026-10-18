@@ -108,7 +108,7 @@ print(adata.obs.groupby(["patient", "arm"]).size().unstack().T.to_string())"""),
 
 `assign_cells` is the paper's per-cell pipeline: quality control, scoring of the 44 modules, standardization against a reference calibration, projection through the fixed 44 × 9 loadings, and assignment to the nearest of the **152 candidate normal cell types** by cosine (erythrocyte and platelet are removed from the pool *before* the assignment).
 
-The calibration must match the scale of the data. These synthetic cells sit on the pseudobulk scale of the bundled reference, so `calibration="pseudobulk"` is the right one here. **Real per-cell data need `single_cell_scaled`**, which is not bundled — build it from the HPA table with `scripts/13_build_single_cell_calibration.py`. Under the pseudobulk calibration real tumour cells collapse onto low-complexity targets (Notes S-B, S-H), and `perceptome` warns when it sees that scale mismatch."""),
+The calibration must match the scale of the data. These synthetic cells sit on the pseudobulk scale of the bundled reference, so `calibration="pseudobulk"` is the right one here. **Real per-cell data need `single_cell_scaled`** — the default of `assign_cells`, bundled with the package (built from the HPA table by `scripts/13_build_single_cell_calibration.py`). Under the pseudobulk calibration real tumour cells collapse onto low-complexity targets (Notes S-B, S-H), and `perceptome` warns when it sees that scale mismatch."""),
 
     code("""result = cv.assign_cells(adata, calibration="pseudobulk")
 assignment = result["assignment"]
@@ -248,7 +248,7 @@ print("\\npooled over four datasets (colorectal x2, kidney, liver):",
 
     md("""## On real data
 
-- **Calibration.** Per-cell data need `single_cell_scaled`; check that `pct.load_calibration("single_cell_scaled")` loads (it is built by `scripts/13_build_single_cell_calibration.py` and accepted only if it reproduces Table S7 of the paper).
+- **Calibration.** Per-cell data use `single_cell_scaled` (the default; bundled, accepted only because it reproduces Table S7 of the paper for 43 of 44 modules). Do not pass `calibration="pseudobulk"` to real cells.
 - **Malignant-cell purity.** A tumour arm that is mostly normal-adjacent epithelium is diluted to the normal baseline — the Census lung "tumour" arm was about 9% annotated-malignant, which produced the retracted "no deepening in lung". Use author-annotated malignant compartments.
 - **The right comparator.** Compare with the epithelium the cancer arises from (colorectal cancer: the crypt base), not with the tissue at large.
 - **Do not rank cancers** by convergence fraction: the order moves with malignant-label quality and residual platform effects.

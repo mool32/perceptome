@@ -13,7 +13,8 @@ paper's assay on any single-cell cohort:
   contraction / contraction_null       mean pairwise cosine distance of cancer centroids vs their origins,
                                        and the matched-averaging null (Fig. 2, Note S-G)
   recurrence_ranking                   cross-cancer recurrence, depth and occupancy (Table S2)
-  core_signature / module_contributions   what defines the core and how a cancer reproduces it
+  core_signature / target_distinctiveness / module_contributions
+                                       what defines the core and how a cancer reproduces it
   load_convergence_reference           the paper's definitions, published results and SI tables
 
 What the paper supports and what it does not (static convergence, not a proven attractor; the
@@ -35,7 +36,8 @@ from .cross_origin import (
     contraction, contraction_null, cosine_distances, mean_pairwise_cosine_distance,
 )
 from .signature import (
-    core_profile, core_signature, module_contributions, check_calibration_against_table_s7,
+    core_profile, core_signature, target_distinctiveness, module_contributions,
+    check_calibration_against_table_s7, S7_TOLERANCE, S7_KNOWN_DEVIATIONS,
 )
 
 __all__ = [
@@ -44,5 +46,6 @@ __all__ = [
     "assign_to_reference", "assign_cells", "in_region", "core_fraction", "enrichment", "region_occupancy",
     "within_patient_occupancy", "recurrence_ranking", "pooled_within_patient", "occupant_contrast",
     "contraction", "contraction_null", "cosine_distances", "mean_pairwise_cosine_distance",
-    "core_profile", "core_signature", "module_contributions", "check_calibration_against_table_s7",
+    "core_profile", "core_signature", "target_distinctiveness", "module_contributions",
+    "check_calibration_against_table_s7", "S7_TOLERANCE", "S7_KNOWN_DEVIATIONS",
 ]

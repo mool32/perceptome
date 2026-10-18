@@ -78,7 +78,7 @@ def test_the_depth_balance_removes_a_difference_that_only_follows_library_size()
 
 
 def test_the_difference_correlates_with_the_core_signature_only_if_it_lies_along_it():
-    sig = cv.core_signature("pseudobulk")
+    sig = cv.core_signature()
     along = run(occupants(signature=sig, seed=1), balance_depth=False)
     against = run(occupants(signature=-sig, seed=1), balance_depth=False)
     off = run(occupants(effect={"Cell Cycle": 0.5, "HIF": 0.4}, seed=1), balance_depth=False)
@@ -119,7 +119,7 @@ def test_no_eligible_patient_gives_an_empty_result_not_an_error():
 def test_the_assay_output_plugs_into_the_contrast_and_is_exported():
     """assign_cells returns the module scores and detected genes this function needs."""
     from test_pipeline_qc_aliases import make_adata
-    ad = make_adata(["cytotrophoblasts", "hepatocytes"], n_per=24, seed=4)
+    ad = make_adata(["cytotrophoblasts", "hepatocytes"], n_per=24, seed=4, calibration="single_cell_scaled")
     ad.obs["patient"] = ["P0"] * 24 + ["P1"] * 24
     ad.obs["arm"] = (["tumour"] * 12 + ["normal"] * 12) * 2
     res = cv.assign_cells(ad)

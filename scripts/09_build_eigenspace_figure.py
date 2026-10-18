@@ -8,8 +8,9 @@ Panel A  The 154 normal cell types of the bundled reference on the paper's objec
 Panel B  The twelve normal cell types that receive most of the convergence (same Table S2 values),
          against the 1/152 chance baseline; the two-cell core in the accent colour.
 
-Positions come from the bundled pseudobulk reference; colours and bars are the paper's published
-single-cell-scaled results, so the two are not one computation. No cancer data enter the figure.
+Positions come from the bundled single-cell-scaled calibration, the reference the paper projects the
+cancers against; colours and bars are the paper's published Table S2 values (computed on the cancer
+cells), so positions and colours are not one computation. No cancer data enter the figure.
 
 Output (examples/figures/):
   convergence_region.png, convergence_region_dark.png   (README serves one per colour scheme)
@@ -65,7 +66,7 @@ LABELS = {
 
 def plane_table():
     """The 154 normal cell types on the core-proximity plane, with their published occupancy."""
-    cent = pct.load_calibration("pseudobulk").centroids
+    cent = pct.load_calibration("single_cell_scaled").centroids
     unit = cent.div(np.linalg.norm(cent.values, axis=1), axis=0)
     cos_ct, cos_mk = unit @ unit.loc[ANCHOR], unit @ unit.loc[SECONDARY]
     s2 = pct.load_convergence_reference()["tables"]["S2"]
@@ -114,7 +115,7 @@ def draw(df, theme, path):
 
     offsets = {  # label offsets in points (dx, dy); thin leader lines keep each label attached to its mark
         ANCHOR: (-20, -34), SECONDARY: (-26, 40), "gastric progenitor cells": (-60, -30),
-        "late spermatids": (-74, 16), "pancreatic acinar cells": (10, 22),
+        "late spermatids": (-74, 16),
     }
     for name, (dx, dy) in offsets.items():
         r = df.loc[name]
@@ -166,7 +167,7 @@ def draw(df, theme, path):
     fig.text(0.068, 0.945, "Diverse cancers converge on one region of normal cell-state space",
              fontsize=13.5, fontweight="bold", color=t["ink"], ha="left", va="center")
     fig.text(0.068, 0.070,
-             "Positions: bundled pseudobulk reference (standardized 9-D cosines).  Colours and bars: published results "
+             "Positions: bundled single-cell-scaled calibration (standardized 9-D cosines).  Colours and bars: published results "
              "(Spiro 2026, Table S2).\n"
              "Open circles: erythrocyte and platelet, quarantined low-complexity artifacts.\n"
              "Core = cytotrophoblast (anchor) + megakaryocyte, which fails the transcriptome-complexity control.",

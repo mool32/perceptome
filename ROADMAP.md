@@ -12,9 +12,7 @@ Aligns the tool with the final Paper 3, Spiro (2026), *Diverse cancers converge 
 
 Before it is tagged:
 
-- **Maintainer review** of [`docs/PAPER_MAP.md`](docs/PAPER_MAP.md): the printed numbers the bundled data do not reproduce, and the observations for the author at its end.
-- **Build and verify the `single_cell_scaled` calibration** from the HPA single-cell-type table (`scripts/13_build_single_cell_calibration.py`), then run `scripts/15_paper_reproduction_report.py --calibration single_cell_scaled`; decide whether to bundle it. Until then the per-cell workflow needs it built locally.
-- **Regenerate notebook outputs.** `examples/tutorial.ipynb` and `examples/recipe_cancer_attractor.ipynb` download PBMC3K; their changed cells are stored without output (see the changelog).
+- **Maintainer review** of [`docs/PAPER_MAP.md`](docs/PAPER_MAP.md): what the bundled data reproduce and what they do not (the cGAS-STING row of Table S7; the 0.99 among the origins), and the observations for the author at its end. The single-cell-scaled calibration is bundled and verified against Table S7; confirm that shipping the 154 × 44 summary of the HPA table (CC BY-SA 3.0) is acceptable.
 - **Choose the version number, tag, and mint the Zenodo version DOI**, then update `CITATION.cff`. The default output of `pct.project` changes, which under 0.x semantics argues for a minor bump. The package still reports 0.2.2.
 
 ## Follow-ups the paper leaves open [PLANNED]

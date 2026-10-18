@@ -30,10 +30,12 @@ def assign_to_reference(scores, calibration="pseudobulk", shape_only=False, quar
     scores : DataFrame
         cells x modules (``mean_raw``, from ``pct.score_modules``).
     calibration : 'pseudobulk' | 'single_cell_scaled' | Calibration
-        Reference scaling. **Per-cell data need ``single_cell_scaled``**: under the pseudobulk
-        calibration cells collapse onto low-complexity targets (Notes S-B, S-H). The pseudobulk
-        calibration is bundled; the single-cell one has to be built from the HPA table
-        (``scripts/13_build_single_cell_calibration.py``).
+        Reference scaling. **Per-cell scores need ``single_cell_scaled``** (``assign_cells`` uses
+        it by default): under the pseudobulk calibration cells collapse onto low-complexity
+        targets (Notes S-B, S-H). The default here is ``pseudobulk`` because this function also
+        takes cell-type-level (aggregated) scores, which sit on that scale. Both calibrations are
+        bundled (the single-cell one was built from the HPA table with
+        ``scripts/13_build_single_cell_calibration.py``).
     shape_only : bool
         Remove each cell's overall module magnitude first (subtract its own mean over the 44
         modules, reference and cells alike; Note S-K iv).
@@ -79,7 +81,7 @@ def assign_to_reference(scores, calibration="pseudobulk", shape_only=False, quar
     return (out, coords) if return_coordinates else out
 
 
-def assign_cells(adata, calibration="pseudobulk", min_genes=1000, shape_only=False,
+def assign_cells(adata, calibration="single_cell_scaled", min_genes=1000, shape_only=False,
                  normalize=True, resolve_aliases=False, prepare=True):
     """The paper's per-cell pipeline: QC, score 44 modules, standardize, project, assign.
 
@@ -87,6 +89,12 @@ def assign_cells(adata, calibration="pseudobulk", min_genes=1000, shape_only=Fal
     ----------
     adata : AnnData
         Cells x genes (counts or log-normalized), HGNC symbols.
+    calibration : 'single_cell_scaled' | 'pseudobulk' | Calibration
+        The reference the module scores are standardized against. The default,
+        ``single_cell_scaled``, is what the paper uses for every cancer projection ("the same
+        normalize_total(1e4)+log1p preprocessing applied to the tumor data"); ``pseudobulk`` is
+        for scores that sit on the population-averaged scale (it collapses per-cell data onto
+        low-complexity targets, Notes S-B and S-H).
     prepare : bool
         Apply :func:`perceptome.convergence.prepare_expression` (uppercase genes, >= ``min_genes``
         detected genes, normalize_total(1e4)+log1p if the matrix holds counts).

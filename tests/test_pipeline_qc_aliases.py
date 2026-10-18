@@ -21,10 +21,10 @@ def _core_gene_modules():
     return sorted(mods_of), mods_of
 
 
-def make_adata(types, n_per=30, n_filler=2500, seed=0, noise=0.15, rename=None):
-    """Cells whose module scores follow the reference profile of ``types`` (pseudobulk scale)."""
+def make_adata(types, n_per=30, n_filler=2500, seed=0, noise=0.15, rename=None, calibration="pseudobulk"):
+    """Cells whose module scores follow the reference profile of ``types`` on the scale of ``calibration``."""
     import anndata
-    R = pct.load_hpa_perceptivity()["R"].astype(float)
+    R = pct.load_calibration(calibration).reference_scores.astype(float)
     genes, mods_of = _core_gene_modules()
     rng = np.random.default_rng(seed)
     rows, labels = [], []
@@ -42,7 +42,9 @@ def make_adata(types, n_per=30, n_filler=2500, seed=0, noise=0.15, rename=None):
 
 @pytest.fixture(scope="module")
 def cells():
-    return make_adata(["cytotrophoblasts", "megakaryocytes", "hepatocytes", "gastric progenitor cells"])
+    """Per-cell-scale cells: the pipeline's default calibration is the single-cell-scaled one."""
+    return make_adata(["cytotrophoblasts", "megakaryocytes", "hepatocytes", "gastric progenitor cells"],
+                      calibration="single_cell_scaled")
 
 
 def test_assign_cells_recovers_the_cell_type_of_reference_derived_cells(cells):
@@ -63,8 +65,23 @@ def test_core_occupancy_separates_core_from_non_core_cells(cells):
     assert cv.core_fraction(a[truth == "hepatocytes"]) < 0.05
 
 
+def test_assign_cells_defaults_to_the_single_cell_calibration_and_the_pseudobulk_one_is_the_wrong_scale(cells):
+    """Notes S-B, S-H: per-cell scores against the population-averaged reference are mis-assigned."""
+    assert cv.assign_cells(cells)["assignment"].attrs["calibration"] == "single_cell_scaled"
+    with pytest.warns(UserWarning, match="single_cell_scaled"):
+        wrong = cv.assign_cells(cells, calibration="pseudobulk")["assignment"]
+    truth = cells.obs["truth"].reindex(wrong.index)
+    assert (wrong["nearest"] == truth).mean() < 0.5
+
+
+def test_pseudobulk_scale_cells_are_assigned_under_the_pseudobulk_calibration():
+    ad = make_adata(["cytotrophoblasts", "hepatocytes"], n_per=20)
+    a = cv.assign_cells(ad, calibration="pseudobulk")["assignment"]
+    assert (a["nearest"] == ad.obs["truth"].reindex(a.index)).mean() > 0.95
+
+
 def test_assign_cells_reports_qc_failures():
-    ad = make_adata(["hepatocytes"], n_per=20)
+    ad = make_adata(["hepatocytes"], n_per=20, calibration="single_cell_scaled")
     X = ad.X.copy()
     X[:5, 500:] = 0                       # five cells left with <1,000 detected genes
     ad.X = X

@@ -152,11 +152,12 @@ def test_per_cell_scale_scores_warn_in_assign_to_reference(R):
         cv.assign_to_reference(R.iloc[:30] / 10.0)
 
 
-def test_single_cell_calibration_is_required_but_not_bundled():
-    try:
+def test_the_single_cell_calibration_is_bundled_and_its_absence_points_to_the_build_script(monkeypatch, tmp_path):
+    assert pct.load_calibration("single_cell_scaled").name == "single_cell_scaled"
+    from perceptome.eigenspace import calibration as calmod
+    monkeypatch.setattr(calmod, "_SINGLE_CELL_FILE", tmp_path / "missing.json")
+    with pytest.raises(FileNotFoundError, match="13_build_single_cell_calibration"):
         pct.load_calibration("single_cell_scaled")
-    except FileNotFoundError as e:
-        assert "HPA" in str(e)
 
 
 def test_core_fraction_region_occupancy_and_enrichment():
@@ -272,9 +273,10 @@ def test_pseudobulk_calibration_does_not_reproduce_table_s7():
     """The paper's Table S7 is computed on the single-cell-scaled calibration; the bundled
     pseudobulk reference is correlated with it but does not match it."""
     res = cv.check_calibration_against_table_s7("pseudobulk")
-    assert set(res) == {"megakaryocyte_r", "cytotrophoblast_r", "max_abs_diff", "mean_abs_diff", "matches"}
+    assert set(res) == {"megakaryocyte_r", "cytotrophoblast_r", "max_abs_diff", "mean_abs_diff",
+                        "max_abs_diff_checked", "n_checked", "n_exact", "known_deviations", "matches"}
     assert 0.5 < res["megakaryocyte_r"] < 0.95 and 0.5 < res["cytotrophoblast_r"] < 0.95
-    assert res["matches"] is False
+    assert res["matches"] is False and res["n_exact"] < 10 and res["n_checked"] == 86
 
 
 def test_a_calibration_built_from_table_s7_values_would_match():
@@ -286,7 +288,10 @@ def test_a_calibration_built_from_table_s7_values_would_match():
     z.loc["cytotrophoblasts", S7.index] = S7["cytotrophoblast_z"].values
     ref2 = z * cal.std + cal.mean
     cal2 = pct.Calibration(cal.name, cal.module_order, cal.mean.values, cal.std.values, cal.loadings, reference_scores=ref2)
-    assert cv.check_calibration_against_table_s7(cal2)["matches"] is True
+    res = cv.check_calibration_against_table_s7(cal2)
+    assert res["matches"] is True and res["n_exact"] == 86 and res["known_deviations"]["cGAS-STING"] == pytest.approx((0.0, 0.0), abs=1e-9)
+    # the known deviation is left out of the verdict but never hidden
+    assert cv.check_calibration_against_table_s7(cal, known_deviations=())["n_checked"] == 88
 
 
 def test_module_contributions_sum_to_the_cosine_with_the_signature():

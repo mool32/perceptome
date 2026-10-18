@@ -3,10 +3,11 @@
 The paper projects per-cell data against a reference "re-derived under the single_cell_scaled
 calibration — the same normalize_total(1e4)+log1p preprocessing applied to the tumor data — so
 per-cell z-scores are commensurate" (Note S1); the pseudobulk calibration collapses single cells
-onto low-complexity targets (Notes S-B, S-H). The HPA table is not redistributed with this package,
-so the calibration has to be built from your copy:
+onto low-complexity targets (Notes S-B, S-H). The calibration bundled with the package was built with
+this script from the HPA single-cell-type table, which is not redistributed itself; rebuild it (or build
+one from another HPA release) from your copy:
 
-    # https://www.proteinatlas.org/download/rna_single_cell_type.tsv.zip  (the release the paper used)
+    # https://www.proteinatlas.org/download/tsv/rna_single_cell_type.tsv.zip  (unzip it first)
     python scripts/13_build_single_cell_calibration.py rna_single_cell_type.tsv
 
 Steps
@@ -14,9 +15,12 @@ Steps
   2. Rebuild the pseudobulk reference (mean log1p(nCPM)) and compare it with the bundled 154 x 44
      matrix — an independent check that the table is read correctly and is the same release.
   3. Build the single_cell_scaled reference: each cell type scaled to 1e4 total, log1p, module means.
-  4. Build the calibration (module mean / SD of that matrix, fixed 44 x 9 loadings, centroids).
+  4. Build the calibration (module mean / sample SD of that matrix, fixed 44 x 9 loadings, centroids).
+     The sample SD (ddof=1) is the convention under which Table S7 is reproduced to the last printed
+     digit; it differs from the population SD by one factor for every module, which changes no cosine.
   5. Check it against the paper: the z-scores of the megakaryocyte and cytotrophoblast over the 44
-     modules must reproduce Table S7. Only then is the file written under the name that
+     modules must reproduce Table S7 (all modules but cGAS-STING, which the paper's own Note S-Q
+     flags; see ``S7_KNOWN_DEVIATIONS``). Only then is the file written under the name that
      ``pct.load_calibration('single_cell_scaled')`` loads; otherwise it is written next to it as
      ``*.UNVERIFIED.json`` and the script exits with status 2.
 
@@ -63,10 +67,14 @@ def main(argv=None):
 
     scaled = pct.hpa_reference_scores(expr, scaling="single_cell_scaled", library_size=library)[bundled.columns]
     ref = _load_reference()
-    cal = pct.Calibration.from_scores(scaled, _loadings_frame(ref, list(ref["module_order"])), "single_cell_scaled")
+    cal = pct.Calibration.from_scores(scaled, _loadings_frame(ref, list(ref["module_order"])),
+                                      "single_cell_scaled", ddof=1)
     chk = check_calibration_against_table_s7(cal)
-    print("Table S7 check: megakaryocyte r = {megakaryocyte_r:.4f}, cytotrophoblast r = {cytotrophoblast_r:.4f}, "
-          "max |diff| = {max_abs_diff:.3f}".format(**chk))
+    print("Table S7 check: megakaryocyte r = {megakaryocyte_r:.4f}, cytotrophoblast r = {cytotrophoblast_r:.4f}; "
+          "{n_exact} of {n_checked} printed values reproduced exactly once rounded, "
+          "max |diff| over them = {max_abs_diff_checked:.4f}".format(**chk))
+    for module, (dm, dc) in chk["known_deviations"].items():
+        print(f"  not tested ({module}, flagged by Note S-Q): differs by {dm:+.3f} / {dc:+.3f}")
 
     out = Path(args.out)
     if chk["matches"]:
@@ -75,7 +83,7 @@ def main(argv=None):
         return 0
     unverified = out.with_name(out.stem + ".UNVERIFIED.json")
     cal.save(unverified)
-    print(f"Does NOT reproduce Table S7 (needs max |diff| <= 0.011). Wrote {unverified}; "
+    print(f"Does NOT reproduce Table S7 (needs max |diff| <= 0.006 outside the known deviations). Wrote {unverified}; "
           "pct.load_calibration('single_cell_scaled') will not load it.")
     return 2
 

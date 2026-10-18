@@ -13,11 +13,14 @@ calibrations of the same gene panel:
                        the calibration bundled with this package.
   single_cell_scaled   reference re-derived under the same
                        normalize_total(1e4) + log1p preprocessing as the per-cell
-                       data, so per-cell z-scores are commensurate. Required for
-                       per-cell projection: under the pseudobulk calibration tumour
-                       cells collapse onto low-complexity targets (Note S-B), and so
-                       do independent normal single cells (99.6% onto erythroid
-                       targets, Note S-H).
+                       data, so per-cell z-scores are commensurate: each HPA cell
+                       type scaled to 1e4 total over all genes, log1p, module mean,
+                       then standardized with the sample SD (ddof=1) of the 154
+                       cell types. The loadings stay the fixed pseudobulk ones.
+                       Required for per-cell projection: under the pseudobulk
+                       calibration tumour cells collapse onto low-complexity targets
+                       (Note S-B), and so do independent normal single cells (99.6%
+                       onto erythroid targets, Note S-H). Bundled.
 
 A :class:`Calibration` bundles the module means / SDs, the loading matrix and
 (optionally) the reference score matrix, from which the 154 normal-cell centroids
@@ -50,7 +53,12 @@ class Calibration:
     name : str
     module_order : sequence of str
     mean, std : array-like (n_modules,)
-        Reference mean / SD per module (population SD, ddof=0, as in ``rebuild``).
+        Reference mean / SD per module. The bundled pseudobulk calibration carries the
+        population SD of the eigenspace construction (ddof=0, as in ``rebuild``); the
+        single-cell-scaled calibration is built with the sample SD (ddof=1), the convention
+        under which the paper's Table S7 is reproduced. The two differ by the same factor,
+        sqrt(154/153), for every module, which leaves cosines, coordinates' directions and
+        assignments unchanged.
     loadings : DataFrame (n_modules x n_pcs)
         Fixed eigenvector matrix; index = module names, columns = PC1..PCk.
     reference_scores : DataFrame | None
@@ -59,11 +67,15 @@ class Calibration:
     shape_only : bool
         If True, every input row (and the reference) has its own mean across the
         44 modules subtracted before standardization (Note S-K iv).
+    ddof : int
+        Degrees of freedom used for the SD of ``reference_scores`` (kept so that the
+        shape-only variant is derived the same way).
     """
 
     def __init__(self, name, module_order, mean, std, loadings,
-                 reference_scores=None, shape_only=False):
+                 reference_scores=None, shape_only=False, ddof=0):
         self.name = name
+        self.ddof = int(ddof)
         self.module_order = list(module_order)
         self.mean = pd.Series(np.asarray(mean, dtype=float), index=self.module_order)
         std = np.asarray(std, dtype=float).copy()
@@ -90,12 +102,15 @@ class Calibration:
                    _loadings_frame(ref, order), reference_scores=reference_scores)
 
     @classmethod
-    def from_scores(cls, reference_scores, loadings, name):
-        """Build from a cell-type x module reference matrix (statistics derived from it)."""
+    def from_scores(cls, reference_scores, loadings, name, ddof=0):
+        """Build from a cell-type x module reference matrix (statistics derived from it).
+
+        ``ddof=1`` gives the sample SD with which the paper's Table S7 is reproduced.
+        """
         order = list(loadings.index)
         ref = reference_scores[order].astype(float)
-        return cls(name, order, ref.mean(axis=0).values, ref.std(axis=0, ddof=0).values,
-                   loadings, reference_scores=ref)
+        return cls(name, order, ref.mean(axis=0).values, ref.std(axis=0, ddof=ddof).values,
+                   loadings, reference_scores=ref, ddof=ddof)
 
     # -- core operations ----------------------------------------------------
 
@@ -168,8 +183,8 @@ class Calibration:
         centred = ref.sub(ref.mean(axis=1), axis=0)
         return Calibration(
             f"{self.name}+shape_only", self.module_order,
-            centred.mean(axis=0).values, centred.std(axis=0, ddof=0).values,
-            self.loadings, reference_scores=centred, shape_only=True,
+            centred.mean(axis=0).values, centred.std(axis=0, ddof=self.ddof).values,
+            self.loadings, reference_scores=centred, shape_only=True, ddof=self.ddof,
         )
 
     # -- persistence --------------------------------------------------------
@@ -179,6 +194,7 @@ class Calibration:
         return {
             "name": self.name,
             "shape_only": self.shape_only,
+            "ddof": self.ddof,
             "module_order": self.module_order,
             "mean": self.mean.tolist(),
             "std": self.std.tolist(),
@@ -196,7 +212,7 @@ class Calibration:
         rs = d.get("reference_scores")
         ref = None if rs is None else pd.DataFrame(rs["values"], index=rs["index"], columns=rs["columns"])
         return cls(d["name"], order, d["mean"], d["std"], loadings,
-                   reference_scores=ref, shape_only=d.get("shape_only", False))
+                   reference_scores=ref, shape_only=d.get("shape_only", False), ddof=d.get("ddof", 0))
 
     def save(self, path):
         with open(path, "w") as f:
@@ -220,12 +236,12 @@ def load_calibration(name=PSEUDOBULK, reference=None):
     Parameters
     ----------
     name : 'pseudobulk' | 'single_cell_scaled' | path to a calibration JSON
-        ``pseudobulk`` is the bundled calibration (eigenspace reference + the
-        154 x 44 HPA readiness matrix). ``single_cell_scaled`` is the calibration
-        the paper uses for per-cell data; it is loaded from
-        ``eigenspace/data/calibration_single_cell_scaled_v03.json`` and has to be
-        built from the HPA single-cell-type table first
-        (``scripts/13_build_single_cell_calibration.py``).
+        ``pseudobulk`` is the calibration of the eigenspace construction (eigenspace
+        reference + the 154 x 44 HPA readiness matrix). ``single_cell_scaled`` is the
+        calibration the paper uses for per-cell data; it is bundled as
+        ``eigenspace/data/calibration_single_cell_scaled_v03.json``, built from the HPA
+        single-cell-type table by ``scripts/13_build_single_cell_calibration.py`` (which
+        accepts it only if it reproduces Table S7).
     reference : dict | str | None
         Eigenspace reference (loadings) to pair with ``pseudobulk``.
     """
@@ -243,10 +259,10 @@ def load_calibration(name=PSEUDOBULK, reference=None):
     if name == SINGLE_CELL_SCALED:
         if not _SINGLE_CELL_FILE.exists():
             raise FileNotFoundError(
-                "The single_cell_scaled calibration is not bundled with this package: it has to be "
-                "derived from the Human Protein Atlas single-cell-type table "
-                "(rna_single_cell_type.tsv), which is not redistributed here. Build it with "
-                "scripts/13_build_single_cell_calibration.py <path-to-HPA-tsv> and check it against "
+                "The single_cell_scaled calibration file is missing from this installation "
+                f"({_SINGLE_CELL_FILE.name}). It is derived from the Human Protein Atlas single-cell-type "
+                "table (rna_single_cell_type.tsv); rebuild it with "
+                "scripts/13_build_single_cell_calibration.py <path-to-HPA-tsv>, which checks it against "
                 "Table S7 of the paper (pct.convergence.check_calibration_against_table_s7). "
                 "See docs/PAPER_MAP.md."
             )
@@ -355,7 +371,7 @@ def warn_if_scale_mismatch(z, calibration, stacklevel=3):
             f"Module scores sit {abs(d):.1f} reference SDs below the pseudobulk calibration on average. "
             "That is the signature of per-cell scores (normalize_total(1e4)+log1p) projected with the "
             "population-averaged reference, which collapses cells onto low-complexity reference types "
-            "(paper Notes S-B, S-H). For per-cell data use a single_cell_scaled calibration "
-            "(pct.load_calibration('single_cell_scaled')). Ignore this if the scores are "
-            "pseudobulk-scale aggregates.", UserWarning, stacklevel=stacklevel)
+            "(paper Notes S-B, S-H). For per-cell data use the single_cell_scaled calibration "
+            "(pct.project(scores, calibration='single_cell_scaled'), bundled). Ignore this if the "
+            "scores are pseudobulk-scale aggregates.", UserWarning, stacklevel=stacklevel)
     return d

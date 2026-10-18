@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python: ≥3.8](https://img.shields.io/badge/Python-≥3.8-blue.svg)](https://www.python.org)
-[![Tests: 205](https://img.shields.io/badge/tests-205%20passing-green.svg)](#tests)
+[![Tests: 217](https://img.shields.io/badge/tests-217%20passing-green.svg)](#tests)
 [![Software DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20113468.svg)](https://doi.org/10.5281/zenodo.20113468)
 [![Paper DOI](https://img.shields.io/badge/paper-10.5281%2Fzenodo.20542130-blue.svg)](https://doi.org/10.5281/zenodo.20542130)
 
@@ -12,10 +12,10 @@ A Python toolkit for the **cancer-blind coordinate system of cell state** descri
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="examples/figures/convergence_region_dark.png">
-  <img alt="Two panels. A: the 154 normal human cell types of the bundled reference on the plane of proximity to the cytotrophoblast and the megakaryocyte; cell types are coloured by the share of malignant cells from 25 cancers that land nearest to them, with the cytotrophoblast (anchor) and the megakaryocyte (secondary) starred at the high-proximity edge. B: the twelve normal cell types receiving most of the convergence, led by the megakaryocyte (12.8%) and the cytotrophoblast (11.1%) against 0.66% expected by chance." src="examples/figures/convergence_region.png">
+  <img alt="Two panels. A: the 154 normal human cell types of the bundled reference on the plane of proximity to the cytotrophoblast and the megakaryocyte; cell types are coloured by the share of malignant cells from 25 cancers that land nearest to them, with the cytotrophoblast (anchor) and the megakaryocyte (secondary) starred at the high-proximity edge, where the most-visited cell types cluster. B: the twelve normal cell types receiving most of the convergence, led by the megakaryocyte (12.8%) and the cytotrophoblast (11.1%) against 0.66% expected by chance." src="examples/figures/convergence_region.png">
 </picture>
 
-*Panel A places the 154 normal cell types on the paper's objective plane (Fig. S6A): cosines to the two core cells in the standardized nine-dimensional space of the bundled reference. Colour and panel B are the paper's published results (Table S2), not recomputed here — the package ships no cancer data. [`convergence_region_data.csv`](examples/figures/convergence_region_data.csv) holds the plotted values; [`scripts/09_build_eigenspace_figure.py`](scripts/09_build_eigenspace_figure.py) regenerates the figure.*
+*Panel A places the 154 normal cell types on the paper's objective plane (Fig. S6A): cosines to the two core cells in the standardized nine-dimensional space, under the bundled single-cell-scaled calibration (the reference the paper projects the cancers against). Colour and panel B are the paper's published results (Table S2), not recomputed here — the package ships no cancer data. [`convergence_region_data.csv`](examples/figures/convergence_region_data.csv) holds the plotted values; [`scripts/09_build_eigenspace_figure.py`](scripts/09_build_eigenspace_figure.py) regenerates the figure.*
 
 For each cell or cell type, perceptome answers three questions other tools don't directly answer:
 
@@ -59,8 +59,9 @@ import perceptome as pct
 
 adata = sc.read_h5ad("cohort.h5ad")       # malignant + matched-normal epithelium; HGNC gene symbols
 
-# paper pipeline: >=1,000 genes/cell -> 44 module scores -> standardize -> project -> nearest of 152 normal cell types
-res = pct.convergence.assign_cells(adata, calibration="single_cell_scaled")
+# paper pipeline: >=1,000 genes/cell -> 44 module scores -> standardize (single_cell_scaled reference, bundled)
+# -> project -> nearest of 152 normal cell types
+res = pct.convergence.assign_cells(adata)
 
 # the paper's falsifiable general assay: is the tumour arm deeper in the core than the same patient's normal arm?
 test = pct.within_patient_occupancy(
@@ -69,13 +70,13 @@ print(f"{test['n_deeper']} of {test['n_patients']} patients deeper; "
       f"paired Wilcoxon P = {test['wilcoxon_two_sided']:.2g}")
 ```
 
-**Per-cell data need the `single_cell_scaled` calibration.** Under the bundled population-averaged (`pseudobulk`) calibration, cells collapse onto low-complexity reference types — the paper shows it for tumour cells and for independent normal single cells (99.6% onto erythroid targets). The single-cell calibration is derived from the HPA single-cell-type table, which is not redistributed here: build it once with [`scripts/13_build_single_cell_calibration.py`](scripts/13_build_single_cell_calibration.py), which publishes it only if it reproduces the paper's Table S7. See [`docs/CONVERGENCE.md`](docs/CONVERGENCE.md).
+**Per-cell data are standardized against the `single_cell_scaled` calibration** — the default of `assign_cells`, bundled with the package. Under the population-averaged `pseudobulk` calibration, cells collapse onto low-complexity reference types — the paper shows it for tumour cells and for independent normal single cells (99.6% onto erythroid targets). The single-cell calibration was built from the HPA single-cell-type table with [`scripts/13_build_single_cell_calibration.py`](scripts/13_build_single_cell_calibration.py), which accepts it only if it reproduces the paper's Table S7 (43 of 44 modules to the printed digit; the cGAS-STING row, which the paper's own Note S-Q flags, is not reproduced). See [`docs/CONVERGENCE.md`](docs/CONVERGENCE.md).
 
 The geometry workflow on its own, and the compare-to-references step:
 
 ```python
 scores = pct.score_modules(adata)["scores"]         # 44 modules per cell (mean_raw)
-coords = pct.project(scores)["coordinates"]         # standardized 9-PC reference coordinates
+coords = pct.project(scores, calibration="single_cell_scaled")["coordinates"]   # standardized 9-PC coordinates (per-cell scores)
 refs = pct.compare_to_references(coords)            # cosines vs legacy cancer / disease / aging directions
 ```
 
@@ -131,6 +132,7 @@ perceptome works one level up: **44 modules, read through their induced transcri
 - **44-module catalog** — `core_genes` are the 206 unique genes of the paper's Table S9 (219 gene slots; Calcium has 4 genes, every other module 5); activity / sensor / cascade / TF / feedback lists for the capacity layer; and the four operational criteria per module as printed in Table S9b (`pct.module_criteria()`)
 - **154 × 44 cell-type-by-module reference matrix** computed from the Human Protein Atlas (mean log1p(nCPM), the *pseudobulk* calibration), with R (readiness), A (activity), C (capacity) and headroom precomputed
 - **9-PC reference eigenspace** built from that matrix by correlation PCA — nine components by the Kaiser criterion (73.8% of variance), PC1–PC6 bootstrap-stable, PC7–PC9 probable — and its pseudobulk **calibration** (module means / SDs, 154 normal-cell centroids)
+- **Single-cell-scaled calibration** (`pct.load_calibration("single_cell_scaled")`) — the same 154 reference cell types scaled to 1e4 total and log1p'd, as the per-cell data are: module means, sample SDs and the 154 centroids in the fixed space. It is the reference the paper projects all per-cell data against; only this 154 × 44 summary of the HPA table is shipped (rebuild it with `scripts/13_build_single_cell_calibration.py`)
 - **Convergence reference** (`pct.load_convergence_reference()`) — the anchor / core / neighbourhood definitions, the quality-control rules, the cohort-level within-patient results, the retractions and limits, and the paper's Supporting-Information Tables S1, S2, S4, S6, S7 and S8 as DataFrames
 - **Legacy cancer capacity-direction** — the Paper 4.2 per-module Δ vector and 8-cell attractor cluster from an 11–13 cancer cohort. The paper's convergence result supersedes the 8-cell cluster as the description of where cancers land; the vector stays available for the capacity-space alignment test
 - **Disease reference vectors** for rheumatoid arthritis, Alzheimer's, idiopathic pulmonary fibrosis and diabetic kidney disease, and **aging reference vectors** (inflammaging: blood old−young; collapse: bone marrow old−young) — recomputed from raw scRNA-seq and expressed in the standardized coordinates. The paper uses the same four diseases as negative controls and excludes rheumatoid arthritis because its atlas has a median of 286 detected genes per cell, below the 1,000-gene quality floor — check the complexity of the RA data behind this vector before relying on it
@@ -140,7 +142,7 @@ perceptome works one level up: **44 modules, read through their induced transcri
 ## Methodology notes
 
 - **Standardized projection.** A cell is placed in the space by scoring the 44 modules (`mean_raw`), z-scoring each against a reference calibration, and projecting through the fixed loadings (`pct.project`). Versions ≤ 0.2.2 multiplied raw scores by the loadings, which left every cell sharing one large offset; `project(..., standardize=False)` still reproduces that, but it is not the paper's geometry.
-- **Two calibrations.** `pseudobulk` (bundled; what the eigenspace is built on) is for cell-type-level, population-averaged data. `single_cell_scaled` — the reference re-derived under the same `normalize_total(1e4)` + `log1p` preprocessing as the per-cell data — is required for per-cell data. `pct.project` warns when per-cell-scale scores meet the pseudobulk calibration. Several printed numbers of the paper (Fig. 1B variance labels, Fig. S8, Table S7) are computed on the single-cell calibration and are therefore not reproduced digit for digit by the bundled matrix; `scripts/15_paper_reproduction_report.py` lists them.
+- **Two calibrations, both bundled.** `pseudobulk` (what the eigenspace is built on) is for cell-type-level, population-averaged data. `single_cell_scaled` — the reference re-derived under the same `normalize_total(1e4)` + `log1p` preprocessing as the per-cell data — is for per-cell data and the default of `assign_cells`. `pct.project` warns when per-cell-scale scores meet the pseudobulk calibration. Printed numbers of the paper that belong to the single-cell calibration are reproduced by it — Table S7 (43 of 44 modules to the printed digit), Fig. S8 (six module pairs), the Fig. 1B axis shares (31% / 21%), the convergent neighbourhood (mutual cosine 0.77), the alveolar type-1 medoid, Note S-N (iii) (r = 0.964) — and two are not (the cGAS-STING row of Table S7; the 0.99 mean distance among the origins, 1.000 here); `scripts/15_paper_reproduction_report.py` prints the comparison for either calibration.
 - **Shape-only.** Subtracting each cell's own mean over the 44 modules (reference and cells alike) removes overall regulatory magnitude; most of the raw contraction is magnitude, and the within-patient increase survives its removal (`shape_only=True`).
 - **Quality control.** Cells need ≥ 1,000 detected genes: low-complexity cells carry degenerate module scores that map to low-complexity targets. The erythrocyte and platelet are quarantined from the 154 reference cells before assignment (152 candidates). Report the unit of replication as the patient, not the cell.
 - **Gene symbols.** Catalog genes are matched by exact symbol, as the bundled reference was built. Three catalog genes have been renamed (MB21D1→CGAS, TMEM173→STING1, ARNTL→BMAL1), so data annotated with current symbols score cGAS-STING on three genes and Circadian on four; `score_modules` warns and `resolve_aliases=True` recovers them. The paper lists re-deriving the reference with the corrected catalog as the one step not completed.
@@ -169,7 +171,7 @@ Every operation has a documented validation status in [`docs/SCOPE.md`](docs/SCO
 ```bash
 pip install pytest
 pytest tests/ -v
-# 205 passing in a few seconds
+# 217 passing in a few seconds
 ```
 
 Coverage: catalog (and its agreement with the paper's Table S9 / S9b), scoring and gene aliases, standardized projection and calibrations, the convergence pipeline (assignment, quarantine, shape-only, within-patient test with the paper's exact statistical conventions, complexity matching, recurrence ranking), bundled paper tables (with the totals the paper itself states), statements of the paper that the bundled reference reproduces (Kaiser 9, 73.8% of variance, Fig. S1 stability tiers, NPAS4 leave-one-out), perceptivity (with biological regression checks against published a-priori predictions), attractor reference, validity scorecard, drug anchors + activity_layer_screen, end-to-end pipeline, reproducibility.
